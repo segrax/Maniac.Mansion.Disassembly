@@ -3,11 +3,12 @@
  *
  */
 
+ 
 /**
  * Room 1 
  */
  
- 
+
 /** Stamps **/
  roomobj-1-132.dmp
 Events:
@@ -18,17 +19,17 @@ Events:
 [001E] (75) printEgo("Hmm, they're uncanceled.");
 [0036] (1A) Var[81] = 1;
 [0039] (00) stopObjectCode();
-[003A] (64) if (activeObject2 == 234) {
+[003A] (64) if (activeObject2 == 234) {						// Use with Sealed Envelope (room7)
 [003E] (18) } else {
-[0041] (64)   unless (activeObject2 == 201) goto 0067;
+[0041] (64)   unless (activeObject2 == 201) goto 0067;		// Use with Sealed Envelope (room9)
 [0045] (**) }
 [0045] (48) if (Var[62] == 1) {
-[004A] (1A)   Var[64] = 1;
+[004A] (1A)   Var[64] = 1;									// Envelop Stamped = Yes
 [004D] (75)   printEgo("They stick!");
-[0059] (42)   startScript(79);
-[005B] (29)   setOwnerOf(0,0);
-[005E] (18) } else {
-[0067] (75)   printEgo("They won't stick.");
+[0059] (42)   startScript(79);								// start Envelope: Name
+[005B] (29)   setOwnerOf(0,0);								// Remove Stamps
+[005E] (18) } else {										// Use with other objects
+[0067] (75)   printEgo("They won't stick.");				
 [0078] (**) }
 [0078] (00) stopObjectCode();
 END
@@ -40,11 +41,11 @@ Events:
    1 - 001D
    2 - 001F
    B - 0021
-[001D] (D7) setState08();
+[001D] (D7) setState08();									// Open mailbox
 [001E] (00) stopObjectCode();
-[001F] (57) clearState08();
+[001F] (57) clearState08();									// Close mailbox
 [0020] (00) stopObjectCode();
-[0021] (43) doSentence(11,255,7);
+[0021] (43) doSentence(11,255,7);							// Use _cmdObject2 with Object 7
 [0025] (00) stopObjectCode();
 END
 
@@ -57,15 +58,15 @@ Events:
    9 - 002A
    A - 0028
    B - 002C
-[001E] (03) doSentence(1,254,255);
+[001E] (03) doSentence(1,254,255);							// Open _cmdObject with _cmdObject2
 [0022] (00) stopObjectCode();
-[0023] (03) doSentence(2,254,255);
+[0023] (03) doSentence(2,254,255);							// Close _cmdObject with _cmdObject2
 [0027] (00) stopObjectCode();
-[0028] (D7) setState08();
+[0028] (D7) setState08();									// Raise Flag
 [0029] (00) stopObjectCode();
-[002A] (57) clearState08();
+[002A] (57) clearState08();									// Lower Flag
 [002B] (00) stopObjectCode();
-[002C] (6F) if (getState08(activeObject)) {
+[002C] (6F) if (getState08(activeObject)) {					// Use Flag with 
 [002F] (57)   clearState08();
 [0030] (18) } else {
 [0033] (D7)   setState08();
@@ -80,7 +81,7 @@ Events:
    1 - 001C
    A - 001C
    E - 001C
-[001C] (D7) setState08();
+[001C] (D7) setState08();									// Open, Pull, Pickup: Remove Bushes
 [001D] (00) stopObjectCode();
 END
 
@@ -422,18 +423,26 @@ Events:
 [0018] (E5) loadRoomWithEgo(146,11);
 [001B] (00) stopObjectCode();
 END
+
+
 roomobj-10-269.dmp
 Events:
    C - 0023
 [0023] (75) printEgo("It's the correct time.");
 [0038] (00) stopObjectCode();
 END
+
+
 roomobj-10-270.dmp
 Events:
 END
+
+
 roomobj-10-271.dmp
 Events:
 END
+
+
 roomobj-10-321.dmp
 Events:
    1 - 0020
@@ -446,6 +455,8 @@ Events:
 [002A] (03) doSentence(13,34,0);
 [002E] (00) stopObjectCode();
 END
+
+
 roomobj-10-34.dmp
 Events:
    1 - 0020
@@ -462,6 +473,8 @@ Events:
 [0030] (**) }
 [0030] (00) stopObjectCode();
 END
+
+
 roomobj-10-342.dmp
 Events:
    9 - 001C
@@ -469,9 +482,13 @@ Events:
 [001C] (42) startScript(144);
 [001E] (00) stopObjectCode();
 END
+
+
 roomobj-10-344.dmp
 Events:
 END
+
+
 roomobj-10-35.dmp
 Events:
    1 - 001A
@@ -494,6 +511,8 @@ Events:
 [0038] (**) }
 [0038] (00) stopObjectCode();
 END
+
+
 roomobj-10-36.dmp
 Events:
    1 - 001A
@@ -507,6 +526,8 @@ Events:
 [0039] (**) }
 [0039] (00) stopObjectCode();
 END
+
+
 roomobj-10-37.dmp
 Events:
    1 - 001A
@@ -523,12 +544,17 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+/**
+ * Room 11
+ */
 roomobj-11-146.dmp
 Events:
    D - 0018
 [0018] (E5) loadRoomWithEgo(209,10);
 [001B] (00) stopObjectCode();
 END
+
 roomobj-11-147.dmp
 Events:
    1 - 001A
@@ -545,6 +571,7 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
 roomobj-11-148.dmp
 Events:
    1 - 001A
@@ -561,6 +588,7 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
 roomobj-11-149.dmp
 Events:
    1 - 001A
@@ -577,6 +605,7 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
 roomobj-11-150.dmp
 Events:
    1 - 0024
@@ -584,6 +613,7 @@ Events:
 [0024] (42) startScript(62);
 [0026] (00) stopObjectCode();
 END
+
 roomobj-11-151.dmp
 Events:
    1 - 0024
@@ -591,6 +621,7 @@ Events:
 [0024] (42) startScript(62);
 [0026] (00) stopObjectCode();
 END
+
 roomobj-11-354.dmp
 Events:
    4 - 001D
@@ -608,6 +639,8 @@ Events:
 [0039] (**) }
 [0039] (00) stopObjectCode();
 END
+
+
 roomobj-11-355.dmp
 Events:
    4 - 001D
@@ -625,6 +658,10 @@ Events:
 [0039] (**) }
 [0039] (00) stopObjectCode();
 END
+
+/**
+ * Room 12
+ */
 roomobj-12-179.dmp
 Events:
    D - 0018
@@ -633,6 +670,7 @@ Events:
 [001D] (E5) loadRoomWithEgo(161,13);
 [0020] (00) stopObjectCode();
 END
+
 roomobj-12-180.dmp
 Events:
    D - 0018
@@ -643,6 +681,7 @@ Events:
 [0022] (E5) loadRoomWithEgo(208,38);
 [0025] (00) stopObjectCode();
 END
+
 roomobj-12-181.dmp
 Events:
    1 - 001A
@@ -659,18 +698,26 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
 roomobj-12-378.dmp
 Events:
 END
+
 roomobj-12-379.dmp
 Events:
 END
+
 roomobj-12-380.dmp
 Events:
 END
+
 roomobj-12-381.dmp
 Events:
 END
+
+/**
+ * Room 13
+ */
 roomobj-13-160.dmp
 Events:
    1 - 001A
@@ -687,6 +734,7 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
 roomobj-13-161.dmp
 Events:
    D - 0018
@@ -698,6 +746,7 @@ Events:
 [0057] (**) }
 [0057] (00) stopObjectCode();
 END
+
 roomobj-13-162.dmp
 Events:
    1 - 001A
@@ -714,6 +763,7 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
 roomobj-13-163.dmp
 Events:
    1 - 001A
@@ -730,6 +780,7 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
 roomobj-13-360.dmp
 Events:
    9 - 001E
@@ -741,12 +792,18 @@ Events:
 [0034] (75) printEgo("Maybe there's a plaque somewhere.");
 [0053] (00) stopObjectCode();
 END
+
 roomobj-13-361.dmp
 Events:
    C - 0022
 [0022] (75) printEgo("Si trouve, envoyez-le au Louvre,/poste paye.");
 [004B] (00) stopObjectCode();
 END
+
+/**
+ * Room 14
+ */
+
 roomobj-14-164.dmp
 Events:
    1 - 001A
@@ -763,6 +820,8 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-14-165.dmp
 Events:
    3 - 0028
@@ -773,12 +832,16 @@ Events:
 [002B] (42) startScript(98);
 [002D] (00) stopObjectCode();
 END
+
+
 roomobj-14-166.dmp
 Events:
    E - 001D
 [001D] (90) pickupObject(0);
 [001F] (00) stopObjectCode();
 END
+
+
 roomobj-14-167.dmp
 Events:
    3 - 0049
@@ -801,24 +864,39 @@ Events:
 [0069] (**) }
 [0069] (00) stopObjectCode();
 END
+
+
 roomobj-14-362.dmp
 Events:
 END
+
+
 roomobj-14-363.dmp
 Events:
 END
+
+
 roomobj-14-364.dmp
 Events:
 END
+
+
 roomobj-14-365.dmp
 Events:
    F - 0024
 [0024] (75) printEgo("I'M not going to touch that slime!");
 [0042] (00) stopObjectCode();
 END
+
+
 roomobj-14-366.dmp
 Events:
 END
+
+/**
+ * Room 15
+ */
+
 roomobj-15-202.dmp
 Events:
    1 - 001F
@@ -843,6 +921,7 @@ Events:
 [003A] (**) }
 [003A] (00) stopObjectCode();
 END
+
 roomobj-15-204.dmp
 Events:
    1 - 008E
@@ -884,6 +963,7 @@ Events:
 [00C0] (**) }
 [00C0] (00) stopObjectCode();
 END
+
 roomobj-15-399.dmp
 Events:
    1 - 0029
@@ -897,6 +977,8 @@ Events:
 [0061] (**) }
 [0061] (00) stopObjectCode();
 END
+
+
 roomobj-15-401.dmp
 Events:
    4 - 0019
@@ -910,12 +992,21 @@ Events:
 [0028] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-15-415.dmp
 Events:
 END
+
+/**
+ * Room 16
+ */
+
 roomobj-16-101.dmp
 Events:
 END
+
+
 roomobj-16-110.dmp
 Events:
    1 - 001E
@@ -938,6 +1029,8 @@ Events:
 [0041] (**) }
 [0041] (00) stopObjectCode();
 END
+
+
 roomobj-16-111.dmp
 Events:
    1 - 0021
@@ -953,6 +1046,8 @@ Events:
 [0044] (75) printEgo("It's stuck.");
 [0050] (00) stopObjectCode();
 END
+
+
 roomobj-16-112.dmp
 Events:
    1 - 0021
@@ -963,6 +1058,8 @@ Events:
 [0026] (03) doSentence(8,111,0);
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-16-113.dmp
 Events:
    1 - 0021
@@ -973,6 +1070,8 @@ Events:
 [0026] (03) doSentence(8,111,0);
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-16-114.dmp
 Events:
    1 - 0021
@@ -983,6 +1082,8 @@ Events:
 [0026] (03) doSentence(8,111,0);
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-16-115.dmp
 Events:
    1 - 0021
@@ -993,6 +1094,8 @@ Events:
 [0026] (03) doSentence(8,111,0);
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-16-116.dmp
 Events:
    1 - 0021
@@ -1003,6 +1106,8 @@ Events:
 [0026] (03) doSentence(8,111,0);
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-16-117.dmp
 Events:
    1 - 0023
@@ -1030,6 +1135,8 @@ Events:
 [0095] (03) doSentence(8,111,0);
 [0099] (00) stopObjectCode();
 END
+
+
 roomobj-16-118.dmp
 Events:
    1 - 001F
@@ -1070,6 +1177,8 @@ Events:
 [007E] (**) }
 [007E] (00) stopObjectCode();
 END
+
+
 roomobj-16-119.dmp
 Events:
    B - 001C
@@ -1083,12 +1192,16 @@ Events:
 [002B] (**) }
 [002B] (00) stopObjectCode();
 END
+
+
 roomobj-16-12.dmp
 Events:
    E - 0018
 [0018] (75) printEgo("No way!");
 [0020] (00) stopObjectCode();
 END
+
+
 roomobj-16-120.dmp
 Events:
    B - 002A
@@ -1098,9 +1211,13 @@ Events:
 [002A] (03) doSentence(11,255,254);
 [002E] (00) stopObjectCode();
 END
+
+
 roomobj-16-153.dmp
 Events:
 END
+
+
 roomobj-16-26.dmp
 Events:
    1 - 0023
@@ -1120,12 +1237,16 @@ Events:
 [005D] (**) }
 [005D] (00) stopObjectCode();
 END
+
+
 roomobj-16-268.dmp
 Events:
    C - 001F
 [001F] (75) printEgo("THX 1138");
 [0028] (00) stopObjectCode();
 END
+
+
 roomobj-16-330.dmp
 Events:
    B - 001D
@@ -1145,33 +1266,49 @@ Events:
 [0071] (**) }
 [0071] (00) stopObjectCode();
 END
+
+
 roomobj-16-331.dmp
 Events:
    B - 0028
 [0028] (83) doSentence(11,74,255);
 [002C] (00) stopObjectCode();
 END
+
+
 roomobj-16-332.dmp
 Events:
    B - 0028
 [0028] (83) doSentence(11,74,255);
 [002C] (00) stopObjectCode();
 END
+
+
 roomobj-16-333.dmp
 Events:
    C - 0016
 [0016] (75) printEgo("Tentacle on board!");
 [0028] (00) stopObjectCode();
 END
+
+
 roomobj-16-334.dmp
 Events:
    C - 0020
 [0020] (75) printEgo("I heart Weird Ed.");
 [0030] (00) stopObjectCode();
 END
+
+
 roomobj-16-335.dmp
 Events:
 END
+
+
+/**
+ * Room 17
+ */
+ 
 roomobj-17-152.dmp
 Events:
    1 - 001A
@@ -1188,6 +1325,8 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-17-154.dmp
 Events:
    E - 0016
@@ -1198,6 +1337,8 @@ Events:
 [0052] (**) }
 [0052] (00) stopObjectCode();
 END
+
+
 roomobj-17-155.dmp
 Events:
    B - 0021
@@ -1207,6 +1348,8 @@ Events:
 [0021] (43) doSentence(11,255,254);
 [0025] (00) stopObjectCode();
 END
+
+
 roomobj-17-157.dmp
 Events:
    4 - 0018
@@ -1226,6 +1369,8 @@ Events:
 [003A] (**) }
 [003A] (00) stopObjectCode();
 END
+
+
 roomobj-17-158.dmp
 Events:
    4 - 0027
@@ -1259,6 +1404,8 @@ Events:
 [00B3] (**) }
 [00B3] (00) stopObjectCode();
 END
+
+
 roomobj-17-159.dmp
 Events:
    4 - 0045
@@ -1281,6 +1428,8 @@ Events:
 [0054] (**) }
 [0054] (00) stopObjectCode();
 END
+
+
 roomobj-17-231.dmp
 Events:
    4 - 004A
@@ -1307,9 +1456,13 @@ Events:
 [0059] (**) }
 [0059] (00) stopObjectCode();
 END
+
+
 roomobj-17-356.dmp
 Events:
 END
+
+
 roomobj-17-357.dmp
 Events:
    B - 0017
@@ -1320,6 +1473,8 @@ Events:
 [0037] (**) }
 [0037] (00) stopObjectCode();
 END
+
+
 roomobj-17-358.dmp
 Events:
    4 - 001E
@@ -1364,9 +1519,17 @@ Events:
 [00A9] (**) }
 [00A9] (00) stopObjectCode();
 END
+
+
 roomobj-17-359.dmp
 Events:
 END
+
+
+/**
+ * Room 17
+ */
+ 
 roomobj-18-168.dmp
 Events:
    1 - 001A
@@ -1383,6 +1546,8 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-18-169.dmp
 Events:
    4 - 002F
@@ -1397,6 +1562,8 @@ Events:
 [0032] (42) startScript(20);
 [0034] (00) stopObjectCode();
 END
+
+
 roomobj-18-170.dmp
 Events:
    4 - 002F
@@ -1411,6 +1578,8 @@ Events:
 [0032] (42) startScript(20);
 [0034] (00) stopObjectCode();
 END
+
+
 roomobj-18-171.dmp
 Events:
    4 - 002F
@@ -1425,6 +1594,8 @@ Events:
 [0032] (42) startScript(20);
 [0034] (00) stopObjectCode();
 END
+
+
 roomobj-18-172.dmp
 Events:
    4 - 0031
@@ -1439,6 +1610,8 @@ Events:
 [0034] (42) startScript(20);
 [0036] (00) stopObjectCode();
 END
+
+
 roomobj-18-173.dmp
 Events:
    4 - 002F
@@ -1453,6 +1626,8 @@ Events:
 [0032] (42) startScript(20);
 [0034] (00) stopObjectCode();
 END
+
+
 roomobj-18-174.dmp
 Events:
    4 - 002F
@@ -1467,6 +1642,8 @@ Events:
 [0032] (42) startScript(20);
 [0034] (00) stopObjectCode();
 END
+
+
 roomobj-18-215.dmp
 Events:
    1 - 0043
@@ -1505,6 +1682,8 @@ Events:
 [005A] (**) }
 [005A] (00) stopObjectCode();
 END
+
+
 roomobj-18-216.dmp
 Events:
    1 - 0043
@@ -1543,6 +1722,8 @@ Events:
 [005A] (**) }
 [005A] (00) stopObjectCode();
 END
+
+
 roomobj-18-217.dmp
 Events:
    1 - 0043
@@ -1581,6 +1762,8 @@ Events:
 [005A] (**) }
 [005A] (00) stopObjectCode();
 END
+
+
 roomobj-18-218.dmp
 Events:
    1 - 0043
@@ -1619,7 +1802,11 @@ Events:
 [005A] (**) }
 [005A] (00) stopObjectCode();
 END
-roomobj-18-219.dmp
+
+
+roomobj-18-219.dm
+
+p
 Events:
    1 - 0043
    2 - 0049
@@ -1657,6 +1844,8 @@ Events:
 [005A] (**) }
 [005A] (00) stopObjectCode();
 END
+
+
 roomobj-18-220.dmp
 Events:
    1 - 0043
@@ -1695,6 +1884,8 @@ Events:
 [005A] (**) }
 [005A] (00) stopObjectCode();
 END
+
+
 roomobj-18-221.dmp
 Events:
    E - 0019
@@ -1703,6 +1894,8 @@ Events:
 [001E] (97) setState08(221);
 [0020] (00) stopObjectCode();
 END
+
+
 roomobj-18-222.dmp
 Events:
    E - 0019
@@ -1711,6 +1904,8 @@ Events:
 [001E] (97) setState08(222);
 [0020] (00) stopObjectCode();
 END
+
+
 roomobj-18-223.dmp
 Events:
    E - 0019
@@ -1719,6 +1914,8 @@ Events:
 [001E] (97) setState08(223);
 [0020] (00) stopObjectCode();
 END
+
+
 roomobj-18-224.dmp
 Events:
    E - 0019
@@ -1727,6 +1924,8 @@ Events:
 [001E] (97) setState08(224);
 [0020] (00) stopObjectCode();
 END
+
+
 roomobj-18-225.dmp
 Events:
    E - 0019
@@ -1735,6 +1934,8 @@ Events:
 [001E] (97) setState08(225);
 [0020] (00) stopObjectCode();
 END
+
+
 roomobj-18-226.dmp
 Events:
    E - 0019
@@ -1743,18 +1944,24 @@ Events:
 [001E] (97) setState08(226);
 [0020] (00) stopObjectCode();
 END
+
+
 roomobj-18-367.dmp
 Events:
    B - 0022
 [0022] (75) printEgo("This game is broken.");
 [0035] (00) stopObjectCode();
 END
+
+
 roomobj-18-368.dmp
 Events:
    C - 0022
 [0022] (75) printEgo("A Lucasfilm Ltd. Production.");
 [003D] (00) stopObjectCode();
 END
+
+
 roomobj-18-431.dmp
 Events:
    4 - 003C
@@ -1776,6 +1983,8 @@ Events:
 [003F] (42) startScript(20);
 [0041] (00) stopObjectCode();
 END
+
+
 roomobj-18-432.dmp
 Events:
    4 - 003C
@@ -1797,6 +2006,8 @@ Events:
 [003F] (42) startScript(20);
 [0041] (00) stopObjectCode();
 END
+
+
 roomobj-18-433.dmp
 Events:
    4 - 003C
@@ -1818,6 +2029,8 @@ Events:
 [003F] (42) startScript(20);
 [0041] (00) stopObjectCode();
 END
+
+
 roomobj-18-434.dmp
 Events:
    4 - 003E
@@ -1839,6 +2052,8 @@ Events:
 [0041] (42) startScript(20);
 [0043] (00) stopObjectCode();
 END
+
+
 roomobj-18-435.dmp
 Events:
    4 - 0041
@@ -1862,6 +2077,8 @@ Events:
 [0044] (42) startScript(20);
 [0046] (00) stopObjectCode();
 END
+
+
 roomobj-18-436.dmp
 Events:
    4 - 003C
@@ -1883,6 +2100,11 @@ Events:
 [003F] (42) startScript(20);
 [0041] (00) stopObjectCode();
 END
+
+/**
+ * Room 19
+ */
+ 
 roomobj-19-210.dmp
 Events:
    D - 0018
@@ -1890,15 +2112,23 @@ Events:
 [001A] (E5) loadRoomWithEgo(196,9);
 [001D] (00) stopObjectCode();
 END
+
+
 roomobj-19-294.dmp
 Events:
 END
+
+
 roomobj-19-295.dmp
 Events:
 END
+
+
 roomobj-19-296.dmp
 Events:
 END
+
+
 roomobj-19-297.dmp
 Events:
    4 - 0019
@@ -1912,12 +2142,16 @@ Events:
 [0028] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-19-298.dmp
 Events:
    B - 0015
 [0015] (75) printEgo("No way!!!");
 [001F] (00) stopObjectCode();
 END
+
+
 roomobj-19-299.dmp
 Events:
    1 - 0027
@@ -1925,18 +2159,28 @@ Events:
 [0027] (42) startScript(62);
 [0029] (00) stopObjectCode();
 END
+
+
 roomobj-19-301.dmp
 Events:
 END
+
+
 roomobj-19-302.dmp
 Events:
 END
+
+
 roomobj-19-437.dmp
 Events:
 END
+
+
 roomobj-19-438.dmp
 Events:
 END
+
+
 roomobj-19-70.dmp
 Events:
    1 - 001A
@@ -1954,9 +2198,13 @@ Events:
 [002C] (**) }
 [002C] (00) stopObjectCode();
 END
+
+
 roomobj-19-72.dmp
 Events:
 END
+
+
 roomobj-19-74.dmp
 Events:
    B - 0020
@@ -1966,6 +2214,11 @@ Events:
 [0020] (43) doSentence(11,255,254);
 [0024] (00) stopObjectCode();
 END
+
+/**
+ * Room 2
+ */
+ 
 roomobj-2-108.dmp
 Events:
    B - 0022
@@ -1975,6 +2228,8 @@ Events:
 [0022] (43) doSentence(11,255,254);
 [0026] (00) stopObjectCode();
 END
+
+
 roomobj-2-109.dmp
 Events:
    1 - 0029
@@ -2007,6 +2262,8 @@ Events:
 [005D] (3C) stopSound(20);
 [005F] (00) stopObjectCode();
 END
+
+
 roomobj-2-134.dmp
 Events:
    B - 001B
@@ -2016,12 +2273,16 @@ Events:
 [0025] (**) }
 [0025] (00) stopObjectCode();
 END
+
+
 roomobj-2-138.dmp
 Events:
    D - 0018
 [0018] (E5) loadRoomWithEgo(139,6);
 [001B] (00) stopObjectCode();
 END
+
+
 roomobj-2-275.dmp
 Events:
    9 - 0020
@@ -2033,15 +2294,21 @@ Events:
 [0025] (75) printEgo("DO NOT PRESS UNDER ANY CIRCUMSTANCES!");
 [0047] (00) stopObjectCode();
 END
+
+
 roomobj-2-326.dmp
 Events:
    E - 001C
 [001C] (42) startScript(65);
 [001E] (00) stopObjectCode();
 END
+
+
 roomobj-2-327.dmp
 Events:
 END
+
+
 roomobj-2-328.dmp
 Events:
    D - 0028
@@ -2050,12 +2317,19 @@ Events:
 [0029] (75) printEgo("I'm not going to touch cooling rods!");
 [0049] (00) stopObjectCode();
 END
+
+
 roomobj-2-329.dmp
 Events:
    F - 0023
 [0023] (75) printEgo("I'm not going to touch that goo!");
 [003F] (00) stopObjectCode();
 END
+
+/**
+ * Room 20
+ */
+ 
 roomobj-20-131.dmp
 Events:
    4 - 0022
@@ -2094,6 +2368,8 @@ Events:
 [0062] (75) printEgo("Hey, it's a CD player!");
 [0076] (00) stopObjectCode();
 END
+
+
 roomobj-20-192.dmp
 Events:
    1 - 001F
@@ -2116,6 +2392,8 @@ Events:
 [0036] (**) }
 [0036] (00) stopObjectCode();
 END
+
+
 roomobj-20-194.dmp
 Events:
    B - 0021
@@ -2125,6 +2403,8 @@ Events:
 [0021] (43) doSentence(11,255,254);
 [0025] (00) stopObjectCode();
 END
+
+
 roomobj-20-195.dmp
 Events:
    4 - 0032
@@ -2148,6 +2428,8 @@ Events:
 [0041] (**) }
 [0041] (00) stopObjectCode();
 END
+
+
 roomobj-20-235.dmp
 Events:
    B - 001F
@@ -2160,6 +2442,8 @@ Events:
 [0024] (75) printEgo("Tentacle mating calls.");
 [003A] (00) stopObjectCode();
 END
+
+
 roomobj-20-238.dmp
 Events:
    E - 001B
@@ -2170,36 +2454,53 @@ Events:
 [002C] (1A) Var[13] = 52;
 [002F] (00) stopObjectCode();
 END
+
+
 roomobj-20-393.dmp
 Events:
    C - 001E
 [001E] (75) printEgo("THX Sound");
 [0028] (00) stopObjectCode();
 END
+
+
 roomobj-20-394.dmp
 Events:
    C - 001F
 [001F] (75) printEgo("THX Sound");
 [0029] (00) stopObjectCode();
 END
+
+
 roomobj-20-396.dmp
 Events:
    C - 0018
 [0018] (75) printEgo("See Ron Gilbert Live at the Forum!");
 [0036] (00) stopObjectCode();
 END
+
+
 roomobj-20-397.dmp
 Events:
 END
+
+
 roomobj-20-398.dmp
 Events:
 END
+
+
 roomobj-20-439.dmp
 Events:
    C - 0019
 [0019] (75) printEgo("To my slimiest son, love MOM");
 [0032] (00) stopObjectCode();
 END
+
+/**
+ * Room 21
+ */
+ 
 roomobj-21-189.dmp
 Events:
    1 - 001A
@@ -2216,6 +2517,8 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-21-190.dmp
 Events:
    B - 001B
@@ -2225,6 +2528,8 @@ Events:
 [001B] (43) doSentence(11,255,254);
 [001F] (00) stopObjectCode();
 END
+
+
 roomobj-21-191.dmp
 Events:
    E - 001C
@@ -2236,6 +2541,8 @@ Events:
 [0026] (3C) stopSound(29);
 [0028] (00) stopObjectCode();
 END
+
+
 roomobj-21-214.dmp
 Events:
    D - 0018
@@ -2243,6 +2550,8 @@ Events:
 [001A] (E5) loadRoomWithEgo(192,20);
 [001D] (00) stopObjectCode();
 END
+
+
 roomobj-21-388.dmp
 Events:
    1 - 0029
@@ -2250,12 +2559,16 @@ Events:
 [0029] (42) startScript(62);
 [002B] (00) stopObjectCode();
 END
+
+
 roomobj-21-389.dmp
 Events:
    C - 001F
 [001F] (42) startScript(47);
 [0021] (00) stopObjectCode();
 END
+
+
 roomobj-21-390.dmp
 Events:
    6 - 001F
@@ -2273,6 +2586,8 @@ Events:
 [0061] (**) }
 [0061] (00) stopObjectCode();
 END
+
+
 roomobj-21-391.dmp
 Events:
    4 - 0026
@@ -2318,9 +2633,16 @@ Events:
 [0113] (**) }
 [0113] (00) stopObjectCode();
 END
+
+
 roomobj-21-392.dmp
 Events:
 END
+
+/**
+ * Room 22
+ */
+ 
 roomobj-22-175.dmp
 Events:
    1 - 001A
@@ -2337,6 +2659,8 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-22-176.dmp
 Events:
    1 - 001C
@@ -2348,6 +2672,8 @@ Events:
 [001E] (57) clearState08();
 [001F] (00) stopObjectCode();
 END
+
+
 roomobj-22-177.dmp
 Events:
    6 - 0022
@@ -2371,18 +2697,24 @@ Events:
 [0057] (**) }
 [0057] (00) stopObjectCode();
 END
+
+
 roomobj-22-369.dmp
 Events:
    C - 0024
 [0024] (75) printEgo("Presented to Doctor Fred.");
 [003C] (00) stopObjectCode();
 END
+
+
 roomobj-22-370.dmp
 Events:
    C - 0024
 [0024] (75) printEgo("Degree for mumifying and bandaging.");
 [0045] (00) stopObjectCode();
 END
+
+
 roomobj-22-371.dmp
 Events:
    4 - 001D
@@ -2396,6 +2728,8 @@ Events:
 [002C] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [002E] (00) stopObjectCode();
 END
+
+
 roomobj-22-372.dmp
 Events:
    1 - 0018
@@ -2405,12 +2739,16 @@ Events:
 [001B] (17) clearState08(176);
 [001D] (00) stopObjectCode();
 END
+
+
 roomobj-22-373.dmp
 Events:
    C - 001D
 [001D] (75) printEgo("It looks like formulas%/%describing the structure of a meteor!/That's strange.");
 [0064] (00) stopObjectCode();
 END
+
+
 roomobj-22-374.dmp
 Events:
    9 - 0025
@@ -2418,18 +2756,24 @@ Events:
 [0025] (42) startScript(65);
 [0027] (00) stopObjectCode();
 END
+
+
 roomobj-22-375.dmp
 Events:
    F - 001F
 [001F] (75) printEgo("Oooh! That's scary!");
 [0032] (00) stopObjectCode();
 END
+
+
 roomobj-22-376.dmp
 Events:
    C - 0021
 [0021] (75) printEgo("Chewy carmel center.");
 [0035] (00) stopObjectCode();
 END
+
+
 roomobj-22-377.dmp
 Events:
    1 - 0023
@@ -2437,6 +2781,8 @@ Events:
 [0023] (42) startScript(61);
 [0025] (00) stopObjectCode();
 END
+
+
 roomobj-22-412.dmp
 Events:
    C - 001F
@@ -2447,6 +2793,11 @@ Events:
 [0051] (**) }
 [0051] (00) stopObjectCode();
 END
+
+/**
+ * Room 23
+ */
+ 
 roomobj-23-182.dmp
 Events:
    1 - 001A
@@ -2463,9 +2814,13 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-23-382.dmp
 Events:
 END
+
+
 roomobj-23-383.dmp
 Events:
    B - 0023
@@ -2500,9 +2855,13 @@ Events:
 [0085] (**) }
 [0085] (00) stopObjectCode();
 END
+
+
 roomobj-23-384.dmp
 Events:
 END
+
+
 roomobj-23-385.dmp
 Events:
    1 - 0020
@@ -2512,6 +2871,8 @@ Events:
 [0031] (75) printEgo("I don't have a key for this.");
 [0049] (00) stopObjectCode();
 END
+
+
 roomobj-23-413.dmp
 Events:
    4 - 001D
@@ -2525,6 +2886,11 @@ Events:
 [002C] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [002E] (00) stopObjectCode();
 END
+
+/**
+ * Room 24
+ */
+ 
 roomobj-24-212.dmp
 Events:
    B - 0017
@@ -2533,6 +2899,8 @@ Events:
 [001C] (**) }
 [001C] (00) stopObjectCode();
 END
+
+
 roomobj-24-233.dmp
 Events:
    4 - 001A
@@ -2549,9 +2917,13 @@ Events:
 [0027] (**) }
 [0027] (00) stopObjectCode();
 END
+
+
 roomobj-24-239.dmp
 Events:
 END
+
+
 roomobj-24-266.dmp
 Events:
    1 - 0024
@@ -2568,9 +2940,13 @@ Events:
 [0035] (**) }
 [0035] (00) stopObjectCode();
 END
+
+
 roomobj-24-309.dmp
 Events:
 END
+
+
 roomobj-24-311.dmp
 Events:
    1 - 001C
@@ -2584,6 +2960,8 @@ Events:
 [002A] (75) printEgo("I'd like a little more privacy for that!");
 [004D] (00) stopObjectCode();
 END
+
+
 roomobj-24-312.dmp
 Events:
    A - 001E
@@ -2591,9 +2969,13 @@ Events:
 [001E] (1C) startSound(7);
 [0020] (00) stopObjectCode();
 END
+
+
 roomobj-24-313.dmp
 Events:
 END
+
+
 roomobj-24-80.dmp
 Events:
    1 - 001A
@@ -2610,6 +2992,8 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-24-81.dmp
 Events:
    1 - 001E
@@ -2619,6 +3003,8 @@ Events:
 [0020] (57) clearState08();
 [0021] (00) stopObjectCode();
 END
+
+
 roomobj-24-82.dmp
 Events:
    1 - 0024
@@ -2629,6 +3015,8 @@ Events:
 [0027] (42) startScript(13);
 [0029] (00) stopObjectCode();
 END
+
+
 roomobj-24-83.dmp
 Events:
    1 - 0024
@@ -2639,6 +3027,8 @@ Events:
 [0027] (42) startScript(13);
 [0029] (00) stopObjectCode();
 END
+
+
 roomobj-24-84.dmp
 Events:
    1 - 0024
@@ -2649,6 +3039,8 @@ Events:
 [0027] (42) startScript(13);
 [0029] (00) stopObjectCode();
 END
+
+
 roomobj-24-85.dmp
 Events:
    1 - 0028
@@ -2685,18 +3077,28 @@ Events:
 [0086] (**) }
 [0086] (00) stopObjectCode();
 END
+
+
 roomobj-24-86.dmp
 Events:
 END
+
+
 roomobj-24-87.dmp
 Events:
 END
+
+
 roomobj-24-88.dmp
 Events:
 END
+
+
 roomobj-24-89.dmp
 Events:
 END
+
+
 roomobj-24-90.dmp
 Events:
    3 - 0044
@@ -2721,6 +3123,11 @@ Events:
 [0055] (**) }
 [0055] (00) stopObjectCode();
 END
+
+/**
+ * Room 25
+ */
+ 
 roomobj-25-304.dmp
 Events:
    4 - 0014
@@ -2731,9 +3138,13 @@ Events:
 [004F] (**) }
 [004F] (00) stopObjectCode();
 END
+
+
 roomobj-25-305.dmp
 Events:
 END
+
+
 roomobj-25-306.dmp
 Events:
    A - 004B
@@ -2744,18 +3155,24 @@ Events:
 [004B] (75) printEgo("It's nailed, stapled,/and glued to the wall.");
 [0073] (00) stopObjectCode();
 END
+
+
 roomobj-25-307.dmp
 Events:
    C - 0018
 [0018] (75) printEgo("Miss Mummy of 982 BC.");
 [002B] (00) stopObjectCode();
 END
+
+
 roomobj-25-308.dmp
 Events:
    F - 0024
 [0024] (75) printEgo("Yuck!");
 [002B] (00) stopObjectCode();
 END
+
+
 roomobj-25-76.dmp
 Events:
    1 - 001A
@@ -2772,6 +3189,8 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-25-77.dmp
 Events:
    1 - 001F
@@ -2781,12 +3200,16 @@ Events:
 [0021] (57) clearState08();
 [0022] (00) stopObjectCode();
 END
+
+
 roomobj-25-78.dmp
 Events:
    B - 002B
 [002B] (42) startScript(23);
 [002D] (00) stopObjectCode();
 END
+
+
 roomobj-25-79.dmp
 Events:
    1 - 001A
@@ -2810,6 +3233,11 @@ Events:
 [003F] (**) }
 [003F] (00) stopObjectCode();
 END
+
+/**
+ * Room 26
+ */
+ 
 roomobj-26-1.dmp // Hamster
 Events:
    3 - 0028
@@ -2823,6 +3251,8 @@ Events:
 [0028] (42) startScript(89);
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-26-2.dmp // Piggy Bank
 Events:
    1 - 0054
@@ -2849,30 +3279,44 @@ Events:
 [0077] (**) }
 [0077] (00) stopObjectCode();
 END
+
+
 roomobj-26-257.dmp
 Events:
    C - 0019
 [0019] (75) printEgo("L.F.L.U. Rah!");
 [0027] (00) stopObjectCode();
 END
+
+
 roomobj-26-258.dmp
 Events:
 END
+
+
 roomobj-26-259.dmp
 Events:
 END
+
+
 roomobj-26-260.dmp
 Events:
    C - 002A
 [002A] (75) printEgo("Hmm. It doesn't make any sense.");
 [0046] (00) stopObjectCode();
 END
+
+
 roomobj-26-261.dmp
 Events:
 END
+
+
 roomobj-26-262.dmp
 Events:
 END
+
+
 roomobj-26-3.dmp
 Events:
    B - 001B
@@ -2882,6 +3326,8 @@ Events:
 [001B] (43) doSentence(11,255,254);
 [001F] (00) stopObjectCode();
 END
+
+
 roomobj-26-4.dmp
 Events:
    B - 001B
@@ -2891,6 +3337,8 @@ Events:
 [001B] (43) doSentence(11,255,254);
 [001F] (00) stopObjectCode();
 END
+
+
 roomobj-26-5.dmp
 Events:
    B - 001B
@@ -2900,6 +3348,8 @@ Events:
 [001B] (43) doSentence(11,255,254);
 [001F] (00) stopObjectCode();
 END
+
+
 roomobj-26-6.dmp
 Events:
    1 - 001A
@@ -2917,6 +3367,8 @@ Events:
 [002C] (**) }
 [002C] (00) stopObjectCode();
 END
+
+
 roomobj-26-71.dmp
 Events:
    B - 002F
@@ -2929,6 +3381,11 @@ Events:
 [002F] (03) doSentence(11,255,254);
 [0033] (00) stopObjectCode();
 END
+
+/**
+ * Room 27
+ */
+ 
 roomobj-27-211.dmp
 Events:
    B - 0024
@@ -2938,9 +3395,13 @@ Events:
 [0029] (75) printEgo("It bit me!");
 [0033] (00) stopObjectCode();
 END
+
+
 roomobj-27-290.dmp
 Events:
 END
+
+
 roomobj-27-291.dmp
 Events:
    1 - 0023
@@ -2948,6 +3409,8 @@ Events:
 [0023] (42) startScript(62);
 [0025] (00) stopObjectCode();
 END
+
+
 roomobj-27-292.dmp
 Events:
    B - 001F
@@ -2983,6 +3446,8 @@ Events:
 [0078] (**) }
 [0078] (00) stopObjectCode();
 END
+
+
 roomobj-27-409.dmp
 Events:
    6 - 001E
@@ -3012,12 +3477,18 @@ Events:
 [00B3] (**) }
 [00B3] (00) stopObjectCode();
 END
+
+
 roomobj-27-410.dmp
 Events:
 END
+
+
 roomobj-27-411.dmp
 Events:
 END
+
+
 roomobj-27-66.dmp
 Events:
    1 - 001A
@@ -3034,6 +3505,8 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-27-67.dmp
 Events:
    B - 0024
@@ -3043,6 +3516,8 @@ Events:
 [0029] (E5) loadRoomWithEgo(232,28);
 [002C] (00) stopObjectCode();
 END
+
+
 roomobj-27-68.dmp
 Events:
    B - 001E
@@ -3053,6 +3528,8 @@ Events:
 [0029] (**) }
 [0029] (00) stopObjectCode();
 END
+
+
 roomobj-27-69.dmp
 Events:
    1 - 001A
@@ -3069,6 +3546,11 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+/**
+ * Room 28
+ */
+ 
 roomobj-28-232.dmp
 Events:
    D - 0016
@@ -3085,18 +3567,24 @@ Events:
 [004F] (**) }
 [004F] (00) stopObjectCode();
 END
+
+
 roomobj-28-402.dmp
 Events:
    C - 0021
 [0021] (75) printEgo("It shows the trajectory of a meteorite%/%impacting Earth.");
 [0055] (00) stopObjectCode();
 END
+
+
 roomobj-28-403.dmp
 Events:
    C - 001F
 [001F] (75) printEgo("Insert dime.");
 [002C] (00) stopObjectCode();
 END
+
+
 roomobj-28-404.dmp
 Events:
    9 - 002D
@@ -3118,6 +3606,8 @@ Events:
 [005E] (**) }
 [005E] (00) stopObjectCode();
 END
+
+
 roomobj-28-405.dmp
 Events:
    9 - 002F
@@ -3139,12 +3629,16 @@ Events:
 [005F] (**) }
 [005F] (00) stopObjectCode();
 END
+
+
 roomobj-28-406.dmp
 Events:
    B - 002B
 [002B] (42) startScript(17);
 [002D] (00) stopObjectCode();
 END
+
+
 roomobj-28-407.dmp
 Events:
    B - 0038
@@ -3169,6 +3663,11 @@ Events:
 [007C] (**) }
 [007C] (00) stopObjectCode();
 END
+
+/**
+ * Room 29
+ */
+ 
 roomobj-29-213.dmp
 Events:
    1 - 001F
@@ -3187,12 +3686,16 @@ Events:
 [002D] (**) }
 [002D] (00) stopObjectCode();
 END
+
+
 roomobj-29-267.dmp
 Events:
    F - 001F
 [001F] (75) printEgo("I can't reach it.");
 [002F] (00) stopObjectCode();
 END
+
+
 roomobj-29-32.dmp
 Events:
    B - 0046
@@ -3210,6 +3713,8 @@ Events:
 [006B] (**) }
 [006B] (00) stopObjectCode();
 END
+
+
 roomobj-29-33.dmp
 Events:
    1 - 0023
@@ -3227,6 +3732,11 @@ Events:
 [0030] (**) }
 [0030] (00) stopObjectCode();
 END
+
+/**
+ * Room 3
+ */
+ 
 roomobj-3-207.dmp
 Events:
    4 - 0025
@@ -3259,6 +3769,8 @@ Events:
 [0070] (**) }
 [0070] (00) stopObjectCode();
 END
+
+
 roomobj-3-273.dmp
 Events:
    9 - 0019
@@ -3266,6 +3778,8 @@ Events:
 [0019] (75) printEgo("I can't budge it.");
 [0029] (00) stopObjectCode();
 END
+
+
 roomobj-3-38.dmp
 Events:
    1 - 001A
@@ -3282,6 +3796,8 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-3-39.dmp
 Events:
    1 - 002D
@@ -3334,6 +3850,8 @@ Events:
 [00C9] (**) }
 [00C9] (00) stopObjectCode();
 END
+
+
 roomobj-3-40.dmp
 Events:
    B - 0047
@@ -3347,12 +3865,18 @@ Events:
 [0047] (43) doSentence(6,255,254);
 [004B] (00) stopObjectCode();
 END
+
+
 roomobj-3-41.dmp
 Events:
 END
+
+
 roomobj-3-42.dmp
 Events:
 END
+
+
 roomobj-3-43.dmp
 Events:
    B - 0024
@@ -3362,6 +3886,8 @@ Events:
 [0024] (43) doSentence(11,255,254);
 [0028] (00) stopObjectCode();
 END
+
+
 roomobj-3-44.dmp
 Events:
    1 - 0020
@@ -3371,6 +3897,8 @@ Events:
 [0023] (42) startScript(5);
 [0025] (00) stopObjectCode();
 END
+
+
 roomobj-3-445.dmp
 Events:
    A - 0017
@@ -3378,12 +3906,18 @@ Events:
 [0017] (75) printEgo("I can't reach it.");
 [0027] (00) stopObjectCode();
 END
+
+
 roomobj-3-45.dmp
 Events:
 END
+
+
 roomobj-3-46.dmp
 Events:
 END
+
+
 roomobj-3-47.dmp
 Events:
    4 - 0043
@@ -3406,6 +3940,8 @@ Events:
 [0052] (**) }
 [0052] (00) stopObjectCode();
 END
+
+
 roomobj-3-93.dmp
 Events:
    1 - 001A
@@ -3422,6 +3958,12 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+
+/**
+ * Room 30
+ */
+ 
 roomobj-30-136.dmp
 Events:
    1 - 0018
@@ -3429,6 +3971,8 @@ Events:
 [0018] (75) printEgo("It's sealed shut!");
 [0029] (00) stopObjectCode();
 END
+
+
 roomobj-30-137.dmp
 Events:
    1 - 001A
@@ -3438,6 +3982,8 @@ Events:
 [001C] (57) clearState08();
 [001D] (00) stopObjectCode();
 END
+
+
 roomobj-30-145.dmp
 Events:
    1 - 0029
@@ -3453,6 +3999,8 @@ Events:
 [0050] (75) printEgo("12 fluid ounces (354 ml)");
 [0066] (00) stopObjectCode();
 END
+
+
 roomobj-30-237.dmp
 Events:
    1 - 0020
@@ -3479,6 +4027,8 @@ Events:
 [0045] (C3) doSentence(11,152,255);
 [0049] (00) stopObjectCode();
 END
+
+
 roomobj-30-253.dmp
 Events:
    B - 0022
@@ -3518,6 +4068,8 @@ Events:
 [0086] (D2) actorFollowCamera(VAR_EGO);
 [0088] (00) stopObjectCode();
 END
+
+
 roomobj-30-349.dmp
 Events:
    B - 003B
@@ -3534,18 +4086,26 @@ Events:
 [005B] (**) }
 [005B] (00) stopObjectCode();
 END
+
+
 roomobj-30-350.dmp
 Events:
    C - 001D
 [001D] (75) printEgo("Please insert one kid.");
 [0032] (00) stopObjectCode();
 END
+
+
 roomobj-30-351.dmp
 Events:
 END
+
+
 roomobj-30-352.dmp
 Events:
 END
+
+
 roomobj-30-408.dmp
 Events:
    8 - 003E
@@ -3563,12 +4123,16 @@ Events:
 [005C] (**) }
 [005C] (00) stopObjectCode();
 END
+
+
 roomobj-30-417.dmp
 Events:
    C - 001F
 [001F] (75) printEgo("To initiate destruct sequence:/Press buttons in proper order.");
 [0057] (00) stopObjectCode();
 END
+
+
 roomobj-30-418.dmp
 Events:
    9 - 001A
@@ -3577,6 +4141,8 @@ Events:
 [002C] (83) doSentence(13,161,0);
 [0030] (00) stopObjectCode();
 END
+
+
 roomobj-30-419.dmp
 Events:
    9 - 001A
@@ -3585,6 +4151,8 @@ Events:
 [002C] (83) doSentence(13,161,0);
 [0030] (00) stopObjectCode();
 END
+
+
 roomobj-30-420.dmp
 Events:
    9 - 001A
@@ -3593,6 +4161,8 @@ Events:
 [002C] (83) doSentence(13,161,0);
 [0030] (00) stopObjectCode();
 END
+
+
 roomobj-30-421.dmp
 Events:
    9 - 001A
@@ -3601,6 +4171,11 @@ Events:
 [002C] (83) doSentence(13,161,0);
 [0030] (00) stopObjectCode();
 END
+
+/**
+ * Room 31
+ */
+ 
 roomobj-31-133.dmp
 Events:
    1 - 001A
@@ -3618,6 +4193,8 @@ Events:
 [002C] (**) }
 [002C] (00) stopObjectCode();
 END
+
+
 roomobj-31-135.dmp
 Events:
    1 - 001A
@@ -3639,60 +4216,116 @@ Events:
 [0040] (**) }
 [0040] (00) stopObjectCode();
 END
+
+
 roomobj-31-347.dmp
 Events:
 END
+
+
 roomobj-31-348.dmp
 Events:
    B - 001B
 [001B] (75) printEgo("I see a heart-shaped bed.");
 [0032] (00) stopObjectCode();
 END
+
+
 roomobj-31-416.dmp
 Events:
 END
+
+
+/**
+ * Room 32
+ */
+ 
 roomobj-32-203.dmp
 Events:
 END
+
+
+/**
+ * Room 33
+ */
+ 
 roomobj-33-10.dmp
 Events:
 END
+
+
 roomobj-33-11.dmp
 Events:
 END
+
+
 roomobj-33-7.dmp
 Events:
 END
+
+
 roomobj-33-73.dmp
 Events:
 END
+
+
 roomobj-33-8.dmp
 Events:
 END
+
+
 roomobj-33-9.dmp
 Events:
 END
+
+
+/**
+ * Room 34
+ */
+ 
 roomobj-34-140.dmp
 Events:
 END
+
+
 roomobj-34-141.dmp
 Events:
 END
+
+
 roomobj-34-142.dmp
 Events:
 END
+
+
 roomobj-34-199.dmp
 Events:
 END
+
+
+/**
+ * Room 35
+ */
+ 
 roomobj-35-205.dmp
 Events:
 END
+
+
 roomobj-35-206.dmp
 Events:
 END
+
+
+/**
+ * Room 36
+ */
+ 
 roomobj-36-314.dmp
 Events:
 END
+
+
 roomobj-36-91.dmp
 Events:
    1 - 001A
@@ -3713,6 +4346,8 @@ Events:
 [0034] (**) }
 [0034] (00) stopObjectCode();
 END
+
+
 roomobj-36-92.dmp
 Events:
    1 - 0020
@@ -3748,6 +4383,8 @@ Events:
 [0051] (**) }
 [0051] (00) stopObjectCode();
 END
+
+
 roomobj-36-94.dmp
 Events:
    E - 0025
@@ -3760,6 +4397,8 @@ Events:
 [002F] (75) printEgo("Whoops!");
 [0038] (00) stopObjectCode();
 END
+
+
 roomobj-36-95.dmp
 Events:
    3 - 0024
@@ -3769,6 +4408,8 @@ Events:
 [0024] (42) startScript(98);
 [0026] (00) stopObjectCode();
 END
+
+
 roomobj-36-96.dmp
 Events:
    3 - 0023
@@ -3778,6 +4419,8 @@ Events:
 [0023] (42) startScript(98);
 [0025] (00) stopObjectCode();
 END
+
+
 roomobj-36-97.dmp
 Events:
    3 - 0023
@@ -3787,6 +4430,8 @@ Events:
 [0023] (42) startScript(99);
 [0025] (00) stopObjectCode();
 END
+
+
 roomobj-36-98.dmp
 Events:
    1 - 001B
@@ -3799,6 +4444,8 @@ Events:
 [004D] (**) }
 [004D] (00) stopObjectCode();
 END
+
+
 roomobj-36-99.dmp
 Events:
    3 - 002E
@@ -3818,30 +4465,46 @@ Events:
 [004F] (**) }
 [004F] (00) stopObjectCode();
 END
+
+
+/**
+ * Room 37
+ */
+ 
 roomobj-37-281.dmp
 Events:
 END
+
+
 roomobj-37-282.dmp
 Events:
 END
+
+
 roomobj-37-283.dmp
 Events:
    E - 0018
 [0018] (42) startScript(65);
 [001A] (00) stopObjectCode();
 END
+
+
 roomobj-37-284.dmp
 Events:
    E - 0018
 [0018] (42) startScript(65);
 [001A] (00) stopObjectCode();
 END
+
+
 roomobj-37-285.dmp
 Events:
    E - 0018
 [0018] (42) startScript(65);
 [001A] (00) stopObjectCode();
 END
+
+
 roomobj-37-286.dmp
 Events:
    4 - 001B
@@ -3850,12 +4513,16 @@ Events:
 [001B] (75) printEgo("I can't reach it.");
 [002B] (00) stopObjectCode();
 END
+
+
 roomobj-37-441.dmp
 Events:
    E - 001D
 [001D] (75) printEgo("I don't do table cloths.");
 [0033] (00) stopObjectCode();
 END
+
+
 roomobj-37-62.dmp
 Events:
    1 - 001A
@@ -3872,6 +4539,8 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-37-63.dmp
 Events:
    3 - 0029
@@ -3881,6 +4550,8 @@ Events:
 [0029] (42) startScript(98);
 [002B] (00) stopObjectCode();
 END
+
+
 roomobj-37-64.dmp
 Events:
    3 - 0025
@@ -3890,6 +4561,8 @@ Events:
 [0025] (42) startScript(98);
 [0027] (00) stopObjectCode();
 END
+
+
 roomobj-37-65.dmp
 Events:
    1 - 001A
@@ -3906,6 +4579,12 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+
+/**
+ * Room 38
+ */
+ 
 roomobj-38-184.dmp
 Events:
    1 - 001A
@@ -3922,6 +4601,8 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-38-185.dmp
 Events:
    1 - 001A
@@ -3950,6 +4631,8 @@ Events:
 [004C] (**) }
 [004C] (00) stopObjectCode();
 END
+
+
 roomobj-38-186.dmp
 Events:
    1 - 001A
@@ -3970,6 +4653,8 @@ Events:
 [0034] (**) }
 [0034] (00) stopObjectCode();
 END
+
+
 roomobj-38-187.dmp
 Events:
    1 - 001A
@@ -3986,6 +4671,8 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-38-188.dmp
 Events:
    1 - 001A
@@ -4002,33 +4689,59 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-38-208.dmp
 Events:
    D - 0018
 [0018] (E5) loadRoomWithEgo(180,12);
 [001B] (00) stopObjectCode();
 END
+
+
 roomobj-38-300.dmp
 Events:
 END
+
+
 roomobj-38-303.dmp
 Events:
 END
+
+
 roomobj-38-310.dmp
 Events:
 END
+
+
+/**
+ * Room 39
+ */
+ 
 roomobj-39-227.dmp
 Events:
 END
+
+
 roomobj-39-228.dmp
 Events:
 END
+
+
 roomobj-39-229.dmp
 Events:
 END
+
+
 roomobj-39-230.dmp
 Events:
 END
+
+
+/**
+ * Room 4
+ */
+ 
 roomobj-4-126.dmp
 Events:
    1 - 0020
@@ -4057,6 +4770,8 @@ Events:
 [0041] (**) }
 [0041] (00) stopObjectCode();
 END
+
+
 roomobj-4-127.dmp
 Events:
    1 - 001E
@@ -4073,6 +4788,8 @@ Events:
 [002F] (**) }
 [002F] (00) stopObjectCode();
 END
+
+
 roomobj-4-128.dmp
 Events:
    2 - 0039
@@ -4098,6 +4815,8 @@ Events:
 [003F] (B7) setState04(127);
 [0041] (00) stopObjectCode();
 END
+
+
 roomobj-4-129.dmp
 Events:
    2 - 003C
@@ -4123,6 +4842,8 @@ Events:
 [0042] (B7) setState04(127);
 [0044] (00) stopObjectCode();
 END
+
+
 roomobj-4-130.dmp
 Events:
    1 - 002A
@@ -4165,6 +4886,8 @@ Events:
 [006B] (**) }
 [006B] (00) stopObjectCode();
 END
+
+
 roomobj-4-193.dmp
 Events:
    3 - 003D
@@ -4179,6 +4902,8 @@ Events:
 [0044] (**) }
 [0044] (00) stopObjectCode();
 END
+
+
 roomobj-4-340.dmp
 Events:
    D - 001C
@@ -4190,30 +4915,58 @@ Events:
 [0039] (**) }
 [0039] (00) stopObjectCode();
 END
+
+
 roomobj-4-341.dmp
 Events:
 END
+
+
 roomobj-4-343.dmp
 Events:
 END
+
+
 roomobj-4-345.dmp
 Events:
 END
+
+
 roomobj-4-446.dmp
 Events:
    9 - 001D
 [001D] (42) startScript(132);
 [001F] (00) stopObjectCode();
 END
+
+
+/**
+ * Room 40
+ */
+ 
 roomobj-40-249.dmp
 Events:
 END
+
+
+/**
+ * Room 41
+ */
+ 
 roomobj-41-242.dmp
 Events:
 END
+
+
 roomobj-41-274.dmp
 Events:
 END
+
+
+/**
+ * Room 43
+ */
+ 
 roomobj-43-287.dmp
 Events:
    F - 0012
@@ -4222,6 +4975,8 @@ Events:
 [0017] (14) print(255,"*");
 [001B] (00) stopObjectCode();
 END
+
+
 roomobj-43-288.dmp
 Events:
    F - 0012
@@ -4230,6 +4985,8 @@ Events:
 [0017] (14) print(255,"0");
 [001B] (00) stopObjectCode();
 END
+
+
 roomobj-43-289.dmp
 Events:
    F - 0012
@@ -4238,6 +4995,8 @@ Events:
 [0017] (14) print(255,"#");
 [001B] (00) stopObjectCode();
 END
+
+
 roomobj-43-422.dmp
 Events:
    F - 0012
@@ -4246,6 +5005,8 @@ Events:
 [0017] (14) print(255,"1");
 [001B] (00) stopObjectCode();
 END
+
+
 roomobj-43-423.dmp
 Events:
    F - 0012
@@ -4254,6 +5015,8 @@ Events:
 [0017] (14) print(255,"2");
 [001B] (00) stopObjectCode();
 END
+
+
 roomobj-43-424.dmp
 Events:
    F - 0012
@@ -4262,6 +5025,8 @@ Events:
 [0017] (14) print(255,"3");
 [001B] (00) stopObjectCode();
 END
+
+
 roomobj-43-425.dmp
 Events:
    F - 0012
@@ -4270,6 +5035,8 @@ Events:
 [0017] (14) print(255,"4");
 [001B] (00) stopObjectCode();
 END
+
+
 roomobj-43-426.dmp
 Events:
    F - 0012
@@ -4278,6 +5045,8 @@ Events:
 [0017] (14) print(255,"5");
 [001B] (00) stopObjectCode();
 END
+
+
 roomobj-43-427.dmp
 Events:
    F - 0013
@@ -4286,6 +5055,8 @@ Events:
 [0018] (14) print(255,"6");
 [001C] (00) stopObjectCode();
 END
+
+
 roomobj-43-428.dmp
 Events:
    F - 0012
@@ -4294,6 +5065,8 @@ Events:
 [0017] (14) print(255,"7");
 [001B] (00) stopObjectCode();
 END
+
+
 roomobj-43-429.dmp
 Events:
    F - 0012
@@ -4302,6 +5075,8 @@ Events:
 [0017] (14) print(255,"8");
 [001B] (00) stopObjectCode();
 END
+
+
 roomobj-43-430.dmp
 Events:
    F - 0012
@@ -4310,18 +5085,32 @@ Events:
 [0017] (14) print(255,"9");
 [001B] (00) stopObjectCode();
 END
+
+
+/**
+ * Room 44
+ */
+ 
 roomobj-44-241.dmp
 Events:
    D - 0012
 [0012] (E5) loadRoomWithEgo(240,1);
 [0015] (00) stopObjectCode();
 END
+
+
 roomobj-44-265.dmp
 Events:
    C - 0016
 [0016] (75) printEgo("WARNING!!/Trespassers will be horribly mutilated.");
 [0045] (00) stopObjectCode();
 END
+
+
+/**
+ * Room 45
+ */
+ 
 roomobj-45-243.dmp
 Events:
    F - 0012
@@ -4330,6 +5119,8 @@ Events:
 [0051] (42) startScript(109);
 [0053] (00) stopObjectCode();
 END
+
+
 roomobj-45-244.dmp
 Events:
    F - 0012
@@ -4338,6 +5129,8 @@ Events:
 [0050] (42) startScript(109);
 [0052] (00) stopObjectCode();
 END
+
+
 roomobj-45-245.dmp
 Events:
    F - 0012
@@ -4346,6 +5139,8 @@ Events:
 [0052] (42) startScript(109);
 [0054] (00) stopObjectCode();
 END
+
+
 roomobj-45-246.dmp
 Events:
    F - 0012
@@ -4354,6 +5149,8 @@ Events:
 [005D] (42) startScript(109);
 [005F] (00) stopObjectCode();
 END
+
+
 roomobj-45-247.dmp
 Events:
    F - 0012
@@ -4362,6 +5159,8 @@ Events:
 [0052] (42) startScript(109);
 [0054] (00) stopObjectCode();
 END
+
+
 roomobj-45-248.dmp
 Events:
    F - 0012
@@ -4370,6 +5169,8 @@ Events:
 [0055] (42) startScript(109);
 [0057] (00) stopObjectCode();
 END
+
+
 roomobj-45-387.dmp
 Events:
    F - 0012
@@ -4377,6 +5178,8 @@ Events:
 [0014] (14) print(255,"Dave - Sandy's boyfriend./Organizer of the rescue effort.");
 [0049] (00) stopObjectCode();
 END
+
+
 roomobj-45-395.dmp
 Events:
    F - 0012
@@ -4388,18 +5191,36 @@ Events:
 [0042] (**) }
 [0042] (00) stopObjectCode();
 END
+
+
+/**
+ * Room 47
+ */
+ 
 roomobj-47-13.dmp
 Events:
 END
+
+
 roomobj-47-14.dmp
 Events:
 END
+
+
 roomobj-47-15.dmp
 Events:
 END
+
+
 roomobj-47-16.dmp
 Events:
 END
+
+
+/**
+ * Room 5
+ */
+ 
 roomobj-5-102.dmp
 Events:
    1 - 001A
@@ -4416,6 +5237,8 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-5-103.dmp
 Events:
    6 - 005D
@@ -4453,6 +5276,8 @@ Events:
 [00CB] (**) }
 [00CB] (00) stopObjectCode();
 END
+
+
 roomobj-5-156.dmp
 Events:
    3 - 002B
@@ -4472,6 +5297,8 @@ Events:
 [003F] (**) }
 [003F] (00) stopObjectCode();
 END
+
+
 roomobj-5-236.dmp
 Events:
    1 - 0023
@@ -4489,6 +5316,8 @@ Events:
 [002F] (**) }
 [002F] (00) stopObjectCode();
 END
+
+
 roomobj-5-315.dmp
 Events:
    4 - 0018
@@ -4506,6 +5335,8 @@ Events:
 [0034] (**) }
 [0034] (00) stopObjectCode();
 END
+
+
 roomobj-5-316.dmp
 Events:
    4 - 0018
@@ -4523,6 +5354,8 @@ Events:
 [0034] (**) }
 [0034] (00) stopObjectCode();
 END
+
+
 roomobj-5-318.dmp
 Events:
    6 - 0036
@@ -4533,12 +5366,18 @@ Events:
 [0036] (75) printEgo("I can't fix the stairs with that.");
 [0053] (00) stopObjectCode();
 END
+
+
 roomobj-5-319.dmp
 Events:
 END
+
+
 roomobj-5-320.dmp
 Events:
 END
+
+
 roomobj-5-440.dmp
 Events:
    6 - 002F
@@ -4552,6 +5391,12 @@ Events:
 [0059] (**) }
 [0059] (00) stopObjectCode();
 END
+
+
+/**
+ * Room 50
+ */
+ 
 roomobj-50-442.dmp
 Events:
    F - 0012
@@ -4559,6 +5404,8 @@ Events:
 [0015] (1C) startSound(19);										// Beep
 [0017] (00) stopObjectCode();
 END
+
+
 roomobj-50-443.dmp
 Events:
    F - 0012
@@ -4566,6 +5413,8 @@ Events:
 [0015] (1C) startSound(19);
 [0017] (00) stopObjectCode();
 END
+
+
 roomobj-50-444.dmp
 Events:
    F - 0012
@@ -4573,6 +5422,12 @@ Events:
 [0015] (1C) startSound(19);
 [0017] (00) stopObjectCode();
 END
+
+
+/**
+ * Room 51
+ */
+ 
 roomobj-51-143.dmp
 Events:
    5 - 001E
@@ -4588,6 +5443,8 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-51-144.dmp
 Events:
    1 - 001A
@@ -4608,6 +5465,8 @@ Events:
 [0036] (**) }
 [0036] (00) stopObjectCode();
 END
+
+
 roomobj-51-251.dmp
 Events:
    1 - 001A
@@ -4624,6 +5483,8 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-51-252.dmp
 Events:
    B - 004F
@@ -4646,12 +5507,20 @@ Events:
 [004F] (03) doSentence(11,255,254);
 [0053] (00) stopObjectCode();
 END
+
+
 roomobj-51-353.dmp
 Events:
    F - 001E
 [001E] (75) printEgo("I'm not going to touch that slime!");
 [003C] (00) stopObjectCode();
 END
+
+
+/**
+ * Room 52
+ */
+ 
 roomobj-52-75.dmp
 Events:
    1 - 001E
@@ -4674,6 +5543,12 @@ Events:
 [0040] (**) }
 [0040] (00) stopObjectCode();
 END
+
+
+/**
+ * Room 6
+ */
+ 
 roomobj-6-104.dmp
 Events:
    1 - 0020
@@ -4709,6 +5584,8 @@ Events:
 [0051] (**) }
 [0051] (00) stopObjectCode();
 END
+
+
 roomobj-6-105.dmp
 Events:
    1 - 0030
@@ -4733,6 +5610,8 @@ Events:
 [003B] (17) clearState08(75);
 [003D] (00) stopObjectCode();
 END
+
+
 roomobj-6-106.dmp
 Events:
    B - 0059
@@ -4756,33 +5635,49 @@ Events:
 [006E] (**) }
 [006E] (00) stopObjectCode();
 END
+
+
 roomobj-6-107.dmp
 Events:
    F - 0017
 [0017] (75) printEgo("I can't reach it.");
 [0027] (00) stopObjectCode();
 END
+
+
 roomobj-6-139.dmp
 Events:
    D - 0018
 [0018] (E5) loadRoomWithEgo(138,2);											// Enter Room 2, Bottom of Pool
 [001B] (00) stopObjectCode();
 END
+
+
 roomobj-6-272.dmp
 Events:
    D - 0018
 [0018] (75) printEgo("I'M not going down there%/%it's full of water!");
 [0041] (00) stopObjectCode();
 END
+
+
 roomobj-6-323.dmp
 Events:
    F - 001C
 [001C] (75) printEgo("I can't reach it.");
 [002C] (00) stopObjectCode();
 END
+
+
 roomobj-6-324.dmp
 Events:
 END
+
+
+/**
+ * Room 7
+ */
+ 
 roomobj-7-100.dmp
 Events:
    B - 0028
@@ -4797,6 +5692,8 @@ Events:
 [0035] (**) }
 [0035] (00) stopObjectCode();
 END
+
+
 roomobj-7-234.dmp
 Events:
    1 - 0026
@@ -4814,15 +5711,21 @@ Events:
 [003C] (42) startScript(76);
 [003E] (00) stopObjectCode();
 END
+
+
 roomobj-7-276.dmp
 Events:
 END
+
+
 roomobj-7-277.dmp
 Events:
    E - 0022
 [0022] (75) printEgo("They're glued to the wall.");
 [003A] (00) stopObjectCode();
 END
+
+
 roomobj-7-279.dmp
 Events:
    1 - 003D
@@ -4835,12 +5738,16 @@ Events:
 [003D] (75) printEgo("I'd rather use the microwave.");
 [0058] (00) stopObjectCode();
 END
+
+
 roomobj-7-280.dmp
 Events:
    F - 0017
 [0017] (75) printEgo("Yuck!");
 [001E] (00) stopObjectCode();
 END
+
+
 roomobj-7-48.dmp
 Events:
    1 - 001A
@@ -4857,6 +5764,8 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-7-49.dmp
 Events:
    1 - 001A
@@ -4873,6 +5782,8 @@ Events:
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
+
+
 roomobj-7-50.dmp
 Events:
    E - 002A
@@ -4887,6 +5798,8 @@ Events:
 [0054] (**) }
 [0054] (00) stopObjectCode();
 END
+
+
 roomobj-7-51.dmp
 Events:
    3 - 0065
@@ -4920,6 +5833,8 @@ Events:
 [0071] (**) }
 [0071] (00) stopObjectCode();
 END
+
+
 roomobj-7-52.dmp
 Events:
    1 - 0028
@@ -4972,6 +5887,8 @@ Events:
 [00A1] (**) }
 [00A1] (00) stopObjectCode();
 END
+
+
 roomobj-7-53.dmp
 Events:
    E - 0019
@@ -4981,6 +5898,8 @@ Events:
 [001E] (1A) Var[66] = 0;
 [0021] (00) stopObjectCode();
 END
+
+
 roomobj-7-54.dmp
 Events:
    3 - 0062
@@ -5002,6 +5921,8 @@ Events:
 [006E] (**) }
 [006E] (00) stopObjectCode();
 END
+
+
 roomobj-7-55.dmp
 Events:
    4 - 001C
@@ -5019,6 +5940,8 @@ Events:
 [002B] (**) }
 [002B] (00) stopObjectCode();
 END
+
+
 roomobj-7-56.dmp
 Events:
    1 - 0024
@@ -5035,6 +5958,8 @@ Events:
 [0034] (42) startScript(5);
 [0036] (00) stopObjectCode();
 END
+
+
 roomobj-7-57.dmp
 Events:
    3 - 0021
@@ -5045,6 +5970,8 @@ Events:
 [0021] (42) startScript(98);
 [0023] (00) stopObjectCode();
 END
+
+
 roomobj-7-58.dmp
 Events:
    3 - 0022
@@ -5055,6 +5982,8 @@ Events:
 [0022] (42) startScript(98);
 [0024] (00) stopObjectCode();
 END
+
+
 roomobj-7-59.dmp
 Events:
    3 - 0034
@@ -5065,6 +5994,8 @@ Events:
 [0034] (42) startScript(98);
 [0036] (00) stopObjectCode();
 END
+
+
 roomobj-7-60.dmp
 Events:
    3 - 0047
@@ -5087,6 +6018,8 @@ Events:
 [0075] (**) }
 [0075] (00) stopObjectCode();
 END
+
+
 roomobj-7-61.dmp
 Events:
    4 - 0021
@@ -5100,12 +6033,20 @@ Events:
 [0050] (**) }
 [0050] (00) stopObjectCode();
 END
+
+
+/**
+ * Room 8
+ */
+ 
 roomobj-8-121.dmp
 Events:
    D - 0018
 [0018] (E5) loadRoomWithEgo(36,10);
 [001B] (00) stopObjectCode();
 END
+
+
 roomobj-8-122.dmp
 Events:
    1 - 0020
@@ -5133,6 +6074,8 @@ Events:
 [0041] (**) }
 [0041] (00) stopObjectCode();
 END
+
+
 roomobj-8-123.dmp
 Events:
    1 - 001C
@@ -5143,6 +6086,8 @@ Events:
 [0020] (57) clearState08();
 [0021] (00) stopObjectCode();
 END
+
+
 roomobj-8-124.dmp
 Events:
    2 - 006D
@@ -5187,6 +6132,8 @@ Events:
 [0070] (75) printEgo("MAIN POWER");
 [007B] (00) stopObjectCode();
 END
+
+
 roomobj-8-125.dmp
 Events:
    B - 0021
@@ -5196,6 +6143,8 @@ Events:
 [0021] (43) doSentence(11,255,254);
 [0025] (00) stopObjectCode();
 END
+
+
 roomobj-8-325.dmp
 Events:
    4 - 0020
@@ -5209,12 +6158,16 @@ Events:
 [002F] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0031] (00) stopObjectCode();
 END
+
+
 roomobj-8-337.dmp
 Events:
    F - 0023
 [0023] (75) printEgo("Yuck! I'm not touching that!");
 [003D] (00) stopObjectCode();
 END
+
+
 roomobj-8-338.dmp
 Events:
    D - 001B
@@ -5223,6 +6176,8 @@ Events:
 [001C] (75) printEgo("It's too hot!");
 [0029] (00) stopObjectCode();
 END
+
+
 roomobj-8-339.dmp
 Events:
    5 - 0028
@@ -5237,6 +6192,12 @@ Events:
 [0058] (75) printEgo("It's too hot!");
 [0065] (00) stopObjectCode();
 END
+
+
+/**
+ * Room 9
+ */
+ 
 roomobj-9-196.dmp
 Events:
    1 - 001F
@@ -5267,6 +6228,8 @@ Events:
 [004D] (**) }
 [004D] (00) stopObjectCode();
 END
+
+
 roomobj-9-197.dmp
 Events:
    1 - 001E
@@ -5278,6 +6241,8 @@ Events:
 [0023] (17) clearState08(198);
 [0025] (00) stopObjectCode();
 END
+
+
 roomobj-9-198.dmp
 Events:
    1 - 001F
@@ -5291,12 +6256,16 @@ Events:
 [0027] (17) clearState08(197);
 [0029] (00) stopObjectCode();
 END
+
+
 roomobj-9-200.dmp
 Events:
    B - 0019
 [0019] (83) doSentence(11,255,254);
 [001D] (00) stopObjectCode();
 END
+
+
 roomobj-9-201.dmp
 Events:
    1 - 003D
@@ -5323,6 +6292,8 @@ Events:
 [008F] (**) }
 [008F] (00) stopObjectCode();
 END
+
+
 roomobj-9-293.dmp
 Events:
    4 - 001B
@@ -5344,6 +6315,8 @@ Events:
 [0041] (**) }
 [0041] (00) stopObjectCode();
 END
+
+
 roomobj-9-414.dmp
 Events:
    C - 0021
