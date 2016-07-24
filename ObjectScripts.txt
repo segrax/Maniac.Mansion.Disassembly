@@ -1,4 +1,15 @@
-roomobj-1-132.dmp
+/**
+ * Object Scripts
+ *
+ */
+
+/**
+ * Room 1 
+ */
+ 
+ 
+/** Stamps **/
+ roomobj-1-132.dmp
 Events:
    A - 001C
    B - 003A
@@ -21,6 +32,9 @@ Events:
 [0078] (**) }
 [0078] (00) stopObjectCode();
 END
+
+
+/** Mailbox **/
 roomobj-1-17.dmp
 Events:
    1 - 001D
@@ -33,6 +47,9 @@ Events:
 [0021] (43) doSentence(11,255,7);
 [0025] (00) stopObjectCode();
 END
+
+
+/** Mailbox Flag **/
 roomobj-1-18.dmp
 Events:
    1 - 001E
@@ -55,6 +72,9 @@ Events:
 [0034] (**) }
 [0034] (00) stopObjectCode();
 END
+
+
+/** Bushes **/
 roomobj-1-19.dmp
 Events:
    1 - 001C
@@ -63,6 +83,9 @@ Events:
 [001C] (D7) setState08();
 [001D] (00) stopObjectCode();
 END
+
+
+/** Grating **/
 roomobj-1-20.dmp
 Events:
    1 - 0027
@@ -106,6 +129,9 @@ Events:
 [008B] (**) }
 [008B] (00) stopObjectCode();
 END
+
+
+/** Door mat **/
 roomobj-1-21.dmp
 Events:
    9 - 0038
@@ -120,6 +146,9 @@ Events:
 [0038] (57) clearState08();
 [0039] (00) stopObjectCode();
 END
+
+
+/** Front Door Key **/
 roomobj-1-22.dmp
 Events:
    B - 001A
@@ -134,6 +163,9 @@ Events:
 [0037] (**) }
 [0037] (00) stopObjectCode();
 END
+
+
+/** Undeveloped Film **/
 roomobj-1-23.dmp
 Events:
    1 - 002D
@@ -168,6 +200,9 @@ Events:
 [00A8] (**) }
 [00A8] (00) stopObjectCode();
 END
+
+
+/** Package **/
 roomobj-1-24.dmp
 Events:
    1 - 004B
@@ -203,12 +238,18 @@ Events:
 [0094] (**) }
 [0094] (00) stopObjectCode();
 END
+
+
+/** Exit to Room 44 **/
 roomobj-1-240.dmp
 Events:
    D - 0012
 [0012] (E5) loadRoomWithEgo(241,44);
 [0015] (00) stopObjectCode();
 END
+
+
+/** Envelope **/
 roomobj-1-25.dmp
 Events:
    C - 001C
@@ -224,6 +265,9 @@ Events:
 [0061] (69) setOwnerOf(201,VAR_EGO);
 [0064] (00) stopObjectCode();
 END
+
+
+/** Mailbox **/
 roomobj-1-263.dmp
 Events:
    1 - 001F
@@ -251,9 +295,15 @@ Events:
 [0071] (75) printEgo("Solicitors will be eaten.");
 [0089] (00) stopObjectCode();
 END
+
+
+/** Bushes **/
 roomobj-1-264.dmp
 Events:
 END
+
+
+/** Contract **/
 roomobj-1-27.dmp
 Events:
    3 - 0025
@@ -267,6 +317,9 @@ Events:
 [0025] (42) startScript(105);
 [0027] (00) stopObjectCode();
 END
+
+
+/** Front Door **/
 roomobj-1-28.dmp
 Events:
    1 - 0026
@@ -309,21 +362,33 @@ Events:
 [006C] (**) }
 [006C] (00) stopObjectCode();
 END
+
+
+/** Tombstone **/
 roomobj-1-29.dmp
 Events:
    C - 001B
 [001B] (75) printEgo("And good riddance!");
 [002D] (00) stopObjectCode();
 END
+
+
+/** Tombstone **/
 roomobj-1-30.dmp
 Events:
    C - 001B
 [001B] (75) printEgo("Another one bites the dust!");
 [0034] (00) stopObjectCode();
 END
+
+
+/** Tombstone **/
 roomobj-1-31.dmp
 Events:
 END
+
+
+/** Doorbell **/
 roomobj-1-386.dmp
 Events:
    9 - 001E
@@ -346,6 +411,11 @@ Events:
 [0040] (75) printEgo("This is the home of Dr. Fred,/Nurse Edna, Weird Ed, Dead Cousin Ted,/Green Tentacle and Purple Tentacle.");
 [009A] (00) stopObjectCode();
 END
+
+/**
+ * Room 10
+ */
+ 
 roomobj-10-209.dmp
 Events:
    D - 0018
