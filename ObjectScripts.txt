@@ -5,7 +5,7 @@
 
  
 /**
- * Room 1 
+ * Room 1: Front of Mansion
  */
  
 
@@ -416,7 +416,7 @@ END
 
 
 /**
- * Room 2
+ * Room 2: Bottom of Pool
  */
  
 /** Glowing Key **/
@@ -534,7 +534,7 @@ END
 
 
 /**
- * Room 3
+ * Room 3: Downstairs Lounge Room
  */
 
 /** Cassette Player **/
@@ -736,20 +736,20 @@ Events:
    4 - 0043
    5 - 004B
    E - 0023
-[0023] (2F) if (getState08(207)) {								// Cassette Player is playing?
+[0023] (2F) if (getState08(207)) {										// Cassette Player is playing?
 [0027] (75)   printEgo("It's still playing!");
 [003A] (18) } else {
-[003D] (69)   setOwnerOf(156,VAR_EGO);							// Kid owns Tape
-[0040] (D7)   setState08();										// Taken
-[0041] (CF)   setState02();										// Taken
-[0042] (**) }
-[0042] (00) stopObjectCode();
-[0043] (EF) if (!getState08(activeObject)) {					// Not Locked 
-[0046] (03)   doSentence(4,207,0);								// Turn On Cassette Player
-[004A] (**) }
-[004A] (00) stopObjectCode();
-[004B] (EF) if (!getState08(activeObject)) {					// Not Locked
-[004E] (03)   doSentence(5,207,0);								// Turn Off Cassette Player
+[003D] (69)   setOwnerOf(156,VAR_EGO);									// Kid owns Tape
+[0040] (D7)   setState08();												// Tape Taken
+[0041] (CF)   setState02();												// Tape Taken
+[0042] (**) }		
+[0042] (00) stopObjectCode();		
+[0043] (EF) if (!getState08(activeObject)) {							// Not Locked 
+[0046] (03)   doSentence(4,207,0);										// Turn On Cassette Player
+[004A] (**) }		
+[004A] (00) stopObjectCode();		
+[004B] (EF) if (!getState08(activeObject)) {							// Not Locked
+[004E] (03)   doSentence(5,207,0);										// Turn Off Cassette Player
 [0052] (**) }
 [0052] (00) stopObjectCode();
 END
@@ -761,24 +761,25 @@ Events:
    1 - 001A
    2 - 001F
    D - 0024
-[001A] (42) startScript(4);										// start Door: Open
-[001C] (97) setState08(102);									// Door Open (other side)
-[001E] (00) stopObjectCode();
-[001F] (42) startScript(5);										// start Door: Close
-[0021] (17) clearState08(102);									// Door Close (other side)
-[0023] (00) stopObjectCode();
-[0024] (6F) if (getState08(activeObject)) {						// Door is open? 
-[0027] (E5)   loadRoomWithEgo(102,5);							//	Kid enters Library at Door
-[002A] (**) }
+[001A] (42) startScript(4);												// start Door: Open
+[001C] (97) setState08(102);											// Door Open (other side)
+[001E] (00) stopObjectCode();		
+[001F] (42) startScript(5);												// start Door: Close
+[0021] (17) clearState08(102);											// Door Close (other side)
+[0023] (00) stopObjectCode();		
+[0024] (6F) if (getState08(activeObject)) {								// Door is open? 
+[0027] (E5)   loadRoomWithEgo(102,5);									//	Kid enters Library at Door
+[002A] (**) }		
 [002A] (00) stopObjectCode();
 END
 
 
 
 /**
- * Room 4
+ * Room 4: Dungeon
  */
  
+/** Door **/
 roomobj-4-126.dmp
 Events:
    1 - 0020
@@ -787,100 +788,103 @@ Events:
    B - 0029
    D - 0037
   10 - 0026
-[0020] (EF) if (!getState08(activeObject)) {
-[0023] (42)   startScript(64);
+[0020] (EF) if (!getState08(activeObject)) {							// Door Locked?
+[0023] (42)   startScript(64);											//  start Print "The door is locked"
 [0025] (**) }
-[0025] (00) stopObjectCode();
-[0026] (42) startScript(51);
-[0028] (00) stopObjectCode();
-[0029] (64) if (activeObject2 == 43) {
-[002D] (42)   startScript(4);
-[002F] (97)   setState08(122);
+[0025] (00) stopObjectCode();											// --
+[0026] (42) startScript(51);											// start Dungeon: Close Entry Door
+[0028] (00) stopObjectCode();											// --
+[0029] (64) if (activeObject2 == 43) {									// Use Old Rusty Key with Door
+[002D] (42)   startScript(4);											// start Door: Open
+[002F] (97)   setState08(122);											// Open Door (Room8: Basement)
 [0031] (18) } else {
-[0034] (42)   startScript(66);
+[0034] (42)   startScript(66);											// start Print "I can't unlock the door with this."
 [0036] (**) }
-[0036] (00) stopObjectCode();
-[0037] (6F) if (getState08(activeObject)) {
-[003A] (17)   clearState08(126);
-[003C] (17)   clearState08(122);
-[003E] (E5)   loadRoomWithEgo(122,8);
+[0036] (00) stopObjectCode();											// --
+[0037] (6F) if (getState08(activeObject)) {								// Door Unlocked?
+[003A] (17)   clearState08(126);										//  Close Door
+[003C] (17)   clearState08(122);										//  Close Door (Room8: Basement)
+[003E] (E5)   loadRoomWithEgo(122,8);									//  Enter Basement at Door
 [0041] (**) }
 [0041] (00) stopObjectCode();
 END
 
 
+/** Outer Door **/
 roomobj-4-127.dmp
 Events:
    1 - 001E
    2 - 0029
-[001E] (DF) if (!getState04(activeObject)) {
-[0021] (42)   startScript(4);
-[0023] (18) } else {
-[0026] (42)   startScript(64);
+[001E] (DF) if (!getState04(activeObject)) {							// Paddlocks unLocked?
+[0021] (42)   startScript(4);											//  start Door: Open
+[0023] (18) } else {													// -
+[0026] (42)   startScript(64);											//  start Print "The door is locked"
 [0028] (**) }
-[0028] (00) stopObjectCode();
-[0029] (6F) if (getState08(activeObject)) {
-[002C] (57)   clearState08();
-[002D] (1C)   startSound(42);
+[0028] (00) stopObjectCode();											// --
+[0029] (6F) if (getState08(activeObject)) {								// If door open
+[002C] (57)   clearState08();											//  Close door
+[002D] (1C)   startSound(42);											//  sound Steel Door
 [002F] (**) }
 [002F] (00) stopObjectCode();
 END
 
 
+/** Top Padlock **/
 roomobj-4-128.dmp
 Events:
    2 - 0039
    8 - 0023
    B - 0023
   10 - 0039
-[0023] (64) if (activeObject2 == 108) {
-[0027] (EF)   if (!getState08(activeObject)) {
-[002A] (D7)     setState08();
-[002B] (1C)     startSound(12);
+[0023] (64) if (activeObject2 == 108) {									// Use Glowing Key with Top Padlock
+[0027] (EF)   if (!getState08(activeObject)) {							//  Padlock locked?
+[002A] (D7)     setState08();											//   Unlock Padlock
+[002B] (1C)     startSound(12);											//   sound Light Switch
 [002D] (**)   }
-[002D] (2F)   if (getState08(129)) {
-[0031] (37)     clearState04(127);
+[002D] (2F)   if (getState08(129)) {									// Is Bottom Padlock unlocked
+[0031] (37)     clearState04(127);										//  Yes, Unlock the Outer Door
 [0033] (**)   }
-[0033] (18) } else {
-[0036] (42)   startScript(66);
+[0033] (18) } else {													// -
+[0036] (42)   startScript(66);											//  start Print "I can't unlock the door with this."
 [0038] (**) }
-[0038] (00) stopObjectCode();
-[0039] (6F) if (getState08(activeObject)) {
-[003C] (57)   clearState08();
-[003D] (1C)   startSound(12);
+[0038] (00) stopObjectCode();											// --
+[0039] (6F) if (getState08(activeObject)) {								// Padlock Unlocked?
+[003C] (57)   clearState08();											//   Lock Padlock
+[003D] (1C)   startSound(12);											//   sound Light Switch
 [003F] (**) }
-[003F] (B7) setState04(127);
+[003F] (B7) setState04(127);											// Lock the Outer Door
 [0041] (00) stopObjectCode();
 END
 
-
+/** Bottom Padlock **/
 roomobj-4-129.dmp
 Events:
    2 - 003C
    8 - 0026
    B - 0026
   10 - 003C
-[0026] (64) if (activeObject2 == 108) {
-[002A] (EF)   if (!getState08(activeObject)) {
-[002D] (D7)     setState08();
-[002E] (1C)     startSound(12);
-[0030] (**)   }
-[0030] (2F)   if (getState08(128)) {
-[0034] (37)     clearState04(127);
-[0036] (**)   }
-[0036] (18) } else {
-[0039] (42)   startScript(66);
-[003B] (**) }
-[003B] (00) stopObjectCode();
-[003C] (6F) if (getState08(activeObject)) {
-[003F] (57)   clearState08();
-[0040] (1C)   startSound(12);
-[0042] (**) }
-[0042] (B7) setState04(127);
+[0026] (64) if (activeObject2 == 108) {									// Use Glowing Key with Top Padlock
+[002A] (EF)   if (!getState08(activeObject)) {                          //  Padlock locked?
+[002D] (D7)     setState08();                                           //   Unlock Padlock
+[002E] (1C)     startSound(12);                                         //   sound Light Switch
+[0030] (**)   }                                                         
+[0030] (2F)   if (getState08(128)) {                                    // Is Top Padlock unlocked
+[0034] (37)     clearState04(127);                                      //  Yes, Unlock the Outer Door
+[0036] (**)   }                                                         
+[0036] (18) } else {                                                    // -
+[0039] (42)   startScript(66);                                          //  start Print "I can't unlock the door with this."
+[003B] (**) }                                                           
+[003B] (00) stopObjectCode();                                           // --
+[003C] (6F) if (getState08(activeObject)) {                             // Padlock Unlocked?
+[003F] (57)   clearState08();                                           //   Lock Padlock
+[0040] (1C)   startSound(12);                                           //   sound Light Switch
+[0042] (**) }                                                           
+[0042] (B7) setState04(127);                                            // Lock the Outer Door
 [0044] (00) stopObjectCode();
 END
 
 
+/** Inner Door  **/
 roomobj-4-130.dmp
 Events:
    1 - 002A
@@ -891,96 +895,292 @@ Events:
    B - 002A
    D - 0037
   10 - 002D
-[002A] (42) startScript(40);
-[002C] (00) stopObjectCode();
-[002D] (6F) if (getState08(activeObject)) {
-[0030] (57)   clearState08();
-[0031] (F7)   setState04();
-[0032] (17)   clearState08(133);
-[0034] (1C)   startSound(42);
-[0036] (**) }
+[002A] (42) startScript(40);											// start Lab Entry Keypad Input
+[002C] (00) stopObjectCode();											// --
+[002D] (6F) if (getState08(activeObject)) {								// If door is open
+[0030] (57)   clearState08();											//  Close Door
+[0031] (F7)   setState04();												//  Door locked
+[0032] (17)   clearState08(133);										//  Close Door (Lab Entry)
+[0034] (1C)   startSound(42);											//  sound Steel Door
+[0036] (**) }															// --
 [0036] (00) stopObjectCode();
-[0037] (6F) if (getState08(activeObject)) {
-[003A] (2D)   putActorInRoom(14,0);
+[0037] (6F) if (getState08(activeObject)) {								// If door is open
+[003A] (2D)   putActorInRoom(14,0);										//  Green Tentacle Leaves
 [003D] (01)   putActor(14,0,0);
-[0041] (2D)   putActorInRoom(9,30);
+[0041] (2D)   putActorInRoom(9,30);										//  Dr. Fred Enters Lab: Zom-b-Matic
 [0044] (01)   putActor(9,20,20);
-[0048] (48)   if (Var[135] == 0) {										// Purple chased out of lab == No
-[004D] (2D)     putActorInRoom(13,31);									// Lab: Entry
+[0048] (48)   if (Var[135] == 0) {										//  Purple chased out of lab == No
+[004D] (2D)     putActorInRoom(13,31);									//   Purple enters Lab: Entry
 [0050] (01)     putActor(13,44,63);
-[0054] (42)     startScript(112);
+[0054] (42)     startScript(112);										//   start Purple Tentacle: Check Actor X > 20; print "What are you doing here?"
 [0056] (4C)     loadScript(43);
 [0058] (33)     lockScript(43);
 [005A] (0C)     loadSound(63);
 [005C] (53)     lockSound(63);
 [005E] (**)   }
 [005E] (60)   cursorCommand( kModeNoNewKid )							// Disable New Kid verb
-[0060] (42)   startScript(7);
-[0062] (62)   stopScript(131);
-[0064] (62)   stopScript(138);
-[0066] (62)   stopScript(96);
-[0068] (E5)   loadRoomWithEgo(133,31);
+[0060] (42)   startScript(7);											// start Pool is refilled
+[0062] (62)   stopScript(131);											// stop Meteor Police: Timer until arrival
+[0064] (62)   stopScript(138);											// stop Cutscene: Dr. Fred Play Meteor Mess Trigger
+[0066] (62)   stopScript(96);											// stop Dr Fred: Play Meteor Mess
+[0068] (E5)   loadRoomWithEgo(133,31);									// Enter Lab: Entry
 [006B] (**) }
 [006B] (00) stopObjectCode();
 END
 
 
+/** Badge **/
 roomobj-4-193.dmp
 Events:
    3 - 003D
    C - 001E
    E - 001B
-[001B] (90) pickupObject(0);
-[001D] (00) stopObjectCode();
-[001E] (75) printEgo("Meteor Police, badge number 714.");
-[003C] (00) stopObjectCode();
-[003D] (48) if (VAR_ACTIVE_ACTOR == 13) {
-[0042] (42)   startScript(154);
+[001B] (90) pickupObject(0);											// Pickup
+[001D] (00) stopObjectCode();											// --
+[001E] (75) printEgo("Meteor Police, badge number 714.");				// Read
+[003C] (00) stopObjectCode();											// --
+[003D] (48) if (VAR_ACTIVE_ACTOR == 13) {								// Give to Purple Tentacle?
+[0042] (42)   startScript(154);											// start Cutscene: Purple Tentacle reacts to police badge
 [0044] (**) }
 [0044] (00) stopObjectCode();
 END
 
 
+/** Skeleton **/
 roomobj-4-340.dmp
 Events:
    D - 001C
    F - 001D
-[001C] (00) stopObjectCode();
-[001D] (48) if (Var[101] == 0) {
+[001C] (00) stopObjectCode();											// --
+[001D] (48) if (Var[101] == 0) {										// What is, already spoke?
 [0022] (75)   printEgo("I wonder if I know him.");
-[0036] (1A)   Var[101] = 1;
+[0036] (1A)   Var[101] = 1;												// Dungeon Skeleton 'Hovered Over' = Yes
 [0039] (**) }
 [0039] (00) stopObjectCode();
 END
 
 
+/** Barred Window **/
 roomobj-4-341.dmp
 Events:
 END
 
 
+/** Barred Window **/
 roomobj-4-343.dmp
 Events:
 END
 
 
+/** Candle Holder **/
 roomobj-4-345.dmp
 Events:
 END
 
 
+/** Loose Brick **/
 roomobj-4-446.dmp
 Events:
    9 - 001D
-[001D] (42) startScript(132);
+[001D] (42) startScript(132);											// start Dungeon Door Opened via Loose Brick
 [001F] (00) stopObjectCode();
 END
 
 
+
 /**
- * Room 10
+ * Room 5
+ */
+
+ 
+/** Door **/
+roomobj-5-102.dmp
+Events:
+   1 - 001A
+   2 - 001F
+   D - 0024
+[001A] (42) startScript(4);												// start Door: Open
+[001C] (97) setState08(93);												// Open Door (Room 3)
+[001E] (00) stopObjectCode();											// --
+[001F] (42) startScript(5);												// start Door: Close
+[0021] (17) clearState08(93);											// Close Door (Room 3)
+[0023] (00) stopObjectCode();											// --
+[0024] (6F) if (getState08(activeObject)) {								// If Door Open
+[0027] (E5)   loadRoomWithEgo(93,3);									//  Enter Room Downstairs Lounge Room
+[002A] (**) }
+[002A] (00) stopObjectCode();
+END
+
+
+/** Phone **/
+roomobj-5-103.dmp
+Events:
+   6 - 005D
+   B - 001B
+   E - 003C
+[001B] (5F) if (getState04(activeObject)) {								// If phone not repaired
+[001E] (42)   startScript(28);											// start Phone: Disconnect if Kid walks too far away
+[0020] (75)   printEgo("It seems to be broken.");
+[0034] (18) } else {
+[0037] (42)   startScript(27);											// start Phone: Disconnect
+[0039] (42)   startScript(24);											// start Pin: Entry - Edna Phone Number
+[003B] (**) }
+[003B] (00) stopObjectCode();											// --
+[003C] (42) startScript(28);											// start Phone: Disconnect if Kid walks too far away
+[003E] (5F) if (getState04(activeObject)) {								// If phone not repaired
+[0041] (75)   printEgo("It seems to be broken.");						//  
+[0055] (18) } else {													// -
+[0058] (42)   startScript(28);											//  start Phone: Disconnect if Kid walks too far away
+[005A] (1C)   startSound(21);											//  sound 
+[005C] (**) }
+[005C] (00) stopObjectCode();											// --
+[005D] (5F) if (getState04(activeObject)) {								// If phone not repaired
+[0060] (48)   if (VAR_EGO == 7) {										//  If Jeff 
+[0065] (18)   } else {													//  
+[0068] (48)     unless (VAR_EGO == 5) goto 00A6;						//  or Bernard
+[006D] (**)   }
+[006D] (64)   if (activeObject2 == 119) {								//  And ActiveObject2 is Tools
+[0071] (77)     clearState04();											//   Phone repaired
+[0072] (75)     printEgo("That should do it.");
+[0083] (18)   } else {
+[0086] (75)     printEgo("I need some tools or something?!");
+[00A3] (**)   }
+[00A3] (18)   goto 00CB;												// --
+[00A6] (75)   printEgo("I don't know anything about electronics!");		//  else Other Kids
+[00CB] (**) }
+[00CB] (00) stopObjectCode();
+END
+
+
+/** Cassette Tape **/
+roomobj-5-156.dmp
+Events:
+   3 - 002B
+   B - 0026
+   E - 0023
+[0023] (90) pickupObject(0);											// Pickup Tape
+[0025] (00) stopObjectCode();											// --
+[0026] (43) doSentence(11,255,254);										// Use Tape with _cmdObject2
+[002A] (00) stopObjectCode();											// --
+[002B] (48) if (VAR_ACTIVE_ACTOR == 14) {								// Give to Green Tentacle
+[0030] (48)   if (VAR_ROOM == 20) {										//  if current room is Green Tentacle's
+[0035] (42)     startScript(102);										//   start Green Tentacle: Accepts Tape
+[0037] (**)   }
+[0037] (**) }
+[0037] (78) if (VAR_ACTIVE_ACTOR < 8) {									// Give to Kid
+[003C] (69)   setOwnerOf(0,VAR_ACTIVE_ACTOR);							//  Kid owns object
+[003F] (**) }
+[003F] (00) stopObjectCode();
+END
+
+
+/** Loose Panel **/
+roomobj-5-236.dmp
+Events:
+   1 - 0023
+   2 - 0025
+   9 - 0027
+   A - 0027
+[0023] (D7) setState08();												// Open Panel
+[0024] (00) stopObjectCode();											// --
+[0025] (57) clearState08();												// Close Panel
+[0026] (00) stopObjectCode();											// --
+[0027] (6F) if (getState08(activeObject)) {								// Is Panel Open
+[002A] (57)   clearState08();											//  Close Panel
+[002B] (18) } else {													// -
+[002E] (D7)   setState08();												//  Open Panel
+[002F] (**) }
+[002F] (00) stopObjectCode();
+END
+
+
+/** Lamp **/
+roomobj-5-315.dmp
+Events:
+   4 - 0018
+   5 - 0024
+[0018] (1C) startSound(12);												// sound Light Switch
+[001A] (9D) setBitVar(4,VAR_RESULT,0);                                  // Room has light
+[001E] (42) startScript(50);											// start Room Lights: Check for flashlight / room light status
+[0020] (1A) Var[117] = 1;                                               // Room light on
+[0023] (00) stopObjectCode();                                           // --
+[0024] (1C) startSound(12);                                             // sound Light Switch
+[0026] (1A) Var[117] = 0;                                               // Room light off
+[0029] (48) if (Var[118] == 0) {                                        
+[002E] (9D)   setBitVar(4,VAR_RESULT,1);                                // Room loses light
+[0032] (42)   startScript(50);											//  start Room Lights: Check for flashlight / room light status
+[0034] (**) }
+[0034] (00) stopObjectCode();
+END
+
+
+/** Lamp **/
+roomobj-5-316.dmp
+Events:
+   4 - 0018
+   5 - 0024
+[0018] (1C) startSound(12);												// sound Light Switch
+[001A] (9D) setBitVar(4,VAR_RESULT,0);									// Room has light
+[001E] (42) startScript(50);											// start Room Lights: Check for flashlight / room light status
+[0020] (1A) Var[118] = 1;												// Room light on
+[0023] (00) stopObjectCode();											// --
+[0024] (1C) startSound(12);												// sound Light Switch
+[0026] (1A) Var[118] = 0;												// Room light off
+[0029] (48) if (Var[117] == 0) {
+[002E] (9D)   setBitVar(4,VAR_RESULT,1);								// Room loses light
+[0032] (42)   startScript(50);											//  start Room Lights: Check for flashlight / room light status
+[0034] (**) }
+[0034] (00) stopObjectCode();
+END
+
+
+/** Staircase **/
+roomobj-5-318.dmp
+Events:
+   6 - 0036
+   B - 0036
+   D - 001F
+[001F] (75) printEgo("Staircase out of order.");						// Walk To
+[0035] (00) stopObjectCode();											// --
+[0036] (75) printEgo("I can't fix the stairs with that.");				// Fix/Use
+[0053] (00) stopObjectCode();
+END
+
+
+/** Chuck the plant **/
+roomobj-5-319.dmp
+Events:
+END
+
+
+/** Chair **/
+roomobj-5-320.dmp
+Events:
+END
+
+
+/** Sign **/
+roomobj-5-440.dmp
+Events:
+   6 - 002F
+   C - 0018
+[0018] (75) printEgo("Staircase out of order.");						// Read
+[002E] (00) stopObjectCode();											// --
+[002F] (64) if (activeObject2 == 119) {									// Use tools with Sign
+[0033] (75)   printEgo("I'm not a carpenter.");
+[0046] (18) } else {
+[0049] (75)   printEgo("That won't work.");
+[0059] (**) }
+[0059] (00) stopObjectCode();
+END
+
+
+/**
+ * Room 10: Main Entry
  */
  
+ 
+/**  **/
 roomobj-10-209.dmp
 Events:
    D - 0018
@@ -989,6 +1189,7 @@ Events:
 END
 
 
+/**  **/
 roomobj-10-269.dmp
 Events:
    C - 0023
@@ -5238,182 +5439,6 @@ END
 
 roomobj-47-16.dmp
 Events:
-END
-
-
-/**
- * Room 5
- */
- 
-roomobj-5-102.dmp
-Events:
-   1 - 001A
-   2 - 001F
-   D - 0024
-[001A] (42) startScript(4);
-[001C] (97) setState08(93);
-[001E] (00) stopObjectCode();
-[001F] (42) startScript(5);
-[0021] (17) clearState08(93);
-[0023] (00) stopObjectCode();
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(93,3);
-[002A] (**) }
-[002A] (00) stopObjectCode();
-END
-
-
-roomobj-5-103.dmp
-Events:
-   6 - 005D
-   B - 001B
-   E - 003C
-[001B] (5F) if (getState04(activeObject)) {
-[001E] (42)   startScript(28);						// Phone: Disconnect if Kid walks too far away
-[0020] (75)   printEgo("It seems to be broken.");
-[0034] (18) } else {
-[0037] (42)   startScript(27);						// Phone: Disconnect
-[0039] (42)   startScript(24);						// Pin: Entry - Edna Phone Number
-[003B] (**) }
-[003B] (00) stopObjectCode();
-[003C] (42) startScript(28);						// Phone: Disconnect if Kid walks too far away
-[003E] (5F) if (getState04(activeObject)) {
-[0041] (75)   printEgo("It seems to be broken.");
-[0055] (18) } else {
-[0058] (42)   startScript(28);						// Phone: Disconnect if Kid walks too far away
-[005A] (1C)   startSound(21);
-[005C] (**) }
-[005C] (00) stopObjectCode();
-[005D] (5F) if (getState04(activeObject)) {
-[0060] (48)   if (VAR_EGO == 7) {					// If Jeff or Bernard
-[0065] (18)   } else {
-[0068] (48)     unless (VAR_EGO == 5) goto 00A6;	// 
-[006D] (**)   }
-[006D] (64)   if (activeObject2 == 119) {			// And ActiveObject2 is Tools
-[0071] (77)     clearState04();					
-[0072] (75)     printEgo("That should do it.");
-[0083] (18)   } else {
-[0086] (75)     printEgo("I need some tools or something?!");
-[00A3] (**)   }
-[00A3] (18)   goto 00CB;
-[00A6] (75)   printEgo("I don't know anything about electronics!");
-[00CB] (**) }
-[00CB] (00) stopObjectCode();
-END
-
-
-roomobj-5-156.dmp
-Events:
-   3 - 002B
-   B - 0026
-   E - 0023
-[0023] (90) pickupObject(0);
-[0025] (00) stopObjectCode();
-[0026] (43) doSentence(11,255,254);
-[002A] (00) stopObjectCode();
-[002B] (48) if (VAR_ACTIVE_ACTOR == 14) {
-[0030] (48)   if (VAR_ROOM == 20) {
-[0035] (42)     startScript(102);
-[0037] (**)   }
-[0037] (**) }
-[0037] (78) if (VAR_ACTIVE_ACTOR < 8) {
-[003C] (69)   setOwnerOf(0,VAR_ACTIVE_ACTOR);
-[003F] (**) }
-[003F] (00) stopObjectCode();
-END
-
-
-roomobj-5-236.dmp
-Events:
-   1 - 0023
-   2 - 0025
-   9 - 0027
-   A - 0027
-[0023] (D7) setState08();
-[0024] (00) stopObjectCode();
-[0025] (57) clearState08();
-[0026] (00) stopObjectCode();
-[0027] (6F) if (getState08(activeObject)) {
-[002A] (57)   clearState08();
-[002B] (18) } else {
-[002E] (D7)   setState08();
-[002F] (**) }
-[002F] (00) stopObjectCode();
-END
-
-
-roomobj-5-315.dmp
-Events:
-   4 - 0018
-   5 - 0024
-[0018] (1C) startSound(12);
-[001A] (9D) setBitVar(4,VAR_RESULT,0);
-[001E] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
-[0020] (1A) Var[117] = 1;
-[0023] (00) stopObjectCode();
-[0024] (1C) startSound(12);
-[0026] (1A) Var[117] = 0;
-[0029] (48) if (Var[118] == 0) {
-[002E] (9D)   setBitVar(4,VAR_RESULT,1);
-[0032] (42)   startScript(50);
-[0034] (**) }
-[0034] (00) stopObjectCode();
-END
-
-
-roomobj-5-316.dmp
-Events:
-   4 - 0018
-   5 - 0024
-[0018] (1C) startSound(12);
-[001A] (9D) setBitVar(4,VAR_RESULT,0);
-[001E] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
-[0020] (1A) Var[118] = 1;
-[0023] (00) stopObjectCode();
-[0024] (1C) startSound(12);
-[0026] (1A) Var[118] = 0;
-[0029] (48) if (Var[117] == 0) {
-[002E] (9D)   setBitVar(4,VAR_RESULT,1);
-[0032] (42)   startScript(50);
-[0034] (**) }
-[0034] (00) stopObjectCode();
-END
-
-
-roomobj-5-318.dmp
-Events:
-   6 - 0036
-   B - 0036
-   D - 001F
-[001F] (75) printEgo("Staircase out of order.");
-[0035] (00) stopObjectCode();
-[0036] (75) printEgo("I can't fix the stairs with that.");
-[0053] (00) stopObjectCode();
-END
-
-
-roomobj-5-319.dmp
-Events:
-END
-
-
-roomobj-5-320.dmp
-Events:
-END
-
-
-roomobj-5-440.dmp
-Events:
-   6 - 002F
-   C - 0018
-[0018] (75) printEgo("Staircase out of order.");
-[002E] (00) stopObjectCode();
-[002F] (64) if (activeObject2 == 119) {
-[0033] (75)   printEgo("I'm not a carpenter.");
-[0046] (18) } else {
-[0049] (75)   printEgo("That won't work.");
-[0059] (**) }
-[0059] (00) stopObjectCode();
 END
 
 
