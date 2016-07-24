@@ -424,9 +424,9 @@ roomobj-2-108.dmp
 Events:
    B - 0022
    E - 001F
-[001F] (90) pickupObject(0);
+[001F] (90) pickupObject(0);											// Pickup Key
 [0021] (00) stopObjectCode();
-[0022] (43) doSentence(11,255,254);
+[0022] (43) doSentence(11,255,254);										// Use Key in _cmdOjbect2
 [0026] (00) stopObjectCode();
 END
 
@@ -437,30 +437,30 @@ Events:
    4 - 0052
    5 - 005D
    E - 001D
-[001D] (90) pickupObject(0);
-[001F] (90) pickupObject(134);
-[0021] (29) setOwnerOf(134,14);
-[0024] (97) setState08(107);
-[0026] (8F) setState02(107);
+[001D] (90) pickupObject(0);											// Pickup Radio
+[001F] (90) pickupObject(134);											// Pickup Batteries
+[0021] (29) setOwnerOf(134,14);											// Green Tentacle owns Batteries
+[0024] (97) setState08(107);											// Radio in Pool Area hidden
+[0026] (8F) setState02(107);											// Radio in Pool Area hidden
 [0028] (00) stopObjectCode();
-[0029] (AF) if (!getState08(109)) {
+[0029] (AF) if (!getState08(109)) {										// Radio Not Taken?
 [002D] (03)   doSentence(1,109,0);
 [0031] (03)   doSentence(14,109,0);
 [0035] (18) } else {
 [0038] (73)   VAR_RESULT = getObjectOwner(134);
-[003B] (48)   if (VAR_RESULT == 14) {
+[003B] (48)   if (VAR_RESULT == 14) {									// If green tentacle still owns batteries
 [0040] (75)     printEgo("Batteries!");
-[004C] (69)     setOwnerOf(134,VAR_EGO);
+[004C] (69)     setOwnerOf(134,VAR_EGO);								// kid owns batteries
 [004F] (3C)     stopSound(20);
 [0051] (**)   }
 [0051] (**) }
 [0051] (00) stopObjectCode();
 [0052] (73) VAR_RESULT = getObjectOwner(134);
-[0055] (48) if (VAR_RESULT == 14) {
-[005A] (1C)   startSound(20);
+[0055] (48) if (VAR_RESULT == 14) {										// if green tentacle still owns batties
+[005A] (1C)   startSound(20);											//  turn on radio
 [005C] (**) }
 [005C] (00) stopObjectCode();
-[005D] (3C) stopSound(20);
+[005D] (3C) stopSound(20);												// turn off radio
 [005F] (00) stopObjectCode();
 END
 
@@ -468,9 +468,9 @@ END
 roomobj-2-134.dmp
 Events:
    B - 001B
-[001B] (64) if (activeObject2 == 51) {
-[001F] (1A)   Var[31] = 2;
-[0022] (29)   setOwnerOf(134,0);
+[001B] (64) if (activeObject2 == 51) {									// Flashlight?
+[001F] (1A)   Var[31] = 2;												// Flashlight has Battery = Full
+[0022] (29)   setOwnerOf(134,0);										// Remove Batteries
 [0025] (**) }
 [0025] (00) stopObjectCode();
 END
@@ -480,7 +480,7 @@ END
 roomobj-2-138.dmp
 Events:
    D - 0018
-[0018] (E5) loadRoomWithEgo(139,6);
+[0018] (E5) loadRoomWithEgo(139,6);										// Enter Pool Area at Ladder
 [001B] (00) stopObjectCode();
 END
 
@@ -490,10 +490,10 @@ Events:
    9 - 0020
    B - 0020
    C - 0025
-[0020] (1C) startSound(27);
-[0022] (42) startScript(57);
+[0020] (1C) startSound(27);												// Beep
+[0022] (42) startScript(57);											// start Cutscene: Game Over
 [0024] (00) stopObjectCode();
-[0025] (75) printEgo("DO NOT PRESS UNDER ANY CIRCUMSTANCES!");
+[0025] (75) printEgo("DO NOT PRESS UNDER ANY CIRCUMSTANCES!");			// Read
 [0047] (00) stopObjectCode();
 END
 
@@ -501,7 +501,7 @@ END
 roomobj-2-326.dmp
 Events:
    E - 001C
-[001C] (42) startScript(65);
+[001C] (42) startScript(65);											// start Print "Its too Heavy"
 [001E] (00) stopObjectCode();
 END
 
@@ -518,7 +518,7 @@ Events:
    D - 0028
    F - 0029
 [0028] (00) stopObjectCode();
-[0029] (75) printEgo("I'm not going to touch cooling rods!");
+[0029] (75) printEgo("I'm not going to touch cooling rods!");			// Walk To
 [0049] (00) stopObjectCode();
 END
 
@@ -527,7 +527,7 @@ END
 roomobj-2-329.dmp
 Events:
    F - 0023
-[0023] (75) printEgo("I'm not going to touch that goo!");
+[0023] (75) printEgo("I'm not going to touch that goo!");				// What is
 [003F] (00) stopObjectCode();
 END
 
