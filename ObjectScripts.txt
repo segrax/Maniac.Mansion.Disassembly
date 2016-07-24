@@ -543,30 +543,30 @@ Events:
    4 - 0025
    5 - 0057
    B - 0065
-[0025] (AF) if (!getState08(47)) {
-[0029] (AF)   if (!getState08(124)) {
-[002D] (97)     setState08(207);
-[002F] (42)     startScript(104);
-[0031] (48)     if (Var[13] == 25) {
-[0036] (42)       startScript(15);
+[0025] (AF) if (!getState08(47)) {										// Cassette Tape == Not In Player
+[0029] (AF)   if (!getState08(124)) {									//  Circuit Breaker == Power On
+[002D] (97)     setState08(207);										//   Cassette Player has tape
+[002F] (42)     startScript(104);										//   start Tape Player: Play Tape
+[0031] (48)     if (Var[13] == 25) {									//   Tape Contents == Tentacle Mating Call
+[0036] (42)       startScript(15);										//	  start Cassette: Play, Break Windows/Free Key
 [0038] (**)     }
 [0038] (**)   }
 [0038] (18) } else {
 [003B] (75)   printEgo("There's no tape in the player.");
 [0056] (**) }
 [0056] (00) stopObjectCode();
-[0057] (2F) if (getState08(207)) {
-[005B] (17)   clearState08(207);
-[005D] (3C)   stopSound(25);
+[0057] (2F) if (getState08(207)) {										//   Cassette Player has tape?
+[005B] (17)   clearState08(207);										//    Remove Tape
+[005D] (3C)   stopSound(25);						
 [005F] (3C)   stopSound(44);
-[0061] (20)   stopMusic();
-[0062] (62)   stopScript(15);
+[0061] (20)   stopMusic();												//	  stop music
+[0062] (62)   stopScript(15);											//    stop Cassette: Play, Break Windows/Free Key
 [0064] (**) }
 [0064] (00) stopObjectCode();
-[0065] (64) if (activeObject2 == 156) {
-[0069] (29)   setOwnerOf(156,14);
-[006C] (17)   clearState08(47);
-[006E] (0F)   clearState02(47);
+[0065] (64) if (activeObject2 == 156) {									// Use Cassette Tape with Cassette Player
+[0069] (29)   setOwnerOf(156,14);										// Green Tentacle owns Tape
+[006C] (17)   clearState08(47);											// Tape Hidden
+[006E] (0F)   clearState02(47);											// Tape Hidden
 [0070] (**) }
 [0070] (00) stopObjectCode();
 END
@@ -577,7 +577,7 @@ roomobj-3-273.dmp
 Events:
    9 - 0019
    A - 0019
-[0019] (75) printEgo("I can't budge it.");
+[0019] (75) printEgo("I can't budge it.");								// Push Couch
 [0029] (00) stopObjectCode();
 END
 
@@ -588,20 +588,20 @@ Events:
    1 - 001A
    2 - 001F
    D - 0024
-[001A] (42) startScript(4);
-[001C] (97) setState08(37);
+[001A] (42) startScript(4);												// start Door: Open
+[001C] (97) setState08(37);												// Open Door (in room 10)
 [001E] (00) stopObjectCode();
-[001F] (42) startScript(5);
-[0021] (17) clearState08(37);
+[001F] (42) startScript(5);												// start Door: Close
+[0021] (17) clearState08(37);											// Close Door (in room 10)
 [0023] (00) stopObjectCode();
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(37,10);
+[0024] (6F) if (getState08(activeObject)) {								// If Door Open
+[0027] (E5)   loadRoomWithEgo(37,10);									//  Enter Room 10 at Door
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
 
 
-/** Old Fashioned **/
+/** Old Fashioned Radio **/
 roomobj-3-39.dmp
 Events:
    1 - 002D
@@ -610,26 +610,26 @@ Events:
    5 - 008E
    6 - 0038
    B - 00AC
-[002D] (D7) setState08();
+[002D] (D7) setState08();												// Open Radio
 [002E] (1A) Var[29] = 0;
 [0031] (3C) stopSound(20);
 [0033] (3C) stopSound(29);
 [0035] (00) stopObjectCode();
-[0036] (57) clearState08();
+[0036] (57) clearState08();												// Close Radio
 [0037] (00) stopObjectCode();
-[0038] (64) if (activeObject2 == 40) {
-[003C] (17)   clearState08(40);
-[003E] (0F)   clearState02(40);
-[0040] (29)   setOwnerOf(40,0);
+[0038] (64) if (activeObject2 == 40) {									// Fix Radio with Radio Tube
+[003C] (17)   clearState08(40);											//  Show radio tube
+[003E] (0F)   clearState02(40);											//  Show radio tube
+[0040] (29)   setOwnerOf(40,0);											//  Radio tube has no owner
 [0043] (2F) } else if (getState08(40)) {
 [004A] (75)   printEgo("That doesn't seem to work.");
 [0062] (**) }
 [0062] (00) stopObjectCode();
-[0063] (57) clearState08();
-[0064] (AF) if (!getState08(40)) {
-[0068] (AF)   if (!getState08(124)) {
+[0063] (57) clearState08();												// Close Radio
+[0064] (AF) if (!getState08(40)) {										// Radio Tube 
+[0068] (AF)   if (!getState08(124)) {									// Power is on?
 [006C] (48)     if (Var[29] == 0) {
-[0071] (1A)       Var[29] = 1;
+[0071] (1A)       Var[29] = 1;											// Radio On
 [0074] (1C)       startSound(20);
 [0076] (**)     }
 [0076] (**)   }
@@ -638,16 +638,16 @@ Events:
 [008D] (**) }
 [008D] (00) stopObjectCode();
 [008E] (57) clearState08();
-[008F] (48) if (Var[29] == 0) {
+[008F] (48) if (Var[29] == 0) {											// Radio == Off?
 [0094] (75)   printEgo("It wasn't on.");
 [00A1] (18) } else {
-[00A4] (1A)   Var[29] = 0;
+[00A4] (1A)   Var[29] = 0;												// Radio = Off
 [00A7] (3C)   stopSound(20);
 [00A9] (3C)   stopSound(29);
 [00AB] (**) }
 [00AB] (00) stopObjectCode();
 [00AC] (57) clearState08();
-[00AD] (48) if (Var[29] == 0) {
+[00AD] (48) if (Var[29] == 0) {											// Radio == off
 [00B2] (75)   printEgo("It's not turned on.");
 [00C4] (18) } else {
 [00C7] (1C)   startSound(29);
@@ -661,13 +661,13 @@ roomobj-3-40.dmp
 Events:
    B - 0047
    E - 001E
-[001E] (48) if (VAR_EGO == 5) {
-[0023] (90)   pickupObject(0);
+[001E] (48) if (VAR_EGO == 5) {											// If kid == Bernard
+[0023] (90)   pickupObject(0);											//  Pickup
 [0025] (18) } else {
 [0028] (75)   printEgo("I don't know how this stuff works!");
 [0046] (**) }
 [0046] (00) stopObjectCode();
-[0047] (43) doSentence(6,255,254);
+[0047] (43) doSentence(6,255,254);										// Fix _cmdObject with _cmdObject2
 [004B] (00) stopObjectCode();
 END
 
@@ -689,9 +689,9 @@ roomobj-3-43.dmp
 Events:
    B - 0024
    E - 0021
-[0021] (90) pickupObject(0);
+[0021] (90) pickupObject(0);											// Pickup
 [0023] (00) stopObjectCode();
-[0024] (43) doSentence(11,255,254);
+[0024] (43) doSentence(11,255,254);										// Use _cmdObject with _cmdObject2
 [0028] (00) stopObjectCode();
 END
 
@@ -701,9 +701,9 @@ roomobj-3-44.dmp
 Events:
    1 - 0020
    2 - 0023
-[0020] (42) startScript(4);
+[0020] (42) startScript(4);												// start Door: Open
 [0022] (00) stopObjectCode();
-[0023] (42) startScript(5);
+[0023] (42) startScript(5);												// start Door: Close
 [0025] (00) stopObjectCode();
 END
 
@@ -736,20 +736,20 @@ Events:
    4 - 0043
    5 - 004B
    E - 0023
-[0023] (2F) if (getState08(207)) {
+[0023] (2F) if (getState08(207)) {								// Cassette Player is playing?
 [0027] (75)   printEgo("It's still playing!");
 [003A] (18) } else {
-[003D] (69)   setOwnerOf(156,VAR_EGO);
-[0040] (D7)   setState08();
-[0041] (CF)   setState02();
+[003D] (69)   setOwnerOf(156,VAR_EGO);							// Kid owns Tape
+[0040] (D7)   setState08();										// Taken
+[0041] (CF)   setState02();										// Taken
 [0042] (**) }
 [0042] (00) stopObjectCode();
-[0043] (EF) if (!getState08(activeObject)) {
-[0046] (03)   doSentence(4,207,0);
+[0043] (EF) if (!getState08(activeObject)) {					// Not Locked 
+[0046] (03)   doSentence(4,207,0);								// Turn On Cassette Player
 [004A] (**) }
 [004A] (00) stopObjectCode();
-[004B] (EF) if (!getState08(activeObject)) {
-[004E] (03)   doSentence(5,207,0);
+[004B] (EF) if (!getState08(activeObject)) {					// Not Locked
+[004E] (03)   doSentence(5,207,0);								// Turn Off Cassette Player
 [0052] (**) }
 [0052] (00) stopObjectCode();
 END
@@ -761,14 +761,14 @@ Events:
    1 - 001A
    2 - 001F
    D - 0024
-[001A] (42) startScript(4);
-[001C] (97) setState08(102);
+[001A] (42) startScript(4);										// start Door: Open
+[001C] (97) setState08(102);									// Door Open (other side)
 [001E] (00) stopObjectCode();
-[001F] (42) startScript(5);
-[0021] (17) clearState08(102);
+[001F] (42) startScript(5);										// start Door: Close
+[0021] (17) clearState08(102);									// Door Close (other side)
 [0023] (00) stopObjectCode();
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(102,5);
+[0024] (6F) if (getState08(activeObject)) {						// Door is open? 
+[0027] (E5)   loadRoomWithEgo(102,5);							//	Kid enters Library at Door
 [002A] (**) }
 [002A] (00) stopObjectCode();
 END
