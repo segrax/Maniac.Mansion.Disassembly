@@ -1175,6 +1175,798 @@ Events:
 END
 
 
+
+/**
+ * Room 6: Pool Area
+ */
+
+ 
+/** Door **/
+roomobj-6-104.dmp
+Events:
+   1 - 0020
+   2 - 002D
+   8 - 0032
+   B - 0032
+   D - 004B
+  10 - 0043
+[0020] (DF) if (!getState04(activeObject)) {							// 
+[0023] (42)   startScript(4);
+[0025] (97)   setState08(92);
+[0027] (18) } else {
+[002A] (42)   startScript(64);
+[002C] (**) }
+[002C] (00) stopObjectCode();
+[002D] (42) startScript(5);
+[002F] (17) clearState08(92);
+[0031] (00) stopObjectCode();
+[0032] (64) if (activeObject2 == 125) {
+[0036] (77)   clearState04();
+[0037] (37)   clearState04(92);
+[0039] (03)   doSentence(1,104,0);
+[003D] (18) } else {
+[0040] (42)   startScript(66);
+[0042] (**) }
+[0042] (00) stopObjectCode();
+[0043] (F7) setState04();
+[0044] (B7) setState04(92);
+[0046] (03) doSentence(2,104,0);
+[004A] (00) stopObjectCode();
+[004B] (6F) if (getState08(activeObject)) {
+[004E] (E5)   loadRoomWithEgo(92,36);
+[0051] (**) }
+[0051] (00) stopObjectCode();
+END
+
+
+/** Gate **/
+roomobj-6-105.dmp
+Events:
+   1 - 0030
+   2 - 0037
+   9 - 0037
+   A - 0030
+   D - 001E
+[001E] (6F) if (getState08(activeObject)) {
+[0021] (48)   if (Var[136] == 1) {							// Garage Destroyed?
+[0026] (E5)     loadRoomWithEgo(75,52);
+[0029] (18)   } else {
+[002C] (E5)     loadRoomWithEgo(110,16);
+[002F] (**)   }
+[002F] (**) }
+[002F] (00) stopObjectCode();
+[0030] (42) startScript(4);
+[0032] (97) setState08(110);
+[0034] (97) setState08(75);
+[0036] (00) stopObjectCode();
+[0037] (42) startScript(5);
+[0039] (17) clearState08(110);
+[003B] (17) clearState08(75);
+[003D] (00) stopObjectCode();
+END
+
+
+/** Swimming Pool **/
+roomobj-6-106.dmp
+Events:
+   B - 0059
+   D - 0021
+[0021] (EF) if (!getState08(activeObject)) {								// is Pool Empty?
+[0024] (75)   printEgo("I don't want to get wet!");
+[0039] (18) } else {														// -
+[003C] (75)   printEgo("I'd better use the ladder.");
+[0054] (03)   doSentence(13,139,0);											// Use Ladder Script
+[0058] (**) }
+[0058] (00) stopObjectCode();												// --
+[0059] (EF) if (!getState08(activeObject)) {
+[005C] (64)   if (activeObject2 == 90) {									// if Sponge
+[0060] (1A)     Var[24] = 2;												//  Spong Contents = Radioactive Water
+[0063] (42)     startScript(75);											//  start Sponge: Name
+[0065] (**)   }
+[0065] (64)   if (activeObject2 == 99) {									// if Glass Jar
+[0069] (1A)     Var[22] = 2;												//  Glass Jar Contents = Radioactive Water
+[006C] (42)     startScript(74);											//  start Glass Jar: Name
+[006E] (**)   }
+[006E] (**) }
+[006E] (00) stopObjectCode();
+END
+
+
+/** Radio **/
+roomobj-6-107.dmp
+Events:
+   F - 0017
+[0017] (75) printEgo("I can't reach it.");
+[0027] (00) stopObjectCode();
+END
+
+
+/** Ladder **/
+roomobj-6-139.dmp
+Events:
+   D - 0018
+[0018] (E5) loadRoomWithEgo(138,2);											// Enter Room 2, Bottom of Pool
+[001B] (00) stopObjectCode();
+END
+
+
+/** Ladder **/
+roomobj-6-272.dmp
+Events:
+   D - 0018
+[0018] (75) printEgo("I'M not going down there%/%it's full of water!");
+[0041] (00) stopObjectCode();
+END
+
+
+/** Pool Chair **/
+roomobj-6-323.dmp
+Events:
+   F - 001C
+[001C] (75) printEgo("I can't reach it.");
+[002C] (00) stopObjectCode();
+END
+
+
+/** Old Tree **/
+roomobj-6-324.dmp
+Events:
+END
+
+
+/**
+ * Room 7
+ */
+
+ 
+/** Old Batteries **/
+roomobj-7-100.dmp
+Events:
+   B - 0028
+   E - 0021
+[0021] (90) pickupObject(0);
+[0023] (03) doSentence(13,56,0);
+[0027] (00) stopObjectCode();
+[0028] (64) if (activeObject2 == 51) {											// Flashlight
+[002C] (1A)   Var[31] = 1;
+[002F] (1A)   Var[126] = 60;													// Flashlight Battery Charge
+[0032] (29)   setOwnerOf(100,0);
+[0035] (**) }
+[0035] (00) stopObjectCode();
+END
+
+
+roomobj-7-234.dmp
+Events:
+   1 - 0026
+   B - 0038
+   E - 002F
+[0026] (03) doSentence(1,201,0);
+[002A] (03) doSentence(14,234,0);
+[002E] (00) stopObjectCode();
+[002F] (57) clearState08();
+[0030] (CF) setState02();
+[0031] (69) setOwnerOf(201,VAR_EGO);
+[0034] (3A) Var[66] -= 2;
+[0037] (00) stopObjectCode();
+[0038] (03) doSentence(11,255,254);
+[003C] (42) startScript(76);
+[003E] (00) stopObjectCode();
+END
+
+
+roomobj-7-276.dmp
+Events:
+END
+
+
+roomobj-7-277.dmp
+Events:
+   E - 0022
+[0022] (75) printEgo("They're glued to the wall.");
+[003A] (00) stopObjectCode();
+END
+
+
+roomobj-7-279.dmp
+Events:
+   1 - 003D
+   2 - 003D
+   4 - 003D
+   5 - 003D
+   B - 001F
+[001F] (75) printEgo("I don't think that's a good idea.");
+[003C] (00) stopObjectCode();
+[003D] (75) printEgo("I'd rather use the microwave.");
+[0058] (00) stopObjectCode();
+END
+
+
+roomobj-7-280.dmp
+Events:
+   F - 0017
+[0017] (75) printEgo("Yuck!");
+[001E] (00) stopObjectCode();
+END
+
+
+roomobj-7-48.dmp
+Events:
+   1 - 001A
+   2 - 001F
+   D - 0024
+[001A] (42) startScript(4);
+[001C] (97) setState08(35);
+[001E] (00) stopObjectCode();
+[001F] (42) startScript(5);
+[0021] (17) clearState08(35);
+[0023] (00) stopObjectCode();
+[0024] (6F) if (getState08(activeObject)) {
+[0027] (E5)   loadRoomWithEgo(35,10);
+[002A] (**) }
+[002A] (00) stopObjectCode();
+END
+
+
+roomobj-7-49.dmp
+Events:
+   1 - 001A
+   2 - 001F
+   D - 0024
+[001A] (42) startScript(4);
+[001C] (97) setState08(62);
+[001E] (00) stopObjectCode();
+[001F] (42) startScript(5);
+[0021] (17) clearState08(62);
+[0023] (00) stopObjectCode();
+[0024] (6F) if (getState08(activeObject)) {
+[0027] (E5)   loadRoomWithEgo(62,37);
+[002A] (**) }
+[002A] (00) stopObjectCode();
+END
+
+
+roomobj-7-50.dmp
+Events:
+   E - 002A
+[002A] (68) VAR_RESULT = isScriptRunning(55);
+[002D] (48) if (VAR_RESULT == 1) {
+[0032] (75)   printEgo("Ouch! It's still too hot!");
+[0049] (18) } else {
+[004C] (57)   clearState08();
+[004D] (CF)   setState02();
+[004E] (69)   setOwnerOf(99,VAR_EGO);
+[0051] (3A)   Var[66] -= 4;
+[0054] (**) }
+[0054] (00) stopObjectCode();
+END
+
+
+roomobj-7-51.dmp
+Events:
+   3 - 0065
+   4 - 002B
+   5 - 0053
+   B - 0060
+   E - 0028
+[0028] (90) pickupObject(0);
+[002A] (00) stopObjectCode();
+[002B] (38) if (Var[31] >= 1) {
+[0030] (1A)   Var[12] = 1;
+[0033] (42)   startScript(77);
+[0035] (48)   if (Var[31] == 1) {
+[003A] (42)     startScript(145);
+[003C] (**)   }
+[003C] (18) } else {
+[003F] (75)   printEgo("It needs batteries.");
+[0052] (**) }
+[0052] (00) stopObjectCode();
+[0053] (38) if (Var[31] >= 1) {
+[0058] (1A)   Var[12] = 0;
+[005B] (42)   startScript(77);
+[005D] (62)   stopScript(145);
+[005F] (**) }
+[005F] (00) stopObjectCode();
+[0060] (43) doSentence(11,255,254);
+[0064] (00) stopObjectCode();
+[0065] (78) if (VAR_ACTIVE_ACTOR < 8) {
+[006A] (03)   doSentence(5,51,0);
+[006E] (69)   setOwnerOf(0,VAR_ACTIVE_ACTOR);
+[0071] (**) }
+[0071] (00) stopObjectCode();
+END
+
+
+roomobj-7-52.dmp
+Events:
+   1 - 0028
+   2 - 0074
+   4 - 0082
+   5 - 0085
+   B - 007F
+[0028] (EF) if (!getState08(activeObject)) {
+[002B] (62)   stopScript(11);
+[002D] (62)   stopScript(53);
+[002F] (42)   startScript(4);
+[0031] (2F)   if (getState08(54)) {
+[0035] (0F)     clearState02(54);
+[0037] (**)   }
+[0037] (2F)   if (getState08(53)) {
+[003B] (0F)     clearState02(53);
+[003D] (**)   }
+[003D] (2F)   if (getState08(50)) {
+[0041] (0F)     clearState02(50);
+[0043] (48)     if (Var[22] == 4) {						// Glass Jar Contents == 
+[0048] (75)       printEgo("Argh! What a smell!!");
+[005B] (**)     }
+[005B] (48)     if (Var[22] == 2) {						// Glass Jar Contents == Water
+[0060] (68)       VAR_RESULT = isScriptRunning(55);
+[0063] (48)       if (VAR_RESULT == 1) {
+[0068] (1A)         Var[76] = 1;
+[006B] (42)         startScript(56);											// Cutscene: Kid Dies
+[006D] (**)       }
+[006D] (**)     }
+[006D] (**)   }
+[006D] (2F)   if (getState08(234)) {
+[0071] (0F)     clearState02(234);
+[0073] (**)   }
+[0073] (**) }
+[0073] (00) stopObjectCode();
+[0074] (42) startScript(5);
+[0076] (8F) setState02(54);
+[0078] (8F) setState02(53);
+[007A] (8F) setState02(50);
+[007C] (8F) setState02(234);
+[007E] (00) stopObjectCode();
+[007F] (42) startScript(54);
+[0081] (00) stopObjectCode();
+[0082] (42) startScript(69);
+[0084] (00) stopObjectCode();
+[0085] (62) stopScript(11);
+[0087] (62) stopScript(53);
+[0089] (2F) if (getState08(54)) {
+[008D] (75)   printEgo("I think it's too late!");
+[00A1] (**) }
+[00A1] (00) stopObjectCode();
+END
+
+
+roomobj-7-53.dmp
+Events:
+   E - 0019
+[0019] (57) clearState08();
+[001A] (CF) setState02();
+[001B] (69) setOwnerOf(1,VAR_EGO);
+[001E] (1A) Var[66] = 0;
+[0021] (00) stopObjectCode();
+END
+
+
+roomobj-7-54.dmp
+Events:
+   3 - 0062
+   E - 0024
+[0024] (04) if (VAR_EGO <= 2) {
+[0029] (75)   printEgo("Yum! Should I take white or dark meat?");
+[004A] (18) } else {
+[004D] (75)   printEgo("How gross!");
+[0058] (**) }
+[0058] (90) pickupObject(0);
+[005A] (17) clearState08(54);
+[005C] (8F) setState02(54);
+[005E] (1A) Var[66] = 0;
+[0061] (00) stopObjectCode();
+[0062] (42) startScript(98);
+[0064] (48) if (VAR_ACTIVE_ACTOR == 11) {
+[0069] (1A)   Var[76] = 3;
+[006C] (42)   startScript(56);											// Cutscene: Kid Dies
+[006E] (**) }
+[006E] (00) stopObjectCode();
+END
+
+
+roomobj-7-55.dmp
+Events:
+   4 - 001C
+   5 - 0020
+   B - 0024
+[001C] (57) clearState08();
+[001D] (1C) startSound(17);
+[001F] (00) stopObjectCode();
+[0020] (D7) setState08();
+[0021] (3C) stopSound(17);
+[0023] (00) stopObjectCode();
+[0024] (EF) if (!getState08(activeObject)) {
+[0027] (42)   startScript(73);
+[0029] (42)   startScript(76);
+[002B] (**) }
+[002B] (00) stopObjectCode();
+END
+
+
+roomobj-7-56.dmp
+Events:
+   1 - 0024
+   2 - 0034
+   9 - 0034
+   A - 0024
+[0024] (42) startScript(4);
+[0026] (48) if (Var[128] == 0) {
+[002B] (1A)   Var[128] = 1;
+[002E] (1A)   Var[127] = 2;
+[0031] (42)   startScript(82);
+[0033] (**) }
+[0033] (00) stopObjectCode();
+[0034] (42) startScript(5);
+[0036] (00) stopObjectCode();
+END
+
+
+roomobj-7-57.dmp
+Events:
+   3 - 0021
+   E - 001A
+[001A] (90) pickupObject(0);
+[001C] (03) doSentence(13,56,0);
+[0020] (00) stopObjectCode();
+[0021] (42) startScript(98);
+[0023] (00) stopObjectCode();
+END
+
+
+roomobj-7-58.dmp
+Events:
+   3 - 0022
+   E - 001B
+[001B] (90) pickupObject(0);
+[001D] (03) doSentence(13,56,0);
+[0021] (00) stopObjectCode();
+[0022] (42) startScript(98);
+[0024] (00) stopObjectCode();
+END
+
+
+roomobj-7-59.dmp
+Events:
+   3 - 0034
+   E - 002D
+[002D] (90) pickupObject(0);
+[002F] (03) doSentence(13,56,0);
+[0033] (00) stopObjectCode();
+[0034] (42) startScript(98);
+[0036] (00) stopObjectCode();
+END
+
+
+roomobj-7-60.dmp
+Events:
+   3 - 0047
+   B - 0042
+   C - 002B
+   E - 0024
+[0024] (90) pickupObject(0);
+[0026] (03) doSentence(13,56,0);
+[002A] (00) stopObjectCode();
+[002B] (75) printEgo("12 fluid ounces (354 ml)");
+[0041] (00) stopObjectCode();
+[0042] (43) doSentence(11,255,254);
+[0046] (00) stopObjectCode();
+[0047] (48) if (VAR_ACTIVE_ACTOR == 19) {
+[004C] (42)   startScript(48);
+[004E] (44) } else if (VAR_ACTIVE_ACTOR > 8) {
+[0056] (94)   print(VAR_ACTIVE_ACTOR,"No thanks, it makes me burp.");
+[0070] (18) } else {
+[0073] (42)   startScript(99);
+[0075] (**) }
+[0075] (00) stopObjectCode();
+END
+
+
+roomobj-7-61.dmp
+Events:
+   4 - 0021
+   B - 0021
+   E - 001E
+[001E] (90) pickupObject(0);
+[0020] (00) stopObjectCode();
+[0021] (75) printEgo("I think it's out of gas.");
+[0036] (48) if (VAR_EGO == 1) {
+[003B] (75)   printEgo("Let's go find some gas!");
+[0050] (**) }
+[0050] (00) stopObjectCode();
+END
+
+
+/**
+ * Room 8
+ */
+ 
+roomobj-8-121.dmp
+Events:
+   D - 0018
+[0018] (E5) loadRoomWithEgo(36,10);
+[001B] (00) stopObjectCode();
+END
+
+
+roomobj-8-122.dmp
+Events:
+   1 - 0020
+   2 - 0026
+   8 - 0029
+   B - 0029
+   D - 0037
+  10 - 0026
+[0020] (EF) if (!getState08(activeObject)) {
+[0023] (42)   startScript(64);
+[0025] (**) }
+[0025] (00) stopObjectCode();
+[0026] (42) startScript(51);
+[0028] (00) stopObjectCode();
+[0029] (64) if (activeObject2 == 43) {
+[002D] (42)   startScript(4);
+[002F] (97)   setState08(126);
+[0031] (18) } else {
+[0034] (42)   startScript(66);
+[0036] (**) }
+[0036] (00) stopObjectCode();
+[0037] (6F) if (getState08(activeObject)) {
+[003A] (03)   doSentence(2,122,0);
+[003E] (E5)   loadRoomWithEgo(126,4);
+[0041] (**) }
+[0041] (00) stopObjectCode();
+END
+
+
+roomobj-8-123.dmp
+Events:
+   1 - 001C
+   2 - 0020
+[001C] (D7) setState08();
+[001D] (1C) startSound(8);
+[001F] (00) stopObjectCode();
+[0020] (57) clearState08();
+[0021] (00) stopObjectCode();
+END
+
+
+roomobj-8-124.dmp
+Events:
+   2 - 006D
+   4 - 0028
+   5 - 0044
+   C - 0070
+[0028] (68) VAR_RESULT = isScriptRunning(138);
+[002B] (48) if (VAR_RESULT == 1) {
+[0030] (1C)   startSound(12);
+[0032] (6F) } else if (getState08(activeObject)) {
+[0038] (57)   clearState08();
+[0039] (1C)   startSound(12);
+[003B] (42)   startScript(50);
+[003D] (AF)   if (!getState08(106)) {
+[0041] (42)     startScript(7);
+[0043] (**)   }
+[0043] (**) }
+[0043] (00) stopObjectCode();
+[0044] (EF) if (!getState08(activeObject)) {
+[0047] (62)   stopScript(138);
+[0049] (D7)   setState08();
+[004A] (1C)   startSound(12);
+[004C] (42)   startScript(50);
+[004E] (42)   startScript(6);
+[0050] (62)   stopScript(138);
+[0052] (1A)   Var[29] = 0;
+[0055] (17)   clearState08(207);
+[0057] (17)   clearState08(157);
+[0059] (17)   clearState08(158);
+[005B] (17)   clearState08(131);
+[005D] (62)   stopScript(15);
+[005F] (17)   clearState08(169);
+[0061] (17)   clearState08(170);
+[0063] (17)   clearState08(171);
+[0065] (17)   clearState08(172);
+[0067] (17)   clearState08(174);
+[0069] (1A)   Var[28] = 0;
+[006C] (**) }
+[006C] (00) stopObjectCode();
+[006D] (17) clearState08(123);
+[006F] (00) stopObjectCode();
+[0070] (75) printEgo("MAIN POWER");
+[007B] (00) stopObjectCode();
+END
+
+
+roomobj-8-125.dmp
+Events:
+   B - 0021
+   E - 001E
+[001E] (90) pickupObject(0);
+[0020] (00) stopObjectCode();
+[0021] (43) doSentence(11,255,254);
+[0025] (00) stopObjectCode();
+END
+
+
+roomobj-8-325.dmp
+Events:
+   4 - 0020
+   5 - 0029
+[0020] (1C) startSound(12);
+[0022] (9D) setBitVar(4,VAR_RESULT,0);
+[0026] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0028] (00) stopObjectCode();
+[0029] (1C) startSound(12);
+[002B] (9D) setBitVar(4,VAR_RESULT,1);
+[002F] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0031] (00) stopObjectCode();
+END
+
+
+roomobj-8-337.dmp
+Events:
+   F - 0023
+[0023] (75) printEgo("Yuck! I'm not touching that!");
+[003D] (00) stopObjectCode();
+END
+
+
+roomobj-8-338.dmp
+Events:
+   D - 001B
+   F - 001C
+[001B] (00) stopObjectCode();
+[001C] (75) printEgo("It's too hot!");
+[0029] (00) stopObjectCode();
+END
+
+
+roomobj-8-339.dmp
+Events:
+   5 - 0028
+   C - 0046
+   D - 0027
+   F - 0058
+[0027] (00) stopObjectCode();
+[0028] (75) printEgo("I don't want to start a melt down!");
+[0045] (00) stopObjectCode();
+[0046] (75) printEgo("Made in Chernobyl");
+[0057] (00) stopObjectCode();
+[0058] (75) printEgo("It's too hot!");
+[0065] (00) stopObjectCode();
+END
+
+
+/**
+ * Room 9
+ */
+ 
+roomobj-9-196.dmp
+Events:
+   1 - 001F
+   2 - 0022
+   A - 0025
+   D - 0030
+   E - 001F
+[001F] (42) startScript(4);
+[0021] (00) stopObjectCode();
+[0022] (42) startScript(5);
+[0024] (00) stopObjectCode();
+[0025] (6F) if (getState08(activeObject)) {
+[0028] (42)   startScript(5);
+[002A] (18) } else {
+[002D] (42)   startScript(4);
+[002F] (**) }
+[002F] (00) stopObjectCode();
+[0030] (6F) if (getState08(activeObject)) {
+[0033] (48)   if (Var[109] == 0) {
+[0038] (48)     if (Var[17] == 0) {
+[003D] (2D)       putActorInRoom(10,19);
+[0040] (01)       putActor(10,34,64);
+[0044] (11)       animateActor(10,6,1);
+[0048] (42)       startScript(33);
+[004A] (**)     }
+[004A] (**)   }
+[004A] (E5)   loadRoomWithEgo(210,19);
+[004D] (**) }
+[004D] (00) stopObjectCode();
+END
+
+
+roomobj-9-197.dmp
+Events:
+   1 - 001E
+   2 - 0021
+   A - 001E
+[001E] (42) startScript(4);
+[0020] (00) stopObjectCode();
+[0021] (42) startScript(5);
+[0023] (17) clearState08(198);
+[0025] (00) stopObjectCode();
+END
+
+
+roomobj-9-198.dmp
+Events:
+   1 - 001F
+   2 - 0025
+   B - 001F
+[001F] (EF) if (!getState08(activeObject)) {
+[0022] (42)   startScript(39);
+[0024] (**) }
+[0024] (00) stopObjectCode();
+[0025] (42) startScript(5);
+[0027] (17) clearState08(197);
+[0029] (00) stopObjectCode();
+END
+
+
+roomobj-9-200.dmp
+Events:
+   B - 0019
+[0019] (83) doSentence(11,255,254);
+[001D] (00) stopObjectCode();
+END
+
+
+roomobj-9-201.dmp
+Events:
+   1 - 003D
+   B - 003A
+   C - 004F
+   E - 0032
+[0032] (90) pickupObject(0);
+[0034] (90) pickupObject(200);
+[0036] (29) setOwnerOf(200,14);
+[0039] (00) stopObjectCode();
+[003A] (42) startScript(81);
+[003C] (00) stopObjectCode();
+[003D] (AF) if (!getState08(201)) {
+[0041] (03)   doSentence(1,201,0);
+[0045] (03)   doSentence(14,201,0);
+[0049] (18) } else {
+[004C] (42)   startScript(80);
+[004E] (**) }
+[004E] (00) stopObjectCode();
+[004F] (48) if (Var[85] == 0) {
+[0054] (75)   printEgo("It's a blank envelope.");
+[0069] (18) } else {
+[006C] (75)   printEgo("It's addressed to: 222 Skyscraper Way.");
+[008F] (**) }
+[008F] (00) stopObjectCode();
+END
+
+
+roomobj-9-293.dmp
+Events:
+   4 - 001B
+   5 - 0024
+   A - 002D
+[001B] (1C) startSound(12);
+[001D] (9D) setBitVar(4,VAR_RESULT,0);
+[0021] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0023] (00) stopObjectCode();
+[0024] (1C) startSound(12);
+[0026] (9D) setBitVar(4,VAR_RESULT,1);
+[002A] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[002C] (00) stopObjectCode();
+[002D] (B1) VAR_RESULT = getBitVar(VAR_ROOM,1);
+[0031] (48) if (VAR_RESULT == 0) {
+[0036] (83)   doSentence(5,37,0);
+[003A] (18) } else {
+[003D] (83)   doSentence(4,37,0);
+[0041] (**) }
+[0041] (00) stopObjectCode();
+END
+
+
+roomobj-9-414.dmp
+Events:
+   C - 0021
+[0021] (75) printEgo("It's too tiny to read!");
+[0035] (00) stopObjectCode();
+END
+
+
 /**
  * Room 10: Main Entry
  */
@@ -5591,784 +6383,4 @@ Events:
 [003D] (E5)   loadRoomWithEgo(105,6);
 [0040] (**) }
 [0040] (00) stopObjectCode();
-END
-
-
-/**
- * Room 6
- */
- 
-roomobj-6-104.dmp
-Events:
-   1 - 0020
-   2 - 002D
-   8 - 0032
-   B - 0032
-   D - 004B
-  10 - 0043
-[0020] (DF) if (!getState04(activeObject)) {
-[0023] (42)   startScript(4);
-[0025] (97)   setState08(92);
-[0027] (18) } else {
-[002A] (42)   startScript(64);
-[002C] (**) }
-[002C] (00) stopObjectCode();
-[002D] (42) startScript(5);
-[002F] (17) clearState08(92);
-[0031] (00) stopObjectCode();
-[0032] (64) if (activeObject2 == 125) {
-[0036] (77)   clearState04();
-[0037] (37)   clearState04(92);
-[0039] (03)   doSentence(1,104,0);
-[003D] (18) } else {
-[0040] (42)   startScript(66);
-[0042] (**) }
-[0042] (00) stopObjectCode();
-[0043] (F7) setState04();
-[0044] (B7) setState04(92);
-[0046] (03) doSentence(2,104,0);
-[004A] (00) stopObjectCode();
-[004B] (6F) if (getState08(activeObject)) {
-[004E] (E5)   loadRoomWithEgo(92,36);
-[0051] (**) }
-[0051] (00) stopObjectCode();
-END
-
-
-roomobj-6-105.dmp
-Events:
-   1 - 0030
-   2 - 0037
-   9 - 0037
-   A - 0030
-   D - 001E
-[001E] (6F) if (getState08(activeObject)) {
-[0021] (48)   if (Var[136] == 1) {							// Garage Destroyed?
-[0026] (E5)     loadRoomWithEgo(75,52);
-[0029] (18)   } else {
-[002C] (E5)     loadRoomWithEgo(110,16);
-[002F] (**)   }
-[002F] (**) }
-[002F] (00) stopObjectCode();
-[0030] (42) startScript(4);
-[0032] (97) setState08(110);
-[0034] (97) setState08(75);
-[0036] (00) stopObjectCode();
-[0037] (42) startScript(5);
-[0039] (17) clearState08(110);
-[003B] (17) clearState08(75);
-[003D] (00) stopObjectCode();
-END
-
-
-roomobj-6-106.dmp
-Events:
-   B - 0059
-   D - 0021
-[0021] (EF) if (!getState08(activeObject)) {								// is Pool Empty?
-[0024] (75)   printEgo("I don't want to get wet!");
-[0039] (18) } else {
-[003C] (75)   printEgo("I'd better use the ladder.");
-[0054] (03)   doSentence(13,139,0);											// Use Ladder Script
-[0058] (**) }
-[0058] (00) stopObjectCode();
-[0059] (EF) if (!getState08(activeObject)) {
-[005C] (64)   if (activeObject2 == 90) {									// if Sponge
-[0060] (1A)     Var[24] = 2;												//  Spong Contents = Radioactive Water
-[0063] (42)     startScript(75);											//  start Sponge: Name
-[0065] (**)   }
-[0065] (64)   if (activeObject2 == 99) {									// if Glass Jar
-[0069] (1A)     Var[22] = 2;												//  Glass Jar Contents = Radioactive Water
-[006C] (42)     startScript(74);											//  start Glass Jar: Name
-[006E] (**)   }
-[006E] (**) }
-[006E] (00) stopObjectCode();
-END
-
-
-roomobj-6-107.dmp
-Events:
-   F - 0017
-[0017] (75) printEgo("I can't reach it.");
-[0027] (00) stopObjectCode();
-END
-
-
-roomobj-6-139.dmp
-Events:
-   D - 0018
-[0018] (E5) loadRoomWithEgo(138,2);											// Enter Room 2, Bottom of Pool
-[001B] (00) stopObjectCode();
-END
-
-
-roomobj-6-272.dmp
-Events:
-   D - 0018
-[0018] (75) printEgo("I'M not going down there%/%it's full of water!");
-[0041] (00) stopObjectCode();
-END
-
-
-roomobj-6-323.dmp
-Events:
-   F - 001C
-[001C] (75) printEgo("I can't reach it.");
-[002C] (00) stopObjectCode();
-END
-
-
-roomobj-6-324.dmp
-Events:
-END
-
-
-/**
- * Room 7
- */
- 
-roomobj-7-100.dmp
-Events:
-   B - 0028
-   E - 0021
-[0021] (90) pickupObject(0);
-[0023] (03) doSentence(13,56,0);
-[0027] (00) stopObjectCode();
-[0028] (64) if (activeObject2 == 51) {											// Flashlight
-[002C] (1A)   Var[31] = 1;
-[002F] (1A)   Var[126] = 60;													// Flashlight Battery Charge
-[0032] (29)   setOwnerOf(100,0);
-[0035] (**) }
-[0035] (00) stopObjectCode();
-END
-
-
-roomobj-7-234.dmp
-Events:
-   1 - 0026
-   B - 0038
-   E - 002F
-[0026] (03) doSentence(1,201,0);
-[002A] (03) doSentence(14,234,0);
-[002E] (00) stopObjectCode();
-[002F] (57) clearState08();
-[0030] (CF) setState02();
-[0031] (69) setOwnerOf(201,VAR_EGO);
-[0034] (3A) Var[66] -= 2;
-[0037] (00) stopObjectCode();
-[0038] (03) doSentence(11,255,254);
-[003C] (42) startScript(76);
-[003E] (00) stopObjectCode();
-END
-
-
-roomobj-7-276.dmp
-Events:
-END
-
-
-roomobj-7-277.dmp
-Events:
-   E - 0022
-[0022] (75) printEgo("They're glued to the wall.");
-[003A] (00) stopObjectCode();
-END
-
-
-roomobj-7-279.dmp
-Events:
-   1 - 003D
-   2 - 003D
-   4 - 003D
-   5 - 003D
-   B - 001F
-[001F] (75) printEgo("I don't think that's a good idea.");
-[003C] (00) stopObjectCode();
-[003D] (75) printEgo("I'd rather use the microwave.");
-[0058] (00) stopObjectCode();
-END
-
-
-roomobj-7-280.dmp
-Events:
-   F - 0017
-[0017] (75) printEgo("Yuck!");
-[001E] (00) stopObjectCode();
-END
-
-
-roomobj-7-48.dmp
-Events:
-   1 - 001A
-   2 - 001F
-   D - 0024
-[001A] (42) startScript(4);
-[001C] (97) setState08(35);
-[001E] (00) stopObjectCode();
-[001F] (42) startScript(5);
-[0021] (17) clearState08(35);
-[0023] (00) stopObjectCode();
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(35,10);
-[002A] (**) }
-[002A] (00) stopObjectCode();
-END
-
-
-roomobj-7-49.dmp
-Events:
-   1 - 001A
-   2 - 001F
-   D - 0024
-[001A] (42) startScript(4);
-[001C] (97) setState08(62);
-[001E] (00) stopObjectCode();
-[001F] (42) startScript(5);
-[0021] (17) clearState08(62);
-[0023] (00) stopObjectCode();
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(62,37);
-[002A] (**) }
-[002A] (00) stopObjectCode();
-END
-
-
-roomobj-7-50.dmp
-Events:
-   E - 002A
-[002A] (68) VAR_RESULT = isScriptRunning(55);
-[002D] (48) if (VAR_RESULT == 1) {
-[0032] (75)   printEgo("Ouch! It's still too hot!");
-[0049] (18) } else {
-[004C] (57)   clearState08();
-[004D] (CF)   setState02();
-[004E] (69)   setOwnerOf(99,VAR_EGO);
-[0051] (3A)   Var[66] -= 4;
-[0054] (**) }
-[0054] (00) stopObjectCode();
-END
-
-
-roomobj-7-51.dmp
-Events:
-   3 - 0065
-   4 - 002B
-   5 - 0053
-   B - 0060
-   E - 0028
-[0028] (90) pickupObject(0);
-[002A] (00) stopObjectCode();
-[002B] (38) if (Var[31] >= 1) {
-[0030] (1A)   Var[12] = 1;
-[0033] (42)   startScript(77);
-[0035] (48)   if (Var[31] == 1) {
-[003A] (42)     startScript(145);
-[003C] (**)   }
-[003C] (18) } else {
-[003F] (75)   printEgo("It needs batteries.");
-[0052] (**) }
-[0052] (00) stopObjectCode();
-[0053] (38) if (Var[31] >= 1) {
-[0058] (1A)   Var[12] = 0;
-[005B] (42)   startScript(77);
-[005D] (62)   stopScript(145);
-[005F] (**) }
-[005F] (00) stopObjectCode();
-[0060] (43) doSentence(11,255,254);
-[0064] (00) stopObjectCode();
-[0065] (78) if (VAR_ACTIVE_ACTOR < 8) {
-[006A] (03)   doSentence(5,51,0);
-[006E] (69)   setOwnerOf(0,VAR_ACTIVE_ACTOR);
-[0071] (**) }
-[0071] (00) stopObjectCode();
-END
-
-
-roomobj-7-52.dmp
-Events:
-   1 - 0028
-   2 - 0074
-   4 - 0082
-   5 - 0085
-   B - 007F
-[0028] (EF) if (!getState08(activeObject)) {
-[002B] (62)   stopScript(11);
-[002D] (62)   stopScript(53);
-[002F] (42)   startScript(4);
-[0031] (2F)   if (getState08(54)) {
-[0035] (0F)     clearState02(54);
-[0037] (**)   }
-[0037] (2F)   if (getState08(53)) {
-[003B] (0F)     clearState02(53);
-[003D] (**)   }
-[003D] (2F)   if (getState08(50)) {
-[0041] (0F)     clearState02(50);
-[0043] (48)     if (Var[22] == 4) {						// Glass Jar Contents == 
-[0048] (75)       printEgo("Argh! What a smell!!");
-[005B] (**)     }
-[005B] (48)     if (Var[22] == 2) {						// Glass Jar Contents == Water
-[0060] (68)       VAR_RESULT = isScriptRunning(55);
-[0063] (48)       if (VAR_RESULT == 1) {
-[0068] (1A)         Var[76] = 1;
-[006B] (42)         startScript(56);											// Cutscene: Kid Dies
-[006D] (**)       }
-[006D] (**)     }
-[006D] (**)   }
-[006D] (2F)   if (getState08(234)) {
-[0071] (0F)     clearState02(234);
-[0073] (**)   }
-[0073] (**) }
-[0073] (00) stopObjectCode();
-[0074] (42) startScript(5);
-[0076] (8F) setState02(54);
-[0078] (8F) setState02(53);
-[007A] (8F) setState02(50);
-[007C] (8F) setState02(234);
-[007E] (00) stopObjectCode();
-[007F] (42) startScript(54);
-[0081] (00) stopObjectCode();
-[0082] (42) startScript(69);
-[0084] (00) stopObjectCode();
-[0085] (62) stopScript(11);
-[0087] (62) stopScript(53);
-[0089] (2F) if (getState08(54)) {
-[008D] (75)   printEgo("I think it's too late!");
-[00A1] (**) }
-[00A1] (00) stopObjectCode();
-END
-
-
-roomobj-7-53.dmp
-Events:
-   E - 0019
-[0019] (57) clearState08();
-[001A] (CF) setState02();
-[001B] (69) setOwnerOf(1,VAR_EGO);
-[001E] (1A) Var[66] = 0;
-[0021] (00) stopObjectCode();
-END
-
-
-roomobj-7-54.dmp
-Events:
-   3 - 0062
-   E - 0024
-[0024] (04) if (VAR_EGO <= 2) {
-[0029] (75)   printEgo("Yum! Should I take white or dark meat?");
-[004A] (18) } else {
-[004D] (75)   printEgo("How gross!");
-[0058] (**) }
-[0058] (90) pickupObject(0);
-[005A] (17) clearState08(54);
-[005C] (8F) setState02(54);
-[005E] (1A) Var[66] = 0;
-[0061] (00) stopObjectCode();
-[0062] (42) startScript(98);
-[0064] (48) if (VAR_ACTIVE_ACTOR == 11) {
-[0069] (1A)   Var[76] = 3;
-[006C] (42)   startScript(56);											// Cutscene: Kid Dies
-[006E] (**) }
-[006E] (00) stopObjectCode();
-END
-
-
-roomobj-7-55.dmp
-Events:
-   4 - 001C
-   5 - 0020
-   B - 0024
-[001C] (57) clearState08();
-[001D] (1C) startSound(17);
-[001F] (00) stopObjectCode();
-[0020] (D7) setState08();
-[0021] (3C) stopSound(17);
-[0023] (00) stopObjectCode();
-[0024] (EF) if (!getState08(activeObject)) {
-[0027] (42)   startScript(73);
-[0029] (42)   startScript(76);
-[002B] (**) }
-[002B] (00) stopObjectCode();
-END
-
-
-roomobj-7-56.dmp
-Events:
-   1 - 0024
-   2 - 0034
-   9 - 0034
-   A - 0024
-[0024] (42) startScript(4);
-[0026] (48) if (Var[128] == 0) {
-[002B] (1A)   Var[128] = 1;
-[002E] (1A)   Var[127] = 2;
-[0031] (42)   startScript(82);
-[0033] (**) }
-[0033] (00) stopObjectCode();
-[0034] (42) startScript(5);
-[0036] (00) stopObjectCode();
-END
-
-
-roomobj-7-57.dmp
-Events:
-   3 - 0021
-   E - 001A
-[001A] (90) pickupObject(0);
-[001C] (03) doSentence(13,56,0);
-[0020] (00) stopObjectCode();
-[0021] (42) startScript(98);
-[0023] (00) stopObjectCode();
-END
-
-
-roomobj-7-58.dmp
-Events:
-   3 - 0022
-   E - 001B
-[001B] (90) pickupObject(0);
-[001D] (03) doSentence(13,56,0);
-[0021] (00) stopObjectCode();
-[0022] (42) startScript(98);
-[0024] (00) stopObjectCode();
-END
-
-
-roomobj-7-59.dmp
-Events:
-   3 - 0034
-   E - 002D
-[002D] (90) pickupObject(0);
-[002F] (03) doSentence(13,56,0);
-[0033] (00) stopObjectCode();
-[0034] (42) startScript(98);
-[0036] (00) stopObjectCode();
-END
-
-
-roomobj-7-60.dmp
-Events:
-   3 - 0047
-   B - 0042
-   C - 002B
-   E - 0024
-[0024] (90) pickupObject(0);
-[0026] (03) doSentence(13,56,0);
-[002A] (00) stopObjectCode();
-[002B] (75) printEgo("12 fluid ounces (354 ml)");
-[0041] (00) stopObjectCode();
-[0042] (43) doSentence(11,255,254);
-[0046] (00) stopObjectCode();
-[0047] (48) if (VAR_ACTIVE_ACTOR == 19) {
-[004C] (42)   startScript(48);
-[004E] (44) } else if (VAR_ACTIVE_ACTOR > 8) {
-[0056] (94)   print(VAR_ACTIVE_ACTOR,"No thanks, it makes me burp.");
-[0070] (18) } else {
-[0073] (42)   startScript(99);
-[0075] (**) }
-[0075] (00) stopObjectCode();
-END
-
-
-roomobj-7-61.dmp
-Events:
-   4 - 0021
-   B - 0021
-   E - 001E
-[001E] (90) pickupObject(0);
-[0020] (00) stopObjectCode();
-[0021] (75) printEgo("I think it's out of gas.");
-[0036] (48) if (VAR_EGO == 1) {
-[003B] (75)   printEgo("Let's go find some gas!");
-[0050] (**) }
-[0050] (00) stopObjectCode();
-END
-
-
-/**
- * Room 8
- */
- 
-roomobj-8-121.dmp
-Events:
-   D - 0018
-[0018] (E5) loadRoomWithEgo(36,10);
-[001B] (00) stopObjectCode();
-END
-
-
-roomobj-8-122.dmp
-Events:
-   1 - 0020
-   2 - 0026
-   8 - 0029
-   B - 0029
-   D - 0037
-  10 - 0026
-[0020] (EF) if (!getState08(activeObject)) {
-[0023] (42)   startScript(64);
-[0025] (**) }
-[0025] (00) stopObjectCode();
-[0026] (42) startScript(51);
-[0028] (00) stopObjectCode();
-[0029] (64) if (activeObject2 == 43) {
-[002D] (42)   startScript(4);
-[002F] (97)   setState08(126);
-[0031] (18) } else {
-[0034] (42)   startScript(66);
-[0036] (**) }
-[0036] (00) stopObjectCode();
-[0037] (6F) if (getState08(activeObject)) {
-[003A] (03)   doSentence(2,122,0);
-[003E] (E5)   loadRoomWithEgo(126,4);
-[0041] (**) }
-[0041] (00) stopObjectCode();
-END
-
-
-roomobj-8-123.dmp
-Events:
-   1 - 001C
-   2 - 0020
-[001C] (D7) setState08();
-[001D] (1C) startSound(8);
-[001F] (00) stopObjectCode();
-[0020] (57) clearState08();
-[0021] (00) stopObjectCode();
-END
-
-
-roomobj-8-124.dmp
-Events:
-   2 - 006D
-   4 - 0028
-   5 - 0044
-   C - 0070
-[0028] (68) VAR_RESULT = isScriptRunning(138);
-[002B] (48) if (VAR_RESULT == 1) {
-[0030] (1C)   startSound(12);
-[0032] (6F) } else if (getState08(activeObject)) {
-[0038] (57)   clearState08();
-[0039] (1C)   startSound(12);
-[003B] (42)   startScript(50);
-[003D] (AF)   if (!getState08(106)) {
-[0041] (42)     startScript(7);
-[0043] (**)   }
-[0043] (**) }
-[0043] (00) stopObjectCode();
-[0044] (EF) if (!getState08(activeObject)) {
-[0047] (62)   stopScript(138);
-[0049] (D7)   setState08();
-[004A] (1C)   startSound(12);
-[004C] (42)   startScript(50);
-[004E] (42)   startScript(6);
-[0050] (62)   stopScript(138);
-[0052] (1A)   Var[29] = 0;
-[0055] (17)   clearState08(207);
-[0057] (17)   clearState08(157);
-[0059] (17)   clearState08(158);
-[005B] (17)   clearState08(131);
-[005D] (62)   stopScript(15);
-[005F] (17)   clearState08(169);
-[0061] (17)   clearState08(170);
-[0063] (17)   clearState08(171);
-[0065] (17)   clearState08(172);
-[0067] (17)   clearState08(174);
-[0069] (1A)   Var[28] = 0;
-[006C] (**) }
-[006C] (00) stopObjectCode();
-[006D] (17) clearState08(123);
-[006F] (00) stopObjectCode();
-[0070] (75) printEgo("MAIN POWER");
-[007B] (00) stopObjectCode();
-END
-
-
-roomobj-8-125.dmp
-Events:
-   B - 0021
-   E - 001E
-[001E] (90) pickupObject(0);
-[0020] (00) stopObjectCode();
-[0021] (43) doSentence(11,255,254);
-[0025] (00) stopObjectCode();
-END
-
-
-roomobj-8-325.dmp
-Events:
-   4 - 0020
-   5 - 0029
-[0020] (1C) startSound(12);
-[0022] (9D) setBitVar(4,VAR_RESULT,0);
-[0026] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
-[0028] (00) stopObjectCode();
-[0029] (1C) startSound(12);
-[002B] (9D) setBitVar(4,VAR_RESULT,1);
-[002F] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
-[0031] (00) stopObjectCode();
-END
-
-
-roomobj-8-337.dmp
-Events:
-   F - 0023
-[0023] (75) printEgo("Yuck! I'm not touching that!");
-[003D] (00) stopObjectCode();
-END
-
-
-roomobj-8-338.dmp
-Events:
-   D - 001B
-   F - 001C
-[001B] (00) stopObjectCode();
-[001C] (75) printEgo("It's too hot!");
-[0029] (00) stopObjectCode();
-END
-
-
-roomobj-8-339.dmp
-Events:
-   5 - 0028
-   C - 0046
-   D - 0027
-   F - 0058
-[0027] (00) stopObjectCode();
-[0028] (75) printEgo("I don't want to start a melt down!");
-[0045] (00) stopObjectCode();
-[0046] (75) printEgo("Made in Chernobyl");
-[0057] (00) stopObjectCode();
-[0058] (75) printEgo("It's too hot!");
-[0065] (00) stopObjectCode();
-END
-
-
-/**
- * Room 9
- */
- 
-roomobj-9-196.dmp
-Events:
-   1 - 001F
-   2 - 0022
-   A - 0025
-   D - 0030
-   E - 001F
-[001F] (42) startScript(4);
-[0021] (00) stopObjectCode();
-[0022] (42) startScript(5);
-[0024] (00) stopObjectCode();
-[0025] (6F) if (getState08(activeObject)) {
-[0028] (42)   startScript(5);
-[002A] (18) } else {
-[002D] (42)   startScript(4);
-[002F] (**) }
-[002F] (00) stopObjectCode();
-[0030] (6F) if (getState08(activeObject)) {
-[0033] (48)   if (Var[109] == 0) {
-[0038] (48)     if (Var[17] == 0) {
-[003D] (2D)       putActorInRoom(10,19);
-[0040] (01)       putActor(10,34,64);
-[0044] (11)       animateActor(10,6,1);
-[0048] (42)       startScript(33);
-[004A] (**)     }
-[004A] (**)   }
-[004A] (E5)   loadRoomWithEgo(210,19);
-[004D] (**) }
-[004D] (00) stopObjectCode();
-END
-
-
-roomobj-9-197.dmp
-Events:
-   1 - 001E
-   2 - 0021
-   A - 001E
-[001E] (42) startScript(4);
-[0020] (00) stopObjectCode();
-[0021] (42) startScript(5);
-[0023] (17) clearState08(198);
-[0025] (00) stopObjectCode();
-END
-
-
-roomobj-9-198.dmp
-Events:
-   1 - 001F
-   2 - 0025
-   B - 001F
-[001F] (EF) if (!getState08(activeObject)) {
-[0022] (42)   startScript(39);
-[0024] (**) }
-[0024] (00) stopObjectCode();
-[0025] (42) startScript(5);
-[0027] (17) clearState08(197);
-[0029] (00) stopObjectCode();
-END
-
-
-roomobj-9-200.dmp
-Events:
-   B - 0019
-[0019] (83) doSentence(11,255,254);
-[001D] (00) stopObjectCode();
-END
-
-
-roomobj-9-201.dmp
-Events:
-   1 - 003D
-   B - 003A
-   C - 004F
-   E - 0032
-[0032] (90) pickupObject(0);
-[0034] (90) pickupObject(200);
-[0036] (29) setOwnerOf(200,14);
-[0039] (00) stopObjectCode();
-[003A] (42) startScript(81);
-[003C] (00) stopObjectCode();
-[003D] (AF) if (!getState08(201)) {
-[0041] (03)   doSentence(1,201,0);
-[0045] (03)   doSentence(14,201,0);
-[0049] (18) } else {
-[004C] (42)   startScript(80);
-[004E] (**) }
-[004E] (00) stopObjectCode();
-[004F] (48) if (Var[85] == 0) {
-[0054] (75)   printEgo("It's a blank envelope.");
-[0069] (18) } else {
-[006C] (75)   printEgo("It's addressed to: 222 Skyscraper Way.");
-[008F] (**) }
-[008F] (00) stopObjectCode();
-END
-
-
-roomobj-9-293.dmp
-Events:
-   4 - 001B
-   5 - 0024
-   A - 002D
-[001B] (1C) startSound(12);
-[001D] (9D) setBitVar(4,VAR_RESULT,0);
-[0021] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
-[0023] (00) stopObjectCode();
-[0024] (1C) startSound(12);
-[0026] (9D) setBitVar(4,VAR_RESULT,1);
-[002A] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
-[002C] (00) stopObjectCode();
-[002D] (B1) VAR_RESULT = getBitVar(VAR_ROOM,1);
-[0031] (48) if (VAR_RESULT == 0) {
-[0036] (83)   doSentence(5,37,0);
-[003A] (18) } else {
-[003D] (83)   doSentence(4,37,0);
-[0041] (**) }
-[0041] (00) stopObjectCode();
-END
-
-
-roomobj-9-414.dmp
-Events:
-   C - 0021
-[0021] (75) printEgo("It's too tiny to read!");
-[0035] (00) stopObjectCode();
 END
