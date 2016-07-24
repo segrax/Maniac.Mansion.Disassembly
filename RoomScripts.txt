@@ -1,0 +1,676 @@
+/**
+ * Room Entry/Exit Scripts
+ *
+ */
+ 
+ 
+/** Room 1 **/
+entry-1.dmp
+[0000] (70) lights(2);								
+[0002] (3C) stopSound(32);
+[0004] (68) VAR_RESULT = isScriptRunning(58);			// is 'Cutscene: Win Game' running
+[0007] (48) if (VAR_RESULT == 0) {
+[000C] (42)   startScript(52);							// No? start 'Repeat Outside Sound'
+[000E] (**) }
+[000E] (00) stopObjectCode();
+END
+
+exit-1.dmp
+[0000] (62) stopScript(52);
+[0002] (3C) stopSound(38);
+[0004] (2F) if (getState08(25)) {
+[0008] (48)   if (Var[64] == 1) {
+[000D] (48)     if (Var[85] == 1) {
+[0012] (AF)       if (!getState08(17)) {
+[0016] (2F)         if (getState08(18)) {
+[001A] (68)           VAR_RESULT = isScriptRunning(100);
+[001D] (48)           if (VAR_RESULT == 0) {
+[0022] (42)             startScript(100);
+[0024] (**)           }
+[0024] (**)         }
+[0024] (**)       }
+[0024] (**)     }
+[0024] (**)   }
+[0024] (**) }
+[0024] (68) VAR_RESULT = isScriptRunning(6);
+[0027] (48) if (VAR_RESULT == 1) {
+[002C] (1C)   startSound(32);
+[002E] (**) }
+[002E] (00) stopObjectCode();
+END
+
+
+/** Room 2 **/
+entry-2.dmp
+[0000] (70) lights(2);
+[0002] (3C) stopSound(32);
+[0004] (0C) loadSound(27);
+[0006] (00) stopObjectCode();
+END
+
+exit-2.dmp
+[0000] (68) VAR_RESULT = isScriptRunning(6);
+[0003] (48) if (VAR_RESULT == 1) {
+[0008] (1C)   startSound(32);
+[000A] (**) }
+[000A] (00) stopObjectCode();
+END
+
+
+/** Room 3 **/
+entry-3.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (68) VAR_RESULT = isScriptRunning(15);
+[0005] (48) if (VAR_RESULT == 1) {
+[000A] (1C)   startSound(25);
+[000C] (**) }
+[000C] (2F) if (getState08(207)) {
+[0010] (48)   if (Var[13] == 44) {
+[0015] (1C)     startSound(44);
+[0017] (**)   }
+[0017] (**) }
+[0017] (48) if (Var[29] == 1) {
+[001C] (1C)   startSound(20);
+[001E] (**) }
+[001E] (00) stopObjectCode();
+END
+exit-3.dmp
+[0000] (3C) stopSound(25);
+[0002] (3C) stopSound(20);
+[0004] (3C) stopSound(29);
+[0006] (3C) stopSound(44);
+[0008] (20) stopMusic();
+[0009] (00) stopObjectCode();
+END
+
+
+/** Room 4 **/
+entry-4.dmp
+[0000] (70) lights(2);
+[0002] (00) stopObjectCode();
+END
+
+
+/** Room 5 **/
+entry-5.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (00) stopObjectCode();
+END
+
+exit-5.dmp
+[0000] (3C) stopSound(24);
+[0002] (3C) stopSound(21);
+[0004] (00) stopObjectCode();
+END
+
+
+/** Room 6 **/
+entry-6.dmp
+[0000] (70) lights(2);
+[0002] (3C) stopSound(32);
+[0004] (00) stopObjectCode();
+END
+
+exit-6.dmp
+[0000] (68) VAR_RESULT = isScriptRunning(6);
+[0003] (48) if (VAR_RESULT == 1) {
+[0008] (1C)   startSound(32);
+[000A] (**) }
+[000A] (00) stopObjectCode();
+END
+
+
+/** Room 7 **/
+entry-7.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (AF) if (!getState08(55)) {
+[0006] (1C)   startSound(17);
+[0008] (**) }
+[0008] (42) startScript(76);
+[000A] (00) stopObjectCode();
+END
+
+exit-7.dmp
+[0000] (3C) stopSound(17);
+[0002] (B3) unlockScript(30);
+[0004] (00) stopObjectCode();
+END
+
+
+/** Room 8 **/
+entry-8.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (42) startScript(149);
+[0004] (00) stopObjectCode();
+END
+
+exit-8.dmp
+[0000] (62) stopScript(149);
+[0002] (00) stopObjectCode();
+END
+
+
+/** Room 9 **/
+entry-9.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (00) stopObjectCode();
+END
+
+
+/** Room 10 **/
+entry-10.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (42) startScript(18);							// Clock: Repeating Tick Sound
+[0004] (0C) loadSound(28);								
+[0006] (00) stopObjectCode();
+END
+
+exit-10.dmp
+[0000] (62) stopScript(18);
+[0002] (00) stopObjectCode();
+END
+
+
+/** Room 11 **/
+entry-11.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (00) stopObjectCode();
+END
+
+
+/** Room 12 **/
+entry-12.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status							
+[0002] (48) if (Var[80] == 0) {							// Green Tentacle: Has drank
+[0007] (48)   if (Var[86] == 0) {
+[000C] (2D)     putActorInRoom(14,12);					// Put Green Tentacle
+[000F] (01)     putActor(14,17,52);						// Position Green Tentacle
+[0013] (**)   }
+[0013] (07)   VAR_RESULT = getActorRoom("Weird Ed");
+[0016] (08)   if (VAR_RESULT != 12) {					//	 is not in 'Level 2 Stairs to Level 3'
+[001B] (42)     startScript(45);						// 		Green Tentacle: Block until player feeds
+[001D] (**)   }
+[001D] (**) }
+[001D] (00) stopObjectCode();
+END
+
+exit-12.dmp
+[0000] (62) stopScript(45);
+[0002] (62) stopScript(158);
+[0004] (48) if (Var[80] == 1) {
+[0009] (2D)   putActorInRoom(14,20);
+[000C] (01)   putActor(14,68,58);
+[0010] (1A)   Var[86] = 0;
+[0013] (**) }
+[0013] (00) stopObjectCode();
+END
+
+
+/** Room 13 **/
+entry-13.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (00) stopObjectCode();
+END
+
+
+/** Room 14 **/
+entry-14.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (00) stopObjectCode();
+END
+
+
+/** Room 15 **/
+entry-15.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (00) stopObjectCode();
+END
+
+
+/** Room 16 **/
+entry-16.dmp
+[0000] (70) lights(2);
+[0002] (3C) stopSound(32);
+[0004] (00) stopObjectCode();
+END
+
+exit-16.dmp
+[0000] (68) VAR_RESULT = isScriptRunning(6);
+[0003] (48) if (VAR_RESULT == 1) {
+[0008] (1C)   startSound(32);
+[000A] (**) }
+[000A] (00) stopObjectCode();
+END
+
+
+/** Room 17 **/
+entry-17.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (48) if (Var[23] == 1) {
+[0007] (48)   if (Var[75] == 25) {
+[000C] (1C)     startSound(25);
+[000E] (18)   } else {
+[0011] (1C)     startSound(44);
+[0013] (**)   }
+[0013] (**) }
+[0013] (00) stopObjectCode();
+END
+
+exit-17.dmp
+[0000] (3C) stopSound(25);
+[0002] (3C) stopSound(44);
+[0004] (00) stopObjectCode();
+END
+
+
+/** Room 18 **/
+entry-18.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (00) stopObjectCode();
+END
+
+
+/** Room 19 **/
+entry-19.dmp
+[0000] (07) VAR_RESULT = getActorRoom(10);
+[0003] (48) if (VAR_RESULT == 19) {
+[0008] (9D)   setBitVar(4,VAR_RESULT,0);
+[000C] (**) }
+[000C] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[000E] (68) VAR_RESULT = isScriptRunning(25);
+[0011] (48) if (VAR_RESULT == 1) {
+[0016] (42)   startScript(25);
+[0018] (**) }
+[0018] (00) stopObjectCode();
+END
+
+
+/** Room 20 **/
+entry-20.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (48) if (Var[80] == 1) {
+[0007] (42)   startScript(103);
+[0009] (**) }
+[0009] (00) stopObjectCode();
+END
+exit-20.dmp
+[0000] (62) stopScript(105);
+[0002] (62) stopScript(103);
+[0004] (17) clearState08(131);
+[0006] (3C) stopSound(25);
+[0008] (3C) stopSound(20);
+[000A] (3C) stopSound(44);
+[000C] (20) stopMusic();
+[000D] (00) stopObjectCode();
+END
+
+/** Room 21 **/
+entry-21.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (48) if (Var[28] == 1) {
+[0007] (1C)   startSound(20);
+[0009] (**) }
+[0009] (00) stopObjectCode();
+END
+exit-21.dmp
+[0000] (3C) stopSound(20);
+[0002] (3C) stopSound(29);
+[0004] (00) stopObjectCode();
+END
+
+/** Room 22 **/
+entry-22.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (00) stopObjectCode();
+END
+
+/** Room 23 **/
+entry-23.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (42) startScript(78);
+[0004] (00) stopObjectCode();
+END
+
+/** Room 24 **/
+entry-24.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (00) stopObjectCode();
+END
+exit-24.dmp
+[0000] (3C) stopSound(18);
+[0002] (3C) stopSound(17);
+[0004] (00) stopObjectCode();
+END
+
+/** Room 25 **/
+entry-25.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (0C) loadSound(30);
+[0004] (0C) loadSound(31);
+[0006] (00) stopObjectCode();
+END
+
+/** Room 26 **/
+entry-26.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (00) stopObjectCode();
+END
+
+exit-26.dmp
+[0000] (68) VAR_RESULT = isScriptRunning(91);
+[0003] (48) if (VAR_RESULT == 1) {
+[0008] (8B)   setActorBitVar(Var[94],8,1);
+[000C] (**) }
+[000C] (62) stopScript(91);
+[000E] (62) stopScript(111);
+[0010] (07) VAR_RESULT = getActorRoom("Weird Ed");
+[0013] (48) if (VAR_RESULT == 26) {
+[0018] (62)   stopScript(86);
+[001A] (**) }
+[001A] (00) stopObjectCode();
+END
+
+/** Room 27 **/
+entry-27.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (08) if (Var[30] != 255) {
+[0007] (2D)   putActorInRoom(19,27);					// Put Plant
+[000A] (01)   putActor(19,33,44);						// Position Plant
+[000E] (68)   VAR_RESULT = isScriptRunning(48);			// is Plant: Give Pepsi running
+[0011] (48)   if (VAR_RESULT == 0) {
+[0016] (42)     startScript(46);						// Plant?
+[0018] (18)   } else {
+[001B] (42)     startScript(49);						// Plant: Burp
+[001D] (**)   }
+[001D] (48)   if (Var[30] == 0) {
+[0022] (11)     animateActor(19,4,1);					// Plant
+[0026] (**)   }
+[0026] (48)   if (Var[30] == 1) {		
+[002B] (11)     animateActor(19,5,1);					// Plant
+[002F] (**)   }
+[002F] (48)   if (Var[30] == 2) {
+[0034] (11)     animateActor(19,6,1);					// Plant
+[0038] (**)   }
+[0038] (**) }
+[0038] (00) stopObjectCode();
+END
+
+exit-27.dmp
+[0000] (62) stopScript(46);
+[0002] (62) stopScript(49);
+[0004] (00) stopObjectCode();
+END
+
+/** Room 28 **/
+entry-28.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (00) stopObjectCode();
+END
+
+/** Room 29 **/
+entry-29.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (00) stopObjectCode();
+END
+
+exit-29.dmp
+[0000] (3C) stopSound(18);
+[0002] (00) stopObjectCode();
+END
+
+
+/** Room 30 **/
+entry-30.dmp
+[0000] (70) lights(2);
+[0002] (2D) putActorInRoom(23,30);
+[0005] (01) putActor(23,36,60);
+[0009] (11) animateActor(23,0,1);
+[000D] (11) animateActor(23,254,1);
+[0011] (2D) putActorInRoom(9,30);
+[0014] (01) putActor(9,38,66);
+[0018] (AF) if (!getState08(143)) {
+[001C] (1C)   startSound(59);
+[001E] (**) }
+[001E] (48) if (Var[89] == 1) {
+[0023] (42)   startScript(122);
+[0025] (**) }
+[0025] (48) if (Var[89] == 2) {
+[002A] (42)   startScript(122);
+[002C] (**) }
+[002C] (68) VAR_RESULT = isScriptRunning(37);
+[002F] (48) if (VAR_RESULT == 0) {
+[0034] (42)   startScript(124);
+[0036] (48)   if (Var[89] == 0) {
+[003B] (1A)     Var[89] = 1;
+[003E] (4C)     loadScript(118);
+[0040] (42)     startScript(120);
+[0042] (**)   }
+[0042] (**) }
+[0042] (0C) loadSound(54);
+[0044] (00) stopObjectCode();
+END
+exit-30.dmp
+[0000] (62) stopScript(122);
+[0002] (62) stopScript(124);
+[0004] (3C) stopSound(59);
+[0006] (00) stopObjectCode();
+END
+
+/** Room 31 **/
+entry-31.dmp
+[0000] (70) lights(2);
+[0002] (00) stopObjectCode();
+END
+exit-31.dmp
+[0000] (B3) unlockScript(43);
+[0002] (D3) unlockSound(63);
+[0004] (62) stopScript(112);
+[0006] (62) stopScript(110);
+[0008] (62) stopScript(94);
+[000A] (00) stopObjectCode();
+END
+
+/** Room 32 **/
+entry-32.dmp
+[0000] (70) lights(2);
+[0002] (00) stopObjectCode();
+END
+
+/** Room 33 **/
+entry-33.dmp
+[0000] (70) lights(2);
+[0002] (00) stopObjectCode();
+END
+exit-33.dmp
+[0000] (3C) stopSound(56);
+[0002] (3C) stopSound(57);
+[0004] (00) stopObjectCode();
+END
+
+/** Room 36 **/
+entry-36.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (0C) loadSound(10);
+[0004] (00) stopObjectCode();
+END
+
+/** Room 37 **/
+entry-37.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (00) stopObjectCode();
+END
+
+/** Room 38 **/
+entry-38.dmp
+[0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
+[0002] (00) stopObjectCode();
+END
+
+/** Room 39 **/
+entry-39.dmp
+[0000] (70) lights(2);
+[0002] (00) stopObjectCode();
+END
+
+
+/** Room 40 **/
+entry-40.dmp
+[0000] (97) setState08(249);
+[0002] (70) lights(2);
+[0004] (00) stopObjectCode();
+END
+
+
+/** Room 41 **/
+entry-41.dmp
+[0000] (70) lights(2);
+[0002] (00) stopObjectCode();
+END
+
+exit-41.dmp
+[0000] (3C) stopSound(25);
+[0002] (3C) stopSound(44);
+[0004] (20) stopMusic();
+[0005] (68) VAR_RESULT = isScriptRunning(6);
+[0008] (48) if (VAR_RESULT == 1) {
+[000D] (1C)   startSound(32);
+[000F] (**) }
+[000F] (00) stopObjectCode();
+END
+
+
+/** Room 42 **/
+entry-42.dmp
+[0000] (70) lights(2);
+[0002] (00) stopObjectCode();
+END
+
+/** Room 43 **/
+entry-43.dmp
+[0000] (70) lights(2);
+[0002] (0C) loadSound(19);
+[0004] (00) stopObjectCode();
+END
+
+
+/** Room 44 **/
+entry-44.dmp
+[0000] (70) lights(2);
+[0002] (3C) stopSound(32);
+[0004] (42) startScript(52);
+[0006] (00) stopObjectCode();
+END
+
+exit-44.dmp
+[0000] (62) stopScript(52);
+[0002] (3C) stopSound(38);
+[0004] (68) VAR_RESULT = isScriptRunning(6);
+[0007] (48) if (VAR_RESULT == 1) {
+[000C] (1C)   startSound(32);
+[000E] (**) }
+[000E] (00) stopObjectCode();
+END
+
+
+/** Room 45 **/
+entry-45.dmp
+[0000] (70) lights(2);
+[0002] (1A) Var[92] = 1;
+[0005] (0C) loadSound(54);
+[0007] (4C) loadScript(109);
+[0009] (00) stopObjectCode();
+END
+
+
+/** Room 46 **/
+entry-46.dmp
+[0000] (70) lights(2);
+[0002] (00) stopObjectCode();
+END
+
+
+/** Room 47 **/
+entry-47.dmp
+[0000] (70) lights(2);
+[0002] (3C) stopSound(32);
+[0004] (3C) stopSound(33);
+[0006] (00) stopObjectCode();
+END
+
+
+/** Room 48 **/
+entry-48.dmp
+[0000] (70) lights(2);
+[0002] (00) stopObjectCode();
+END
+
+
+/** Room 49 **/
+entry-49.dmp
+[0000] (70) lights(2);
+[0002] (00) stopObjectCode();
+END
+
+
+/** Room 50 **/
+entry-50.dmp
+[0000] (70) lights(2);
+[0002] (0C) loadSound(19);
+[0004] (3C) stopSound(32);
+[0006] (00) stopObjectCode();
+END
+
+exit-50.dmp
+[0000] (68) VAR_RESULT = isScriptRunning(6);
+[0003] (48) if (VAR_RESULT == 1) {
+[0008] (1C)   startSound(32);
+[000A] (**) }
+[000A] (00) stopObjectCode();
+END
+
+
+/** Room 51 **/
+entry-51.dmp
+[0000] (70) lights(2);
+[0002] (4C) loadScript(121);
+[0004] (48) if (Var[18] == 0) {
+[0009] (2D)   putActorInRoom(16,51);
+[000C] (01)   putActor(16,40,50);
+[0010] (11)   animateActor(16,0,1);
+[0014] (68)   VAR_RESULT = isScriptRunning(37);
+[0017] (48)   if (VAR_RESULT == 0) {
+[001C] (30)     loadCostume(20);
+[001E] (13)     lockCostume(20);
+[0020] (42)     startScript(123);
+[0022] (**)   }
+[0022] (**) }
+[0022] (AF) if (!getState08(143)) {
+[0026] (1C)   startSound(59);
+[0028] (4C)   loadScript(121);
+[002A] (**) }
+[002A] (4C) loadScript(123);
+[002C] (00) stopObjectCode();
+END
+
+exit-51.dmp
+[0000] (3C) stopSound(59);
+[0002] (2D) putActorInRoom(20,0);
+[0005] (01) putActor(20,0,0);
+[0009] (62) stopScript(123);
+[000B] (00) stopObjectCode();
+END
+
+
+/** Room 52 **/
+entry-52.dmp
+[0000] (70) lights(2);
+[0002] (3C) stopSound(32);
+[0004] (00) stopObjectCode();
+END
+exit-52.dmp
+[0000] (68) VAR_RESULT = isScriptRunning(6);
+[0003] (48) if (VAR_RESULT == 1) {
+[0008] (1C)   startSound(32);
+[000A] (**) }
+[000A] (00) stopObjectCode();
+END
