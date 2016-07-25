@@ -3967,47 +3967,50 @@ END
 /**
  * Room 20: Green Tentacle's
  */
+
  
+/** Mondo Stereo **/
 roomobj-20-131.dmp
 Events:
    4 - 0022
    5 - 0034
    B - 0042
-[0022] (AF) if (!getState08(124)) {
-[0026] (97)   setState08(131);
-[0028] (AF)   if (!getState08(195)) {
-[002C] (42)     startScript(104);
+[0022] (AF) if (!getState08(124)) {										// if Power On
+[0026] (97)   setState08(131);											//  Mondo Stereo = On
+[0028] (AF)   if (!getState08(195)) {									//   Cassette Tape not playing
+[002C] (42)     startScript(104);										//    start Tape Player: Play Tape
 [002E] (18)   } else {													// -
-[0031] (1C)     startSound(20);
+[0031] (1C)     startSound(20);											//
 [0033] (**)   }
 [0033] (**) }
 [0033] (00) stopObjectCode();											// --
-[0034] (2F) if (getState08(131)) {
-[0038] (17)   clearState08(131);
-[003A] (3C)   stopSound(25);
-[003C] (3C)   stopSound(20);
-[003E] (3C)   stopSound(44);
-[0040] (20)   stopMusic();
+[0034] (2F) if (getState08(131)) {										// If stereo on
+[0038] (17)   clearState08(131);										//  Stereo turn off
+[003A] (3C)   stopSound(25);											//
+[003C] (3C)   stopSound(20);											//
+[003E] (3C)   stopSound(44);											//
+[0040] (20)   stopMusic();												// Stop Music
 [0041] (**) }
 [0041] (00) stopObjectCode();											// --
-[0042] (64) if (activeObject2 == 156) {
-[0046] (17)   clearState08(195);
-[0048] (0F)   clearState02(195);
-[004A] (29)   setOwnerOf(156,14);
+[0042] (64) if (activeObject2 == 156) {									// if Cassette Tape
+[0046] (17)   clearState08(195);										//  Free Tape
+[0048] (0F)   clearState02(195);										//  Free Tape
+[004A] (29)   setOwnerOf(156,14);										//  Tape owned by Green Tentac;e
 [004D] (3C)   stopSound(20);
 [004F] (2F)   if (getState08(131)) {
-[0053] (03)     doSentence(4,131,0);
+[0053] (03)     doSentence(4,131,0);									// Turn On Mondo Stereo
 [0057] (**)   }
 [0057] (**) }
-[0057] (64) if (activeObject2 == 155) {
+[0057] (64) if (activeObject2 == 155) {									// use with Old Record
 [005B] (18) } else {													// -
-[005E] (64)   unless (activeObject2 == 235) goto 0076;
+[005E] (64)   unless (activeObject2 == 235) goto 0076;					// or Record
 [0062] (**) }
 [0062] (75) printEgo("Hey, it's a CD player!");
 [0076] (00) stopObjectCode();											// --
 END
 
 
+/** Hatch **/
 roomobj-20-192.dmp
 Events:
    1 - 001F
@@ -4020,54 +4023,57 @@ Events:
 [0022] (42) startScript(5);												// start Door: Close
 [0024] (00) stopObjectCode();											// --
 [0025] (6F) if (getState08(activeObject)) {
-[0028] (42)   startScript(5);												// start Door: Close
+[0028] (42)   startScript(5);											// start Door: Close
 [002A] (18) } else {													// -
-[002D] (42)   startScript(4);												// start Door: Open
+[002D] (42)   startScript(4);											// start Door: Open
 [002F] (**) }
 [002F] (00) stopObjectCode();											// --
-[0030] (6F) if (getState08(activeObject)) {
-[0033] (E5)   loadRoomWithEgo(214,21);
+[0030] (6F) if (getState08(activeObject)) {								// If door open
+[0033] (E5)   loadRoomWithEgo(214,21);									// Enter Radio
 [0036] (**) }
 [0036] (00) stopObjectCode();											// --
 END
 
 
+/** Yellow Key **/
 roomobj-20-194.dmp
 Events:
    B - 0021
    E - 001E
 [001E] (90) pickupObject(0);											// Pick object
 [0020] (00) stopObjectCode();											// --
-[0021] (43) ddoSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
+[0021] (43) ddoSentence(11,255,254);									// Use _cmdObject2 with _cmdObject
 [0025] (00) stopObjectCode();											// --
 END
 
 
+/** Cassette Tape **/
 roomobj-20-195.dmp
 Events:
    4 - 0032
    5 - 003A
    E - 0023
-[0023] (2F) if (getState08(131)) {
-[0027] (3C)   stopSound(25);
-[0029] (20)   stopMusic();
-[002A] (1C)   startSound(20);
+[0023] (2F) if (getState08(131)) {										// if Mondo Stereo on
+[0027] (3C)   stopSound(25);											//  stop sound
+[0029] (20)   stopMusic();												//  stop music
+[002A] (1C)   startSound(20);	
 [002C] (**) }
-[002C] (69) setOwnerOf(156,VAR_EGO);
+[002C] (69) setOwnerOf(156,VAR_EGO);									// Kid owns Tape
 [002F] (D7) setState08();
 [0030] (CF) setState02();
 [0031] (00) stopObjectCode();											// --
-[0032] (EF) if (!getState08(activeObject)) {
-[0035] (03)   doSentence(4,131,0);
+[0032] (EF) if (!getState08(activeObject)) {							// playing?
+[0035] (03)   doSentence(4,131,0);										//  Turn on Mondo Stereo
 [0039] (**) }
 [0039] (00) stopObjectCode();											// --
-[003A] (EF) if (!getState08(activeObject)) {
-[003D] (03)   doSentence(5,131,0);
+[003A] (EF) if (!getState08(activeObject)) {							// playing?
+[003D] (03)   doSentence(5,131,0);										// Turn off Mondo Stereo
 [0041] (**) }
 [0041] (00) stopObjectCode();											// --
 END
 
 
+/** Record **/
 roomobj-20-235.dmp
 Events:
    B - 001F
@@ -4075,70 +4081,80 @@ Events:
    E - 001C
 [001C] (90) pickupObject(0);											// Pick object
 [001E] (00) stopObjectCode();											// --
-[001F] (43) ddoSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
+[001F] (43) ddoSentence(11,255,254);									// Use _cmdObject2 with _cmdObject
 [0023] (00) stopObjectCode();											// --
 [0024] (75) printEgo("Tentacle mating calls.");
 [003A] (00) stopObjectCode();											// --
 END
 
 
+/** Demo Tape **/
 roomobj-20-238.dmp
 Events:
    E - 001B
-[001B] (D7) setState08();
-[001C] (CF) setState02();
-[001D] (69) setOwnerOf(156,VAR_EGO);
+[001B] (D7) setState08();												// Tape Locked
+[001C] (CF) setState02();												// Tape Hidden
+[001D] (69) setOwnerOf(156,VAR_EGO);									// Tape owned by Kid
 [0020] (54) setObjectName(156,"demo tape");
-[002C] (1A) Var[13] = 52;
+[002C] (1A) Var[13] = 52;												// Tape Contents = Green Tentacle
 [002F] (00) stopObjectCode();											// --
 END
 
 
+/** Left Speaker **/
 roomobj-20-393.dmp
 Events:
    C - 001E
-[001E] (75) printEgo("THX Sound");
+[001E] (75) printEgo("THX Sound");										// Read
 [0028] (00) stopObjectCode();											// --
 END
 
 
+/** Right Speaker **/
 roomobj-20-394.dmp
 Events:
    C - 001F
-[001F] (75) printEgo("THX Sound");
+[001F] (75) printEgo("THX Sound");										// Read
 [0029] (00) stopObjectCode();											// --
 END
 
 
+/** Poster **/
 roomobj-20-396.dmp
 Events:
    C - 0018
-[0018] (75) printEgo("See Ron Gilbert Live at the Forum!");
+[0018] (75) printEgo("See Ron Gilbert Live at the Forum!");				// Read
 [0036] (00) stopObjectCode();											// --
 END
 
 
+/** Poster **/
 roomobj-20-397.dmp
 Events:
 END
 
 
+/** Bed **/
 roomobj-20-398.dmp
 Events:
 END
 
 
+/** Picture **/
 roomobj-20-439.dmp
 Events:
    C - 0019
-[0019] (75) printEgo("To my slimiest son, love MOM");
+[0019] (75) printEgo("To my slimiest son, love MOM");					// Read
 [0032] (00) stopObjectCode();											// --
 END
 
+
 /**
- * Room 21
+ * Room 21: Radio
  */
  
+ 
+/** **/
 roomobj-21-189.dmp
 Events:
    1 - 001A
