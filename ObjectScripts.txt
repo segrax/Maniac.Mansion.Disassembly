@@ -2686,18 +2686,18 @@ Events:
    9 - 0036
    A - 001E
    D - 003B
-[001E] (DF) if (!getState04(activeObject)) {							//
-[0021] (42)   startScript(116);											// start Verb: Generic: Open Door
-[0023] (97)   setState08(105);
+[001E] (DF) if (!getState04(activeObject)) {							// If gate is unlocked
+[0021] (42)   startScript(116);											//  start Verb: Generic: Open Door
+[0023] (97)   setState08(105);											//  Open Gate (Pool Area)
 [0025] (18) } else {													// -
 [0028] (75)   printEgo("It's locked.");
 [0035] (**) }
 [0035] (00) stopObjectCode();											// --
-[0036] (42) startScript(117);
-[0038] (17) clearState08(105);
+[0036] (42) startScript(117);											// start Verb: Generic: Close Door
+[0038] (17) clearState08(105);											// Close Gate (Pool Area)
 [003A] (00) stopObjectCode();											// --
-[003B] (6F) if (getState08(activeObject)) {
-[003E] (E5)   loadRoomWithEgo(105,6);
+[003B] (6F) if (getState08(activeObject)) {								// If gate is open
+[003E] (E5)   loadRoomWithEgo(105,6);									// Enter Pool Area
 [0041] (**) }
 [0041] (00) stopObjectCode();											// --
 END
@@ -2710,13 +2710,13 @@ Events:
    8 - 0044
    A - 0021
 [0021] (9B) Var[90] = getActorBitVar(VAR_EGO,1);						// Current Actor Flag kActorMiscFlagStrong
-[0025] (48) if (Var[90] == 1) {
-[002A] (42)   startScript(8);
+[0025] (48) if (Var[90] == 1) {											// Kid is strong?
+[002A] (42)   startScript(8);											//  start Garage Door Open
 [002C] (18) } else {													// -
 [002F] (75)   printEgo("Ugh! I can't budge it!");
 [0043] (**) }
 [0043] (00) stopObjectCode();											// --
-[0044] (75) printEgo("It's stuck.");
+[0044] (75) printEgo("It's stuck.");									// Unlock
 [0050] (00) stopObjectCode();											// --
 END
 
@@ -2727,9 +2727,9 @@ Events:
    1 - 0021
    8 - 0026
    A - 0021
-[0021] (03) doSentence(1,111,0);
+[0021] (03) doSentence(1,111,0);										// Open Garage Door
 [0025] (00) stopObjectCode();											// --
-[0026] (03) doSentence(8,111,0);
+[0026] (03) doSentence(8,111,0);										// Unlock Garage Door
 [002A] (00) stopObjectCode();											// --
 END
 
@@ -2740,9 +2740,9 @@ Events:
    1 - 0021
    8 - 0026
    A - 0021
-[0021] (03) doSentence(1,111,0);
+[0021] (03) doSentence(1,111,0);										// Open Garage Door
 [0025] (00) stopObjectCode();											// --
-[0026] (03) doSentence(8,111,0);
+[0026] (03) doSentence(8,111,0);										// Unlock Garage Door
 [002A] (00) stopObjectCode();											// --
 END
 
@@ -2753,9 +2753,9 @@ Events:
    1 - 0021
    8 - 0026
    A - 0021
-[0021] (03) doSentence(1,111,0);
+[0021] (03) doSentence(1,111,0);										// Open Garage Door
 [0025] (00) stopObjectCode();											// --
-[0026] (03) doSentence(8,111,0);
+[0026] (03) doSentence(8,111,0);										// Unlock Garage Door
 [002A] (00) stopObjectCode();											// --
 END
 
@@ -2766,9 +2766,9 @@ Events:
    1 - 0021
    8 - 0026
    A - 0021
-[0021] (03) doSentence(1,111,0);
+[0021] (03) doSentence(1,111,0);										// Open Garage Door
 [0025] (00) stopObjectCode();											// --
-[0026] (03) doSentence(8,111,0);
+[0026] (03) doSentence(8,111,0);										// Unlock Garage Door
 [002A] (00) stopObjectCode();											// --
 END
 
@@ -2779,9 +2779,9 @@ Events:
    1 - 0021
    8 - 0026
    A - 0021
-[0021] (03) doSentence(1,111,0);
+[0021] (03) doSentence(1,111,0);										// Open Garage Door
 [0025] (00) stopObjectCode();											// --
-[0026] (03) doSentence(8,111,0);
+[0026] (03) doSentence(8,111,0);										// Unlock Garage Door
 [002A] (00) stopObjectCode();											// --
 END
 
@@ -2793,25 +2793,25 @@ Events:
    2 - 0043
    8 - 0095
    A - 0074
-[0023] (2F) if (getState08(116)) {
-[0027] (03)   doSentence(1,111,0);
+[0023] (2F) if (getState08(116)) {										// If Door Open
+[0027] (03)   doSentence(1,111,0);										//  Open Garage Door
 [002B] (18) } else {													// -
 [002E] (75)   printEgo("It's already opened.");
 [0042] (**) }
 [0042] (00) stopObjectCode();											// --
-[0043] (AF) if (!getState08(116)) {
+[0043] (AF) if (!getState08(116)) {										// If Door is open
 [0047] (75)   printEgo("It's too high to reach.");
 [005C] (18) } else {													// -
 [005F] (75)   printEgo("It's already closed.");
 [0073] (**) }
 [0073] (00) stopObjectCode();											// --
-[0074] (2F) if (getState08(116)) {
-[0078] (03)   doSentence(1,111,0);
+[0074] (2F) if (getState08(116)) {										// If door is closed
+[0078] (03)   doSentence(1,111,0);										//  Open Garage Door
 [007C] (18) } else {													// -
 [007F] (75)   printEgo("It's too high to reach.");
 [0094] (**) }
 [0094] (00) stopObjectCode();											// --
-[0095] (03) doSentence(8,111,0);
+[0095] (03) doSentence(8,111,0);										// Unlock Garage Door
 [0099] (00) stopObjectCode();											// --
 END
 
@@ -2824,36 +2824,36 @@ Events:
    8 - 003C
    B - 0061
   10 - 0036
-[001F] (EF) if (!getState08(activeObject)) {
+[001F] (EF) if (!getState08(activeObject)) {							// If trunk locked
 [0022] (75)   printEgo("The trunk is locked.");
 [0035] (**) }
 [0035] (00) stopObjectCode();											// --
-[0036] (57) clearState08();
+[0036] (57) clearState08();												// Lock Trunk
 [0037] (3C) stopSound(68);
-[0039] (1C) startSound(9);
+[0039] (1C) startSound(9);												// sound Door Closing
 [003B] (00) stopObjectCode();											// --
-[003C] (EF) if (!getState08(activeObject)) {
-[003F] (64)   if (activeObject2 == 194) {
-[0043] (D7)     setState08();
-[0044] (1C)     startSound(8);
-[0046] (48)     if (Var[18] == 2) {
-[004B] (42)       startScript(123);
+[003C] (EF) if (!getState08(activeObject)) {							// If trunk locked
+[003F] (64)   if (activeObject2 == 194) {								//  if use with Yellow Key
+[0043] (D7)     setState08();											//  Unlock Trunk
+[0044] (1C)     startSound(8);											//  sound Door Opening
+[0046] (48)     if (Var[18] == 2) {										//  if Meteor Location == Edsel
+[004B] (42)       startScript(123);										//   start Meteor: Fire Radiation
 [004D] (**)     }
 [004D] (18)   } else {													// -
 [0050] (75)     printEgo("It doesn't work.");
 [0060] (**)   }
 [0060] (**) }
 [0060] (00) stopObjectCode();											// --
-[0061] (64) if (activeObject2 == 252) {
-[0065] (62)   stopScript(129);
-[0067] (91)   animateActor(VAR_EGO,253,1);
-[006B] (29)   setOwnerOf(252,0);
-[006E] (97)   setState08(12);
-[0070] (0F)   clearState02(12);
-[0072] (1A)   Var[18] = 2;
+[0061] (64) if (activeObject2 == 252) {									// if use with Meteor
+[0065] (62)   stopScript(129);											//  stop Radiation Suit: Enable Speaking Flag
+[0067] (91)   animateActor(VAR_EGO,253,1);								//  Open Mouth of actor
+[006B] (29)   setOwnerOf(252,0);										//  Meteor owned by no-one
+[006E] (97)   setState08(12);											//  Meteor locked
+[0070] (0F)   clearState02(12);											//  Meteor Hidden
+[0072] (1A)   Var[18] = 2;												//  Meteor Location == Edsel
 [0075] (1C)   startSound(68);
 [0077] (18) } else {													// -
-[007A] (03)   doSentence(8,118,255);
+[007A] (03)   doSentence(8,118,255);									// Unlock Trunk
 [007E] (**) }
 [007E] (00) stopObjectCode();											// --
 END
@@ -2866,10 +2866,10 @@ Events:
    E - 0019
 [0019] (90) pickupObject(0);											// Pick object
 [001B] (00) stopObjectCode();											// --
-[001C] (64) if (activeObject2 == 103) {
-[0020] (03)   doSentence(6,103,119);
+[001C] (64) if (activeObject2 == 103) {									// Use with Phone
+[0020] (03)   doSentence(6,103,119);									// Fix Phone with Tools
 [0024] (18) } else {													// -
-[0027] (43)   ddoSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
+[0027] (43)   ddoSentence(11,255,254);									// Use _cmdObject2 with _cmdObject
 [002B] (**) }
 [002B] (00) stopObjectCode();											// --
 END
@@ -2879,7 +2879,7 @@ END
 roomobj-16-12.dmp
 Events:
    E - 0018
-[0018] (75) printEgo("No way!");
+[0018] (75) printEgo("No way!");										// Pick-up Meteor
 [0020] (00) stopObjectCode();											// --
 END
 
@@ -2891,7 +2891,7 @@ Events:
    E - 0027
 [0027] (90) pickupObject(0);											// Pick object
 [0029] (00) stopObjectCode();											// --
-[002A] (03) ddoSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
+[002A] (03) ddoSentence(11,255,254);									// Use _cmdObject2 with _cmdObject
 [002E] (00) stopObjectCode();											// --
 END
 
@@ -2909,16 +2909,16 @@ Events:
    2 - 0033
    A - 0023
    D - 0057
-[0023] (75) printEgo("It won't budge.");
+[0023] (75) printEgo("It won't budge.");								// Open
 [0032] (00) stopObjectCode();											// --
-[0033] (EF) if (!getState08(activeObject)) {
+[0033] (EF) if (!getState08(activeObject)) {							// If Cement Slab closed
 [0036] (75)   printEgo("It's already closed.");
 [004A] (18) } else {													// -
 [004D] (75)   printEgo("I can't.");
 [0056] (**) }
 [0056] (00) stopObjectCode();											// --
-[0057] (6F) if (getState08(activeObject)) {
-[005A] (E5)   loadRoomWithEgo(144,51);
+[0057] (6F) if (getState08(activeObject)) {								// If Cement Slab opened
+[005A] (E5)   loadRoomWithEgo(144,51);									//  Enter Lab: Meteor
 [005D] (**) }
 [005D] (00) stopObjectCode();											// --
 END
@@ -2928,7 +2928,7 @@ END
 roomobj-16-268.dmp
 Events:
    C - 001F
-[001F] (75) printEgo("THX 1138");
+[001F] (75) printEgo("THX 1138");										// Read
 [0028] (00) stopObjectCode();											// --
 END
 
@@ -2937,16 +2937,16 @@ END
 roomobj-16-330.dmp
 Events:
    B - 001D
-[001D] (64) if (activeObject2 == 194) {
-[0021] (2F)   if (getState08(118)) {
-[0025] (75)     printEgo("I'd better close the trunk first.");
-[0043] (83)     doSentence(11,74,194);
-[0047] (03)     doSentence(2,118,0);
+[001D] (64) if (activeObject2 == 194) {									// use with Yellow Key
+[0021] (2F)   if (getState08(118)) {									// If trunk is open
+[0025] (75)     printEgo("I'd better close the trunk first.");			//  
+[0043] (83)     doSentence(11,74,194);									//  Use Weird Edsel with Yellow Key
+[0047] (03)     doSentence(2,118,0);									//  Close Trunk
 [004B] (18)   } else {													// -
-[004E] (2F)     if (getState08(12)) {
-[0052] (62)       stopScript(118);
+[004E] (2F)     if (getState08(12)) {									// If Meteor Locked
+[0052] (62)       stopScript(118);										//  stop Nuclear Meltdown Countdown
 [0054] (**)     }
-[0054] (42)     startScript(125);
+[0054] (42)     startScript(125);										// start Edsel: Active Rocket Engine
 [0056] (**)   }
 [0056] (18) } else {													// -
 [0059] (75)   printEgo("I can't start it with that.");
@@ -2959,7 +2959,7 @@ END
 roomobj-16-331.dmp
 Events:
    B - 0028
-[0028] (83) doSentence(11,74,255);
+[0028] (83) doSentence(11,74,255);										// Use Weird Edsel with _cmdObject2
 [002C] (00) stopObjectCode();											// --
 END
 
@@ -2968,7 +2968,7 @@ END
 roomobj-16-332.dmp
 Events:
    B - 0028
-[0028] (83) doSentence(11,74,255);
+[0028] (83) doSentence(11,74,255);										// Use Weird Edsel with _cmdObject2
 [002C] (00) stopObjectCode();											// --
 END
 
@@ -2977,7 +2977,7 @@ END
 roomobj-16-333.dmp
 Events:
    C - 0016
-[0016] (75) printEgo("Tentacle on board!");
+[0016] (75) printEgo("Tentacle on board!");								// Read
 [0028] (00) stopObjectCode();											// --
 END
 
@@ -2986,7 +2986,7 @@ END
 roomobj-16-334.dmp
 Events:
    C - 0020
-[0020] (75) printEgo("I heart Weird Ed.");
+[0020] (75) printEgo("I heart Weird Ed.");								// Read
 [0030] (00) stopObjectCode();											// --
 END
 
@@ -2995,6 +2995,7 @@ END
 roomobj-16-335.dmp
 Events:
 END
+
 
 
 /**
