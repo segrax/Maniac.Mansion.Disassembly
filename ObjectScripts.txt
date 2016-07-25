@@ -2151,6 +2151,7 @@ END
  * Room 11
  */
  
+
 /** Stairs **/
 roomobj-11-146.dmp
 Events:
@@ -2159,73 +2160,85 @@ Events:
 [001B] (00) stopObjectCode();											// --
 END
 
+
+/** Door **/
 roomobj-11-147.dmp
 Events:
    1 - 001A
    2 - 001F
    D - 0024
 [001A] (42) startScript(4);												// start Door: Open
-[001C] (97) setState08(164);
+[001C] (97) setState08(164);											// Open Door (Portrait Painting)
 [001E] (00) stopObjectCode();											// --
 [001F] (42) startScript(5);												// start Door: Close
-[0021] (17) clearState08(164);
+[0021] (17) clearState08(164);											// Close Door (Portrait Painting)
 [0023] (00) stopObjectCode();											// --
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(164,14);
+[0024] (6F) if (getState08(activeObject)) {								// if door is open
+[0027] (E5)   loadRoomWithEgo(164,14);									//  Enter Portrait Painting
 [002A] (**) }
 [002A] (00) stopObjectCode();											// --
 END
 
+
+/** Door **/
 roomobj-11-148.dmp
 Events:
    1 - 001A
    2 - 001F
    D - 0024
 [001A] (42) startScript(4);												// start Door: Open
-[001C] (97) setState08(152);
+[001C] (97) setState08(152);											// Open Door (Music)
 [001E] (00) stopObjectCode();											// --
 [001F] (42) startScript(5);												// start Door: Close
-[0021] (17) clearState08(152);
+[0021] (17) clearState08(152);											// Close Door (Music)
 [0023] (00) stopObjectCode();											// --
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(152,17);
+[0024] (6F) if (getState08(activeObject)) {								// if door is open
+[0027] (E5)   loadRoomWithEgo(152,17);									//  Enter Music
 [002A] (**) }
 [002A] (00) stopObjectCode();											// --
 END
 
+
+/** Door **/
 roomobj-11-149.dmp
 Events:
    1 - 001A
    2 - 001F
    D - 0024
 [001A] (42) startScript(4);												// start Door: Open
-[001C] (97) setState08(160);
+[001C] (97) setState08(160);											// Open Door (Level 2 Main Hallway)
 [001E] (00) stopObjectCode();											// --
 [001F] (42) startScript(5);												// start Door: Close
-[0021] (17) clearState08(160);
+[0021] (17) clearState08(160);											// Close Door (Door (Level 2 Main Hallway)
 [0023] (00) stopObjectCode();											// --
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(160,13);
+[0024] (6F) if (getState08(activeObject)) {								// Is Door Open
+[0027] (E5)   loadRoomWithEgo(160,13);									//  Enter Level 2 Main Hallway
 [002A] (**) }
 [002A] (00) stopObjectCode();											// --
 END
 
+
+/** Painting of Fred **/
 roomobj-11-150.dmp
 Events:
    1 - 0024
    A - 0024
-[0024] (42) startScript(62);
+[0024] (42) startScript(62);											// start Print "Its firmly attached to the wall"
 [0026] (00) stopObjectCode();											// --
 END
 
+
+/** Painting of Edna **/
 roomobj-11-151.dmp
 Events:
    1 - 0024
    A - 0024
-[0024] (42) startScript(62);
+[0024] (42) startScript(62);											// start Print "Its firmly attached to the wall"
 [0026] (00) stopObjectCode();											// --
 END
 
+
+/** Wall Lamp **/
 roomobj-11-354.dmp
 Events:
    4 - 001D
@@ -2233,18 +2246,19 @@ Events:
 [001D] (1C) startSound(12);												// sound Light Switch
 [001F] (9D) setBitVar(4,VAR_RESULT,0);									// Light On
 [0023] (42) startScript(50);											// start Room Lights: Check for flashlight / room light status
-[0025] (1A) Var[120] = 0;
+[0025] (1A) Var[120] = 0;												// Wall Lamp 354 On
 [0028] (00) stopObjectCode();											// --
 [0029] (1C) startSound(12);												// sound Light Switch
-[002B] (1A) Var[120] = 1;
-[002E] (48) if (Var[119] == 1) {
-[0033] (9D)   setBitVar(4,VAR_RESULT,1);									// Light Off
-[0037] (42)   startScript(50);											// start Room Lights: Check for flashlight / room light status
+[002B] (1A) Var[120] = 1;												// Wall Lamp 354 off
+[002E] (48) if (Var[119] == 1) {										// If Wall Lamp 355 Off
+[0033] (9D)   setBitVar(4,VAR_RESULT,1);								//  Light Off
+[0037] (42)   startScript(50);											//  start Room Lights: Check for flashlight / room light status
 [0039] (**) }
 [0039] (00) stopObjectCode();											// --
 END
 
 
+/** Wall Lamp **/
 roomobj-11-355.dmp
 Events:
    4 - 001D
@@ -2252,20 +2266,24 @@ Events:
 [001D] (1C) startSound(12);												// sound Light Switch
 [001F] (9D) setBitVar(4,VAR_RESULT,0);									// Light On
 [0023] (42) startScript(50);											// start Room Lights: Check for flashlight / room light status
-[0025] (1A) Var[119] = 0;
+[0025] (1A) Var[119] = 0;												// Wall Lamp 355 On
 [0028] (00) stopObjectCode();											// --
 [0029] (1C) startSound(12);												// sound Light Switch
-[002B] (1A) Var[119] = 1;
-[002E] (48) if (Var[120] == 1) {
-[0033] (9D)   setBitVar(4,VAR_RESULT,1);									// Light Off
-[0037] (42)   startScript(50);											// start Room Lights: Check for flashlight / room light status
+[002B] (1A) Var[119] = 1;												// Wall Lamp 355 Off
+[002E] (48) if (Var[120] == 1) {										// If Wall Lamp 354 Off
+[0033] (9D)   setBitVar(4,VAR_RESULT,1);								//  Light Off
+[0037] (42)   startScript(50);											//  start Room Lights: Check for flashlight / room light status
 [0039] (**) }
 [0039] (00) stopObjectCode();											// --
 END
 
+
 /**
  * Room 12
  */
+ 
+ 
+/** Stairs **/
 roomobj-12-179.dmp
 Events:
    D - 0018
@@ -2275,6 +2293,8 @@ Events:
 [0020] (00) stopObjectCode();											// --
 END
 
+
+/** Stairs **/
 roomobj-12-180.dmp
 Events:
    D - 0018
