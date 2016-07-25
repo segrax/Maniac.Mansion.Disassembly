@@ -4583,8 +4583,8 @@ END
 roomobj-24-212.dmp
 Events:
    B - 0017
-[0017] (EF) if (!getState08(activeObject)) {
-[001A] (42)   startScript(73);
+[0017] (EF) if (!getState08(activeObject)) {							// Tap turned on?
+[001A] (42)   startScript(73);											//  start Facet: Fill Gar/Sponge with Water
 [001C] (**) }
 [001C] (00) stopObjectCode();											// --
 END
@@ -4596,14 +4596,14 @@ Events:
    4 - 001A
    5 - 001E
    B - 0022
-[001A] (57) clearState08();
-[001B] (1C) startSound(17);
+[001A] (57) clearState08();												// Turn On
+[001B] (1C) startSound(17);												// Sound Sink On
 [001D] (00) stopObjectCode();											// --
-[001E] (D7) setState08();
-[001F] (3C) stopSound(17);
+[001E] (D7) setState08();												// Turn off
+[001F] (3C) stopSound(17);												// Sound Sink Off
 [0021] (00) stopObjectCode();											// --
-[0022] (EF) if (!getState08(activeObject)) {
-[0025] (42)   startScript(73);
+[0022] (EF) if (!getState08(activeObject)) {							// Sink turned on?
+[0025] (42)   startScript(73);											//  start Facet: Fill Gar/Sponge with Water
 [0027] (**) }
 [0027] (00) stopObjectCode();											// --
 END
@@ -4621,14 +4621,14 @@ Events:
    1 - 0024
    2 - 0027
    A - 002A
-[0024] (42) startScript(12);
+[0024] (42) startScript(12);											// start Ted: Open Curtain
 [0026] (00) stopObjectCode();											// --
-[0027] (42) startScript(13);
+[0027] (42) startScript(13);											// start Ted: Close Curtain
 [0029] (00) stopObjectCode();											// --
-[002A] (2F) if (getState08(82)) {
-[002E] (42)   startScript(12);
+[002A] (2F) if (getState08(82)) {										// if Shower Curtain closed
+[002E] (42)   startScript(12);											//  start Ted: Open Curtain
 [0030] (18) } else {													// -
-[0033] (42)   startScript(13);
+[0033] (42)   startScript(13);											//  start Ted: Close Curtain
 [0035] (**) }
 [0035] (00) stopObjectCode();											// --
 END
@@ -4646,11 +4646,11 @@ Events:
    1 - 001C
    2 - 0021
    B - 0026
-[001C] (03) doSentence(1,81,0);
+[001C] (03) doSentence(1,81,0);											// Open Toilet Lid
 [0020] (00) stopObjectCode();											// --
-[0021] (03) doSentence(2,81,0);
+[0021] (03) doSentence(2,81,0);											// Close Toilet Lid
 [0025] (00) stopObjectCode();											// --
-[0026] (91) animateActor(VAR_EGO,6,1);
+[0026] (91) animateActor(VAR_EGO,6,1);									// kid face Camera
 [002A] (75) printEgo("I'd like a little more privacy for that!");
 [004D] (00) stopObjectCode();											// --
 END
@@ -4661,7 +4661,7 @@ roomobj-24-312.dmp
 Events:
    A - 001E
    B - 001E
-[001E] (1C) startSound(7);
+[001E] (1C) startSound(7);												// sound Toilet Flush
 [0020] (00) stopObjectCode();											// --
 END
 
@@ -4679,13 +4679,13 @@ Events:
    2 - 001F
    D - 0024
 [001A] (42) startScript(4);												// start Door: Open
-[001C] (97) setState08(79);
+[001C] (97) setState08(79);												// Open Door (Gym)
 [001E] (00) stopObjectCode();											// --
 [001F] (42) startScript(5);												// start Door: Close
-[0021] (17) clearState08(79);
+[0021] (17) clearState08(79);											// Close Door (Gym)
 [0023] (00) stopObjectCode();											// --
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(79,25);
+[0024] (6F) if (getState08(activeObject)) {								// If Door Open
+[0027] (E5)   loadRoomWithEgo(79,25);									//  Enter Gym
 [002A] (**) }
 [002A] (00) stopObjectCode();											// --
 END
@@ -4696,9 +4696,9 @@ roomobj-24-81.dmp
 Events:
    1 - 001E
    2 - 0020
-[001E] (D7) setState08();
+[001E] (D7) setState08();												// Open Lid
 [001F] (00) stopObjectCode();											// --
-[0020] (57) clearState08();
+[0020] (57) clearState08();												// Close Lid
 [0021] (00) stopObjectCode();											// --
 END
 
@@ -4709,9 +4709,9 @@ Events:
    1 - 0024
    2 - 0027
    A - 0024
-[0024] (42) startScript(12);
+[0024] (42) startScript(12);											// start Ted: Open Curtain
 [0026] (00) stopObjectCode();											// --
-[0027] (42) startScript(13);
+[0027] (42) startScript(13);											// stop Ted: Close Curtain
 [0029] (00) stopObjectCode();											// --
 END
 
@@ -4722,9 +4722,9 @@ Events:
    1 - 0024
    2 - 0027
    A - 0024
-[0024] (42) startScript(12);
+[0024] (42) startScript(12);											// start Ted: Open Curtain
 [0026] (00) stopObjectCode();											// --
-[0027] (42) startScript(13);
+[0027] (42) startScript(13);											// stop Ted: Close Curtain
 [0029] (00) stopObjectCode();											// --
 END
 
@@ -4735,9 +4735,9 @@ Events:
    1 - 0024
    2 - 0027
    A - 0024
-[0024] (42) startScript(12);
+[0024] (42) startScript(12);											// start Ted: Open Curtain
 [0026] (00) stopObjectCode();											// --
-[0027] (42) startScript(13);
+[0027] (42) startScript(13);											// stop Ted: Close Curtain
 [0029] (00) stopObjectCode();											// --
 END
 
@@ -4751,15 +4751,15 @@ Events:
    5 - 005A
    6 - 0064
    B - 0064
-[0028] (EF) if (!getState08(activeObject)) {
-[002B] (1C)   startSound(18);
-[002D] (97)   setState08(212);
-[002F] (0F)   clearState02(212);
-[0031] (17)   clearState08(239);
-[0033] (1E)   walkActorTo(12,24,48);
-[0037] (48)   if (Var[116] == 0) {
-[003C] (1A)     Var[116] = 1;
-[003F] (42)     startScript(139);
+[0028] (EF) if (!getState08(activeObject)) {							// If Faucet Has Handle
+[002B] (1C)   startSound(18);											// 
+[002D] (97)   setState08(212);											// Water Faucet Off
+[002F] (0F)   clearState02(212);										// Lock Water Faucet
+[0031] (17)   clearState08(239);										// Hide <no name> (Running Water)
+[0033] (1E)   walkActorTo(12,24,48);									// Dead Cousin Ted
+[0037] (48)   if (Var[116] == 0) {										// if Ednas Phone Number has not been exposed
+[003C] (1A)     Var[116] = 1;											//  Ednas Phone Number exposed = Yes
+[003F] (42)     startScript(139);										//  start Cutscene: Weird Ed & Dr. Fred Trigger #1
 [0041] (**)   }
 [0041] (18) } else {													// -
 [0044] (75)   printEgo("The handle's missing.");
@@ -4767,13 +4767,13 @@ Events:
 [0059] (00) stopObjectCode();											// --
 [005A] (EF) if (!getState08(activeObject)) {
 [005D] (3C)   stopSound(18);
-[005F] (17)   clearState08(212);
-[0061] (8F)   setState02(212);
+[005F] (17)   clearState08(212);										// Water Faucet On
+[0061] (8F)   setState02(212);											// UnLock Water Faucet
 [0063] (**) }
 [0063] (00) stopObjectCode();											// --
-[0064] (64) if (activeObject2 == 120) {
-[0068] (57)   clearState08();
-[0069] (29)   setOwnerOf(120,0);
+[0064] (64) if (activeObject2 == 120) {									// if Water Faucet Handle
+[0068] (57)   clearState08();											//  Facet Has Handle
+[0069] (29)   setOwnerOf(120,0);										//  Facet Handle has no owner
 [006C] (18) } else {													// -
 [006F] (75)   printEgo("That doesn't make sense.");
 [0086] (**) }
@@ -4813,20 +4813,20 @@ Events:
    E - 002B
 [002B] (90) pickupObject(0);											// Pick object
 [002D] (00) stopObjectCode();											// --
-[002E] (64) if (activeObject2 == 99) {
-[0032] (9A)   Var[24] = Var[22];
-[0035] (1A)   Var[22] = 0;
-[0038] (42)   startScript(75);
-[003A] (42)   startScript(74);
+[002E] (64) if (activeObject2 == 99) {									// use with Glass Jar
+[0032] (9A)   Var[24] = Var[22];										//  Sponge Contents = Glass Jar Contents
+[0035] (1A)   Var[22] = 0;												//  Glass Jar Contents = 0
+[0038] (42)   startScript(75);											//  Sponge: Name
+[003A] (42)   startScript(74);											//  Glass Jar: Name
 [003C] (18) } else {													// -
-[003F] (43)   ddoSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
+[003F] (43)   ddoSentence(11,255,254);									//  Use _cmdObject2 with _cmdObject
 [0043] (**) }
 [0043] (00) stopObjectCode();											// --
-[0044] (48) if (VAR_ACTIVE_ACTOR == 19) {
-[0049] (83)   doSentence(11,36,90);
+[0044] (48) if (VAR_ACTIVE_ACTOR == 19) {								// Give to Plant
+[0049] (83)   doSentence(11,36,90);										//  Use  with Plant
 [004D] (**) }
 [004D] (78) if (VAR_ACTIVE_ACTOR < 8) {
-[0052] (69)   setOwnerOf(0,VAR_ACTIVE_ACTOR);
+[0052] (69)   setOwnerOf(0,VAR_ACTIVE_ACTOR);							// Give to Kid
 [0055] (**) }
 [0055] (00) stopObjectCode();											// --
 END
@@ -4838,7 +4838,7 @@ END
 roomobj-25-304.dmp
 Events:
    4 - 0014
-[0014] (48) if (VAR_EGO == 5) {
+[0014] (48) if (VAR_EGO == 5) {											// If Bernard
 [0019] (75)   printEgo("It doesn't work, cable's not hooked up.");
 [003C] (18) } else {													// -
 [003F] (75)   printEgo("All I get is fuzz.");
