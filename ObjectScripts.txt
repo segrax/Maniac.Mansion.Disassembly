@@ -2448,40 +2448,45 @@ Events:
 [004B] (00) stopObjectCode();											// --
 END
 
+
 /**
  * Room 14: Portrait Painting
  */
 
+
+/** Door **/
 roomobj-14-164.dmp
 Events:
    1 - 001A
    2 - 001F
    D - 0024
 [001A] (42) startScript(4);												// start Door: Open
-[001C] (97) setState08(147);
+[001C] (97) setState08(147);											// Open Door (Top of Main Entry)
 [001E] (00) stopObjectCode();											// --
 [001F] (42) startScript(5);												// start Door: Close
-[0021] (17) clearState08(147);
+[0021] (17) clearState08(147);											// Close Door (Top of Main Entry)
 [0023] (00) stopObjectCode();											// --
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(147,11);
+[0024] (6F) if (getState08(activeObject)) {								// If door is open
+[0027] (E5)   loadRoomWithEgo(147,11);									//  Enter Top of Main Entry
 [002A] (**) }
 [002A] (00) stopObjectCode();											// --
 END
 
 
+/** Bowl of wax fruit **/
 roomobj-14-165.dmp
 Events:
    3 - 0028
    E - 0025
 [0025] (90) pickupObject(0);											// Pick object
 [0027] (00) stopObjectCode();											// --
-[0028] (1A) Var[107] = 165;
+[0028] (1A) Var[107] = 165;												// Give Script: Object-ID = Bowl of Wax Fruit
 [002B] (42) startScript(98);											// start Give: Accept Item Check
 [002D] (00) stopObjectCode();											// --
 END
 
 
+/** Paint Brush **/
 roomobj-14-166.dmp
 Events:
    E - 001D
@@ -2490,6 +2495,7 @@ Events:
 END
 
 
+/** Paint Brush **/
 roomobj-14-167.dmp
 Events:
    3 - 0049
@@ -2497,46 +2503,51 @@ Events:
    E - 0023
 [0023] (90) pickupObject(0);											// Pick object
 [0025] (00) stopObjectCode();											// --
-[0026] (29) setOwnerOf(0,14);
-[0029] (64) if (activeObject2 == 68) {
-[002D] (97)   setState08(68);
-[002F] (8F)   setState02(68);
+[0026] (29) setOwnerOf(0,14);											// Use Paintbrush, Set owner to Green Tentacle
+[0029] (64) if (activeObject2 == 68) {									// if object2 == Paint Blotch
+[002D] (97)   setState08(68);											//  Hide Paint Blotch
+[002F] (8F)   setState02(68);											//  Hide Paint Blotch
 [0031] (18) } else {													// -
 [0034] (75)   printEgo("That sure was a waste.");
 [0048] (**) }
 [0048] (00) stopObjectCode();											// --
-[0049] (48) if (VAR_ACTIVE_ACTOR == 14) {
+[0049] (48) if (VAR_ACTIVE_ACTOR == 14) {								// Give to Green Tentacle
 [004E] (75)   printEgo("Yech! No thanks.");
 [005E] (78) } else if (VAR_ACTIVE_ACTOR < 8) {
-[0066] (69)   setOwnerOf(0,VAR_ACTIVE_ACTOR);
+[0066] (69)   setOwnerOf(0,VAR_ACTIVE_ACTOR);							// Give to Kid
 [0069] (**) }
 [0069] (00) stopObjectCode();											// --
 END
 
 
+/** Easel **/
 roomobj-14-362.dmp
 Events:
 END
 
 
+/** Unfinished Painting **/
 roomobj-14-363.dmp
 Events:
 END
 
 
+/** Cafe **/
 roomobj-14-364.dmp
 Events:
 END
 
 
+/** Dried Purple Slime **/
 roomobj-14-365.dmp
 Events:
    F - 0024
-[0024] (75) printEgo("I'M not going to touch that slime!");
+[0024] (75) printEgo("I'M not going to touch that slime!");				// What is
 [0042] (00) stopObjectCode();											// --
 END
 
 
+/** Sketch **/
 roomobj-14-366.dmp
 Events:
 END
