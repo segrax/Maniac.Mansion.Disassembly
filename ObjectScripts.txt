@@ -3003,7 +3003,7 @@ END
  */
 
 
-/** **/
+/** Door **/
 roomobj-17-152.dmp
 Events:
    1 - 001A
@@ -3022,6 +3022,7 @@ Events:
 END
 
 
+/** Vase **/
 roomobj-17-154.dmp
 Events:
    E - 0016
@@ -3034,6 +3035,7 @@ Events:
 END
 
 
+/** Old Record **/
 roomobj-17-155.dmp
 Events:
    B - 0021
@@ -3045,6 +3047,7 @@ Events:
 END
 
 
+/** TV **/
 roomobj-17-157.dmp
 Events:
    4 - 0018
@@ -3066,6 +3069,7 @@ Events:
 END
 
 
+/** Cassette Recorder **/
 roomobj-17-158.dmp
 Events:
    4 - 0027
@@ -3101,6 +3105,7 @@ Events:
 END
 
 
+/** Cassette Tape **/
 roomobj-17-159.dmp
 Events:
    4 - 0045
@@ -3125,44 +3130,47 @@ Events:
 END
 
 
+/** Record **/
 roomobj-17-231.dmp
 Events:
    4 - 004A
    5 - 0052
    E - 001C
-[001C] (48) if (Var[23] == 1) {
+[001C] (48) if (Var[23] == 1) {											// if Victrola On
 [0021] (75)   printEgo("It's still playing!");
 [0034] (18) } else {													// -
-[0037] (97)   setState08(231);
-[0039] (8F)   setState02(231);
-[003B] (48)   if (Var[75] == 25) {
-[0040] (69)     setOwnerOf(235,VAR_EGO);
+[0037] (97)   setState08(231);											// Victrola On
+[0039] (8F)   setState02(231);											// Victrola On
+[003B] (48)   if (Var[75] == 25) {										// If Record on Victrola
+[0040] (69)     setOwnerOf(235,VAR_EGO);								//  Kid owns record
 [0043] (18)   } else {													// -
-[0046] (69)     setOwnerOf(155,VAR_EGO);
+[0046] (69)     setOwnerOf(155,VAR_EGO);								//  Kid owns Old Record
 [0049] (**)   }
 [0049] (**) }
 [0049] (00) stopObjectCode();											// --
-[004A] (EF) if (!getState08(activeObject)) {
-[004D] (83)   doSentence(4,102,0);
+[004A] (EF) if (!getState08(activeObject)) {							// If Victrola Off
+[004D] (83)   doSentence(4,102,0);										//  Turn On Victrola
 [0051] (**) }
 [0051] (00) stopObjectCode();											// --
-[0052] (EF) if (!getState08(activeObject)) {
-[0055] (83)   doSentence(5,102,0);
+[0052] (EF) if (!getState08(activeObject)) {							// If Victrola Off
+[0055] (83)   doSentence(5,102,0);										//  Turn Off Victrola
 [0059] (**) }
 [0059] (00) stopObjectCode();											// --
 END
 
 
+/** Piano Bench **/
 roomobj-17-356.dmp
 Events:
 END
 
 
+/** Piano **/
 roomobj-17-357.dmp
 Events:
    B - 0017
-[0017] (04) if (VAR_EGO <= 2) {
-[001C] (42)   startScript(95);
+[0017] (04) if (VAR_EGO <= 2) {											// if Syd Or Razor
+[001C] (42)   startScript(95);											//  start Play Piano
 [001E] (18) } else {													// -
 [0021] (75)   printEgo("I can't play that thing!");
 [0037] (**) }
@@ -3170,61 +3178,65 @@ Events:
 END
 
 
+/** Victrola **/
 roomobj-17-358.dmp
 Events:
    4 - 001E
    5 - 0060
    B - 006A
-[001E] (AF) if (!getState08(231)) {
-[0022] (48)   if (Var[23] == 0) {			// If Victrola Not Playing
-[0027] (1A)     Var[23] = 1;				// Victrola Playing
-[002A] (2F)     if (getState08(158)) {		// State of Casette Recorder
-[002E] (9A)       Var[13] = Var[75];
-[0031] (**)     }
-[0031] (48)     if (Var[75] == 25) {		// If Record on Victrola is Tentacle Mating Call
-[0036] (42)       startScript(14);
-[0038] (18)     } else {													// -
-[003B] (1C)       startSound(44);
+[001E] (AF) if (!getState08(231)) {										// if Record
+[0022] (48)   if (Var[23] == 0) {										//  If Victrola Not Playing
+[0027] (1A)     Var[23] = 1;											//   Victrola Playing
+[002A] (2F)     if (getState08(158)) {									//   State of Casette Recorder
+[002E] (9A)       Var[13] = Var[75];									//    Tape Contents = Record on Victrola
+[0031] (**)     }							
+[0031] (48)     if (Var[75] == 25) {									// If Record on Victrola is Tentacle Mating Call
+[0036] (42)       startScript(14);										//  start Record: Tentacle Mating Call
+[0038] (18)     } else {												// -
+[003B] (1C)       startSound(44);										// sound 
 [003D] (**)     }
 [003D] (**)   }
 [003D] (18) } else {													// -
 [0040] (75)   printEgo("There's no record on the Victrola.");
 [005F] (**) }
 [005F] (00) stopObjectCode();											// --
-[0060] (1A) Var[23] = 0;
+[0060] (1A) Var[23] = 0;												// Victrola = Off
 [0063] (3C) stopSound(25);
 [0065] (3C) stopSound(44);
-[0067] (62) stopScript(14);
+[0067] (62) stopScript(14);												// start Record: Tentacle Mating Call
 [0069] (00) stopObjectCode();											// --
-[006A] (AF) if (!getState08(231)) {
+[006A] (AF) if (!getState08(231)) {										// If Record On
 [006E] (75)   printEgo("There's already a record here.");
 [008A] (18) } else {													// -
-[008D] (64)   if (activeObject2 == 235) {
-[0091] (17)     clearState08(231);
-[0093] (0F)     clearState02(231);
-[0095] (29)     setOwnerOf(235,14);
-[0098] (1A)     Var[75] = 25;
+[008D] (64)   if (activeObject2 == 235) {								// use with Record
+[0091] (17)     clearState08(231);										//  Lock Record
+[0093] (0F)     clearState02(231);										//  Lock Record
+[0095] (29)     setOwnerOf(235,14);										//  Green Tentacle owns record
+[0098] (1A)     Var[75] = 25;											//  Record on Victrola = Tentacle Mating Call
 [009B] (**)   }
-[009B] (64)   if (activeObject2 == 155) {
-[009F] (17)     clearState08(231);
-[00A1] (0F)     clearState02(231);
-[00A3] (29)     setOwnerOf(155,14);
-[00A6] (1A)     Var[75] = 44;
+[009B] (64)   if (activeObject2 == 155) {								// use with Old Record
+[009F] (17)     clearState08(231);										//  Lock Record
+[00A1] (0F)     clearState02(231);										//  Lock Record
+[00A3] (29)     setOwnerOf(155,14);										//  Green Tentacle owns Record
+[00A6] (1A)     Var[75] = 44;											//  Record on Victrola = Melody Stinks
 [00A9] (**)   }
 [00A9] (**) }
 [00A9] (00) stopObjectCode();											// --
 END
 
 
+/** Speaker **/
 roomobj-17-359.dmp
 Events:
 END
 
 
 /**
- * Room 17
+ * Room 18: Video Game
  */
+
  
+/** **/
 roomobj-18-168.dmp
 Events:
    1 - 001A
