@@ -6416,80 +6416,85 @@ END
 
 
 /**
- * Room 51
+ * Room 51: Lab: Meteor
  */
- 
+
+
+/** Switch **/
 roomobj-51-143.dmp
 Events:
    5 - 001E
    9 - 001E
    A - 001E
    B - 001E
-[001E] (EF) if (!getState08(activeObject)) {
-[0021] (D7)   setState08();
-[0022] (62)   stopScript(120);
+[001E] (EF) if (!getState08(activeObject)) {							// if not switched
+[0021] (D7)   setState08();												//  Switch
+[0022] (62)   stopScript(120);											//  stop Dr Fred: Entered Lab
 [0024] (3C)   stopSound(59);
-[0026] (1C)   startSound(61);
-[0028] (42)   startScript(121);
+[0026] (1C)   startSound(61);											//  start Print "It must require a special key"
+[0028] (42)   startScript(121);											//  start Dr Fred: Free of machines control
 [002A] (**) }
 [002A] (00) stopObjectCode();											// --
 END
 
 
+/** Door **/
 roomobj-51-144.dmp
 Events:
    1 - 001A
    2 - 001F
    D - 0022
-[001A] (42) startScript(116);									// Open Door
-[001C] (97) setState08(26);										// Hide Cement Slab
+[001A] (42) startScript(116);											// Open Door
+[001C] (97) setState08(26);												// Hide Cement Slab
 [001E] (00) stopObjectCode();											// --
-[001F] (42) startScript(117);									// Close Door
+[001F] (42) startScript(117);											// Close Door
 [0021] (00) stopObjectCode();											// --
-[0022] (6F) if (getState08(activeObject)) {
-[0025] (48)   if (Var[136] == 1) {
-[002A] (E5)     loadRoomWithEgo(75,52);							// Enter 'Garage Destroyed'
+[0022] (6F) if (getState08(activeObject)) {								// If Door open
+[0025] (48)   if (Var[136] == 1) {										//  if Garage Destroyed
+[002A] (E5)     loadRoomWithEgo(75,52);									//   Enter 'Garage Destroyed'
 [002D] (18)   } else {													// -
-[0030] (29)     setOwnerOf(120,15);
-[0033] (E5)     loadRoomWithEgo(120,16);						// Enter 'Garage'
+[0030] (29)     setOwnerOf(120,15);										//   Medical Diagram owned by Meteor Police ??
+[0033] (E5)     loadRoomWithEgo(120,16);								//   Enter 'Garage'
 [0036] (**)   }
 [0036] (**) }
 [0036] (00) stopObjectCode();											// --
 END
 
 
+/** Door **/
 roomobj-51-251.dmp
 Events:
    1 - 001A
    2 - 001F
    D - 0024
-[001A] (42) startScript(116);
-[001C] (97) setState08(237);
-[001E] (00) stopObjectCode();											// --
-[001F] (42) startScript(117);
-[0021] (17) clearState08(237);
+[001A] (42) startScript(116);											// Open Door
+[001C] (97) setState08(237);											// Open Door (Lab: Zom-b-Matic)
+[001E] (00) stopObjectCode();											// --	
+[001F] (42) startScript(117);											// Close Door
+[0021] (17) clearState08(237);											// Close Door (Lab: Zom-b-Matic)
 [0023] (00) stopObjectCode();											// --
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(237,30);
+[0024] (6F) if (getState08(activeObject)) {								// if door open
+[0027] (E5)   loadRoomWithEgo(237,30);									//  Enter Lab: Zom-b-Matic
 [002A] (**) }
 [002A] (00) stopObjectCode();											// --
 END
 
 
+/** Meteor **/
 roomobj-51-252.dmp
 Events:
    B - 004F
    E - 001A
 [001A] (48) if (Var[89] == 2) {
 [001F] (90)   pickupObject(0);											// Pick object
-[0021] (57)   clearState08();
+[0021] (57)   clearState08();											
 [0022] (CF)   setState02();
-[0023] (1A)   Var[18] = 1;
-[0026] (42)   startScript(129);
-[0028] (2D)   putActorInRoom(16,0);
+[0023] (1A)   Var[18] = 1;												// Meteor Location = Kids Hands
+[0026] (42)   startScript(129);											// start Radiation Suit: Enable Speaking Flag
+[0028] (2D)   putActorInRoom(16,0);										// Meteor Leaves
 [002B] (01)   putActor(16,0,0);
-[002F] (62)   stopScript(123);
-[0031] (2D)   putActorInRoom(20,0);
+[002F] (62)   stopScript(123);											// stop Meteor: Fire Radiation
+[0031] (2D)   putActorInRoom(20,0);										// Meteor Radiation Leaves
 [0034] (01)   putActor(20,0,0);
 [0038] (18) } else {													// -
 [003B] (75)   printEgo("I can't get it loose!");
@@ -6500,18 +6505,20 @@ Events:
 END
 
 
+/** Purple Slime **/
 roomobj-51-353.dmp
 Events:
    F - 001E
-[001E] (75) printEgo("I'm not going to touch that slime!");
+[001E] (75) printEgo("I'm not going to touch that slime!");				// What is
 [003C] (00) stopObjectCode();											// --
 END
 
 
 /**
- * Room 52
+ * Room 52: Garage Destroyed
  */
  
+ /** Gate **/
 roomobj-52-75.dmp
 Events:
    1 - 001E
@@ -6519,18 +6526,18 @@ Events:
    9 - 0035
    A - 001E
    D - 003A
-[001E] (DF) if (!getState04(activeObject)) {
-[0021] (42)   startScript(116);
-[0023] (97)   setState08(105);
+[001E] (DF) if (!getState04(activeObject)) {							// If unlocked
+[0021] (42)   startScript(116);											//  start Verb: Generic: Open Door
+[0023] (97)   setState08(105);											//  Open Gate (Pool Area)
 [0025] (18) } else {													// -
 [0028] (75)   printEgo("It's locked");
 [0034] (**) }
 [0034] (00) stopObjectCode();											// --
-[0035] (42) startScript(117);
-[0037] (17) clearState08(105);
+[0035] (42) startScript(117);											// start Verb: Generic: Close Door
+[0037] (17) clearState08(105);											// Close Gate (Pool Area)
 [0039] (00) stopObjectCode();											// --
-[003A] (6F) if (getState08(activeObject)) {
-[003D] (E5)   loadRoomWithEgo(105,6);
+[003A] (6F) if (getState08(activeObject)) {								// If gate open
+[003D] (E5)   loadRoomWithEgo(105,6);									//  Enter Pool Area
 [0040] (**) }
 [0040] (00) stopObjectCode();											// --
 END
