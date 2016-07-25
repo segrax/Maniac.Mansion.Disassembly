@@ -5447,7 +5447,7 @@ Events:
 [0021] (75) printEgo("Please insert one quarter.");
 [003A] (00) stopObjectCode();											// --
 [003B] (64) if (activeObject2 == 200) {
-[003F] (1C)   startSound(54);
+[003F] (1C)   startSound(54);												// sound Keypad Buttons
 [0041] (17)   clearState08(145);
 [0043] (0F)   clearState02(145);
 [0045] (29)   setOwnerOf(200,0);
@@ -5486,7 +5486,7 @@ Events:
 [003D] (00) stopObjectCode();											// --
 [003E] (64) if (activeObject2 == 71) {
 [0042] (37)   clearState04(237);
-[0044] (1C)   startSound(54);
+[0044] (1C)   startSound(54);												// sound Keypad Buttons
 [0046] (03)   doSentence(1,237,0);
 [004A] (18) } else {													// -
 [004D] (75)   printEgo("It doesn't fit.");
@@ -5507,7 +5507,7 @@ roomobj-30-418.dmp
 Events:
    9 - 001A
 [001A] (75) printEgo("Button 1 pushed.");
-[002A] (1C) startSound(54);
+[002A] (1C) startSound(54);												// sound Keypad Buttons
 [002C] (83) doSentence(13,161,0);
 [0030] (00) stopObjectCode();											// --
 END
@@ -5517,7 +5517,7 @@ roomobj-30-419.dmp
 Events:
    9 - 001A
 [001A] (75) printEgo("Button 2 pushed.");
-[002A] (1C) startSound(54);
+[002A] (1C) startSound(54);												// sound Keypad Buttons
 [002C] (83) doSentence(13,161,0);
 [0030] (00) stopObjectCode();											// --
 END
@@ -5527,7 +5527,7 @@ roomobj-30-420.dmp
 Events:
    9 - 001A
 [001A] (75) printEgo("Button 3 pushed.");
-[002A] (1C) startSound(54);
+[002A] (1C) startSound(54);												// sound Keypad Buttons
 [002C] (83) doSentence(13,161,0);
 [0030] (00) stopObjectCode();											// --
 END
@@ -5537,7 +5537,7 @@ roomobj-30-421.dmp
 Events:
    9 - 001A
 [001A] (75) printEgo("Button 4 pushed.");
-[002A] (1C) startSound(54);
+[002A] (1C) startSound(54);												// sound Keypad Buttons
 [002C] (83) doSentence(13,161,0);
 [0030] (00) stopObjectCode();											// --
 END
@@ -6275,142 +6275,160 @@ END
 
 
 /**
- * Room 45
+ * Room 45: Kid Selection 
  */
+
  
+/** Syd **/
 roomobj-45-243.dmp
 Events:
    F - 0012
-[0012] (1A) Var[90] = 1;
+[0012] (1A) Var[90] = 1;												// Kid Selected = Syd
 [0015] (14) print(255,"Syd - an aspiring musician%/%trying to start his own new-wave band.");
-[0051] (42) startScript(109);
+[0051] (42) startScript(109);											// Intro: Kid Selection: Update Var States
 [0053] (00) stopObjectCode();											// --
 END
 
 
+/** Razor **/
 roomobj-45-244.dmp
 Events:
    F - 0012
-[0012] (1A) Var[90] = 2;
+[0012] (1A) Var[90] = 2;												// Kid Selected = Razor
 [0015] (14) print(255,"Razor - lead singer for the punk band,/`Razor and the Scummettes.`");
-[0050] (42) startScript(109);
+[0050] (42) startScript(109);											// Intro: Kid Selection: Update Var States
 [0052] (00) stopObjectCode();											// --
 END
 
 
+/** Michael **/
 roomobj-45-245.dmp
 Events:
    F - 0012
-[0012] (1A) Var[90] = 4;
+[0012] (1A) Var[90] = 4;												// Kid Selected = Michael
 [0015] (14) print(255,"Michael - award winning photographer%/%for the college newspaper.");
-[0052] (42) startScript(109);
+[0052] (42) startScript(109);											// Intro: Kid Selection: Update Var States
 [0054] (00) stopObjectCode();											// --
 END
 
 
+/** Bernard **/
 roomobj-45-246.dmp
 Events:
    F - 0012
-[0012] (1A) Var[90] = 5;
+[0012] (1A) Var[90] = 5;												// Kid Selected = Bernard
 [0015] (14) print(255,"Bernard - president of the physics club%/%and winner of the college's Geek Award.");
-[005D] (42) startScript(109);
+[005D] (42) startScript(109);											// Intro: Kid Selection: Update Var States
 [005F] (00) stopObjectCode();											// --
 END
 
 
+/** Wendy **/
 roomobj-45-247.dmp
 Events:
    F - 0012
-[0012] (1A) Var[90] = 6;
+[0012] (1A) Var[90] = 6;												// Kid Selected = Wendy
 [0015] (14) print(255,"Wendy - wants to be a famous novelist%/%and is waiting for a big break.");
-[0052] (42) startScript(109);
+[0052] (42) startScript(109);											// Intro: Kid Selection: Update Var States
 [0054] (00) stopObjectCode();											// --
 END
 
 
+/** Jeff **/
 roomobj-45-248.dmp
 Events:
    F - 0012
-[0012] (1A) Var[90] = 7;
+[0012] (1A) Var[90] = 7;												// Kid Selected = Jeff
 [0015] (14) print(255,"Jeff - usually hangs out on the beach,/responds to the name, Surfer Dude.");
-[0055] (42) startScript(109);
+[0055] (42) startScript(109);											// Intro: Kid Selection: Update Var States
 [0057] (00) stopObjectCode();											// --
 END
 
 
+/** Dave **/
 roomobj-45-387.dmp
 Events:
    F - 0012
-[0012] (1C) startSound(54);
+[0012] (1C) startSound(54);												// sound Keypad Buttons
 [0014] (14) print(255,"Dave - Sandy's boyfriend./Organizer of the rescue effort.");
 [0049] (00) stopObjectCode();											// --
 END
 
 
+/** Start **/
 roomobj-45-395.dmp
 Events:
    F - 0012
-[0012] (1C) startSound(54);
-[0014] (78) if (Var[92] < 3) {
-[0019] (14)   print(255,"  Please select two kids besides Dave.");
+[0012] (1C) startSound(54);												// sound Keypad Buttons
+[0014] (78) if (Var[92] < 3) {											// if Kids Slected < 3
+[0019] (14)   print(255,"  Please select two kids besides Dave.");		//  
 [003C] (18) } else {													// -
-[003F] (1A)   Var[91] = 1;
+[003F] (1A)   Var[91] = 1;												// Kid Select: Game can Start = yes
 [0042] (**) }
 [0042] (00) stopObjectCode();											// --
 END
 
 
 /**
- * Room 47
+ * Room 47: Mansion At Distance (Lights On)
  */
+
  
+/** <No Name> **/ 
 roomobj-47-13.dmp
 Events:
 END
 
 
+/** <No Name> **/ 
 roomobj-47-14.dmp
 Events:
 END
 
 
+/** <No Name> **/ 
 roomobj-47-15.dmp
 Events:
 END
 
 
+/** <No Name> **/ 
 roomobj-47-16.dmp
 Events:
 END
 
 
 /**
- * Room 50
+ * Room 50: Load / Save Screen
  */
  
+
+/** Load Game **/
 roomobj-50-442.dmp
 Events:
    F - 0012
-[0012] (1A) Var[50] = 2;										// SaveLoad: Button Pressed = Load Game
-[0015] (1C) startSound(19);										// Beep
+[0012] (1A) Var[50] = 2;												// SaveLoad: Button Pressed = Load Game
+[0015] (1C) startSound(19);												// Beep
 [0017] (00) stopObjectCode();											// --
 END
 
 
+/** Save Game **/
 roomobj-50-443.dmp
 Events:
    F - 0012
-[0012] (1A) Var[50] = 1;										// SaveLoad: Button Pressed = Save Game
-[0015] (1C) startSound(19);
+[0012] (1A) Var[50] = 1;												// SaveLoad: Button Pressed = Save Game
+[0015] (1C) startSound(19);												// Beep
 [0017] (00) stopObjectCode();											// --
 END
 
 
+/** Continue Playing **/
 roomobj-50-444.dmp
 Events:
    F - 0012
-[0012] (1A) Var[50] = 3;										// SaveLoad: Button Pressed = Continue Playing
-[0015] (1C) startSound(19);
+[0012] (1A) Var[50] = 3;												// SaveLoad: Button Pressed = Continue Playing
+[0015] (1C) startSound(19);												// Beep
 [0017] (00) stopObjectCode();											// --
 END
 
