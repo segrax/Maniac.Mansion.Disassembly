@@ -2148,7 +2148,7 @@ END
 
 
 /**
- * Room 11
+ * Room 11: Top of Main Entry
  */
  
 
@@ -2279,7 +2279,7 @@ END
 
 
 /**
- * Room 12
+ * Room 12: Level 2 Stairs to Level 3
  */
  
  
@@ -2287,9 +2287,9 @@ END
 roomobj-12-179.dmp
 Events:
    D - 0018
-[0018] (1A) Var[86] = 0;
-[001B] (60) cursorCommand( kModeNormal )							// Cutscene Mode Normal
-[001D] (E5) loadRoomWithEgo(161,13);
+[0018] (1A) Var[86] = 0;												// Enter Level 2 Main Hallway From Level 2 Stairs to Level 3
+[001B] (60) cursorCommand( kModeNormal )								// Cutscene Mode Normal
+[001D] (E5) loadRoomWithEgo(161,13);									// Enter Level 2 Main Hallway
 [0020] (00) stopObjectCode();											// --
 END
 
@@ -2298,134 +2298,158 @@ END
 roomobj-12-180.dmp
 Events:
    D - 0018
-[0018] (48) if (Var[84] == 0) {
-[001D] (1A)   Var[84] = 1;
-[0020] (42)   startScript(106);
+[0018] (48) if (Var[84] == 0) {											// if Weird Ed has been actived by stairs in room 12
+[001D] (1A)   Var[84] = 1;												//  Weird Ed has been actived by stairs in room 12 = Yes
+[0020] (42)   startScript(106);											//  start Door Bell
 [0022] (**) }
-[0022] (E5) loadRoomWithEgo(208,38);
+[0022] (E5) loadRoomWithEgo(208,38);									// Enter Level 3 Hallway
 [0025] (00) stopObjectCode();											// --
 END
 
+
+/** Door **/
 roomobj-12-181.dmp
 Events:
    1 - 001A
    2 - 001F
    D - 0024
 [001A] (42) startScript(4);												// start Door: Open
-[001C] (97) setState08(182);
+[001C] (97) setState08(182);											// Open Door (Level 2 Stairs to Level 3)
 [001E] (00) stopObjectCode();											// --
 [001F] (42) startScript(5);												// start Door: Close
-[0021] (17) clearState08(182);
+[0021] (17) clearState08(182);											// Close Door (Level 2 Stairs to Level 3)
 [0023] (00) stopObjectCode();											// --
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(182,23);
+[0024] (6F) if (getState08(activeObject)) {								// if door is open
+[0027] (E5)   loadRoomWithEgo(182,23);									//  Enter Darkroom
 [002A] (**) }
 [002A] (00) stopObjectCode();											// --
 END
 
+
+/** Lowly plant **/
 roomobj-12-378.dmp
 Events:
 END
 
+
+/** Window **/
 roomobj-12-379.dmp
 Events:
 END
 
+
+/** Window **/
 roomobj-12-380.dmp
 Events:
 END
 
+
+/** Window **/
 roomobj-12-381.dmp
 Events:
 END
 
+
 /**
- * Room 13
+ * Room 13: Level 2 Main Hallway
  */
+
+ 
+/** Door **/
 roomobj-13-160.dmp
 Events:
    1 - 001A
    2 - 001F
    D - 0024
 [001A] (42) startScript(4);												// start Door: Open
-[001C] (97) setState08(149);
+[001C] (97) setState08(149);											// Open Door (Top of Main Entry)
 [001E] (00) stopObjectCode();											// --
 [001F] (42) startScript(5);												// start Door: Close
-[0021] (17) clearState08(149);
+[0021] (17) clearState08(149);											// Close Door (Top of Main Entry)
 [0023] (00) stopObjectCode();											// --
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(149,11);
+[0024] (6F) if (getState08(activeObject)) {								// If Door Open
+[0027] (E5)   loadRoomWithEgo(149,11);									//  Enter Top of Main Entry
 [002A] (**) }
 [002A] (00) stopObjectCode();											// --
 END
 
+
+/** Stairs **/
 roomobj-13-161.dmp
 Events:
    D - 0018
-[0018] (48) if (Var[86] == 1) {
+[0018] (48) if (Var[86] == 1) {											// if Kid is in Level 2 - Level 3 hallway == Yes
 [001D] (75)   printEgo("I'm not going up there%/%that monster's got my friend!");
-[004D] (9E)   walkActorTo(VAR_EGO,78,69);
+[004D] (9E)   walkActorTo(VAR_EGO,78,69);								// Walk actor away
 [0051] (18) } else {													// -
-[0054] (E5)   loadRoomWithEgo(179,12);
+[0054] (E5)   loadRoomWithEgo(179,12);									// Enter Level 2 Stairs to Level 3
 [0057] (**) }
 [0057] (00) stopObjectCode();											// --
 END
 
+
+/** Door **/
 roomobj-13-162.dmp
 Events:
    1 - 001A
    2 - 001F
    D - 0024
 [001A] (42) startScript(4);												// start Door: Open
-[001C] (97) setState08(175);
+[001C] (97) setState08(175);											// Open Door (Medical)
 [001E] (00) stopObjectCode();											// --
 [001F] (42) startScript(5);												// start Door: Close
-[0021] (17) clearState08(175);
+[0021] (17) clearState08(175);											// Close Door (Medical)
 [0023] (00) stopObjectCode();											// --
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(175,22);
+[0024] (6F) if (getState08(activeObject)) {								// if door is open
+[0027] (E5)   loadRoomWithEgo(175,22);									// Enter Medical
 [002A] (**) }
 [002A] (00) stopObjectCode();											// --
 END
 
+
+/** Door **/
 roomobj-13-163.dmp
 Events:
    1 - 001A
    2 - 001F
    D - 0024
 [001A] (42) startScript(4);												// start Door: Open
-[001C] (97) setState08(168);
+[001C] (97) setState08(168);											// Open Door (Video Game)
 [001E] (00) stopObjectCode();											// --
 [001F] (42) startScript(5);												// start Door: Close
-[0021] (17) clearState08(168);
+[0021] (17) clearState08(168);											// Close Door (Video Game)
 [0023] (00) stopObjectCode();											// --
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(168,18);
+[0024] (6F) if (getState08(activeObject)) {								// if door open
+[0027] (E5)   loadRoomWithEgo(168,18);									//  Enter Video Game
 [002A] (**) }
 [002A] (00) stopObjectCode();											// --
 END
 
+
+/** Statue **/
 roomobj-13-360.dmp
 Events:
    9 - 001E
    A - 001E
    C - 0034
    E - 001E
-[001E] (75) printEgo("It's too heavy to move.");
+[001E] (75) printEgo("It's too heavy to move.");						// Push/Pull
 [0033] (00) stopObjectCode();											// --
-[0034] (75) printEgo("Maybe there's a plaque somewhere.");
+[0034] (75) printEgo("Maybe there's a plaque somewhere.");				// Read
 [0053] (00) stopObjectCode();											// --
 END
 
+
+/** Plaque on statue **/
 roomobj-13-361.dmp
 Events:
    C - 0022
-[0022] (75) printEgo("Si trouve, envoyez-le au Louvre,/poste paye.");
+[0022] (75) printEgo("Si trouve, envoyez-le au Louvre,/poste paye.");	// Read "If found, send to the Louvre, postage paid."
 [004B] (00) stopObjectCode();											// --
 END
 
 /**
- * Room 14
+ * Room 14: Portrait Painting
  */
 
 roomobj-14-164.dmp
