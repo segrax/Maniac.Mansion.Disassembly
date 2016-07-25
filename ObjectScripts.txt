@@ -4154,25 +4154,26 @@ END
  */
  
  
-/** **/
+/** Door **/
 roomobj-21-189.dmp
 Events:
    1 - 001A
    2 - 001F
    D - 0024
 [001A] (42) startScript(4);												// start Door: Open
-[001C] (97) setState08(184);
+[001C] (97) setState08(184);											// Open Door (Level 3 Hallway)
 [001E] (00) stopObjectCode();											// --
 [001F] (42) startScript(5);												// start Door: Close
-[0021] (17) clearState08(184);
+[0021] (17) clearState08(184);											// Close Door (Level 3 Hallway)
 [0023] (00) stopObjectCode();											// --
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(184,38);
+[0024] (6F) if (getState08(activeObject)) {								// is door open
+[0027] (E5)   loadRoomWithEgo(184,38);									//  Enter Level 3 Hallway
 [002A] (**) }
 [002A] (00) stopObjectCode();											// --
 END
 
 
+/** Dime **/
 roomobj-21-190.dmp
 Events:
    B - 001B
@@ -4184,54 +4185,59 @@ Events:
 END
 
 
+/** Radio Tube **/
 roomobj-21-191.dmp
 Events:
    E - 001C
-[001C] (69) setOwnerOf(40,VAR_EGO);
-[001F] (D7) setState08();
-[0020] (CF) setState02();
-[0021] (1A) Var[28] = 0;
+[001C] (69) setOwnerOf(40,VAR_EGO);										// Kid owns Radio Tube
+[001F] (D7) setState08();												// Lock Tube
+[0020] (CF) setState02();												// Hide Tube
+[0021] (1A) Var[28] = 0;												// Radio (Room 21) = off
 [0024] (3C) stopSound(20);
 [0026] (3C) stopSound(29);
 [0028] (00) stopObjectCode();											// --
 END
 
 
+/** Ladder **/
 roomobj-21-214.dmp
 Events:
    D - 0018
-[0018] (97) setState08(192);
-[001A] (E5) loadRoomWithEgo(192,20);
+[0018] (97) setState08(192);											// Open Hatch
+[001A] (E5) loadRoomWithEgo(192,20);									// Enter Green Tentacle's
 [001D] (00) stopObjectCode();											// --
 END
 
 
+/** Picture of Nurse Edna **/
 roomobj-21-388.dmp
 Events:
    1 - 0029
    A - 0029
-[0029] (42) startScript(62);
+[0029] (42) startScript(62);											// start Print "Its firmly attached to the wall"
 [002B] (00) stopObjectCode();											// --
 END
 
 
+/** Water Poster **/
 roomobj-21-389.dmp
 Events:
    C - 001F
-[001F] (42) startScript(47);
+[001F] (42) startScript(47);											// start Meteor Police Poster (Read Number)
 [0021] (00) stopObjectCode();											// --
 END
 
 
+/** Tube Socket **/
 roomobj-21-390.dmp
 Events:
    6 - 001F
    B - 001F
-[001F] (48) if (VAR_EGO == 5) {
-[0024] (64)   if (activeObject2 == 40) {
-[0028] (29)     setOwnerOf(40,14);
-[002B] (17)     clearState08(191);
-[002D] (0F)     clearState02(191);
+[001F] (48) if (VAR_EGO == 5) {											// If Bernard
+[0024] (64)   if (activeObject2 == 40) {								//  if use with Radio Tube
+[0028] (29)     setOwnerOf(40,14);										//   Green Tentacle owns tube
+[002B] (17)     clearState08(191);										//   Clear State
+[002D] (0F)     clearState02(191);										//   Clear State
 [002F] (2F)   } else if (getState08(191)) {
 [0036] (75)     printEgo("That doesn't seem to work.");
 [004E] (**)   }
@@ -4242,45 +4248,46 @@ Events:
 END
 
 
+/** Radio **/
 roomobj-21-391.dmp
 Events:
    4 - 0026
    5 - 0090
    6 - 001D
    B - 00AD
-[001D] (64) if (activeObject2 == 40) {
-[0021] (83)   doSentence(6,134,0);
+[001D] (64) if (activeObject2 == 40) {									// Fix with Radio Tube
+[0021] (83)   doSentence(6,134,0);										// use tube with Tube Socket
 [0025] (**) }
 [0025] (00) stopObjectCode();											// --
-[0026] (AF) if (!getState08(191)) {
-[002A] (AF)   if (!getState08(124)) {
-[002E] (48)     if (Var[28] == 0) {
-[0033] (1A)       Var[28] = 1;
-[0036] (1C)       startSound(20);
+[0026] (AF) if (!getState08(191)) {										//  is Radio Tube in
+[002A] (AF)   if (!getState08(124)) {									//   is power on
+[002E] (48)     if (Var[28] == 0) {										//    if Radio (Room 21) == off
+[0033] (1A)       Var[28] = 1;											//     Radio (Room 21) = on
+[0036] (1C)       startSound(20);										//     sound radio static
 [0038] (**)     }
 [0038] (**)   }
-[0038] (48) } else if (VAR_EGO == 5) {
+[0038] (48) } else if (VAR_EGO == 5) {									// is Bernard
 [0040] (75)   printEgo("It's missing a type W-88 vacuum tube.");
 [0061] (18) } else {													// -
 [0064] (75)   printEgo("I can't get it to work./It might be missing a part.");
 [008F] (**) }
 [008F] (00) stopObjectCode();											// --
-[0090] (48) if (Var[28] == 0) {
-[0095] (75)   printEgo("It wasn't on.");
+[0090] (48) if (Var[28] == 0) {											// Radio (Room 21) == off
+[0095] (75)   printEgo("It wasn't on.");								//  
 [00A2] (18) } else {													// -
-[00A5] (1A)   Var[28] = 0;
-[00A8] (3C)   stopSound(20);
-[00AA] (3C)   stopSound(29);
+[00A5] (1A)   Var[28] = 0;												// Radio = Off
+[00A8] (3C)   stopSound(20);											// stop sound radio static
+[00AA] (3C)   stopSound(29);											// stop sound
 [00AC] (**) }
 [00AC] (00) stopObjectCode();											// --
-[00AD] (48) if (Var[28] == 0) {
+[00AD] (48) if (Var[28] == 0) {											// Radio (Room 21) == off
 [00B2] (75)   printEgo("It's not turned on.");
-[00C4] (48) } else if (Var[18] == 3) {
+[00C4] (48) } else if (Var[18] == 3) {									// Meteor Location == Gone
 [00CC] (75)   printEgo("The meteor was already picked up.");
 [00EA] (18) } else {													// -
 [00ED] (68)   VAR_RESULT = isScriptRunning(131);
-[00F0] (48)   if (VAR_RESULT == 0) {
-[00F5] (42)     startScript(35);
+[00F0] (48)   if (VAR_RESULT == 0) {									// Script Meteor Police: Timer until arrival not running
+[00F5] (42)     startScript(35);										//  start Pin: Entry - Radio (Meteor Police)
 [00F7] (18)   } else {													// -
 [00FA] (75)     printEgo("The police are on their way.");
 [0113] (**)   }
@@ -4289,14 +4296,17 @@ Events:
 END
 
 
+/** Bed **/
 roomobj-21-392.dmp
 Events:
 END
 
+
 /**
- * Room 22
+ * Room 22: Medical
  */
  
+/** **/
 roomobj-22-175.dmp
 Events:
    1 - 001A
