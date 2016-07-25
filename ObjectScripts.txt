@@ -4306,63 +4306,67 @@ END
  * Room 22: Medical
  */
  
-/** **/
+
+/** Door **/
 roomobj-22-175.dmp
 Events:
    1 - 001A
    2 - 001F
    D - 0024
 [001A] (42) startScript(4);												// start Door: Open
-[001C] (97) setState08(162);
+[001C] (97) setState08(162);											// Open Door (Level 2 Main Hallway)
 [001E] (00) stopObjectCode();											// --
 [001F] (42) startScript(5);												// start Door: Close
-[0021] (17) clearState08(162);
+[0021] (17) clearState08(162);											// Close Door (Level 2 Main Hallway)
 [0023] (00) stopObjectCode();											// --
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(162,13);
+[0024] (6F) if (getState08(activeObject)) {								// If door open
+[0027] (E5)   loadRoomWithEgo(162,13);									//  Enter Level 2 Main Hallway
 [002A] (**) }
 [002A] (00) stopObjectCode();											// --
 END
 
 
+/** Desk **/
 roomobj-22-176.dmp
 Events:
    1 - 001C
    2 - 001E
    9 - 001E
    A - 001C
-[001C] (D7) setState08();
+[001C] (D7) setState08();												// Open Draw
 [001D] (00) stopObjectCode();											// --
-[001E] (57) clearState08();
+[001E] (57) clearState08();												// Close Draw
 [001F] (00) stopObjectCode();											// --
 END
 
 
+/** Manuscript **/
 roomobj-22-177.dmp
 Events:
    6 - 0022
    B - 0048
    C - 0045
    E - 0042
-[0022] (E4) if (activeObject2 == 153) {
-[0026] (42)   startScript(10);
+[0022] (E4) if (activeObject2 == 153) {									// Use with Typewriter
+[0026] (42)   startScript(10);											//  start Memoir: Writing
 [0028] (18) } else {													// -
 [002B] (75)   printEgo("I can't fix it with that!");
 [0041] (**) }
 [0041] (00) stopObjectCode();											// --
 [0042] (90) pickupObject(0);											// Pick object
 [0044] (00) stopObjectCode();											// --
-[0045] (42) startScript(9);
+[0045] (42) startScript(9);												//  start Memoir: Reading
 [0047] (00) stopObjectCode();											// --
 [0048] (E4) if (activeObject2 == 153) {
-[004C] (43)   doSentence(6,177,153);
+[004C] (43)   doSentence(6,177,153);									// Use with Typewriter
 [0050] (18) } else {													// -
-[0053] (03)   ddoSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
+[0053] (03)   ddoSentence(11,255,254);									// Use _cmdObject2 with _cmdObject
 [0057] (**) }
 [0057] (00) stopObjectCode();											// --
 END
 
 
+/** Mail-A-Med Degree **/
 roomobj-22-369.dmp
 Events:
    C - 0024
@@ -4371,6 +4375,7 @@ Events:
 END
 
 
+/** Docs 'R Us Diploma **/
 roomobj-22-370.dmp
 Events:
    C - 0024
@@ -4379,6 +4384,7 @@ Events:
 END
 
 
+/** Desk Lamp **/
 roomobj-22-371.dmp
 Events:
    4 - 001D
@@ -4394,17 +4400,19 @@ Events:
 END
 
 
+/** Desk **/
 roomobj-22-372.dmp
 Events:
    1 - 0018
    2 - 001B
-[0018] (97) setState08(176);
+[0018] (97) setState08(176);											// Open Draw
 [001A] (00) stopObjectCode();											// --
-[001B] (17) clearState08(176);
+[001B] (17) clearState08(176);											// Open Draw
 [001D] (00) stopObjectCode();											// --
 END
 
 
+/** Black Board **/
 roomobj-22-373.dmp
 Events:
    C - 001D
@@ -4413,15 +4421,17 @@ Events:
 END
 
 
+/** Examination **/
 roomobj-22-374.dmp
 Events:
    9 - 0025
    A - 0025
-[0025] (42) startScript(65);
+[0025] (42) startScript(65);											// start Print "Its too Heavy"
 [0027] (00) stopObjectCode();											// --
 END
 
 
+/** Real Skeleton **/
 roomobj-22-375.dmp
 Events:
    F - 001F
@@ -4430,6 +4440,7 @@ Events:
 END
 
 
+/** Medical Diagram **/
 roomobj-22-376.dmp
 Events:
    C - 0021
@@ -4438,19 +4449,21 @@ Events:
 END
 
 
+/** Medical Cabinet **/
 roomobj-22-377.dmp
 Events:
    1 - 0023
    8 - 0023
-[0023] (42) startScript(61);
+[0023] (42) startScript(61);											// start Print "It must require a special key"
 [0025] (00) stopObjectCode();											// --
 END
 
 
+/** Medical Chart **/
 roomobj-22-412.dmp
 Events:
    C - 001F
-[001F] (48) if (VAR_EGO == 2) {
+[001F] (48) if (VAR_EGO == 2) {											// if Razor
 [0024] (75)   printEgo("WOW! That's neat!!");
 [0036] (18) } else {													// -
 [0039] (75)   printEgo("Yuck. That's disgusting!");
@@ -4458,74 +4471,82 @@ Events:
 [0051] (00) stopObjectCode();											// --
 END
 
+
+
 /**
- * Room 23
+ * Room 23: Darkroom
  */
+
  
+/** Door **/
 roomobj-23-182.dmp
 Events:
    1 - 001A
    2 - 001F
    D - 0024
 [001A] (42) startScript(4);												// start Door: Open
-[001C] (97) setState08(181);
+[001C] (97) setState08(181);											// Open Door (Level 2 Stairs to Level 3)
 [001E] (00) stopObjectCode();											// --
 [001F] (42) startScript(5);												// start Door: Close
-[0021] (17) clearState08(181);
+[0021] (17) clearState08(181);											// Close Door (Level 2 Stairs to Level 3)
 [0023] (00) stopObjectCode();											// --
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(181,12);
+[0024] (6F) if (getState08(activeObject)) {								// If Door Open
+[0027] (E5)   loadRoomWithEgo(181,12);									//  Enter Level 2 Stairs to Level 3
 [002A] (**) }
 [002A] (00) stopObjectCode();											// --
 END
 
 
+/** Enlarger **/
 roomobj-23-382.dmp
 Events:
 END
 
 
+/** Developer Tray **/
 roomobj-23-383.dmp
 Events:
    B - 0023
-[0023] (64) if (activeObject2 == 23) {
-[0027] (42)   startScript(72);
+[0023] (64) if (activeObject2 == 23) {									// if Undeveloped Film
+[0027] (42)   startScript(72);											//  start Film: Develop
 [0029] (18) } else {													// -
-[002C] (64)   if (activeObject2 == 90) {
-[0030] (48)     if (Var[27] == 0) {
-[0035] (9A)       Var[27] = Var[24];
-[0038] (1A)       Var[24] = 0;
-[003B] (18)     } else {													// -
-[003E] (9A)       Var[24] = Var[27];
-[0041] (1A)       Var[27] = 0;
+[002C] (64)   if (activeObject2 == 90) {								// if Sponge
+[0030] (48)     if (Var[27] == 0) {										//  if Developer Tray Contents == Empty
+[0035] (9A)       Var[27] = Var[24];									//   Developer Tray Contents = Sponge Contents
+[0038] (1A)       Var[24] = 0;											//   Sponge Contents = empty
+[003B] (18)     } else {												//  -
+[003E] (9A)       Var[24] = Var[27];									//   Sponge Contents = Developer Tray Contents
+[0041] (1A)       Var[27] = 0;											//   Developer Tray Contents = empty
 [0044] (**)     }
-[0044] (42)     startScript(75);
+[0044] (42)     startScript(75);										//  start Sponge: Name
 [0046] (**)   }
-[0046] (64)   if (activeObject2 == 99) {
-[004A] (1C)     startSound(41);
-[004C] (48)     if (Var[27] == 0) {
-[0051] (9A)       Var[27] = Var[22];
-[0054] (1A)       Var[22] = 0;
-[0057] (48)     } else if (Var[22] == 0) {
-[005F] (9A)       Var[22] = Var[27];
-[0062] (1A)       Var[27] = 0;
-[0065] (18)     } else {													// -
+[0046] (64)   if (activeObject2 == 99) {								// if Glass Jar
+[004A] (1C)     startSound(41);											//  sound Liquid - Developer Tray
+[004C] (48)     if (Var[27] == 0) {										//  if Developer Tray Contents == Empty
+[0051] (9A)       Var[27] = Var[22];									//   Developer Tray Contents = Glass Jar Contents
+[0054] (1A)       Var[22] = 0;											//   Glass Jar Contents = Empty
+[0057] (48)     } else if (Var[22] == 0) {								//  -
+[005F] (9A)       Var[22] = Var[27];									//   Glass Jar Contents = Developer Tray Contents
+[0062] (1A)       Var[27] = 0;											//   Developer Tray Contents = Empty
+[0065] (18)     } else {												// -
 [0068] (3C)       stopSound(41);
 [006A] (75)       printEgo("The tray is already full.");
 [0081] (**)     }
-[0081] (42)     startScript(74);
+[0081] (42)     startScript(74);										// start Glass Jar: Name
 [0083] (**)   }
-[0083] (42)   startScript(78);
+[0083] (42)   startScript(78);											// start DeveloperTray: Name
 [0085] (**) }
 [0085] (00) stopObjectCode();											// --
 END
 
 
+/** Desk **/
 roomobj-23-384.dmp
 Events:
 END
 
 
+/** File Drawers **/
 roomobj-23-385.dmp
 Events:
    1 - 0020
@@ -4537,6 +4558,7 @@ Events:
 END
 
 
+/** Red Light **/
 roomobj-23-413.dmp
 Events:
    4 - 001D
@@ -4551,10 +4573,13 @@ Events:
 [002E] (00) stopObjectCode();											// --
 END
 
+
 /**
- * Room 24
+ * Room 24: Gym Bathroom
  */
  
+
+/** Water Faucet **/
 roomobj-24-212.dmp
 Events:
    B - 0017
@@ -4565,6 +4590,7 @@ Events:
 END
 
 
+/** Sink **/
 roomobj-24-233.dmp
 Events:
    4 - 001A
@@ -4583,11 +4609,13 @@ Events:
 END
 
 
+/** <No Name> **/
 roomobj-24-239.dmp
 Events:
 END
 
 
+/** Shower Curtain **/
 roomobj-24-266.dmp
 Events:
    1 - 0024
@@ -4606,11 +4634,13 @@ Events:
 END
 
 
+/** Cracked Mirror **/
 roomobj-24-309.dmp
 Events:
 END
 
 
+/** Toilet **/
 roomobj-24-311.dmp
 Events:
    1 - 001C
@@ -4626,6 +4656,7 @@ Events:
 END
 
 
+/** Pull Chain **/
 roomobj-24-312.dmp
 Events:
    A - 001E
@@ -4635,11 +4666,13 @@ Events:
 END
 
 
+/** Toilet **/
 roomobj-24-313.dmp
 Events:
 END
 
 
+/** Door **/
 roomobj-24-80.dmp
 Events:
    1 - 001A
@@ -4658,6 +4691,7 @@ Events:
 END
 
 
+/** Toilet Lid **/
 roomobj-24-81.dmp
 Events:
    1 - 001E
@@ -4669,6 +4703,7 @@ Events:
 END
 
 
+/** Shower Curtain **/
 roomobj-24-82.dmp
 Events:
    1 - 0024
@@ -4681,6 +4716,7 @@ Events:
 END
 
 
+/** Shower Curtain **/
 roomobj-24-83.dmp
 Events:
    1 - 0024
@@ -4693,6 +4729,7 @@ Events:
 END
 
 
+/** Shower Curtain **/
 roomobj-24-84.dmp
 Events:
    1 - 0024
@@ -4705,6 +4742,7 @@ Events:
 END
 
 
+/** Water Faucet **/
 roomobj-24-85.dmp
 Events:
    1 - 0028
@@ -4743,26 +4781,31 @@ Events:
 END
 
 
+/** <No Name> **/
 roomobj-24-86.dmp
 Events:
 END
 
 
+/** <No Name> **/
 roomobj-24-87.dmp
 Events:
 END
 
 
+/** <No Name> **/
 roomobj-24-88.dmp
 Events:
 END
 
 
+/** <No Name> **/
 roomobj-24-89.dmp
 Events:
 END
 
 
+/** Sponge **/
 roomobj-24-90.dmp
 Events:
    3 - 0044
@@ -4789,7 +4832,7 @@ Events:
 END
 
 /**
- * Room 25
+ * Room 25: Gym
  */
  
 roomobj-25-304.dmp
