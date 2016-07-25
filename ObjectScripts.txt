@@ -2552,10 +2552,12 @@ roomobj-14-366.dmp
 Events:
 END
 
+
 /**
- * Room 15
+ * Room 15: Electrical Wiring
  */
 
+/** Hatch **/
 roomobj-15-202.dmp
 Events:
    1 - 001F
@@ -2564,23 +2566,25 @@ Events:
    D - 0034
    E - 001F
 [001F] (42) startScript(4);												// start Door: Open
-[0021] (97) setState08(69);
+[0021] (97) setState08(69);												// Open Door (Typewriter)
 [0023] (00) stopObjectCode();											// --
 [0024] (42) startScript(5);												// start Door: Close
-[0026] (17) clearState08(69);
+[0026] (17) clearState08(69);											// Close Door (Typewriter)
 [0028] (00) stopObjectCode();											// --
-[0029] (6F) if (getState08(activeObject)) {
-[002C] (42)   startScript(5);												// start Door: Close
+[0029] (6F) if (getState08(activeObject)) {								// If Door open
+[002C] (42)   startScript(5);											//  start Door: Close
 [002E] (18) } else {													// -
-[0031] (42)   startScript(4);												// start Door: Open
+[0031] (42)   startScript(4);											//  start Door: Open
 [0033] (**) }
 [0033] (00) stopObjectCode();											// --
-[0034] (6F) if (getState08(activeObject)) {
-[0037] (E5)   loadRoomWithEgo(69,27);
+[0034] (6F) if (getState08(activeObject)) {								// If Door Open
+[0037] (E5)   loadRoomWithEgo(69,27);									//  Enter Typewriter
 [003A] (**) }
 [003A] (00) stopObjectCode();											// --
 END
 
+
+/** Wires **/
 roomobj-15-204.dmp
 Events:
    1 - 008E
@@ -2592,30 +2596,30 @@ Events:
    A - 008E
    B - 0027
    E - 008E
-[0027] (EF) if (!getState08(activeObject)) {
-[002A] (2F)   if (getState08(124)) {
-[002E] (64)     if (activeObject2 == 119) {
-[0032] (73)       VAR_RESULT = getObjectOwner(51);
-[0035] (C8)       if (VAR_RESULT == VAR_EGO) {
-[003A] (48)         if (Var[12] == 1) {
-[003F] (D7)           setState08();
+[0027] (EF) if (!getState08(activeObject)) {							// If Wires Broken
+[002A] (2F)   if (getState08(124)) {									//  If Power Off
+[002E] (64)     if (activeObject2 == 119) {								//   if using with Tools
+[0032] (73)       VAR_RESULT = getObjectOwner(51);	
+[0035] (C8)       if (VAR_RESULT == VAR_EGO) {							//    if Player owns Flashlight?
+[003A] (48)         if (Var[12] == 1) {									//     if Flashlight Status == On
+[003F] (D7)           setState08();										//		Wires fixed
 [0040] (75)           printEgo("There, that should do it.");
-[0057] (42)           startScript(96);
-[0059] (18)         } else {													// -
+[0057] (42)           startScript(96);									//		start Dr Fred: Play Meteor Mess
+[0059] (18)         } else {											// -
 [005F] (18)           goto 0086;
 [0062] (**)         }
 [0062] (**)       }
 [0062] (75)       printEgo("It's kind of dark,/but I think I fixed it.");
 [0086] (**)     }
 [0086] (18)   } else {													// -
-[0089] (03)     doSentence(1,204,0);
+[0089] (03)     doSentence(1,204,0);									// Open Wires
 [008D] (**)   }
 [008D] (**) }
 [008D] (00) stopObjectCode();											// --
-[008E] (EF) if (!getState08(activeObject)) {
-[0091] (AF)   if (!getState08(124)) {
+[008E] (EF) if (!getState08(activeObject)) {							// If wires broken
+[0091] (AF)   if (!getState08(124)) {									//  If power on
 [0095] (75)     printEgo("YOWL!!!");
-[009E] (1C)     startSound(27);
+[009E] (1C)     startSound(27);											//   Sound Zapp
 [00A0] (18)   } else {													// -
 [00A3] (75)     printEgo("I can't fix it with my bare hands!");
 [00C0] (**)   }
@@ -2623,21 +2627,24 @@ Events:
 [00C0] (00) stopObjectCode();											// --
 END
 
+
+/** Boarded up Window **/
 roomobj-15-399.dmp
 Events:
    1 - 0029
    6 - 0040
    A - 0029
    B - 0040
-[0029] (75) printEgo("The boards won't budge.");
+[0029] (75) printEgo("The boards won't budge.");						//
 [003F] (00) stopObjectCode();											// --
-[0040] (64) if (activeObject2 == 119) {
+[0040] (64) if (activeObject2 == 119) {									// If use with Tools
 [0044] (75)   printEgo("Hmm. I don't have the right tool.");
 [0061] (**) }
 [0061] (00) stopObjectCode();											// --
 END
 
 
+/** Light **/
 roomobj-15-401.dmp
 Events:
    4 - 0019
@@ -2653,19 +2660,25 @@ Events:
 END
 
 
+/** Wires **/
 roomobj-15-415.dmp
 Events:
 END
 
+
+
 /**
- * Room 16
+ * Room 16: Garage
  */
 
+ 
+/** < Unnamed > **/
 roomobj-16-101.dmp
 Events:
 END
 
 
+/** Gate **/
 roomobj-16-110.dmp
 Events:
    1 - 001E
@@ -2673,8 +2686,8 @@ Events:
    9 - 0036
    A - 001E
    D - 003B
-[001E] (DF) if (!getState04(activeObject)) {
-[0021] (42)   startScript(116);
+[001E] (DF) if (!getState04(activeObject)) {							//
+[0021] (42)   startScript(116);											// start Verb: Generic: Open Door
 [0023] (97)   setState08(105);
 [0025] (18) } else {													// -
 [0028] (75)   printEgo("It's locked.");
@@ -2690,12 +2703,13 @@ Events:
 END
 
 
+/** Garage Door **/
 roomobj-16-111.dmp
 Events:
    1 - 0021
    8 - 0044
    A - 0021
-[0021] (9B) Var[90] = getActorBitVar(VAR_EGO,1);	// Current Actor Flag kActorMiscFlagStrong
+[0021] (9B) Var[90] = getActorBitVar(VAR_EGO,1);						// Current Actor Flag kActorMiscFlagStrong
 [0025] (48) if (Var[90] == 1) {
 [002A] (42)   startScript(8);
 [002C] (18) } else {													// -
@@ -2707,6 +2721,7 @@ Events:
 END
 
 
+/** Garage Door **/
 roomobj-16-112.dmp
 Events:
    1 - 0021
@@ -2719,6 +2734,7 @@ Events:
 END
 
 
+/** Garage Door **/
 roomobj-16-113.dmp
 Events:
    1 - 0021
@@ -2731,6 +2747,7 @@ Events:
 END
 
 
+/** Garage Door **/
 roomobj-16-114.dmp
 Events:
    1 - 0021
@@ -2743,6 +2760,7 @@ Events:
 END
 
 
+/** Garage Door **/
 roomobj-16-115.dmp
 Events:
    1 - 0021
@@ -2755,6 +2773,7 @@ Events:
 END
 
 
+/** Garage Door **/
 roomobj-16-116.dmp
 Events:
    1 - 0021
@@ -2767,6 +2786,7 @@ Events:
 END
 
 
+/** Garage Door **/
 roomobj-16-117.dmp
 Events:
    1 - 0023
@@ -2796,6 +2816,7 @@ Events:
 END
 
 
+/** Trunk **/
 roomobj-16-118.dmp
 Events:
    1 - 001F
@@ -2838,6 +2859,7 @@ Events:
 END
 
 
+/** Tools **/
 roomobj-16-119.dmp
 Events:
    B - 001C
@@ -2853,6 +2875,7 @@ Events:
 END
 
 
+/** Meteor **/
 roomobj-16-12.dmp
 Events:
    E - 0018
@@ -2861,6 +2884,7 @@ Events:
 END
 
 
+/** Water Faucet **/
 roomobj-16-120.dmp
 Events:
    B - 002A
@@ -2872,11 +2896,13 @@ Events:
 END
 
 
+/** < Not Named > **/
 roomobj-16-153.dmp
 Events:
 END
 
 
+/** Cement Slab **/
 roomobj-16-26.dmp
 Events:
    1 - 0023
@@ -2898,6 +2924,7 @@ Events:
 END
 
 
+/** License Plate **/
 roomobj-16-268.dmp
 Events:
    C - 001F
@@ -2906,6 +2933,7 @@ Events:
 END
 
 
+/** Weird Edsel **/
 roomobj-16-330.dmp
 Events:
    B - 001D
@@ -2927,6 +2955,7 @@ Events:
 END
 
 
+/** Modified Rocket Engine **/
 roomobj-16-331.dmp
 Events:
    B - 0028
@@ -2935,6 +2964,7 @@ Events:
 END
 
 
+/** Modified Rocket Engine **/
 roomobj-16-332.dmp
 Events:
    B - 0028
@@ -2943,6 +2973,7 @@ Events:
 END
 
 
+/** Sign **/
 roomobj-16-333.dmp
 Events:
    C - 0016
@@ -2951,6 +2982,7 @@ Events:
 END
 
 
+/** Bumper Sticker **/
 roomobj-16-334.dmp
 Events:
    C - 0020
@@ -2959,15 +2991,18 @@ Events:
 END
 
 
+/** Shelf **/
 roomobj-16-335.dmp
 Events:
 END
 
 
 /**
- * Room 17
+ * Room 17: Music
  */
- 
+
+
+/** **/
 roomobj-17-152.dmp
 Events:
    1 - 001A
