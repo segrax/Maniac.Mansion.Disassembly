@@ -3236,121 +3236,128 @@ END
  */
 
  
-/** **/
+/** Door **/
 roomobj-18-168.dmp
 Events:
    1 - 001A
    2 - 001F
    D - 0024
 [001A] (42) startScript(4);												// start Door: Open
-[001C] (97) setState08(163);
+[001C] (97) setState08(163);											// Open Door (Level 2 Main Hallway)
 [001E] (00) stopObjectCode();											// --
 [001F] (42) startScript(5);												// start Door: Close
-[0021] (17) clearState08(163);
+[0021] (17) clearState08(163);											// Close Door (Level 2 Main Hallway)
 [0023] (00) stopObjectCode();											// --
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(163,13);
+[0024] (6F) if (getState08(activeObject)) {								// if Door Open
+[0027] (E5)   loadRoomWithEgo(163,13);									// Enter Level 2 Main Hallway
 [002A] (**) }
 [002A] (00) stopObjectCode();											// --
 END
 
 
+/** Video Fever **/
 roomobj-18-169.dmp
 Events:
    4 - 002F
    5 - 0032
    B - 0026
-[0026] (64) if (activeObject2 == 200) {
-[002A] (83)   doSentence(11,175,200);
+[0026] (64) if (activeObject2 == 200) {									// if use with Quarter
+[002A] (83)   doSentence(11,175,200);									//  Use Game with Quater									//  Use Game with Quater
 [002E] (**) }
 [002E] (00) stopObjectCode();											// --
-[002F] (42) startScript(19);
+[002F] (42) startScript(19);											// start Power Off??
 [0031] (00) stopObjectCode();											// --
-[0032] (42) startScript(20);
+[0032] (42) startScript(20);											// start It Looks off / cant find a switch
 [0034] (00) stopObjectCode();											// --
 END
 
 
+/** Disco Crazy **/
 roomobj-18-170.dmp
 Events:
    4 - 002F
    5 - 0032
    B - 0026
-[0026] (64) if (activeObject2 == 200) {
-[002A] (83)   doSentence(11,176,200);
+[0026] (64) if (activeObject2 == 200) {									// if use with Quarter
+[002A] (83)   doSentence(11,176,200);									//  Use Game with Quater									//  Use Game with Quater
 [002E] (**) }
 [002E] (00) stopObjectCode();											// --
-[002F] (42) startScript(19);
+[002F] (42) startScript(19);											// start Power Off??
 [0031] (00) stopObjectCode();											// --
-[0032] (42) startScript(20);
+[0032] (42) startScript(20);											// start It Looks off / cant find a switch
 [0034] (00) stopObjectCode();											// --
 END
 
 
+/** Alien Slime **/
 roomobj-18-171.dmp
 Events:
    4 - 002F
    5 - 0032
    B - 0026
-[0026] (64) if (activeObject2 == 200) {
-[002A] (83)   doSentence(11,177,200);
+[0026] (64) if (activeObject2 == 200) {									// if use with Quarter
+[002A] (83)   doSentence(11,177,200);									//  Use Game with Quater									//  Use Game with Quater
 [002E] (**) }
 [002E] (00) stopObjectCode();											// --
-[002F] (42) startScript(19);
+[002F] (42) startScript(19);											// start Power Off??
 [0031] (00) stopObjectCode();											// --
-[0032] (42) startScript(20);
+[0032] (42) startScript(20);											// start It Looks off / cant find a switch
 [0034] (00) stopObjectCode();											// --
 END
 
 
+/** Die Enemy Die **/
 roomobj-18-172.dmp
 Events:
    4 - 0031
    5 - 0034
    B - 0028
-[0028] (64) if (activeObject2 == 200) {
-[002C] (83)   doSentence(11,178,200);
+[0028] (64) if (activeObject2 == 200) {									// if use with Quarter
+[002C] (83)   doSentence(11,178,200);									//  Use Game with Quater
 [0030] (**) }
 [0030] (00) stopObjectCode();											// --
-[0031] (42) startScript(19);
+[0031] (42) startScript(19);											// start Power Off??
 [0033] (00) stopObjectCode();											// --
-[0034] (42) startScript(20);
+[0034] (42) startScript(20);											// start It Looks off / cant find a switch
 [0036] (00) stopObjectCode();											// --
 END
 
 
+/** Meteor Mess **/
 roomobj-18-173.dmp
 Events:
    4 - 002F
    5 - 0032
    B - 0026
-[0026] (64) if (activeObject2 == 200) {
-[002A] (83)   doSentence(11,179,200);
+[0026] (64) if (activeObject2 == 200) {									// if use with Quarter
+[002A] (83)   doSentence(11,179,200);									//  Use Game with Quater
 [002E] (**) }
 [002E] (00) stopObjectCode();											// --
-[002F] (42) startScript(19);
+[002F] (42) startScript(19);											// start Power Off??
 [0031] (00) stopObjectCode();											// --
-[0032] (42) startScript(20);
+[0032] (42) startScript(20);											// start It Looks off / cant find a switch
 [0034] (00) stopObjectCode();											// --
 END
 
 
+/** Kil Thrill **/
 roomobj-18-174.dmp
 Events:
    4 - 002F
    5 - 0032
    B - 0026
-[0026] (64) if (activeObject2 == 200) {
-[002A] (83)   doSentence(11,180,200);
+[0026] (64) if (activeObject2 == 200) {									// if use with Quarter
+[002A] (83)   doSentence(11,180,200);									//  Use Game with Quater
 [002E] (**) }
 [002E] (00) stopObjectCode();											// --
-[002F] (42) startScript(19);
+[002F] (42) startScript(19);											// start Power Off??
 [0031] (00) stopObjectCode();											// --
-[0032] (42) startScript(20);
+[0032] (42) startScript(20);											// start It Looks off / cant find a switch
 [0034] (00) stopObjectCode();											// --
 END
 
 
+/** Coin Box **/
 roomobj-18-215.dmp
 Events:
    1 - 0043
@@ -3359,38 +3366,39 @@ Events:
    B - 0032
    E - 0024
   10 - 0049
-[0024] (AF) if (!getState08(221)) {
-[0028] (03)   doSentence(14,221,0);
+[0024] (AF) if (!getState08(221)) {										// If Quarter in coinbox
+[0028] (03)   doSentence(14,221,0);										//  Pickup Quater
 [002C] (18) } else {													// -
-[002F] (42)   startScript(68);
+[002F] (42)   startScript(20);											// start It Looks off / cant find a switch
 [0031] (**) }
 [0031] (00) stopObjectCode();											// --
-[0032] (64) if (activeObject2 == 200) {
-[0036] (83)   doSentence(11,175,200);
+[0032] (64) if (activeObject2 == 200) {									// if use with Quarter
+[0036] (83)   doSentence(11,175,200);									//  Use Game with Quater
 [003A] (**) }
-[003A] (64) if (activeObject2 == 74) {
-[003E] (03)   doSentence(8,215,74);
+[003A] (64) if (activeObject2 == 74) {									// Use with small key
+[003E] (03)   doSentence(8,215,74);										//  unlock coinbox with small key										// unlock coinbox with small key										// 
 [0042] (**) }
 [0042] (00) stopObjectCode();											// --
-[0043] (EF) if (!getState08(activeObject)) {
-[0046] (42)   startScript(60);
+[0043] (EF) if (!getState08(activeObject)) {							// if game is locked
+[0046] (42)   startScript(60);											//  Print "The machine is locked"
 [0048] (**) }
 [0048] (00) stopObjectCode();											// --
-[0049] (6F) if (getState08(activeObject)) {
-[004C] (57)   clearState08();
-[004D] (F7)   setState04();
+[0049] (6F) if (getState08(activeObject)) {								// if game is unlocked
+[004C] (57)   clearState08();											//  Lock Game
+[004D] (F7)   setState04();												//  Lock Game
 [004E] (**) }
 [004E] (00) stopObjectCode();											// --
-[004F] (64) if (activeObject2 == 74) {
-[0053] (77)   clearState04();
-[0054] (D7)   setState08();
+[004F] (64) if (activeObject2 == 74) {									// if use with small key
+[0053] (77)   clearState04();											//  Lock Game
+[0054] (D7)   setState08();												//  Lock Gmae
 [0055] (18) } else {													// -
-[0058] (42)   startScript(61);
+[0058] (42)   startScript(61);											//  start Print "It must require a special key"
 [005A] (**) }
 [005A] (00) stopObjectCode();											// --
 END
 
 
+/** Coin Box **/
 roomobj-18-216.dmp
 Events:
    1 - 0043
@@ -3399,38 +3407,39 @@ Events:
    B - 0032
    E - 0024
   10 - 0049
-[0024] (AF) if (!getState08(222)) {
-[0028] (03)   doSentence(14,222,0);
+[0024] (AF) if (!getState08(222)) {                                     // If Quarter in coinbox
+[0028] (03)   doSentence(14,222,0);                                     //  Pickup Quater
 [002C] (18) } else {													// -
-[002F] (42)   startScript(68);
-[0031] (**) }
+[002F] (42)   startScript(20);											// start It Looks off / cant find a switch
+[0031] (**) }                                                           
 [0031] (00) stopObjectCode();											// --
-[0032] (64) if (activeObject2 == 200) {
-[0036] (83)   doSentence(11,176,200);
-[003A] (**) }
-[003A] (64) if (activeObject2 == 74) {
-[003E] (03)   doSentence(8,216,74);
-[0042] (**) }
+[0032] (64) if (activeObject2 == 200) {									// if use with Quarter
+[0036] (83)   doSentence(11,176,200);									//  Use Game with Quater
+[003A] (**) }                                                           
+[003A] (64) if (activeObject2 == 74) {                                  // Use with small key
+[003E] (03)   doSentence(8,216,74);										//  unlock coinbox with small key				
+[0042] (**) }                                                           
 [0042] (00) stopObjectCode();											// --
-[0043] (EF) if (!getState08(activeObject)) {
-[0046] (42)   startScript(60);
-[0048] (**) }
+[0043] (EF) if (!getState08(activeObject)) {                            // if game is locked
+[0046] (42)   startScript(60);                                          //  Print "The machine is locked"
+[0048] (**) }                                                           
 [0048] (00) stopObjectCode();											// --
-[0049] (6F) if (getState08(activeObject)) {
-[004C] (57)   clearState08();
-[004D] (F7)   setState04();
-[004E] (**) }
+[0049] (6F) if (getState08(activeObject)) {                             // if game is unlocked
+[004C] (57)   clearState08();                                           //  Lock Game
+[004D] (F7)   setState04();                                             //  Lock Game
+[004E] (**) }                                                           
 [004E] (00) stopObjectCode();											// --
-[004F] (64) if (activeObject2 == 74) {
-[0053] (77)   clearState04();
-[0054] (D7)   setState08();
+[004F] (64) if (activeObject2 == 74) {                                  // if use with small key
+[0053] (77)   clearState04();                                           //  Lock Game
+[0054] (D7)   setState08();                                             //  Lock Gmae
 [0055] (18) } else {													// -
-[0058] (42)   startScript(61);
-[005A] (**) }
+[0058] (42)   startScript(61);                                          //  start Print "It must require a special key"
+[005A] (**) }                                                           
 [005A] (00) stopObjectCode();											// --
 END
 
 
+/** Coin Box **/
 roomobj-18-217.dmp
 Events:
    1 - 0043
@@ -3439,38 +3448,39 @@ Events:
    B - 0032
    E - 0024
   10 - 0049
-[0024] (AF) if (!getState08(223)) {
-[0028] (03)   doSentence(14,223,0);
+[0024] (AF) if (!getState08(223)) {                                     // If Quarter in coinbox
+[0028] (03)   doSentence(14,223,0);                                     //  Pickup Quater
 [002C] (18) } else {													// -
-[002F] (42)   startScript(68);
-[0031] (**) }
+[002F] (42)   startScript(20);											// start It Looks off / cant find a switch
+[0031] (**) }                                                           
 [0031] (00) stopObjectCode();											// --
-[0032] (64) if (activeObject2 == 200) {
-[0036] (83)   doSentence(11,177,200);
-[003A] (**) }
-[003A] (64) if (activeObject2 == 74) {
-[003E] (03)   doSentence(8,217,74);
-[0042] (**) }
+[0032] (64) if (activeObject2 == 200) {									// if use with Quarter
+[0036] (83)   doSentence(11,177,200);									//  Use Game with Quater
+[003A] (**) }                                                           
+[003A] (64) if (activeObject2 == 74) {                                  // Use with small key
+[003E] (03)   doSentence(8,217,74);										//  unlock coinbox with small key				
+[0042] (**) }                                                           
 [0042] (00) stopObjectCode();											// --
-[0043] (EF) if (!getState08(activeObject)) {
-[0046] (42)   startScript(60);
-[0048] (**) }
+[0043] (EF) if (!getState08(activeObject)) {                            // if game is locked
+[0046] (42)   startScript(60);                                          //  Print "The machine is locked"
+[0048] (**) }                                                           
 [0048] (00) stopObjectCode();											// --
-[0049] (6F) if (getState08(activeObject)) {
-[004C] (57)   clearState08();
-[004D] (F7)   setState04();
-[004E] (**) }
+[0049] (6F) if (getState08(activeObject)) {                             // if game is unlocked
+[004C] (57)   clearState08();                                           //  Lock Game
+[004D] (F7)   setState04();                                             //  Lock Game
+[004E] (**) }                                                           
 [004E] (00) stopObjectCode();											// --
-[004F] (64) if (activeObject2 == 74) {
-[0053] (77)   clearState04();
-[0054] (D7)   setState08();
+[004F] (64) if (activeObject2 == 74) {                                  // if use with small key
+[0053] (77)   clearState04();                                           //  Lock Game
+[0054] (D7)   setState08();                                             //  Lock Gmae
 [0055] (18) } else {													// -
-[0058] (42)   startScript(61);
-[005A] (**) }
+[0058] (42)   startScript(61);                                          //  start Print "It must require a special key"
+[005A] (**) }                                                           
 [005A] (00) stopObjectCode();											// --
 END
 
 
+/** Coin Box **/
 roomobj-18-218.dmp
 Events:
    1 - 0043
@@ -3479,80 +3489,80 @@ Events:
    B - 0032
    E - 0024
   10 - 0049
-[0024] (AF) if (!getState08(224)) {
-[0028] (03)   doSentence(14,224,0);
+[0024] (AF) if (!getState08(224)) {                                     // If Quarter in coinbox
+[0028] (03)   doSentence(14,224,0);                                     //  Pickup Quater
 [002C] (18) } else {													// -
-[002F] (42)   startScript(68);
-[0031] (**) }
+[002F] (42)   startScript(20);											// start It Looks off / cant find a switch
+[0031] (**) }                                                           
 [0031] (00) stopObjectCode();											// --
-[0032] (64) if (activeObject2 == 200) {
-[0036] (83)   doSentence(11,178,200);
-[003A] (**) }
-[003A] (64) if (activeObject2 == 74) {
-[003E] (03)   doSentence(8,218,74);
-[0042] (**) }
+[0032] (64) if (activeObject2 == 200) {									// if use with Quarter
+[0036] (83)   doSentence(11,178,200);									//  Use Game with Quater
+[003A] (**) }                                                           
+[003A] (64) if (activeObject2 == 74) {                                  // Use with small key
+[003E] (03)   doSentence(8,218,74);										//  unlock coinbox with small key				
+[0042] (**) }                                                           
 [0042] (00) stopObjectCode();											// --
-[0043] (EF) if (!getState08(activeObject)) {
-[0046] (42)   startScript(60);
-[0048] (**) }
+[0043] (EF) if (!getState08(activeObject)) {                            // if game is locked
+[0046] (42)   startScript(60);                                          //  Print "The machine is locked"
+[0048] (**) }                                                           
 [0048] (00) stopObjectCode();											// --
-[0049] (6F) if (getState08(activeObject)) {
-[004C] (57)   clearState08();
-[004D] (F7)   setState04();
-[004E] (**) }
+[0049] (6F) if (getState08(activeObject)) {                             // if game is unlocked
+[004C] (57)   clearState08();                                           //  Lock Game
+[004D] (F7)   setState04();                                             //  Lock Game
+[004E] (**) }                                                           
 [004E] (00) stopObjectCode();											// --
-[004F] (64) if (activeObject2 == 74) {
-[0053] (77)   clearState04();
-[0054] (D7)   setState08();
+[004F] (64) if (activeObject2 == 74) {                                  // if use with small key
+[0053] (77)   clearState04();                                           //  Lock Game
+[0054] (D7)   setState08();                                             //  Lock Gmae
 [0055] (18) } else {													// -
-[0058] (42)   startScript(61);
-[005A] (**) }
+[0058] (42)   startScript(61);                                          //  start Print "It must require a special key"
+[005A] (**) }                                                           
 [005A] (00) stopObjectCode();											// --
 END
 
 
-roomobj-18-219.dm
-
-p
+/** Coin Box **/
+roomobj-18-219.dmp
 Events:
    1 - 0043
    2 - 0049
    8 - 004F
    B - 0032
    E - 0024
-  10 - 0049
-[0024] (AF) if (!getState08(225)) {
-[0028] (03)   doSentence(14,225,0);
-[002C] (18) } else {													// -
-[002F] (42)   startScript(68);
-[0031] (**) }
-[0031] (00) stopObjectCode();											// --
-[0032] (64) if (activeObject2 == 200) {
-[0036] (83)   doSentence(11,179,200);
-[003A] (**) }
-[003A] (64) if (activeObject2 == 74) {
-[003E] (03)   doSentence(8,219,74);
-[0042] (**) }
-[0042] (00) stopObjectCode();											// --
-[0043] (EF) if (!getState08(activeObject)) {
-[0046] (42)   startScript(60);
-[0048] (**) }
-[0048] (00) stopObjectCode();											// --
-[0049] (6F) if (getState08(activeObject)) {
-[004C] (57)   clearState08();
-[004D] (F7)   setState04();
-[004E] (**) }
-[004E] (00) stopObjectCode();											// --
-[004F] (64) if (activeObject2 == 74) {
-[0053] (77)   clearState04();
-[0054] (D7)   setState08();
-[0055] (18) } else {													// -
-[0058] (42)   startScript(61);
-[005A] (**) }
-[005A] (00) stopObjectCode();											// --
+  10 - 0049                                                             // If Quarter in coinbox
+[0024] (AF) if (!getState08(225)) {                                     //  Pickup Quater
+[0028] (03)   doSentence(14,225,0);                                     // -
+[002C] (18) } else {													// start It Looks off / cant find a switch
+[002F] (42)   startScript(20);											
+[0031] (**) }                                                           // --
+[0031] (00) stopObjectCode();											// if use with Quarter
+[0032] (64) if (activeObject2 == 200) {									//  Use Game with Quater
+[0036] (83)   doSentence(11,179,200);									
+[003A] (**) }                                                           // Use with small key
+[003A] (64) if (activeObject2 == 74) {                                  //  unlock coinbox with small key				
+[003E] (03)   doSentence(8,219,74);										
+[0042] (**) }                                                           // --
+[0042] (00) stopObjectCode();											// if game is locked
+[0043] (EF) if (!getState08(activeObject)) {                            //  Print "The machine is locked"
+[0046] (42)   startScript(60);                                          
+[0048] (**) }                                                           // --
+[0048] (00) stopObjectCode();											// if game is unlocked
+[0049] (6F) if (getState08(activeObject)) {                             //  Lock Game
+[004C] (57)   clearState08();                                           //  Lock Game
+[004D] (F7)   setState04();                                             
+[004E] (**) }                                                           // --
+[004E] (00) stopObjectCode();											// if use with small key
+[004F] (64) if (activeObject2 == 74) {                                  //  Lock Game
+[0053] (77)   clearState04();                                           //  Lock Gmae
+[0054] (D7)   setState08();                                             // -
+[0055] (18) } else {													//  start Print "It must require a special key"
+[0058] (42)   startScript(61);                                          
+[005A] (**) }                                                           // --
+[005A] (00) stopObjectCode();											
 END
 
 
+/** Coin Box **/
 roomobj-18-220.dmp
 Events:
    1 - 0043
@@ -3561,257 +3571,274 @@ Events:
    B - 0032
    E - 0024
   10 - 0049
-[0024] (AF) if (!getState08(226)) {
-[0028] (03)   doSentence(14,226,0);
+[0024] (AF) if (!getState08(226)) {                                     // If Quarter in coinbox
+[0028] (03)   doSentence(14,226,0);                                     //  Pickup Quater
 [002C] (18) } else {													// -
-[002F] (42)   startScript(68);
-[0031] (**) }
+[002F] (42)   startScript(20);											// start It Looks off / cant find a switch
+[0031] (**) }                                                           
 [0031] (00) stopObjectCode();											// --
-[0032] (64) if (activeObject2 == 200) {
-[0036] (83)   doSentence(11,180,200);
-[003A] (**) }
-[003A] (64) if (activeObject2 == 74) {
-[003E] (03)   doSentence(8,220,74);
-[0042] (**) }
+[0032] (64) if (activeObject2 == 200) {									// if use with Quarter
+[0036] (83)   doSentence(11,180,200);									//  Use Game with Quater
+[003A] (**) }                                                           
+[003A] (64) if (activeObject2 == 74) {                                  // Use with small key
+[003E] (03)   doSentence(8,220,74);										//  unlock coinbox with small key				
+[0042] (**) }                                                           
 [0042] (00) stopObjectCode();											// --
-[0043] (EF) if (!getState08(activeObject)) {
-[0046] (42)   startScript(60);
-[0048] (**) }
+[0043] (EF) if (!getState08(activeObject)) {                            // if game is locked
+[0046] (42)   startScript(60);                                          //  Print "The machine is locked"
+[0048] (**) }                                                           
 [0048] (00) stopObjectCode();											// --
-[0049] (6F) if (getState08(activeObject)) {
-[004C] (57)   clearState08();
-[004D] (F7)   setState04();
-[004E] (**) }
+[0049] (6F) if (getState08(activeObject)) {                             // if game is unlocked
+[004C] (57)   clearState08();                                           //  Lock Game
+[004D] (F7)   setState04();                                             //  Lock Game
+[004E] (**) }                                                           
 [004E] (00) stopObjectCode();											// --
-[004F] (64) if (activeObject2 == 74) {
-[0053] (77)   clearState04();
-[0054] (D7)   setState08();
+[004F] (64) if (activeObject2 == 74) {                                  // if use with small key
+[0053] (77)   clearState04();                                           //  Lock Game
+[0054] (D7)   setState08();                                             //  Lock Gmae
 [0055] (18) } else {													// -
-[0058] (42)   startScript(61);
-[005A] (**) }
+[0058] (42)   startScript(61);                                          //  start Print "It must require a special key"
+[005A] (**) }                                                           
 [005A] (00) stopObjectCode();											// --
 END
 
 
+/** Quater **/
 roomobj-18-221.dmp
 Events:
    E - 0019
-[0019] (69) setOwnerOf(200,VAR_EGO);
-[001C] (8F) setState02(221);
-[001E] (97) setState08(221);
+[0019] (69) setOwnerOf(200,VAR_EGO);									// Kid owns Quarter
+[001C] (8F) setState02(221);											// Coin Locked
+[001E] (97) setState08(221);											// Coin Locked
 [0020] (00) stopObjectCode();											// --
 END
 
 
+/** Quater **/
 roomobj-18-222.dmp
 Events:
    E - 0019
-[0019] (69) setOwnerOf(200,VAR_EGO);
-[001C] (8F) setState02(222);
-[001E] (97) setState08(222);
+[0019] (69) setOwnerOf(200,VAR_EGO);                                    // Kid owns Quarter
+[001C] (8F) setState02(222);                                            // Coin Locked
+[001E] (97) setState08(222);                                            // Coin Locked
 [0020] (00) stopObjectCode();											// --
 END
 
 
+/** Quater **/
 roomobj-18-223.dmp
 Events:
    E - 0019
-[0019] (69) setOwnerOf(200,VAR_EGO);
-[001C] (8F) setState02(223);
-[001E] (97) setState08(223);
+[0019] (69) setOwnerOf(200,VAR_EGO);                                    // Kid owns Quarter
+[001C] (8F) setState02(223);                                            // Coin Locked
+[001E] (97) setState08(223);                                            // Coin Locked
 [0020] (00) stopObjectCode();											// --
 END
 
 
+/** Quater **/
 roomobj-18-224.dmp
 Events:
    E - 0019
-[0019] (69) setOwnerOf(200,VAR_EGO);
-[001C] (8F) setState02(224);
-[001E] (97) setState08(224);
+[0019] (69) setOwnerOf(200,VAR_EGO);                                    // Kid owns Quarter
+[001C] (8F) setState02(224);                                            // Coin Locked
+[001E] (97) setState08(224);                                            // Coin Locked
 [0020] (00) stopObjectCode();											// --
 END
 
 
+/** Quater **/
 roomobj-18-225.dmp
 Events:
    E - 0019
-[0019] (69) setOwnerOf(200,VAR_EGO);
-[001C] (8F) setState02(225);
-[001E] (97) setState08(225);
+[0019] (69) setOwnerOf(200,VAR_EGO);                                    // Kid owns Quarter
+[001C] (8F) setState02(225);                                            // Coin Locked
+[001E] (97) setState08(225);                                            // Coin Locked
 [0020] (00) stopObjectCode();											// --
 END
 
 
+/** Quater **/
 roomobj-18-226.dmp
 Events:
    E - 0019
-[0019] (69) setOwnerOf(200,VAR_EGO);
-[001C] (8F) setState02(226);
-[001E] (97) setState08(226);
+[0019] (69) setOwnerOf(200,VAR_EGO);                                    // Kid owns Quarter
+[001C] (8F) setState02(226);                                            // Coin Locked
+[001E] (97) setState08(226);                                            // Coin Locked
 [0020] (00) stopObjectCode();											// --
 END
 
 
+/** Air Hockey Table **/
 roomobj-18-367.dmp
 Events:
    B - 0022
-[0022] (75) printEgo("This game is broken.");
+[0022] (75) printEgo("This game is broken.");							// use
 [0035] (00) stopObjectCode();											// --
 END
 
 
+/** Star Wars Poster **/
 roomobj-18-368.dmp
 Events:
    C - 0022
-[0022] (75) printEgo("A Lucasfilm Ltd. Production.");
+[0022] (75) printEgo("A Lucasfilm Ltd. Production.");					// Read
 [003D] (00) stopObjectCode();											// --
 END
 
 
+/** Video Fever **/
 roomobj-18-431.dmp
 Events:
    4 - 003C
    5 - 003F
    B - 0026
-[0026] (64) if (activeObject2 == 200) {
-[002A] (2F)   if (getState08(204)) {
-[002E] (97)     setState08(169);
-[0030] (0F)     clearState02(221);
-[0032] (17)     clearState08(221);
-[0034] (42)     startScript(22);
+[0026] (64) if (activeObject2 == 200) {									// if use with Quarter
+[002A] (2F)   if (getState08(204)) {									//  if Wires Fixed
+[002E] (97)     setState08(169);										//   Video Game On
+[0030] (0F)     clearState02(221);										//   Quater Gone
+[0032] (17)     clearState08(221);										//    Quater Gone
+[0034] (42)     startScript(22);										//    start Video Game: Die Enemy Die
 [0036] (18)   } else {													// -
-[0039] (42)     startScript(59);
+[0039] (42)     startScript(59);										//  Print "It seems to be turned off"
 [003B] (**)   }
 [003B] (**) }
 [003B] (00) stopObjectCode();											// --
-[003C] (42) startScript(19);
+[003C] (42) startScript(19);											// start Power Off??
 [003E] (00) stopObjectCode();											// --
-[003F] (42) startScript(20);
+[003F] (42) startScript(20);											// start It Looks off / cant find a switch
 [0041] (00) stopObjectCode();											// --
 END
 
 
+/** Disco Crazy **/
 roomobj-18-432.dmp
 Events:
    4 - 003C
    5 - 003F
    B - 0026
-[0026] (64) if (activeObject2 == 200) {
-[002A] (2F)   if (getState08(204)) {
-[002E] (97)     setState08(170);
-[0030] (0F)     clearState02(222);
-[0032] (17)     clearState08(222);
-[0034] (42)     startScript(22);
+[0026] (64) if (activeObject2 == 200) {									// if use with Quarter
+[002A] (2F)   if (getState08(204)) {									//  if Wires Fixed
+[002E] (97)     setState08(170);                                        //   Video Game On
+[0030] (0F)     clearState02(222);                                      //   Quater Gone
+[0032] (17)     clearState08(222);                                      //    Quater Gone
+[0034] (42)     startScript(22);                                        //    start Video Game: Die Enemy Die
 [0036] (18)   } else {													// -
-[0039] (42)     startScript(59);
-[003B] (**)   }
-[003B] (**) }
+[0039] (42)     startScript(59);                                        //  Print "It seems to be turned off"
+[003B] (**)   }                                                         
+[003B] (**) }                                                           
 [003B] (00) stopObjectCode();											// --
-[003C] (42) startScript(19);
+[003C] (42) startScript(19);											// start Power Off??
 [003E] (00) stopObjectCode();											// --
-[003F] (42) startScript(20);
+[003F] (42) startScript(20);											// start It Looks off / cant find a switch
 [0041] (00) stopObjectCode();											// --
 END
 
 
+/** Alien Slime **/
 roomobj-18-433.dmp
 Events:
    4 - 003C
    5 - 003F
    B - 0026
-[0026] (64) if (activeObject2 == 200) {
-[002A] (2F)   if (getState08(204)) {
-[002E] (97)     setState08(171);
-[0030] (0F)     clearState02(223);
-[0032] (17)     clearState08(223);
-[0034] (42)     startScript(22);
+[0026] (64) if (activeObject2 == 200) {									// if use with Quarter
+[002A] (2F)   if (getState08(204)) {									//  if Wires Fixed
+[002E] (97)     setState08(171);                                        //   Video Game On
+[0030] (0F)     clearState02(223);                                      //   Quater Gone
+[0032] (17)     clearState08(223);                                      //    Quater Gone
+[0034] (42)     startScript(22);                                        //    start Video Game: Die Enemy Die
 [0036] (18)   } else {													// -
-[0039] (42)     startScript(59);
-[003B] (**)   }
-[003B] (**) }
+[0039] (42)     startScript(59);                                        //  Print "It seems to be turned off"
+[003B] (**)   }                                                         
+[003B] (**) }                                                           
 [003B] (00) stopObjectCode();											// --
-[003C] (42) startScript(19);
+[003C] (42) startScript(19);											// start Power Off??
 [003E] (00) stopObjectCode();											// --
-[003F] (42) startScript(20);
+[003F] (42) startScript(20);											// start It Looks off / cant find a switch
 [0041] (00) stopObjectCode();											// --
 END
 
 
+/** Die Enemy Die **/
 roomobj-18-434.dmp
 Events:
    4 - 003E
    5 - 0041
    B - 0028
-[0028] (64) if (activeObject2 == 200) {
-[002C] (2F)   if (getState08(204)) {
-[0030] (97)     setState08(172);
-[0032] (0F)     clearState02(224);
-[0034] (17)     clearState08(224);
-[0036] (42)     startScript(22);
+[0028] (64) if (activeObject2 == 200) {									// if use with Quarter
+[002C] (2F)   if (getState08(204)) {									//  if Wires Fixed
+[0030] (97)     setState08(172);                                        //   Video Game On
+[0032] (0F)     clearState02(224);                                      //   Quater Gone
+[0034] (17)     clearState08(224);                                      //    Quater Gone
+[0036] (42)     startScript(22);                                        //    start Video Game: Die Enemy Die
 [0038] (18)   } else {													// -
-[003B] (42)     startScript(59);
-[003D] (**)   }
-[003D] (**) }
+[003B] (42)     startScript(59);                                        //  Print "It seems to be turned off"
+[003D] (**)   }                                                         
+[003D] (**) }                                                           
 [003D] (00) stopObjectCode();											// --
-[003E] (42) startScript(19);
+[003E] (42) startScript(19);											// start Power Off??
 [0040] (00) stopObjectCode();											// --
-[0041] (42) startScript(20);
+[0041] (42) startScript(20);											// start It Looks off / cant find a switch
 [0043] (00) stopObjectCode();											// --
 END
 
 
+/** Meteor Mess **/
 roomobj-18-435.dmp
 Events:
    4 - 0041
    5 - 0044
    B - 0026
-[0026] (64) if (activeObject2 == 200) {
-[002A] (2F)   if (getState08(204)) {
-[002E] (97)     setState08(173);
-[0030] (0F)     clearState02(225);
-[0032] (17)     clearState08(225);
-[0034] (29)     setOwnerOf(200,14);
-[0037] (1C)     startSound(11);
-[0039] (42)     startScript(21);
-[003B] (18)   } else {													// -
-[003E] (42)     startScript(59);
-[0040] (**)   }
-[0040] (**) }
+[0026] (64) if (activeObject2 == 200) {									// if use with Quarter
+[002A] (2F)   if (getState08(204)) {									//  if Wires Fixed
+[002E] (97)     setState08(173);                                        //   Video Game On
+[0030] (0F)     clearState02(225);                                      //   Quater Gone
+[0032] (17)     clearState08(225);                                      //    Quater Gone
+[0034] (29)     setOwnerOf(200,14);                                     //    start Video Game: Die Enemy Die
+[0037] (1C)     startSound(11);                                         // -
+[0039] (42)     startScript(21);                                        //  Print "It seems to be turned off"
+[003B] (18)   } else {													
+[003E] (42)     startScript(59);                                        
+[0040] (**)   }                                                         // --
+[0040] (**) }                                                           // start Power Off??
 [0040] (00) stopObjectCode();											// --
-[0041] (42) startScript(19);
+[0041] (42) startScript(19);											// start It Looks off / cant find a switch
 [0043] (00) stopObjectCode();											// --
-[0044] (42) startScript(20);
-[0046] (00) stopObjectCode();											// --
+[0044] (42) startScript(20);											
+[0046] (00) stopObjectCode();											
 END
 
 
+/** Kill Thrill **/
 roomobj-18-436.dmp
 Events:
    4 - 003C
    5 - 003F
    B - 0026
-[0026] (64) if (activeObject2 == 200) {
-[002A] (2F)   if (getState08(204)) {
-[002E] (97)     setState08(174);
-[0030] (0F)     clearState02(226);
-[0032] (17)     clearState08(226);
-[0034] (42)     startScript(22);
+[0026] (64) if (activeObject2 == 200) {									// if use with Quarter
+[002A] (2F)   if (getState08(204)) {									//  if Wires Fixed
+[002E] (97)     setState08(174);                                        //   Video Game On
+[0030] (0F)     clearState02(226);                                      //   Quater Gone
+[0032] (17)     clearState08(226);                                      //    Quater Gone
+[0034] (42)     startScript(22);                                        //    start Video Game: Die Enemy Die
 [0036] (18)   } else {													// -
-[0039] (42)     startScript(59);
-[003B] (**)   }
-[003B] (**) }
+[0039] (42)     startScript(59);                                        //  Print "It seems to be turned off"
+[003B] (**)   }                                                         
+[003B] (**) }                                                           
 [003B] (00) stopObjectCode();											// --
-[003C] (42) startScript(19);
+[003C] (42) startScript(19);											// start Power Off??
 [003E] (00) stopObjectCode();											// --
-[003F] (42) startScript(20);
+[003F] (42) startScript(20);											// start It Looks off / cant find a switch
 [0041] (00) stopObjectCode();											// --
 END
 
+
 /**
- * Room 19
+ * Room 19: Nurse Edna's
  */
- 
+
+
+/** **/
 roomobj-19-210.dmp
 Events:
    D - 0018
@@ -5446,7 +5473,7 @@ Events:
    C - 0021
 [0021] (75) printEgo("Please insert one quarter.");
 [003A] (00) stopObjectCode();											// --
-[003B] (64) if (activeObject2 == 200) {
+[003B] (64) if (activeObject2 == 200) {									// if use with Quarter
 [003F] (1C)   startSound(54);												// sound Keypad Buttons
 [0041] (17)   clearState08(145);
 [0043] (0F)   clearState02(145);
