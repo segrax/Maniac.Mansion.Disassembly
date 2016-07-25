@@ -3838,31 +3838,35 @@ END
  */
 
 
-/** **/
+/** Door **/
 roomobj-19-210.dmp
 Events:
    D - 0018
-[0018] (97) setState08(196);
-[001A] (E5) loadRoomWithEgo(196,9);
+[0018] (97) setState08(196);											// Open Hatch
+[001A] (E5) loadRoomWithEgo(196,9);										// Enter Attic (Above Nurse Edna's Room)
 [001D] (00) stopObjectCode();											// --
 END
 
 
+/** Desk **/
 roomobj-19-294.dmp
 Events:
 END
 
 
+/** Cracked Mirro **/
 roomobj-19-295.dmp
 Events:
 END
 
 
+/** Mirror **/
 roomobj-19-296.dmp
 Events:
 END
 
 
+/** Light **/
 roomobj-19-297.dmp
 Events:
    4 - 0019
@@ -3878,6 +3882,7 @@ Events:
 END
 
 
+/** Bed **/
 roomobj-19-298.dmp
 Events:
    B - 0015
@@ -3886,59 +3891,67 @@ Events:
 END
 
 
+/** Picture of Dr. Fred **/
 roomobj-19-299.dmp
 Events:
    1 - 0027
    A - 0027
-[0027] (42) startScript(62);
+[0027] (42) startScript(62);											// start Print "Its firmly attached to the wall"
 [0029] (00) stopObjectCode();											// --
 END
 
 
+/** Plant **/
 roomobj-19-301.dmp
 Events:
 END
 
 
+/** Plant **/
 roomobj-19-302.dmp
 Events:
 END
 
 
+/** Perfume **/
 roomobj-19-437.dmp
 Events:
 END
 
 
+/** Pillow **/
 roomobj-19-438.dmp
 Events:
 END
 
 
+/** Door **/
 roomobj-19-70.dmp
 Events:
    1 - 001A
    2 - 001F
    D - 0024
 [001A] (42) startScript(4);												// start Door: Open
-[001C] (97) setState08(185);
+[001C] (97) setState08(185);											// Open Door (Door: Nurse Edna)
 [001E] (00) stopObjectCode();											// --
 [001F] (42) startScript(5);												// start Door: Close
-[0021] (17) clearState08(185);
+[0021] (17) clearState08(185);											// Close Door (Door: Nurse Edna)
 [0023] (00) stopObjectCode();											// --
 [0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(185,38);
-[002A] (60)   cursorCommand( kModeNormal )							// Cutscene Mode Normal
+[0027] (E5)   loadRoomWithEgo(185,38);									// Enter Level 3 Hallway
+[002A] (60)   cursorCommand( kModeNormal )								// Cutscene Mode Normal
 [002C] (**) }
 [002C] (00) stopObjectCode();											// --
 END
 
 
+/** Phone **/
 roomobj-19-72.dmp
 Events:
 END
 
 
+/** Small Key **/
 roomobj-19-74.dmp
 Events:
    B - 0020
@@ -3949,8 +3962,10 @@ Events:
 [0024] (00) stopObjectCode();											// --
 END
 
+
+
 /**
- * Room 20
+ * Room 20: Green Tentacle's
  */
  
 roomobj-20-131.dmp
