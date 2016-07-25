@@ -3010,13 +3010,13 @@ Events:
    2 - 001F
    D - 0024
 [001A] (42) startScript(4);												// start Door: Open
-[001C] (97) setState08(148);
+[001C] (97) setState08(148);											// Open Door (Top of Main Entry)
 [001E] (00) stopObjectCode();											// --
 [001F] (42) startScript(5);												// start Door: Close
-[0021] (17) clearState08(148);
+[0021] (17) clearState08(148);											// Close Door (Top of Main Entry)
 [0023] (00) stopObjectCode();											// --
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(148,11);
+[0024] (6F) if (getState08(activeObject)) {								// If door open
+[0027] (E5)   loadRoomWithEgo(148,11);									//  Enter Top of Main Entry
 [002A] (**) }
 [002A] (00) stopObjectCode();											// --
 END
@@ -3026,10 +3026,10 @@ END
 roomobj-17-154.dmp
 Events:
    E - 0016
-[0016] (EF) if (!getState08(activeObject)) {
+[0016] (EF) if (!getState08(activeObject)) {							// If not broken
 [0019] (75)   printEgo("I'd better not%/%it's obviously a valuable antique!");
 [0048] (18) } else {													// -
-[004B] (75)   printEgo("Ouch!");
+[004B] (75)   printEgo("Ouch!");										//
 [0052] (**) }
 [0052] (00) stopObjectCode();											// --
 END
@@ -3053,17 +3053,17 @@ Events:
    4 - 0018
    5 - 0036
    B - 0018
-[0018] (AF) if (!getState08(124)) {
-[001C] (EF)   if (!getState08(activeObject)) {
-[001F] (D7)     setState08();
-[0020] (42)     startScript(107);
+[0018] (AF) if (!getState08(124)) {										// Is Power On
+[001C] (EF)   if (!getState08(activeObject)) {							//  Is Tv Off
+[001F] (D7)     setState08();											//   TV On
+[0020] (42)     startScript(107);										//   3 Guys who Pub Anything: TV Commercial
 [0022] (**)   }
 [0022] (18) } else {													// -
 [0025] (75)   printEgo("The power is off.");
 [0035] (**) }
 [0035] (00) stopObjectCode();											// --
-[0036] (6F) if (getState08(activeObject)) {
-[0039] (57)   clearState08();
+[0036] (6F) if (getState08(activeObject)) {								// Is Tv On
+[0039] (57)   clearState08();											//  Tv Off
 [003A] (**) }
 [003A] (00) stopObjectCode();											// --
 END
@@ -3075,30 +3075,30 @@ Events:
    4 - 0027
    5 - 006C
    B - 0087
-[0027] (AF) if (!getState08(159)) {
-[002B] (AF)   if (!getState08(124)) {
-[002F] (D7)     setState08();
+[0027] (AF) if (!getState08(159)) {										// Is Recorder off
+[002B] (AF)   if (!getState08(124)) {									//  Is Power On		
+[002F] (D7)     setState08();											//   Recorder On
 [0030] (75)     printEgo("Ok, it's recording.");
-[0043] (48)     if (Var[23] == 1) {
-[0048] (9A)       Var[13] = Var[75];
+[0043] (48)     if (Var[23] == 1) {										//   if Victrola Playing
+[0048] (9A)       Var[13] = Var[75];									//	  Tape Contents = Record on Victrola
 [004B] (**)     }
 [004B] (**)   }
 [004B] (18) } else {													// -
 [004E] (75)   printEgo("There's no tape in the recorder.");
 [006B] (**) }
 [006B] (00) stopObjectCode();											// --
-[006C] (6F) if (getState08(activeObject)) {
+[006C] (6F) if (getState08(activeObject)) {								// If Recording
 [006F] (75)   printEgo("It stopped recording.");
-[0084] (17)   clearState08(158);
+[0084] (17)   clearState08(158);										//  Stop Recording
 [0086] (**) }
 [0086] (00) stopObjectCode();											// --
-[0087] (64) if (activeObject2 == 156) {
-[008B] (48)   if (Var[13] == 52) {
+[0087] (64) if (activeObject2 == 156) {									// if use with Cassette Tape
+[008B] (48)   if (Var[13] == 52) {										//  if Tape Contents == 52 = Green Tentacle
 [0090] (75)     printEgo("I can't record on this tape.");
 [00A9] (18)   } else {													// -
-[00AC] (17)     clearState08(159);
-[00AE] (0F)     clearState02(159);
-[00B0] (29)     setOwnerOf(156,14);
+[00AC] (17)     clearState08(159);										// Stop Recorder
+[00AE] (0F)     clearState02(159);										// Stop Recorder
+[00B0] (29)     setOwnerOf(156,14);										// Set owner of tape to Green Tentacle
 [00B3] (**)   }
 [00B3] (**) }
 [00B3] (00) stopObjectCode();											// --
@@ -3111,20 +3111,20 @@ Events:
    4 - 0045
    5 - 004D
    E - 0023
-[0023] (2F) if (getState08(158)) {
+[0023] (2F) if (getState08(158)) {										// if Recorder On
 [0027] (75)   printEgo("It's still recording!");
 [003C] (18) } else {													// -
-[003F] (69)   setOwnerOf(156,VAR_EGO);
-[0042] (D7)   setState08();
-[0043] (CF)   setState02();
+[003F] (69)   setOwnerOf(156,VAR_EGO);									// Take Cassette Tape
+[0042] (D7)   setState08();												// Tape locked
+[0043] (CF)   setState02();												// Tape Locked
 [0044] (**) }
 [0044] (00) stopObjectCode();											// --
-[0045] (EF) if (!getState08(activeObject)) {
-[0048] (03)   doSentence(4,158,0);
+[0045] (EF) if (!getState08(activeObject)) {							// If Tape unlocked
+[0048] (03)   doSentence(4,158,0);										//  Turn on Recorder
 [004C] (**) }
 [004C] (00) stopObjectCode();											// --
-[004D] (EF) if (!getState08(activeObject)) {
-[0050] (03)   doSentence(5,158,0);
+[004D] (EF) if (!getState08(activeObject)) {							// If Tape unlocked
+[0050] (03)   doSentence(5,158,0);										// Turn off Recorder
 [0054] (**) }
 [0054] (00) stopObjectCode();											// --
 END
