@@ -237,7 +237,7 @@ END
 exit-16.dmp
 [0000] (68) VAR_RESULT = isScriptRunning(6);			// Game: Meltdown Timer running
 [0003] (48) if (VAR_RESULT == 1) {
-[0008] (1C)   startSound(32);
+[0008] (1C)   startSound(32);							// sound Alarm 1
 [000A] (**) }
 [000A] (00) stopObjectCode();
 END
@@ -246,19 +246,19 @@ END
 /** Room 17 **/
 entry-17.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
-[0002] (48) if (Var[23] == 1) {
-[0007] (48)   if (Var[75] == 25) {
-[000C] (1C)     startSound(25);
-[000E] (18)   } else {
-[0011] (1C)     startSound(44);
+[0002] (48) if (Var[23] == 1) {							// if Victrola Playing
+[0007] (48)   if (Var[75] == 25) {						//  and Record on Victrola == Tentacle Mating Call
+[000C] (1C)     startSound(25);							//   sound Tentacle Mating Call
+[000E] (18)   } else {									// - 
+[0011] (1C)     startSound(44);							//   sound Bad Melody
 [0013] (**)   }
 [0013] (**) }
 [0013] (00) stopObjectCode();
 END
 
 exit-17.dmp
-[0000] (3C) stopSound(25);
-[0002] (3C) stopSound(44);
+[0000] (3C) stopSound(25);								// stop sound Tentacle Mating Call
+[0002] (3C) stopSound(44);								// stop sound Bad Melody
 [0004] (00) stopObjectCode();
 END
 
@@ -273,13 +273,13 @@ END
 /** Room 19 **/
 entry-19.dmp
 [0000] (07) VAR_RESULT = getActorRoom(10);
-[0003] (48) if (VAR_RESULT == 19) {
-[0008] (9D)   setBitVar(4,VAR_RESULT,0);
+[0003] (48) if (VAR_RESULT == 19) {						// if nurse edna in her room
+[0008] (9D)   setBitVar(4,VAR_RESULT,0);				//  
 [000C] (**) }
 [000C] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [000E] (68) VAR_RESULT = isScriptRunning(25);
-[0011] (48) if (VAR_RESULT == 1) {
-[0016] (42)   startScript(25);
+[0011] (48) if (VAR_RESULT == 1) {						// if Phone: Ringing
+[0016] (42)   startScript(25);							//  start Phone: Ringing
 [0018] (**) }
 [0018] (00) stopObjectCode();
 END
@@ -288,18 +288,18 @@ END
 /** Room 20 **/
 entry-20.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
-[0002] (48) if (Var[80] == 1) {
-[0007] (42)   startScript(103);
+[0002] (48) if (Var[80] == 1) {							// if Green Tentacle: Has drank == Yes
+[0007] (42)   startScript(103);							//  start Green Tentacle: So Depressed
 [0009] (**) }
 [0009] (00) stopObjectCode();
 END
 exit-20.dmp
-[0000] (62) stopScript(105);
-[0002] (62) stopScript(103);
-[0004] (17) clearState08(131);
-[0006] (3C) stopSound(25);
-[0008] (3C) stopSound(20);
-[000A] (3C) stopSound(44);
+[0000] (62) stopScript(105);							// stop Contract: Given to actor
+[0002] (62) stopScript(103);							// stop Green Tentacle: So Depressed
+[0004] (17) clearState08(131);							// turn off Mondo Stereo
+[0006] (3C) stopSound(25);								// stop sound Tentacle Mating Call
+[0008] (3C) stopSound(20);								// stop sound
+[000A] (3C) stopSound(44);								// stop sound Bad Melody
 [000C] (20) stopMusic();
 [000D] (00) stopObjectCode();
 END
@@ -307,13 +307,13 @@ END
 /** Room 21 **/
 entry-21.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
-[0002] (48) if (Var[28] == 1) {
-[0007] (1C)   startSound(20);
+[0002] (48) if (Var[28] == 1) {							// if Radio (Room 21) == On
+[0007] (1C)   startSound(20);							//  start sound radio static
 [0009] (**) }
 [0009] (00) stopObjectCode();
 END
 exit-21.dmp
-[0000] (3C) stopSound(20);
+[0000] (3C) stopSound(20);								//  stop sound radio static
 [0002] (3C) stopSound(29);
 [0004] (00) stopObjectCode();
 END
@@ -327,7 +327,7 @@ END
 /** Room 23 **/
 entry-23.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
-[0002] (42) startScript(78);
+[0002] (42) startScript(78);							// start DeveloperTray: Name
 [0004] (00) stopObjectCode();
 END
 
@@ -337,8 +337,8 @@ entry-24.dmp
 [0002] (00) stopObjectCode();
 END
 exit-24.dmp
-[0000] (3C) stopSound(18);
-[0002] (3C) stopSound(17);
+[0000] (3C) stopSound(18);								// stop sound 
+[0002] (3C) stopSound(17);								// stop sound Sink On
 [0004] (00) stopObjectCode();
 END
 
@@ -358,14 +358,14 @@ END
 
 exit-26.dmp
 [0000] (68) VAR_RESULT = isScriptRunning(91);
-[0003] (48) if (VAR_RESULT == 1) {
+[0003] (48) if (VAR_RESULT == 1) {						// if Weird Ed: Help Find Plans running
 [0008] (8B)   setActorBitVar(Var[94],8,1);
 [000C] (**) }
-[000C] (62) stopScript(91);
-[000E] (62) stopScript(111);
-[0010] (07) VAR_RESULT = getActorRoom("Weird Ed");
-[0013] (48) if (VAR_RESULT == 26) {
-[0018] (62)   stopScript(86);
+[000C] (62) stopScript(91);								// stop Weird Ed: Help Find Plans
+[000E] (62) stopScript(111);							// stop Weird Ed. Handle Object Interactions
+[0010] (07) VAR_RESULT = getActorRoom("Weird Ed");	
+[0013] (48) if (VAR_RESULT == 26) {						// if weird ed in his room
+[0018] (62)   stopScript(86);							//  stop Weird Ed: Check for friendly actors
 [001A] (**) }
 [001A] (00) stopObjectCode();
 END
@@ -373,14 +373,14 @@ END
 /** Room 27 **/
 entry-27.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
-[0002] (08) if (Var[30] != 255) {
-[0007] (2D)   putActorInRoom(19,27);					// Put Plant
-[000A] (01)   putActor(19,33,44);						// Position Plant
-[000E] (68)   VAR_RESULT = isScriptRunning(48);			// is Plant: Give Pepsi running
+[0002] (08) if (Var[30] != 255) {						// if plant not dead
+[0007] (2D)   putActorInRoom(19,27);					//  Put Plant
+[000A] (01)   putActor(19,33,44);						//  Position Plant
+[000E] (68)   VAR_RESULT = isScriptRunning(48);			//  is Plant: Give Pepsi running
 [0011] (48)   if (VAR_RESULT == 0) {
-[0016] (42)     startScript(46);						// Plant?
+[0016] (42)     startScript(46);						// start Plant Size
 [0018] (18)   } else {
-[001B] (42)     startScript(49);						// Plant: Burp
+[001B] (42)     startScript(49);						// start Plant: Burp
 [001D] (**)   }
 [001D] (48)   if (Var[30] == 0) {
 [0022] (11)     animateActor(19,4,1);					// Plant
@@ -396,8 +396,8 @@ entry-27.dmp
 END
 
 exit-27.dmp
-[0000] (62) stopScript(46);
-[0002] (62) stopScript(49);
+[0000] (62) stopScript(46);								// stop Plant Size
+[0002] (62) stopScript(49);								// stop Plant: Burp
 [0004] (00) stopObjectCode();
 END
 
@@ -422,37 +422,37 @@ END
 /** Room 30 **/
 entry-30.dmp
 [0000] (70) lights(2);									// Normal Lights
-[0002] (2D) putActorInRoom(23,30);
+[0002] (2D) putActorInRoom(23,30);						// Sandy (Lab) enters Lab: Zom-b-Matic
 [0005] (01) putActor(23,36,60);
-[0009] (11) animateActor(23,0,1);
-[000D] (11) animateActor(23,254,1);
-[0011] (2D) putActorInRoom(9,30);
+[0009] (11) animateActor(23,0,1);						// Sandy face camera (still)
+[000D] (11) animateActor(23,254,1);						// Sandy has mouth open
+[0011] (2D) putActorInRoom(9,30);						// Dr Fred Enters Lab: Zom-b-Matic
 [0014] (01) putActor(9,38,66);
-[0018] (AF) if (!getState08(143)) {
+[0018] (AF) if (!getState08(143)) {						// if Switch on
 [001C] (1C)   startSound(59);
 [001E] (**) }
 [001E] (48) if (Var[89] == 1) {
-[0023] (42)   startScript(122);
+[0023] (42)   startScript(122);							// start Dr Fred: Walk back and forth
 [0025] (**) }
 [0025] (48) if (Var[89] == 2) {
-[002A] (42)   startScript(122);
+[002A] (42)   startScript(122);							// start Dr Fred: Walk back and forth
 [002C] (**) }
 [002C] (68) VAR_RESULT = isScriptRunning(37);
-[002F] (48) if (VAR_RESULT == 0) {
-[0034] (42)   startScript(124);
+[002F] (48) if (VAR_RESULT == 0) {						// if not running Cutscene: Meteor Police Arrived in Dungeon
+[0034] (42)   startScript(124);							// start Wait for actor finish walk. Activate sandy
 [0036] (48)   if (Var[89] == 0) {
 [003B] (1A)     Var[89] = 1;
-[003E] (4C)     loadScript(118);
-[0040] (42)     startScript(120);
+[003E] (4C)     loadScript(118);						// load Nuclear Meltdown Countdown
+[0040] (42)     startScript(120);						// start Dr Fred: Entered Lab
 [0042] (**)   }
 [0042] (**) }
 [0042] (0C) loadSound(54);
 [0044] (00) stopObjectCode();
 END
 exit-30.dmp
-[0000] (62) stopScript(122);
-[0002] (62) stopScript(124);
-[0004] (3C) stopSound(59);
+[0000] (62) stopScript(122);							// stop Dr Fred: Entered Lab
+[0002] (62) stopScript(124);							// Wait for actor finish walk. Activate sandy
+[0004] (3C) stopSound(59);								// stop sound 
 [0006] (00) stopObjectCode();
 END
 
@@ -464,9 +464,9 @@ END
 exit-31.dmp
 [0000] (B3) unlockScript(43);
 [0002] (D3) unlockSound(63);
-[0004] (62) stopScript(112);
-[0006] (62) stopScript(110);
-[0008] (62) stopScript(94);
+[0004] (62) stopScript(112);							// stop Purple Tentacle: Check Actor X > 20; print "What are you doing here?"
+[0006] (62) stopScript(110);							// stop Green Tentacle: Storm Dr. Freds Lab
+[0008] (62) stopScript(94);								// stop Weird Ed: Storm Dr. Freds Lab
 [000A] (00) stopObjectCode();
 END
 
