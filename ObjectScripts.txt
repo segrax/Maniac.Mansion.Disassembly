@@ -181,7 +181,7 @@ Events:
 [0035] (42)   startScript(71);												// start Film: Expose
 [0037] (**) }
 [0037] (00) stopObjectCode();											// --
-[0038] (03) ddoSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
+[0038] (03) doSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
 [003C] (00) stopObjectCode();											// --
 [003D] (78) if (Var[11] < 2) {												// if Film Exposed < 2
 [0042] (75)   printEgo("Kodak.");
@@ -1935,7 +1935,7 @@ END
 roomobj-9-200.dmp
 Events:
    B - 0019
-[0019] (83) ddoSentence(11,255,254);									// Use _cmdObject2 with _cmdObject
+[0019] (83) doSentence(11,255,254);									// Use _cmdObject2 with _cmdObject
 [001D] (00) stopObjectCode();											// --
 END
 
@@ -2869,7 +2869,7 @@ Events:
 [001C] (64) if (activeObject2 == 103) {									// Use with Phone
 [0020] (03)   doSentence(6,103,119);									// Fix Phone with Tools
 [0024] (18) } else {													// -
-[0027] (43)   ddoSentence(11,255,254);									// Use _cmdObject2 with _cmdObject
+[0027] (43)   doSentence(11,255,254);									// Use _cmdObject2 with _cmdObject
 [002B] (**) }
 [002B] (00) stopObjectCode();											// --
 END
@@ -2891,7 +2891,7 @@ Events:
    E - 0027
 [0027] (90) pickupObject(0);											// Pick object
 [0029] (00) stopObjectCode();											// --
-[002A] (03) ddoSentence(11,255,254);									// Use _cmdObject2 with _cmdObject
+[002A] (03) doSentence(11,255,254);									// Use _cmdObject2 with _cmdObject
 [002E] (00) stopObjectCode();											// --
 END
 
@@ -3042,7 +3042,7 @@ Events:
    E - 001E
 [001E] (90) pickupObject(0);											// Pick object
 [0020] (00) stopObjectCode();											// --
-[0021] (43) ddoSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
+[0021] (43) doSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
 [0025] (00) stopObjectCode();											// --
 END
 
@@ -3958,7 +3958,7 @@ Events:
    E - 001D
 [001D] (90) pickupObject(0);											// Pick object
 [001F] (00) stopObjectCode();											// --
-[0020] (43) ddoSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
+[0020] (43) doSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
 [0024] (00) stopObjectCode();											// --
 END
 
@@ -4042,7 +4042,7 @@ Events:
    E - 001E
 [001E] (90) pickupObject(0);											// Pick object
 [0020] (00) stopObjectCode();											// --
-[0021] (43) ddoSentence(11,255,254);									// Use _cmdObject2 with _cmdObject
+[0021] (43) doSentence(11,255,254);									// Use _cmdObject2 with _cmdObject
 [0025] (00) stopObjectCode();											// --
 END
 
@@ -4081,7 +4081,7 @@ Events:
    E - 001C
 [001C] (90) pickupObject(0);											// Pick object
 [001E] (00) stopObjectCode();											// --
-[001F] (43) ddoSentence(11,255,254);									// Use _cmdObject2 with _cmdObject
+[001F] (43) doSentence(11,255,254);									// Use _cmdObject2 with _cmdObject
 [0023] (00) stopObjectCode();											// --
 [0024] (75) printEgo("Tentacle mating calls.");
 [003A] (00) stopObjectCode();											// --
@@ -4180,7 +4180,7 @@ Events:
    E - 0018
 [0018] (90) pickupObject(0);											// Pick object
 [001A] (00) stopObjectCode();											// --
-[001B] (43) ddoSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
+[001B] (43) doSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
 [001F] (00) stopObjectCode();											// --
 END
 
@@ -4360,7 +4360,7 @@ Events:
 [0048] (E4) if (activeObject2 == 153) {
 [004C] (43)   doSentence(6,177,153);									// Use with Typewriter
 [0050] (18) } else {													// -
-[0053] (03)   ddoSentence(11,255,254);									// Use _cmdObject2 with _cmdObject
+[0053] (03)   doSentence(11,255,254);									// Use _cmdObject2 with _cmdObject
 [0057] (**) }
 [0057] (00) stopObjectCode();											// --
 END
@@ -4819,7 +4819,7 @@ Events:
 [0038] (42)   startScript(75);											//  Sponge: Name
 [003A] (42)   startScript(74);											//  Glass Jar: Name
 [003C] (18) } else {													// -
-[003F] (43)   ddoSentence(11,255,254);									//  Use _cmdObject2 with _cmdObject
+[003F] (43)   doSentence(11,255,254);									//  Use _cmdObject2 with _cmdObject
 [0043] (**) }
 [0043] (00) stopObjectCode();											// --
 [0044] (48) if (VAR_ACTIVE_ACTOR == 19) {								// Give to Plant
@@ -4831,10 +4831,13 @@ Events:
 [0055] (00) stopObjectCode();											// --
 END
 
+
 /**
  * Room 25: Gym
  */
- 
+
+
+/** TV **/
 roomobj-25-304.dmp
 Events:
    4 - 0014
@@ -4847,105 +4850,116 @@ Events:
 END
 
 
+/** Pillow **/
 roomobj-25-305.dmp
 Events:
 END
 
 
+/** Playboy Calendar **/
 roomobj-25-306.dmp
 Events:
    A - 004B
    C - 0026
    E - 004B
-[0026] (75) printEgo("May 1972, and Ted's Deathday is circled!");
+[0026] (75) printEgo("May 1972, and Ted's Deathday is circled!");		// Read
 [004A] (00) stopObjectCode();											// --
-[004B] (75) printEgo("It's nailed, stapled,/and glued to the wall.");
+[004B] (75) printEgo("It's nailed, stapled,/and glued to the wall.");	// Pull/Pick Up
 [0073] (00) stopObjectCode();											// --
 END
 
 
+/** Poster **/
 roomobj-25-307.dmp
 Events:
    C - 0018
-[0018] (75) printEgo("Miss Mummy of 982 BC.");
+[0018] (75) printEgo("Miss Mummy of 982 BC.");							// Read
 [002B] (00) stopObjectCode();											// --
 END
 
 
+/** Surplus Body **/
 roomobj-25-308.dmp
 Events:
    F - 0024
-[0024] (75) printEgo("Yuck!");
+[0024] (75) printEgo("Yuck!");											// What Is
 [002B] (00) stopObjectCode();											// --
 END
 
 
+/** Door **/
 roomobj-25-76.dmp
 Events:
    1 - 001A
    2 - 001F
    D - 0024
 [001A] (42) startScript(4);												// start Door: Open
-[001C] (97) setState08(187);
+[001C] (97) setState08(187);											// Open Door (Level 3 Hallway)
 [001E] (00) stopObjectCode();											// --
 [001F] (42) startScript(5);												// start Door: Close
-[0021] (17) clearState08(187);
+[0021] (17) clearState08(187);											// Close Door (Level 3 Hallway)
 [0023] (00) stopObjectCode();											// --
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(187,38);
+[0024] (6F) if (getState08(activeObject)) {								// if Door open
+[0027] (E5)   loadRoomWithEgo(187,38);									//  Enter Level 3 Hallway
 [002A] (**) }
 [002A] (00) stopObjectCode();											// --
 END
 
 
+/** Sarcophagus **/
 roomobj-25-77.dmp
 Events:
    1 - 001F
    2 - 0021
-[001F] (D7) setState08();
+[001F] (D7) setState08();												// Open
 [0020] (00) stopObjectCode();											// --
-[0021] (57) clearState08();
+[0021] (57) clearState08();												// Close
 [0022] (00) stopObjectCode();											// --
 END
 
 
+/** Hunk-O-Matic **/
 roomobj-25-78.dmp
 Events:
    B - 002B
-[002B] (42) startScript(23);
+[002B] (42) startScript(23);											// start Gym: Get Stronger
 [002D] (00) stopObjectCode();											// --
 END
 
 
+/** Door **/
 roomobj-25-79.dmp
 Events:
    1 - 001A
    2 - 001F
    D - 0024
 [001A] (42) startScript(4);												// start Door: Open
-[001C] (97) setState08(80);
+[001C] (97) setState08(80);												// Open Door (Gym Bathroom)
 [001E] (00) stopObjectCode();											// --
 [001F] (42) startScript(5);												// start Door: Close
-[0021] (17) clearState08(80);
+[0021] (17) clearState08(80);											// Close Door (Gym Bathroom)
 [0023] (00) stopObjectCode();											// --
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (AF)   if (!getState08(212)) {
-[002B] (2D)     putActorInRoom(12,24);
+[0024] (6F) if (getState08(activeObject)) {								// If Door Open
+[0027] (AF)   if (!getState08(212)) {									//  if Water Faucet Off
+[002B] (2D)     putActorInRoom(12,24);									//   Put Ted in front of phone number
 [002E] (01)     putActor(12,30,48);
 [0032] (18)   } else {													// -
-[0035] (2D)     putActorInRoom(12,24);
+[0035] (2D)     putActorInRoom(12,24);									//   Put Ted to left of phone number
 [0038] (01)     putActor(12,24,48);
 [003C] (**)   }
-[003C] (E5)   loadRoomWithEgo(80,24);
+[003C] (E5)   loadRoomWithEgo(80,24);									//  Enter Gym Bathroom
 [003F] (**) }
 [003F] (00) stopObjectCode();											// --
 END
 
+
 /**
- * Room 26
+ * Room 26: Weird Ed's
  */
+
  
-roomobj-26-1.dmp // Hamster
+ /** Hamster **/
+roomobj-26-1.dmp
 Events:
    3 - 0028
    B - 0023
@@ -4953,7 +4967,7 @@ Events:
 [001D] (1A) Var[87] = 0;
 [0020] (42) startScript(111);
 [0022] (00) stopObjectCode();											// --
-[0023] (43) ddoSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
+[0023] (43) doSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
 [0027] (00) stopObjectCode();											// --
 [0028] (42) startScript(89);
 [002A] (00) stopObjectCode();											// --
@@ -5030,7 +5044,7 @@ Events:
    E - 0018
 [0018] (42) startScript(111);
 [001A] (00) stopObjectCode();											// --
-[001B] (43) ddoSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
+[001B] (43) doSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
 [001F] (00) stopObjectCode();											// --
 END
 
@@ -5041,7 +5055,7 @@ Events:
    E - 0018
 [0018] (42) startScript(111);
 [001A] (00) stopObjectCode();											// --
-[001B] (43) ddoSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
+[001B] (43) doSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
 [001F] (00) stopObjectCode();											// --
 END
 
@@ -5052,7 +5066,7 @@ Events:
    E - 0018
 [0018] (42) startScript(111);
 [001A] (00) stopObjectCode();											// --
-[001B] (43) ddoSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
+[001B] (43) doSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
 [001F] (00) stopObjectCode();											// --
 END
 
@@ -5085,7 +5099,7 @@ Events:
 [0020] (00) stopObjectCode();											// --
 [0021] (75) printEgo("This side up.");
 [002E] (00) stopObjectCode();											// --
-[002F] (03) ddoSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
+[002F] (03) doSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
 [0033] (00) stopObjectCode();											// --
 END
 
@@ -5934,7 +5948,7 @@ Events:
    E - 0026
 [0026] (90) pickupObject(0);											// Pick object
 [0028] (00) stopObjectCode();											// --
-[0029] (43) ddoSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
+[0029] (43) doSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
 [002D] (00) stopObjectCode();											// --
 [002E] (48) if (VAR_ACTIVE_ACTOR == 19) {
 [0033] (83)   doSentence(11,36,99);
@@ -6629,7 +6643,7 @@ Events:
 [003B] (75)   printEgo("I can't get it loose!");
 [004E] (**) }
 [004E] (00) stopObjectCode();											// --
-[004F] (03) ddoSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
+[004F] (03) doSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
 [0053] (00) stopObjectCode();											// --
 END
 
