@@ -5117,26 +5117,29 @@ END
 
 
 /**
- * Room 27
+ * Room 27: Typewriter
  */
  
-/** **/
+ 
+/** Door **/
 roomobj-27-211.dmp
 Events:
    B - 0024
    F - 0029
-[0024] (83) doSentence(11,36,255);										//
+[0024] (83) doSentence(11,36,255);										// Use Pot for plant with _cmdObject2
 [0028] (00) stopObjectCode();											// --
 [0029] (75) printEgo("It bit me!");										// 
 [0033] (00) stopObjectCode();											// --
 END
 
 
+/** Fireplace **/
 roomobj-27-290.dmp
 Events:
 END
 
 
+/** Family Portrait **/
 roomobj-27-291.dmp
 Events:
    1 - 0023
@@ -5146,35 +5149,36 @@ Events:
 END
 
 
+/** Pot for plant **/
 roomobj-27-292.dmp
 Events:
    B - 001F
-[001F] (64) if (activeObject2 == 90) {
-[0023] (48)   if (Var[24] == 2) {
-[0028] (1A)     Var[24] = 0;
-[002B] (46)     Var[30]++;
+[001F] (64) if (activeObject2 == 90) {									// Use with Sponge
+[0023] (48)   if (Var[24] == 2) {										//  if Sponge Contents == Radioactive water
+[0028] (1A)     Var[24] = 0;											//   Sponge Contents = Empty
+[002B] (46)     Var[30]++;												//   Plant Size++
 [002D] (**)   }
-[002D] (48)   if (Var[24] == 3) {
-[0032] (1A)     Var[24] = 0;
-[0035] (1A)     Var[30] = 255;
+[002D] (48)   if (Var[24] == 3) {										//  if Sponge Contents == Developer
+[0032] (1A)     Var[24] = 0;											//   Sponge Contents = Empty
+[0035] (1A)     Var[30] = 255;											//   Plant Size = Dead
 [0038] (**)   }
-[0038] (42)   startScript(75);
+[0038] (42)   startScript(75);											// start Sponge: Name
 [003A] (**) }
-[003A] (64) if (activeObject2 == 99) {
-[003E] (48)   if (Var[22] == 2) {
-[0043] (1A)     Var[22] = 0;
-[0046] (5A)     Var[30] += 2;
-[0049] (**)   }
-[0049] (48)   if (Var[22] == 3) {
-[004E] (1A)     Var[22] = 0;
-[0051] (1A)     Var[30] = 255;
-[0054] (**)   }
-[0054] (42)   startScript(74);
+[003A] (64) if (activeObject2 == 99) {									// Use with Jar
+[003E] (48)   if (Var[22] == 2) {										//  if Jar Contents == Radioactive water
+[0043] (1A)     Var[22] = 0;                                            //   Jar Contents = Empty
+[0046] (5A)     Var[30] += 2;                                           //   Plant Size+=2
+[0049] (**)   }                                                         
+[0049] (48)   if (Var[22] == 3) {                                       //  if Jar Contents == Developer
+[004E] (1A)     Var[22] = 0;                                            //   Jar Contents = Empty
+[0051] (1A)     Var[30] = 255;                                          //   Plant Size = Dead
+[0054] (**)   }                                                         
+[0054] (42)   startScript(74);                                          // start Sponge: Name
 [0056] (**) }
-[0056] (48) if (Var[30] == 255) {
+[0056] (48) if (Var[30] == 255) {										// if Plant Size == Dead
 [005B] (75)   printEgo("I killed it!");
-[0067] (38) } else if (Var[30] >= 3) {
-[006F] (1A)   Var[30] = 2;
+[0067] (38) } else if (Var[30] >= 3) {									// -
+[006F] (1A)   Var[30] = 2;												//  Plant Size = Full Size
 [0072] (**) }
 [0072] (64) if (activeObject2 == 60) {
 [0076] (42)   startScript(48);
@@ -5183,27 +5187,28 @@ Events:
 END
 
 
+/** Typewriter **/
 roomobj-27-409.dmp
 Events:
    6 - 001E
    B - 003B
-[001E] (64) if (activeObject2 == 177) {
-[0022] (42)   startScript(10);
+[001E] (64) if (activeObject2 == 177) {									// Fix with Manuscript
+[0022] (42)   startScript(10);											// start Memoir: Writing
 [0024] (18) } else {													// -
 [0027] (75)   printEgo("That's ridiculous!");
 [003A] (**) }
 [003A] (00) stopObjectCode();											// --
-[003B] (64) if (activeObject2 == 177) {
-[003F] (42)   startScript(10);
+[003B] (64) if (activeObject2 == 177) {									// Use with manuscript
+[003F] (42)   startScript(10);											// start Memoir: Writing
 [0041] (**) }
-[0041] (64) if (activeObject2 == 201) {
+[0041] (64) if (activeObject2 == 201) {									// Use with Sealed Envelope
 [0045] (9B)   VAR_RESULT = getActorBitVar(VAR_EGO,4);
-[0049] (48)   if (VAR_RESULT == 1) {
-[004E] (48)     if (Var[85] == 0) {
+[0049] (48)   if (VAR_RESULT == 1) {									// if kid has kActorMiscFlagWatchedTV
+[004E] (48)     if (Var[85] == 0) {										//  if Envelope: Addressed == 0
 [0053] (75)       printEgo("Ok, I'll type the publisher's address.");
-[0076] (42)       startScript(108);
-[0078] (1A)       Var[85] = 1;
-[007B] (18)     } else {													// -
+[0076] (42)       startScript(108);										//   start Typewriter: Actor Using
+[0078] (1A)       Var[85] = 1;											//   Envelope: Addressed = 1
+[007B] (18)     } else {												// -
 [007E] (75)       printEgo("It's already addressed.");
 [0095] (**)     }
 [0095] (18)   } else {													// -
@@ -5214,96 +5219,106 @@ Events:
 END
 
 
+/** Desk **/
 roomobj-27-410.dmp
 Events:
 END
 
 
+/** Plant **/
 roomobj-27-411.dmp
 Events:
 END
 
 
+/** Door **/
 roomobj-27-66.dmp
 Events:
    1 - 001A
    2 - 001F
    D - 0024
 [001A] (42) startScript(4);												// start Door: Open
-[001C] (97) setState08(188);
+[001C] (97) setState08(188);											// Open Door (Typewriter)
 [001E] (00) stopObjectCode();											// --
 [001F] (42) startScript(5);												// start Door: Close
-[0021] (17) clearState08(188);
+[0021] (17) clearState08(188);											// Close Door (Typewriter)
 [0023] (00) stopObjectCode();											// --
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(188,38);
+[0024] (6F) if (getState08(activeObject)) {								// If door open
+[0027] (E5)   loadRoomWithEgo(188,38);									//  Enter Level 3 Hallway
 [002A] (**) }
 [002A] (00) stopObjectCode();											// --
 END
 
 
+/** Man-eating plant **/
 roomobj-27-67.dmp
 Events:
    B - 0024
    D - 0029
-[0024] (83) doSentence(11,36,255);
+[0024] (83) doSentence(11,36,255);										// Use Pot for plant with _cmdObject2
 [0028] (00) stopObjectCode();											// --
-[0029] (E5) loadRoomWithEgo(232,28);
+[0029] (E5) loadRoomWithEgo(232,28);									// Enter Telescope
 [002C] (00) stopObjectCode();											// --
 END
 
 
+/** Paint Blotch **/
 roomobj-27-68.dmp
 Events:
    B - 001E
-[001E] (64) if (activeObject2 == 167) {
-[0022] (29)   setOwnerOf(167,14);
-[0025] (97)   setState08(68);
-[0027] (8F)   setState02(68);
+[001E] (64) if (activeObject2 == 167) {									// Use with Paint Remover
+[0022] (29)   setOwnerOf(167,14);										// Green owns paint Remover
+[0025] (97)   setState08(68);											// Lock Blotch
+[0027] (8F)   setState02(68);											// Hide Blotch
 [0029] (**) }
 [0029] (00) stopObjectCode();											// --
 END
 
 
+/** Door **/
 roomobj-27-69.dmp
 Events:
    1 - 001A
    2 - 001F
    D - 0024
 [001A] (42) startScript(4);												// start Door: Open
-[001C] (97) setState08(202);
+[001C] (97) setState08(202);											// Open Door (Electrical Wiring)
 [001E] (00) stopObjectCode();											// --
 [001F] (42) startScript(5);												// start Door: Close
-[0021] (17) clearState08(202);
+[0021] (17) clearState08(202);											// Close Door (Electrical Wiring)
 [0023] (00) stopObjectCode();											// --
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(202,15);
+[0024] (6F) if (getState08(activeObject)) {								// if hatch open
+[0027] (E5)   loadRoomWithEgo(202,15);									//  Enter Electrical Wiring
 [002A] (**) }
 [002A] (00) stopObjectCode();											// --
 END
 
+
 /**
- * Room 28
+ * Room 28: Telescope
  */
+
  
+/** Hole **/
 roomobj-28-232.dmp
 Events:
    D - 0016
-[0016] (48) if (Var[30] == 255) {
+[0016] (48) if (Var[30] == 255) {										// if Plant Size == Dead
 [001B] (75)   printEgo("The plant's gone. I'm stuck here!");
 [0039] (18) } else {													// -
 [003C] (68)   VAR_RESULT = isScriptRunning(48);
-[003F] (48)   if (VAR_RESULT == 0) {
-[0044] (1A)     Var[76] = 6;
-[0047] (42)     startScript(56);											// Cutscene: Kid Dies
+[003F] (48)   if (VAR_RESULT == 0) {									// If script Plant: Give Pepsi not running
+[0044] (1A)     Var[76] = 6;											//  Death Method = Eaten by plant
+[0047] (42)     startScript(56);										//  Cutscene: Kid Dies
 [0049] (18)   } else {													// -
-[004C] (E5)     loadRoomWithEgo(67,27);
+[004C] (E5)     loadRoomWithEgo(67,27);									//  Enter Typewriter
 [004F] (**)   }
 [004F] (**) }
 [004F] (00) stopObjectCode();											// --
 END
 
 
+/** Astronomy Chart **/
 roomobj-28-402.dmp
 Events:
    C - 0021
@@ -5312,28 +5327,30 @@ Events:
 END
 
 
+/** Control Panel **/
 roomobj-28-403.dmp
 Events:
    C - 001F
-[001F] (75) printEgo("Insert dime.");
+[001F] (75) printEgo("Insert dime.");									// Read
 [002C] (00) stopObjectCode();											// --
 END
 
 
+/** Left Button **/
 roomobj-28-404.dmp
 Events:
    9 - 002D
    C - 001F
-[001F] (75) printEgo("Rotate left.");
+[001F] (75) printEgo("Rotate left.");									// Read
 [002C] (00) stopObjectCode();											// --
-[002D] (08) if (Var[26] != 0) {
-[0032] (3A)   Var[20] -= 1;
-[0035] (48)   if (Var[20] == 255) {
-[003A] (1C)     startSound(12);												// sound Light Switch
-[003C] (1A)     Var[20] = 0;
+[002D] (08) if (Var[26] != 0) {											// if Telescope: Dimes Available
+[0032] (3A)   Var[20] -= 1;												//  Move Screen Left
+[0035] (48)   if (Var[20] == 255) {										//  Overflow?
+[003A] (1C)     startSound(12);											//   sound Light Switch
+[003C] (1A)     Var[20] = 0;											//   Screen 0
 [003F] (18)   } else {													// -
-[0042] (3A)     Var[26] -= 1;
-[0045] (42)     startScript(16);
+[0042] (3A)     Var[26] -= 1;											// Telescope: Dimes Available -= 1
+[0045] (42)     startScript(16);										// start Telescope: Rotate
 [0047] (**)   }
 [0047] (18) } else {													// -
 [004A] (75)   printEgo("It's not rotating.");
@@ -5343,20 +5360,21 @@ Events:
 END
 
 
+/** Right Button **/
 roomobj-28-405.dmp
 Events:
    9 - 002F
    C - 0020
 [0020] (75) printEgo("Rotate right.");
 [002E] (00) stopObjectCode();											// --
-[002F] (08) if (Var[26] != 0) {
-[0034] (46)   Var[20]++;
-[0036] (48)   if (Var[20] == 4) {
-[003B] (1C)     startSound(12);												// sound Light Switch
-[003D] (1A)     Var[20] = 3;
+[002F] (08) if (Var[26] != 0) {											// if Telescope: Dimes Available
+[0034] (46)   Var[20]++;												//  Telescope Room ++
+[0036] (48)   if (Var[20] == 4) {										//  if Telescope Room reached max?
+[003B] (1C)     startSound(12);											//   sound Light Switch
+[003D] (1A)     Var[20] = 3;											//   Back to previous
 [0040] (18)   } else {													// -
-[0043] (3A)     Var[26] -= 1;
-[0046] (42)     startScript(16);
+[0043] (3A)     Var[26] -= 1;											//  Telescope: Dimes Available -= 1
+[0046] (42)     startScript(16);										//  start Telescope: Rotate
 [0048] (**)   }
 [0048] (18) } else {													// -
 [004B] (75)   printEgo("It's not rotating.");
@@ -5366,32 +5384,34 @@ Events:
 END
 
 
+/** Really Powerful Telescope **/
 roomobj-28-406.dmp
 Events:
    B - 002B
-[002B] (42) startScript(17);
+[002B] (42) startScript(17);											// start Telescope: Look
 [002D] (00) stopObjectCode();											// --
 END
 
 
+/** Coin Slot **/
 roomobj-28-407.dmp
 Events:
    B - 0038
    C - 001D
 [001D] (75) printEgo("Donations kindly accepted.");
 [0037] (00) stopObjectCode();											// --
-[0038] (64) if (activeObject2 == 3) {
-[003C] (29)   setOwnerOf(3,0);
+[0038] (64) if (activeObject2 == 3) {									// if Dime
+[003C] (29)   setOwnerOf(3,0);											//  Remove Dime
 [003F] (18)   goto 0066;
-[0042] (64) } else if (activeObject2 == 4) {
-[0049] (29)   setOwnerOf(4,0);
+[0042] (64) } else if (activeObject2 == 4) {							// if Dime
+[0049] (29)   setOwnerOf(4,0);											//  Remove Dime
 [004C] (18)   goto 0066;
-[004F] (64) } else if (activeObject2 == 5) {
-[0056] (29)   setOwnerOf(5,0);
+[004F] (64) } else if (activeObject2 == 5) {							// if Dime
+[0056] (29)   setOwnerOf(5,0);											//  Remove Dime
 [0059] (18)   goto 0066;
-[005C] (64) } else if (activeObject2 == 190) {
-[0063] (29)   setOwnerOf(190,0);
-[0066] (46)   Var[26]++;
+[005C] (64) } else if (activeObject2 == 190) {							// if Dime
+[0063] (29)   setOwnerOf(190,0);										//  Remove Dime
+[0066] (46)   Var[26]++;												// ++Telescope: Dimes Available
 [0068] (1C)   startSound(11);
 [006A] (18) } else {													// -
 [006D] (75)   printEgo("It doesn't fit.");
@@ -5399,10 +5419,12 @@ Events:
 [007C] (00) stopObjectCode();											// --
 END
 
+
 /**
- * Room 29
+ * Room 29: Underhouse
  */
- 
+
+/** Grate **/
 roomobj-29-213.dmp
 Events:
    1 - 001F
@@ -5423,6 +5445,7 @@ Events:
 END
 
 
+/** Floor Grating **/
 roomobj-29-267.dmp
 Events:
    F - 001F
@@ -5431,6 +5454,7 @@ Events:
 END
 
 
+/** Puddle of Developer **/
 roomobj-29-32.dmp
 Events:
    B - 0046
@@ -5450,6 +5474,7 @@ Events:
 END
 
 
+/** Water Valve **/
 roomobj-29-33.dmp
 Events:
    1 - 0023
