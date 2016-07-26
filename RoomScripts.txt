@@ -123,15 +123,15 @@ END
 /** Room 7 **/
 entry-7.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
-[0002] (AF) if (!getState08(55)) {						// if Faucet
-[0006] (1C)   startSound(17);
+[0002] (AF) if (!getState08(55)) {						// if Faucet On
+[0006] (1C)   startSound(17);							//  sound Sink On
 [0008] (**) }
 [0008] (42) startScript(76);							// start Jar / Envelop: Name
 [000A] (00) stopObjectCode();
 END
 
 exit-7.dmp
-[0000] (3C) stopSound(17);
+[0000] (3C) stopSound(17);								// sound Sink off
 [0002] (B3) unlockScript(30);
 [0004] (00) stopObjectCode();
 END
@@ -140,12 +140,12 @@ END
 /** Room 8 **/
 entry-8.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
-[0002] (42) startScript(149);
+[0002] (42) startScript(149);							// start  -= Does Nothing =-
 [0004] (00) stopObjectCode();
 END
 
 exit-8.dmp
-[0000] (62) stopScript(149);
+[0000] (62) stopScript(149);							// stop  -= Does Nothing =-
 [0002] (00) stopObjectCode();
 END
 
@@ -160,13 +160,13 @@ END
 /** Room 10 **/
 entry-10.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
-[0002] (42) startScript(18);							// Clock: Repeating Tick Sound
+[0002] (42) startScript(18);							// start Clock: Repeating Tick Sound
 [0004] (0C) loadSound(28);								
 [0006] (00) stopObjectCode();
 END
 
 exit-10.dmp
-[0000] (62) stopScript(18);
+[0000] (62) stopScript(18);								// stop Clock: Repeating Tick Sound
 [0002] (00) stopObjectCode();
 END
 
@@ -181,11 +181,11 @@ END
 /** Room 12 **/
 entry-12.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status							
-[0002] (48) if (Var[80] == 0) {							// Green Tentacle: Has drank
-[0007] (48)   if (Var[86] == 0) {
-[000C] (2D)     putActorInRoom(14,12);					// Put Green Tentacle
-[000F] (01)     putActor(14,17,52);						// Position Green Tentacle
-[0013] (**)   }
+[0002] (48) if (Var[80] == 0) {							// if Green Tentacle: Has drank
+[0007] (48)   if (Var[86] == 0) {						//  if Kid not in Level 2 - Level 3 hallway
+[000C] (2D)     putActorInRoom(14,12);					//   Put Green Tentacle
+[000F] (01)     putActor(14,17,52);						//   Position Green Tentacle
+[0013] (**)   }		
 [0013] (07)   VAR_RESULT = getActorRoom("Weird Ed");
 [0016] (08)   if (VAR_RESULT != 12) {					//	 is not in 'Level 2 Stairs to Level 3'
 [001B] (42)     startScript(45);						// 		Green Tentacle: Block until player feeds
@@ -195,12 +195,12 @@ entry-12.dmp
 END
 
 exit-12.dmp
-[0000] (62) stopScript(45);
-[0002] (62) stopScript(158);
-[0004] (48) if (Var[80] == 1) {
-[0009] (2D)   putActorInRoom(14,20);
+[0000] (62) stopScript(45);								// stop Green Tentacle: Block until player feeds
+[0002] (62) stopScript(158);							// stop Green Tentacle: Block player passing
+[0004] (48) if (Var[80] == 1) {							// if Green Tentacle: Has drank == Yes
+[0009] (2D)   putActorInRoom(14,20);						// Put green tentacle in his room
 [000C] (01)   putActor(14,68,58);
-[0010] (1A)   Var[86] = 0;
+[0010] (1A)   Var[86] = 0;								// Kid is in Level 2 - Level 3 hallway = No
 [0013] (**) }
 [0013] (00) stopObjectCode();
 END
