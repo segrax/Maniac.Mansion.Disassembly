@@ -4964,132 +4964,144 @@ Events:
    3 - 0028
    B - 0023
    E - 001D
-[001D] (1A) Var[87] = 0;
-[0020] (42) startScript(111);
+[001D] (1A) Var[87] = 0;												// Weird Ed: Looking for plans = 0
+[0020] (42) startScript(111);											// start Weird Ed. Handle Object Interactions
 [0022] (00) stopObjectCode();											// --
 [0023] (43) doSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
 [0027] (00) stopObjectCode();											// --
-[0028] (42) startScript(89);
+[0028] (42) startScript(89);											// start Give Hamster
 [002A] (00) stopObjectCode();											// --
 END
 
 
-roomobj-26-2.dmp // Piggy Bank
+/** Piggy Bank **/
+roomobj-26-2.dmp
 Events:
    1 - 0054
    2 - 005D
    6 - 005D
    E - 0022
-[0022] (6F) if (getState08(activeObject)) {
+[0022] (6F) if (getState08(activeObject)) {								// If Piggy Bank broken
 [0025] (75)   printEgo("Ouch!");
-[002C] (1A)   Var[107] = 2;
-[002F] (42)   startScript(111);
+[002C] (1A)   Var[107] = 2;												//  Give Script: Object-ID = Piggy Bank
+[002F] (42)   startScript(111);											//  start Weird Ed. Handle Object Interactions										
 [0031] (18) } else {													// -
-[0034] (75)   printEgo("It's nailed and glued to the table.");
+[0034] (75)   printEgo("It's nailed and glued to the table.");			//
 [0053] (**) }
 [0053] (00) stopObjectCode();											// --
-[0054] (EF) if (!getState08(activeObject)) {
-[0057] (1A)   Var[107] = 2;
-[005A] (42)   startScript(111);
+[0054] (EF) if (!getState08(activeObject)) {							// If Pibby Bank Not broken
+[0057] (1A)   Var[107] = 2;												//  Give Script: Object-ID
+[005A] (42)   startScript(111);											//  start Weird Ed. Handle Object Interactions
 [005C] (**) }
 [005C] (00) stopObjectCode();											// --
-[005D] (6F) if (getState08(activeObject)) {
+[005D] (6F) if (getState08(activeObject)) {								// If Piggy Bank Broken
 [0060] (75)   printEgo("It looks hopeless!");
-[0072] (1A)   Var[107] = 2;
-[0075] (42)   startScript(111);
+[0072] (1A)   Var[107] = 2;												// Give Script: Object-ID
+[0075] (42)   startScript(111);											// start Weird Ed. Handle Object Interactions
 [0077] (**) }
 [0077] (00) stopObjectCode();											// --
 END
 
 
+/** Penant **/
 roomobj-26-257.dmp
 Events:
    C - 0019
-[0019] (75) printEgo("L.F.L.U. Rah!");
+[0019] (75) printEgo("L.F.L.U. Rah!");									// Read
 [0027] (00) stopObjectCode();											// --
 END
 
 
+/** Fighter Jet **/
 roomobj-26-258.dmp
 Events:
 END
 
 
+/** X-Wing Model **/
 roomobj-26-259.dmp
 Events:
 END
 
 
+/** Strategic Plan **/
 roomobj-26-260.dmp
 Events:
    C - 002A
-[002A] (75) printEgo("Hmm. It doesn't make any sense.");
+[002A] (75) printEgo("Hmm. It doesn't make any sense.");				// Read
 [0046] (00) stopObjectCode();											// --
 END
 
 
+/** Bed **/
 roomobj-26-261.dmp
 Events:
 END
 
 
+/** Window **/
 roomobj-26-262.dmp
 Events:
 END
 
 
+/** Dime **/
 roomobj-26-3.dmp
 Events:
    B - 001B
    E - 0018
-[0018] (42) startScript(111);
+[0018] (42) startScript(111);											// start Weird Ed. Handle Object Interactions
 [001A] (00) stopObjectCode();											// --
 [001B] (43) doSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
 [001F] (00) stopObjectCode();											// --
 END
 
 
+/** Dime **/
 roomobj-26-4.dmp
 Events:
    B - 001B
    E - 0018
-[0018] (42) startScript(111);
+[0018] (42) startScript(111);											// start Weird Ed. Handle Object Interactions
 [001A] (00) stopObjectCode();											// --
 [001B] (43) doSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
 [001F] (00) stopObjectCode();											// --
 END
 
 
+/** Dime **/
 roomobj-26-5.dmp
 Events:
    B - 001B
    E - 0018
-[0018] (42) startScript(111);
+[0018] (42) startScript(111);											// start Weird Ed. Handle Object Interactions
 [001A] (00) stopObjectCode();											// --
 [001B] (43) doSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
 [001F] (00) stopObjectCode();											// --
 END
 
 
+/** Door **/
 roomobj-26-6.dmp
 Events:
    1 - 001A
    2 - 001F
    D - 0024
 [001A] (42) startScript(4);												// start Door: Open
-[001C] (97) setState08(186);
+[001C] (97) setState08(186);											// Open Door (Level 3 Hallway)
 [001E] (00) stopObjectCode();											// --
 [001F] (42) startScript(5);												// start Door: Close
-[0021] (17) clearState08(186);
+[0021] (17) clearState08(186);											// Close Door (Level 3 Hallway)
 [0023] (00) stopObjectCode();											// --
-[0024] (6F) if (getState08(activeObject)) {
-[0027] (E5)   loadRoomWithEgo(186,38);
-[002A] (60)   cursorCommand( kModeNormal )							// Cutscene Mode Normal
+[0024] (6F) if (getState08(activeObject)) {								// If Door Open
+[0027] (E5)   loadRoomWithEgo(186,38);									//  Enter Level 3 Hallway
+[002A] (60)   cursorCommand( kModeNormal )								//  Cutscene Mode Normal
 [002C] (**) }
 [002C] (00) stopObjectCode();											// --
 END
 
 
+/** Card Key **/
 roomobj-26-71.dmp
 Events:
    B - 002F
@@ -5097,23 +5109,25 @@ Events:
    E - 001E
 [001E] (90) pickupObject(0);											// Pick object
 [0020] (00) stopObjectCode();											// --
-[0021] (75) printEgo("This side up.");
+[0021] (75) printEgo("This side up.");									// Read
 [002E] (00) stopObjectCode();											// --
 [002F] (03) doSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
 [0033] (00) stopObjectCode();											// --
 END
 
+
 /**
  * Room 27
  */
  
+/** **/
 roomobj-27-211.dmp
 Events:
    B - 0024
    F - 0029
-[0024] (83) doSentence(11,36,255);
+[0024] (83) doSentence(11,36,255);										//
 [0028] (00) stopObjectCode();											// --
-[0029] (75) printEgo("It bit me!");
+[0029] (75) printEgo("It bit me!");										// 
 [0033] (00) stopObjectCode();											// --
 END
 
