@@ -6,8 +6,8 @@
  
 /** Room 1 **/
 entry-1.dmp
-[0000] (70) lights(2);								
-[0002] (3C) stopSound(32);
+[0000] (70) lights(2);									// Normal Lights
+[0002] (3C) stopSound(32);								// Alarm 1
 [0004] (68) VAR_RESULT = isScriptRunning(58);			// is 'Cutscene: Win Game' running
 [0007] (48) if (VAR_RESULT == 0) {
 [000C] (42)   startScript(52);							// No? start 'Repeat Outside Sound'
@@ -16,25 +16,25 @@ entry-1.dmp
 END
 
 exit-1.dmp
-[0000] (62) stopScript(52);
+[0000] (62) stopScript(52);								// stop 'Repeat Outside Sound'
 [0002] (3C) stopSound(38);
-[0004] (2F) if (getState08(25)) {
-[0008] (48)   if (Var[64] == 1) {
-[000D] (48)     if (Var[85] == 1) {
-[0012] (AF)       if (!getState08(17)) {
-[0016] (2F)         if (getState08(18)) {
+[0004] (2F) if (getState08(25)) {						// if Envelope in mailbox
+[0008] (48)   if (Var[64] == 1) {						//  if Envelope Stamped
+[000D] (48)     if (Var[85] == 1) {						//   if Envelope: Addressed
+[0012] (AF)       if (!getState08(17)) {				//    mailbox closed
+[0016] (2F)         if (getState08(18)) {				//     flag raised
 [001A] (68)           VAR_RESULT = isScriptRunning(100);
-[001D] (48)           if (VAR_RESULT == 0) {
-[0022] (42)             startScript(100);
+[001D] (48)           if (VAR_RESULT == 0) {			//     if trigger not running
+[0022] (42)             startScript(100);				//      start Cutscene: 3 Guys Who Pub Anything: Receive Mail Trigger
 [0024] (**)           }
 [0024] (**)         }
 [0024] (**)       }
 [0024] (**)     }
 [0024] (**)   }
 [0024] (**) }
-[0024] (68) VAR_RESULT = isScriptRunning(6);
-[0027] (48) if (VAR_RESULT == 1) {
-[002C] (1C)   startSound(32);
+[0024] (68) VAR_RESULT = isScriptRunning(6);			// Game: Meltdown Timer running
+[0027] (48) if (VAR_RESULT == 1) {						// if Game: Meltdown Timer running
+[002C] (1C)   startSound(32);							//  start Alarm 1
 [002E] (**) }
 [002E] (00) stopObjectCode();
 END
@@ -42,16 +42,16 @@ END
 
 /** Room 2 **/
 entry-2.dmp
-[0000] (70) lights(2);
-[0002] (3C) stopSound(32);
+[0000] (70) lights(2);									// Normal Lights
+[0002] (3C) stopSound(32);								// stop Alarm 1
 [0004] (0C) loadSound(27);
 [0006] (00) stopObjectCode();
 END
 
 exit-2.dmp
-[0000] (68) VAR_RESULT = isScriptRunning(6);
+[0000] (68) VAR_RESULT = isScriptRunning(6);			// if Game: Meltdown Timer running
 [0003] (48) if (VAR_RESULT == 1) {
-[0008] (1C)   startSound(32);
+[0008] (1C)   startSound(32);							//  start Alarm 1
 [000A] (**) }
 [000A] (00) stopObjectCode();
 END
@@ -61,22 +61,22 @@ END
 entry-3.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (68) VAR_RESULT = isScriptRunning(15);
-[0005] (48) if (VAR_RESULT == 1) {
+[0005] (48) if (VAR_RESULT == 1) {						// if Cassette: Play, Break Windows/Free Key running
 [000A] (1C)   startSound(25);
 [000C] (**) }
-[000C] (2F) if (getState08(207)) {
-[0010] (48)   if (Var[13] == 44) {
-[0015] (1C)     startSound(44);
+[000C] (2F) if (getState08(207)) {						// Cassette Player is playing
+[0010] (48)   if (Var[13] == 44) {						//  if Tape Contents == Melody Stinks
+[0015] (1C)     startSound(44);							//   
 [0017] (**)   }
 [0017] (**) }
-[0017] (48) if (Var[29] == 1) {
-[001C] (1C)   startSound(20);
+[0017] (48) if (Var[29] == 1) {							// if Radio On
+[001C] (1C)   startSound(20);							//  sound Radio Static
 [001E] (**) }
 [001E] (00) stopObjectCode();
 END
 exit-3.dmp
 [0000] (3C) stopSound(25);
-[0002] (3C) stopSound(20);
+[0002] (3C) stopSound(20);								//  sound Radio Static
 [0004] (3C) stopSound(29);
 [0006] (3C) stopSound(44);
 [0008] (20) stopMusic();
@@ -86,7 +86,7 @@ END
 
 /** Room 4 **/
 entry-4.dmp
-[0000] (70) lights(2);
+[0000] (70) lights(2);									// Normal Lights
 [0002] (00) stopObjectCode();
 END
 
@@ -98,7 +98,7 @@ entry-5.dmp
 END
 
 exit-5.dmp
-[0000] (3C) stopSound(24);
+[0000] (3C) stopSound(24);								// stop sound Library Phone Ring
 [0002] (3C) stopSound(21);
 [0004] (00) stopObjectCode();
 END
@@ -106,15 +106,15 @@ END
 
 /** Room 6 **/
 entry-6.dmp
-[0000] (70) lights(2);
-[0002] (3C) stopSound(32);
+[0000] (70) lights(2);									// Normal Lights
+[0002] (3C) stopSound(32);								// stop sound Alarm 1
 [0004] (00) stopObjectCode();
 END
 
 exit-6.dmp
-[0000] (68) VAR_RESULT = isScriptRunning(6);
+[0000] (68) VAR_RESULT = isScriptRunning(6);			// Game: Meltdown Timer running
 [0003] (48) if (VAR_RESULT == 1) {
-[0008] (1C)   startSound(32);
+[0008] (1C)   startSound(32);							// start sound Alarm 1
 [000A] (**) }
 [000A] (00) stopObjectCode();
 END
@@ -123,10 +123,10 @@ END
 /** Room 7 **/
 entry-7.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
-[0002] (AF) if (!getState08(55)) {
+[0002] (AF) if (!getState08(55)) {						// if Faucet
 [0006] (1C)   startSound(17);
 [0008] (**) }
-[0008] (42) startScript(76);
+[0008] (42) startScript(76);							// start Jar / Envelop: Name
 [000A] (00) stopObjectCode();
 END
 
@@ -229,13 +229,13 @@ END
 
 /** Room 16 **/
 entry-16.dmp
-[0000] (70) lights(2);
+[0000] (70) lights(2);									// Normal Lights
 [0002] (3C) stopSound(32);
 [0004] (00) stopObjectCode();
 END
 
 exit-16.dmp
-[0000] (68) VAR_RESULT = isScriptRunning(6);
+[0000] (68) VAR_RESULT = isScriptRunning(6);			// Game: Meltdown Timer running
 [0003] (48) if (VAR_RESULT == 1) {
 [0008] (1C)   startSound(32);
 [000A] (**) }
@@ -421,7 +421,7 @@ END
 
 /** Room 30 **/
 entry-30.dmp
-[0000] (70) lights(2);
+[0000] (70) lights(2);									// Normal Lights
 [0002] (2D) putActorInRoom(23,30);
 [0005] (01) putActor(23,36,60);
 [0009] (11) animateActor(23,0,1);
@@ -458,7 +458,7 @@ END
 
 /** Room 31 **/
 entry-31.dmp
-[0000] (70) lights(2);
+[0000] (70) lights(2);									// Normal Lights
 [0002] (00) stopObjectCode();
 END
 exit-31.dmp
@@ -472,13 +472,13 @@ END
 
 /** Room 32 **/
 entry-32.dmp
-[0000] (70) lights(2);
+[0000] (70) lights(2);									// Normal Lights
 [0002] (00) stopObjectCode();
 END
 
 /** Room 33 **/
 entry-33.dmp
-[0000] (70) lights(2);
+[0000] (70) lights(2);									// Normal Lights
 [0002] (00) stopObjectCode();
 END
 exit-33.dmp
@@ -508,7 +508,7 @@ END
 
 /** Room 39 **/
 entry-39.dmp
-[0000] (70) lights(2);
+[0000] (70) lights(2);									// Normal Lights
 [0002] (00) stopObjectCode();
 END
 
@@ -516,14 +516,14 @@ END
 /** Room 40 **/
 entry-40.dmp
 [0000] (97) setState08(249);
-[0002] (70) lights(2);
+[0002] (70) lights(2);									// Normal Lights
 [0004] (00) stopObjectCode();
 END
 
 
 /** Room 41 **/
 entry-41.dmp
-[0000] (70) lights(2);
+[0000] (70) lights(2);									// Normal Lights
 [0002] (00) stopObjectCode();
 END
 
@@ -531,7 +531,7 @@ exit-41.dmp
 [0000] (3C) stopSound(25);
 [0002] (3C) stopSound(44);
 [0004] (20) stopMusic();
-[0005] (68) VAR_RESULT = isScriptRunning(6);
+[0005] (68) VAR_RESULT = isScriptRunning(6);			// Game: Meltdown Timer running
 [0008] (48) if (VAR_RESULT == 1) {
 [000D] (1C)   startSound(32);
 [000F] (**) }
@@ -541,13 +541,13 @@ END
 
 /** Room 42 **/
 entry-42.dmp
-[0000] (70) lights(2);
+[0000] (70) lights(2);									// Normal Lights
 [0002] (00) stopObjectCode();
 END
 
 /** Room 43 **/
 entry-43.dmp
-[0000] (70) lights(2);
+[0000] (70) lights(2);									// Normal Lights
 [0002] (0C) loadSound(19);
 [0004] (00) stopObjectCode();
 END
@@ -555,7 +555,7 @@ END
 
 /** Room 44 **/
 entry-44.dmp
-[0000] (70) lights(2);
+[0000] (70) lights(2);									// Normal Lights
 [0002] (3C) stopSound(32);
 [0004] (42) startScript(52);
 [0006] (00) stopObjectCode();
@@ -564,7 +564,7 @@ END
 exit-44.dmp
 [0000] (62) stopScript(52);
 [0002] (3C) stopSound(38);
-[0004] (68) VAR_RESULT = isScriptRunning(6);
+[0004] (68) VAR_RESULT = isScriptRunning(6);			// Game: Meltdown Timer running
 [0007] (48) if (VAR_RESULT == 1) {
 [000C] (1C)   startSound(32);
 [000E] (**) }
@@ -574,7 +574,7 @@ END
 
 /** Room 45 **/
 entry-45.dmp
-[0000] (70) lights(2);
+[0000] (70) lights(2);									// Normal Lights
 [0002] (1A) Var[92] = 1;
 [0005] (0C) loadSound(54);
 [0007] (4C) loadScript(109);
@@ -584,14 +584,14 @@ END
 
 /** Room 46 **/
 entry-46.dmp
-[0000] (70) lights(2);
+[0000] (70) lights(2);									// Normal Lights
 [0002] (00) stopObjectCode();
 END
 
 
 /** Room 47 **/
 entry-47.dmp
-[0000] (70) lights(2);
+[0000] (70) lights(2);									// Normal Lights
 [0002] (3C) stopSound(32);
 [0004] (3C) stopSound(33);
 [0006] (00) stopObjectCode();
@@ -600,28 +600,28 @@ END
 
 /** Room 48 **/
 entry-48.dmp
-[0000] (70) lights(2);
+[0000] (70) lights(2);									// Normal Lights
 [0002] (00) stopObjectCode();
 END
 
 
 /** Room 49 **/
 entry-49.dmp
-[0000] (70) lights(2);
+[0000] (70) lights(2);									// Normal Lights
 [0002] (00) stopObjectCode();
 END
 
 
 /** Room 50 **/
 entry-50.dmp
-[0000] (70) lights(2);
+[0000] (70) lights(2);									// Normal Lights
 [0002] (0C) loadSound(19);
 [0004] (3C) stopSound(32);
 [0006] (00) stopObjectCode();
 END
 
 exit-50.dmp
-[0000] (68) VAR_RESULT = isScriptRunning(6);
+[0000] (68) VAR_RESULT = isScriptRunning(6);			// Game: Meltdown Timer running
 [0003] (48) if (VAR_RESULT == 1) {
 [0008] (1C)   startSound(32);
 [000A] (**) }
@@ -631,7 +631,7 @@ END
 
 /** Room 51 **/
 entry-51.dmp
-[0000] (70) lights(2);
+[0000] (70) lights(2);									// Normal Lights
 [0002] (4C) loadScript(121);
 [0004] (48) if (Var[18] == 0) {
 [0009] (2D)   putActorInRoom(16,51);
@@ -663,12 +663,12 @@ END
 
 /** Room 52 **/
 entry-52.dmp
-[0000] (70) lights(2);
+[0000] (70) lights(2);									// Normal Lights
 [0002] (3C) stopSound(32);
 [0004] (00) stopObjectCode();
 END
 exit-52.dmp
-[0000] (68) VAR_RESULT = isScriptRunning(6);
+[0000] (68) VAR_RESULT = isScriptRunning(6);			// Game: Meltdown Timer running
 [0003] (48) if (VAR_RESULT == 1) {
 [0008] (1C)   startSound(32);
 [000A] (**) }

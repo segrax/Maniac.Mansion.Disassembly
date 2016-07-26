@@ -6385,135 +6385,149 @@ END
 roomobj-43-287.dmp
 Events:
    F - 0012
-[0012] (1C) startSound(19);
-[0014] (1A) Var[49] = 10;
+[0012] (1C) startSound(19);												// sound Light Beep
+[0014] (1A) Var[49] = 10;												// Keypad Input = 10
 [0017] (14) print(255,"*");
 [001B] (00) stopObjectCode();											// --
 END
 
 
+/** 0 **/
 roomobj-43-288.dmp
 Events:
    F - 0012
-[0012] (1C) startSound(19);
-[0014] (1A) Var[49] = 0;
+[0012] (1C) startSound(19);												// sound Light Beep
+[0014] (1A) Var[49] = 0;												// Keypad Input = 0
 [0017] (14) print(255,"0");
 [001B] (00) stopObjectCode();											// --
 END
 
 
+/** # **/
 roomobj-43-289.dmp
 Events:
    F - 0012
-[0012] (1C) startSound(19);
-[0014] (1A) Var[49] = 11;
+[0012] (1C) startSound(19);												// sound Light Beep
+[0014] (1A) Var[49] = 11;												// Keypad Input = 11
 [0017] (14) print(255,"#");
 [001B] (00) stopObjectCode();											// --
 END
 
 
+/** 1 **/
 roomobj-43-422.dmp
 Events:
    F - 0012
-[0012] (1C) startSound(19);
-[0014] (1A) Var[49] = 1;
+[0012] (1C) startSound(19);												// sound Light Beep
+[0014] (1A) Var[49] = 1;												// Keypad Input = 1
 [0017] (14) print(255,"1");
 [001B] (00) stopObjectCode();											// --
 END
 
 
+/** 2 **/
 roomobj-43-423.dmp
 Events:
    F - 0012
-[0012] (1C) startSound(19);
-[0014] (1A) Var[49] = 2;
+[0012] (1C) startSound(19);												// sound Light Beep
+[0014] (1A) Var[49] = 2;												// Keypad Input = 2
 [0017] (14) print(255,"2");
 [001B] (00) stopObjectCode();											// --
 END
 
 
+/** 3 **/
 roomobj-43-424.dmp
 Events:
    F - 0012
-[0012] (1C) startSound(19);
-[0014] (1A) Var[49] = 3;
+[0012] (1C) startSound(19);												// sound Light Beep
+[0014] (1A) Var[49] = 3;												// Keypad Input = 3
 [0017] (14) print(255,"3");
 [001B] (00) stopObjectCode();											// --
 END
 
 
+/** 4 **/
 roomobj-43-425.dmp
 Events:
    F - 0012
-[0012] (1C) startSound(19);
-[0014] (1A) Var[49] = 4;
+[0012] (1C) startSound(19);												// sound Light Beep
+[0014] (1A) Var[49] = 4;												// Keypad Input = 4
 [0017] (14) print(255,"4");
 [001B] (00) stopObjectCode();											// --
 END
 
 
+/** 5 **/
 roomobj-43-426.dmp
 Events:
    F - 0012
-[0012] (1C) startSound(19);
-[0014] (1A) Var[49] = 5;
+[0012] (1C) startSound(19);												// sound Light Beep
+[0014] (1A) Var[49] = 5;												// Keypad Input = 5
 [0017] (14) print(255,"5");
 [001B] (00) stopObjectCode();											// --
 END
 
 
+/** 6 **/
 roomobj-43-427.dmp
 Events:
    F - 0013
-[0013] (1C) startSound(19);
-[0015] (1A) Var[49] = 6;
+[0013] (1C) startSound(19);												// sound Light Beep
+[0015] (1A) Var[49] = 6;												// Keypad Input = 6
 [0018] (14) print(255,"6");
 [001C] (00) stopObjectCode();											// --
 END
 
 
+/** 7 **/
 roomobj-43-428.dmp
 Events:
    F - 0012
-[0012] (1C) startSound(19);
-[0014] (1A) Var[49] = 7;
+[0012] (1C) startSound(19);												// sound Light Beep
+[0014] (1A) Var[49] = 7;												// Keypad Input = 7
 [0017] (14) print(255,"7");
 [001B] (00) stopObjectCode();											// --
 END
 
 
+/** 8 **/
 roomobj-43-429.dmp
 Events:
    F - 0012
-[0012] (1C) startSound(19);
-[0014] (1A) Var[49] = 8;
+[0012] (1C) startSound(19);												// sound Light Beep
+[0014] (1A) Var[49] = 8;												// Keypad Input = 8
 [0017] (14) print(255,"8");
 [001B] (00) stopObjectCode();											// --
 END
 
 
+/** 9 **/
 roomobj-43-430.dmp
 Events:
    F - 0012
-[0012] (1C) startSound(19);
-[0014] (1A) Var[49] = 9;
+[0012] (1C) startSound(19);												// sound Light Beep
+[0014] (1A) Var[49] = 9;												// Keypad Input = 9
 [0017] (14) print(255,"9");
 [001B] (00) stopObjectCode();											// --
 END
 
 
 /**
- * Room 44
+ * Room 44: Welcome to Mansion
  */
+
  
+ /** ( Exit to room 1 ) **/
 roomobj-44-241.dmp
 Events:
    D - 0012
-[0012] (E5) loadRoomWithEgo(240,1);
+[0012] (E5) loadRoomWithEgo(240,1);										// Enter Front of Mansion
 [0015] (00) stopObjectCode();											// --
 END
 
 
+/** Sign **/
 roomobj-44-265.dmp
 Events:
    C - 0016
