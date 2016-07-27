@@ -4,7 +4,11 @@
  */
  
  
-/** Room 1 **/
+ 
+/**
+ * Room 1: Front of Mansion
+ */
+ 
 entry-1.dmp
 [0000] (70) lights(2);									// Normal Lights
 [0002] (3C) stopSound(32);								// Alarm 1
@@ -40,7 +44,10 @@ exit-1.dmp
 END
 
 
-/** Room 2 **/
+/**
+ * Room 2: Bottom of Pool
+ */
+ 
 entry-2.dmp
 [0000] (70) lights(2);									// Normal Lights
 [0002] (3C) stopSound(32);								// stop Alarm 1
@@ -57,7 +64,10 @@ exit-2.dmp
 END
 
 
-/** Room 3 **/
+/**
+ * Room 3: Downstairs Lounge Room
+ */
+
 entry-3.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (68) VAR_RESULT = isScriptRunning(15);
@@ -84,14 +94,20 @@ exit-3.dmp
 END
 
 
-/** Room 4 **/
+/**
+ * Room 4: Dungeon
+ */
+ 
 entry-4.dmp
 [0000] (70) lights(2);									// Normal Lights
 [0002] (00) stopObjectCode();
 END
 
 
-/** Room 5 **/
+/**
+ * Room 5: Library
+ */
+
 entry-5.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (00) stopObjectCode();
@@ -104,7 +120,9 @@ exit-5.dmp
 END
 
 
-/** Room 6 **/
+/**
+ * Room 6: Pool Area
+ */
 entry-6.dmp
 [0000] (70) lights(2);									// Normal Lights
 [0002] (3C) stopSound(32);								// stop sound Alarm 1
@@ -120,7 +138,10 @@ exit-6.dmp
 END
 
 
-/** Room 7 **/
+/**
+ * Room 7: Kitchen
+ */
+
 entry-7.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (AF) if (!getState08(55)) {						// if Faucet On
@@ -137,7 +158,10 @@ exit-7.dmp
 END
 
 
-/** Room 8 **/
+/**
+ * Room 8: Basement
+ */
+ 
 entry-8.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (42) startScript(149);							// start  -= Does Nothing =-
@@ -150,14 +174,20 @@ exit-8.dmp
 END
 
 
-/** Room 9 **/
+/**
+ * Room 9: Attic (Above Nurse Edna's Room)
+ */
+
 entry-9.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (00) stopObjectCode();
 END
 
 
-/** Room 10 **/
+/**
+ * Room 10: Main Entry
+ */
+ 
 entry-10.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (42) startScript(18);							// start Clock: Repeating Tick Sound
@@ -171,14 +201,20 @@ exit-10.dmp
 END
 
 
-/** Room 11 **/
+/**
+ * Room 11: Top of Main Entry
+ */
+ 
 entry-11.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (00) stopObjectCode();
 END
 
 
-/** Room 12 **/
+/**
+ * Room 12: Level 2 Stairs to Level 3
+ */
+ 
 entry-12.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status							
 [0002] (48) if (Var[80] == 0) {							// if Green Tentacle: Has drank
@@ -206,28 +242,40 @@ exit-12.dmp
 END
 
 
-/** Room 13 **/
+/**
+ * Room 13: Level 2 Main Hallway
+ */
+
 entry-13.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (00) stopObjectCode();
 END
 
 
-/** Room 14 **/
+/**
+ * Room 14: Portrait Painting
+ */
+
 entry-14.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (00) stopObjectCode();
 END
 
 
-/** Room 15 **/
+/**
+ * Room 15: Electrical Wiring
+ */
+ 
 entry-15.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (00) stopObjectCode();
 END
 
 
-/** Room 16 **/
+/**
+ * Room 16: Garage
+ */
+
 entry-16.dmp
 [0000] (70) lights(2);									// Normal Lights
 [0002] (3C) stopSound(32);
@@ -243,7 +291,10 @@ exit-16.dmp
 END
 
 
-/** Room 17 **/
+/**
+ * Room 17: Music
+ */
+ 
 entry-17.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (48) if (Var[23] == 1) {							// if Victrola Playing
@@ -263,14 +314,20 @@ exit-17.dmp
 END
 
 
-/** Room 18 **/
+/**
+ * Room 18: Video Game
+ */
+
 entry-18.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (00) stopObjectCode();
 END
 
 
-/** Room 19 **/
+/**
+ * Room 19: Nurse Edna's
+ */
+
 entry-19.dmp
 [0000] (07) VAR_RESULT = getActorRoom(10);
 [0003] (48) if (VAR_RESULT == 19) {						// if nurse edna in her room
@@ -285,7 +342,10 @@ entry-19.dmp
 END
 
 
-/** Room 20 **/
+/**
+ * Room 20: Green Tentacle's
+ */
+ 
 entry-20.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (48) if (Var[80] == 1) {							// if Green Tentacle: Has drank == Yes
@@ -304,7 +364,11 @@ exit-20.dmp
 [000D] (00) stopObjectCode();
 END
 
-/** Room 21 **/
+
+/**
+ * Room 21: Radio
+ */
+ 
 entry-21.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (48) if (Var[28] == 1) {							// if Radio (Room 21) == On
@@ -318,20 +382,31 @@ exit-21.dmp
 [0004] (00) stopObjectCode();
 END
 
-/** Room 22 **/
+/**
+ * Room 22: Medical
+ */
+ 
 entry-22.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (00) stopObjectCode();
 END
 
-/** Room 23 **/
+
+/**
+ * Room 23: Darkroom
+ */
+ 
 entry-23.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (42) startScript(78);							// start DeveloperTray: Name
 [0004] (00) stopObjectCode();
 END
 
-/** Room 24 **/
+
+/**
+ * Room 24: Gym Bathroom
+ */
+ 
 entry-24.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (00) stopObjectCode();
@@ -342,7 +417,11 @@ exit-24.dmp
 [0004] (00) stopObjectCode();
 END
 
-/** Room 25 **/
+
+/**
+ * Room 25: Gym
+ */
+ 
 entry-25.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (0C) loadSound(30);
@@ -350,7 +429,11 @@ entry-25.dmp
 [0006] (00) stopObjectCode();
 END
 
-/** Room 26 **/
+
+/**
+ * Room 26: Weird Ed's
+ */
+
 entry-26.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (00) stopObjectCode();
@@ -370,7 +453,11 @@ exit-26.dmp
 [001A] (00) stopObjectCode();
 END
 
-/** Room 27 **/
+
+/**
+ * Room 27: Typewriter
+ */
+ 
 entry-27.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (08) if (Var[30] != 255) {						// if plant not dead
@@ -401,13 +488,21 @@ exit-27.dmp
 [0004] (00) stopObjectCode();
 END
 
-/** Room 28 **/
+
+/**
+ * Room 28: Telescope
+ */
+ 
 entry-28.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (00) stopObjectCode();
 END
 
-/** Room 29 **/
+
+/**
+ * Room 29: Underhouse
+ */
+ 
 entry-29.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (00) stopObjectCode();
@@ -419,7 +514,10 @@ exit-29.dmp
 END
 
 
-/** Room 30 **/
+/**
+ * Room 30: Lab: Zom-b-Matic
+ */
+ 
 entry-30.dmp
 [0000] (70) lights(2);									// Normal Lights
 [0002] (2D) putActorInRoom(23,30);						// Sandy (Lab) enters Lab: Zom-b-Matic
@@ -456,7 +554,11 @@ exit-30.dmp
 [0006] (00) stopObjectCode();
 END
 
-/** Room 31 **/
+
+/**
+ * Room 31: Lab: Entry
+ */
+ 
 entry-31.dmp
 [0000] (70) lights(2);									// Normal Lights
 [0002] (00) stopObjectCode();
@@ -470,207 +572,268 @@ exit-31.dmp
 [000A] (00) stopObjectCode();
 END
 
-/** Room 32 **/
+
+/**
+ * Room 32: Meteor Police 
+ */
+ 
 entry-32.dmp
 [0000] (70) lights(2);									// Normal Lights
 [0002] (00) stopObjectCode();
 END
 
-/** Room 33 **/
+
+/**
+ * Room 33: Mansion At Distance (Lights Off)
+ */
+
 entry-33.dmp
 [0000] (70) lights(2);									// Normal Lights
 [0002] (00) stopObjectCode();
 END
 exit-33.dmp
-[0000] (3C) stopSound(56);
+[0000] (3C) stopSound(56);								// stop sound Intro Comet
 [0002] (3C) stopSound(57);
 [0004] (00) stopObjectCode();
 END
 
-/** Room 36 **/
+
+/**
+ * Room 36: Storage / Leading out to pool
+ */
+
 entry-36.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
-[0002] (0C) loadSound(10);
+[0002] (0C) loadSound(10);								// sound Piggy Bank Break
 [0004] (00) stopObjectCode();
 END
 
-/** Room 37 **/
+
+/**
+ * Room 37: Dining
+ */
+
 entry-37.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (00) stopObjectCode();
 END
 
-/** Room 38 **/
+
+/**
+ * Room 38: Level 3 Hallway
+ */
+ 
 entry-38.dmp
 [0000] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [0002] (00) stopObjectCode();
 END
 
-/** Room 39 **/
+
+/**
+ * Room 39: Video Game: High Scores
+ */
+ 
 entry-39.dmp
 [0000] (70) lights(2);									// Normal Lights
 [0002] (00) stopObjectCode();
 END
 
 
-/** Room 40 **/
+/**
+ * Room 40: 3 Guys who publish anything (TV)
+ */
+ 
 entry-40.dmp
-[0000] (97) setState08(249);
+[0000] (97) setState08(249);							// < No Name > 
 [0002] (70) lights(2);									// Normal Lights
 [0004] (00) stopObjectCode();
 END
 
 
-/** Room 41 **/
+/**
+ * Room 41: 3 Guys who publish anything (Office)
+ */
+ 
 entry-41.dmp
 [0000] (70) lights(2);									// Normal Lights
 [0002] (00) stopObjectCode();
 END
 
 exit-41.dmp
-[0000] (3C) stopSound(25);
-[0002] (3C) stopSound(44);
-[0004] (20) stopMusic();
+[0000] (3C) stopSound(25);								// stop sound Tentacle Mating Call
+[0002] (3C) stopSound(44);								// stop sound Bad Melody
+[0004] (20) stopMusic();								// stop music
 [0005] (68) VAR_RESULT = isScriptRunning(6);			// Game: Meltdown Timer running
 [0008] (48) if (VAR_RESULT == 1) {
-[000D] (1C)   startSound(32);
+[000D] (1C)   startSound(32);							// sound Alarm 1
 [000F] (**) }
 [000F] (00) stopObjectCode();
 END
 
 
-/** Room 42 **/
+/** 
+ * Room 42: TV Show
+ **/
 entry-42.dmp
 [0000] (70) lights(2);									// Normal Lights
 [0002] (00) stopObjectCode();
 END
 
-/** Room 43 **/
+
+/**
+ * Room 43: Keypad
+ */
+ 
 entry-43.dmp
 [0000] (70) lights(2);									// Normal Lights
-[0002] (0C) loadSound(19);
+[0002] (0C) loadSound(19);								
 [0004] (00) stopObjectCode();
 END
 
 
-/** Room 44 **/
+/**
+ * Room 44: Welcome to Mansion
+ */
+ 
 entry-44.dmp
 [0000] (70) lights(2);									// Normal Lights
-[0002] (3C) stopSound(32);
-[0004] (42) startScript(52);
+[0002] (3C) stopSound(32);								// stop sound Alarm 1
+[0004] (42) startScript(52);							// start Repeat Outside Sound
 [0006] (00) stopObjectCode();
 END
 
 exit-44.dmp
-[0000] (62) stopScript(52);
+[0000] (62) stopScript(52);								// stop Repeat Outside Sound
 [0002] (3C) stopSound(38);
-[0004] (68) VAR_RESULT = isScriptRunning(6);			// Game: Meltdown Timer running
+[0004] (68) VAR_RESULT = isScriptRunning(6);			// is Game: Meltdown Timer running
 [0007] (48) if (VAR_RESULT == 1) {
-[000C] (1C)   startSound(32);
+[000C] (1C)   startSound(32);							// sound Alarm 1
 [000E] (**) }
 [000E] (00) stopObjectCode();
 END
 
 
-/** Room 45 **/
+/**
+ * Room 45: Kid Selection 
+ */
+
 entry-45.dmp
 [0000] (70) lights(2);									// Normal Lights
-[0002] (1A) Var[92] = 1;
-[0005] (0C) loadSound(54);
-[0007] (4C) loadScript(109);
+[0002] (1A) Var[92] = 1;								// Kid Select: Number Selected = 1 (Dave)
+[0005] (0C) loadSound(54);								
+[0007] (4C) loadScript(109);							// load script Intro: Kid Selection: Update Var States
 [0009] (00) stopObjectCode();
 END
 
 
-/** Room 46 **/
+
+/**
+ * Room 46: Top of mansion (Edsel)
+ */
+
 entry-46.dmp
 [0000] (70) lights(2);									// Normal Lights
 [0002] (00) stopObjectCode();
 END
 
 
-/** Room 47 **/
+
+/**
+ * Room 47: Mansion At Distance (Lights On)
+ */
+
 entry-47.dmp
 [0000] (70) lights(2);									// Normal Lights
-[0002] (3C) stopSound(32);
-[0004] (3C) stopSound(33);
+[0002] (3C) stopSound(32);								// stop sound Alarm 1
+[0004] (3C) stopSound(33);								// stop sound Alarm 2
 [0006] (00) stopObjectCode();
 END
 
-
-/** Room 48 **/
+/**
+ * Room 48: Edsel in Space
+ */
 entry-48.dmp
 [0000] (70) lights(2);									// Normal Lights
 [0002] (00) stopObjectCode();
 END
 
 
-/** Room 49 **/
+/**
+ * Room 49: "MANIAC MANSION" Scrolling
+ */
 entry-49.dmp
 [0000] (70) lights(2);									// Normal Lights
 [0002] (00) stopObjectCode();
 END
 
 
-/** Room 50 **/
+/**
+ * Room 50: Load / Save Screen
+ */
 entry-50.dmp
 [0000] (70) lights(2);									// Normal Lights
-[0002] (0C) loadSound(19);
-[0004] (3C) stopSound(32);
+[0002] (0C) loadSound(19);								// load sound Light Beep
+[0004] (3C) stopSound(32);								// stop sound Alarm 1
 [0006] (00) stopObjectCode();
 END
 
 exit-50.dmp
 [0000] (68) VAR_RESULT = isScriptRunning(6);			// Game: Meltdown Timer running
 [0003] (48) if (VAR_RESULT == 1) {
-[0008] (1C)   startSound(32);
+[0008] (1C)   startSound(32);							// sound Alarm 1
 [000A] (**) }
 [000A] (00) stopObjectCode();
 END
 
 
-/** Room 51 **/
+/**
+ * Room 51: Lab: Meteor
+ */
+
 entry-51.dmp
 [0000] (70) lights(2);									// Normal Lights
 [0002] (4C) loadScript(121);
-[0004] (48) if (Var[18] == 0) {
-[0009] (2D)   putActorInRoom(16,51);
+[0004] (48) if (Var[18] == 0) {							// if Meteor Location == Meteor Room
+[0009] (2D)   putActorInRoom(16,51);					// put meteor in meteor room
 [000C] (01)   putActor(16,40,50);
-[0010] (11)   animateActor(16,0,1);
+[0010] (11)   animateActor(16,0,1);						
 [0014] (68)   VAR_RESULT = isScriptRunning(37);
-[0017] (48)   if (VAR_RESULT == 0) {
+[0017] (48)   if (VAR_RESULT == 0) {					// if not running Cutscene: Meteor Police Arrived in Dungeon
 [001C] (30)     loadCostume(20);
 [001E] (13)     lockCostume(20);
-[0020] (42)     startScript(123);
+[0020] (42)     startScript(123);						// start Meteor: Fire Radiation
 [0022] (**)   }
 [0022] (**) }
-[0022] (AF) if (!getState08(143)) {
-[0026] (1C)   startSound(59);
-[0028] (4C)   loadScript(121);
+[0022] (AF) if (!getState08(143)) {						// if Switch switched
+[0026] (1C)   startSound(59);							//  sound Machine power down
+[0028] (4C)   loadScript(121);							//  start Dr Fred: Free of machines control
 [002A] (**) }
-[002A] (4C) loadScript(123);
+[002A] (4C) loadScript(123);							// start Meteor: Fire Radiation
 [002C] (00) stopObjectCode();
 END
 
 exit-51.dmp
 [0000] (3C) stopSound(59);
-[0002] (2D) putActorInRoom(20,0);
+[0002] (2D) putActorInRoom(20,0);						// Meteor Radiation leaves room
 [0005] (01) putActor(20,0,0);
-[0009] (62) stopScript(123);
+[0009] (62) stopScript(123);							// stop Meteor: Fire Radiation
 [000B] (00) stopObjectCode();
 END
 
 
-/** Room 52 **/
+/**
+ * Room 52: Garage Destroyed
+ */
+ 
 entry-52.dmp
 [0000] (70) lights(2);									// Normal Lights
-[0002] (3C) stopSound(32);
+[0002] (3C) stopSound(32);								// stop sound Alarm 1
 [0004] (00) stopObjectCode();
 END
 exit-52.dmp
 [0000] (68) VAR_RESULT = isScriptRunning(6);			// Game: Meltdown Timer running
 [0003] (48) if (VAR_RESULT == 1) {
-[0008] (1C)   startSound(32);
+[0008] (1C)   startSound(32);							// soumd Alarm 1
 [000A] (**) }
 [000A] (00) stopObjectCode();
 END

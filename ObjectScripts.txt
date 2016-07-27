@@ -989,7 +989,7 @@ END
 
 
 /**
- * Room 5
+ * Room 5: Library
  */
 
  
