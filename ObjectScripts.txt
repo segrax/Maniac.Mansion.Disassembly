@@ -157,8 +157,8 @@ Events:
 [0017] (90) pickupObject(0);											// Pickup Key
 [0019] (00) stopObjectCode();											// --
 [001A] (64) if (activeObject2 == 28) {									// Use key with Front Door
-[001E] (37)   clearState04(28);											// Unlock Front Door
-[0020] (03)   doSentence(1,28,0);
+[001E] (37)   clearState04(28);											//  Unlock Front Door
+[0020] (03)   doSentence(1,28,0);										//  Open Front Door
 [0024] (18) } else {													// -
 [0027] (75)   printEgo("It doesn't work.");
 [0037] (**) }
@@ -174,29 +174,29 @@ Events:
    B - 0038
    C - 003D
    E - 002A
-[002A] (90) pickupObject(0);												// Pickup Undeveloped Film
+[002A] (90) pickupObject(0);											// Pickup Undeveloped Film
 [002C] (00) stopObjectCode();											// --
-[002D] (68) VAR_RESULT = isScriptRunning(71);								// is script Film: Expose running		
-[0030] (48) if (VAR_RESULT == 0) {
-[0035] (42)   startScript(71);												// start Film: Expose
+[002D] (68) VAR_RESULT = isScriptRunning(71);
+[0030] (48) if (VAR_RESULT == 0) {										// is script Film: Expose not running
+[0035] (42)   startScript(71);											//  start Film: Expose
 [0037] (**) }
 [0037] (00) stopObjectCode();											// --
 [0038] (03) doSentence(11,255,254);										// Use _cmdObject2 with _cmdObject
 [003C] (00) stopObjectCode();											// --
-[003D] (78) if (Var[11] < 2) {												// if Film Exposed < 2
+[003D] (78) if (Var[11] < 2) {											// if Film Exposed < Ruined Prints
 [0042] (75)   printEgo("Kodak.");
 [004A] (18) } else {													// -
 [004D] (75)   printEgo("Looks like photographs of Ed's plans.");
 [006F] (**) }
 [006F] (00) stopObjectCode();											// --
-[0070] (78) if (VAR_ACTIVE_ACTOR < 8) {										// Give to Kid
+[0070] (78) if (VAR_ACTIVE_ACTOR < 8) {									// Give to Kid
 [0075] (69)   setOwnerOf(0,VAR_ACTIVE_ACTOR);
 [0078] (**) }
-[0078] (48) if (VAR_ACTIVE_ACTOR == 11) {
-[007D] (78)   if (Var[11] < 2) {											// Give to Weird Ed
+[0078] (48) if (VAR_ACTIVE_ACTOR == 11) {								// Give to Weird Ed?
+[007D] (78)   if (Var[11] < 2) {										//  if Film Exposed < Ruined Prints
 [0082] (14)     print(11,"No! No! You have to develop it for me!");
 [00A3] (18)   } else {													// -
-[00A6] (42)     startScript(88);											// start Weird Ed: Accepts Prints
+[00A6] (42)     startScript(88);										//  start Weird Ed: Accepts Prints
 [00A8] (**)   }	
 [00A8] (**) }
 [00A8] (00) stopObjectCode();											// --
@@ -211,29 +211,29 @@ Events:
    A - 004B
    C - 003E
    E - 0021
-[0021] (90) pickupObject(0);												// Pickup Package
-[0023] (48) if (Var[81] == 0) {												// if Stamps Taken == No
-[0028] (90)   pickupObject(132);											//  Pickup Stamps
-[002A] (29)   setOwnerOf(132,14);											//  Set owner of stamps to Green Tentacle
+[0021] (90) pickupObject(0);											// Pickup Package
+[0023] (48) if (Var[81] == 0) {											// if Stamps Taken == No
+[0028] (90)   pickupObject(132);										//  Pickup Stamps
+[002A] (29)   setOwnerOf(132,14);										//  Set owner of stamps to Green Tentacle
 [002D] (**) }
 [002D] (00) stopObjectCode();											// --
-[002E] (78) if (VAR_ACTIVE_ACTOR < 8) {										// Give
-[0033] (69)   setOwnerOf(0,VAR_ACTIVE_ACTOR);								//  To Kid
+[002E] (78) if (VAR_ACTIVE_ACTOR < 8) {									// Give
+[0033] (69)   setOwnerOf(0,VAR_ACTIVE_ACTOR);							//  To Kid
 [0036] (**) }
-[0036] (48) if (VAR_ACTIVE_ACTOR == 11) {									//  To Weird Ed
-[003B] (42)   startScript(87);												//   start Weird Ed: Accept Commando Package
+[0036] (48) if (VAR_ACTIVE_ACTOR == 11) {								//  To Weird Ed
+[003B] (42)   startScript(87);											//   start Weird Ed: Accept Commando Package
 [003D] (**) }
 [003D] (00) stopObjectCode();											// --
-[003E] (75) printEgo("To: Weird Ed");										// Read
+[003E] (75) printEgo("To: Weird Ed");									// Read
 [004A] (00) stopObjectCode();											// --
-[004B] (48) if (Var[81] == 0) {												// if Stamps Taken == No
-[0050] (6F)   if (getState08(activeObject)) {								//  if Package available 
-[0053] (69)     setOwnerOf(132,VAR_EGO);									//   Kid owns Stamps
+[004B] (48) if (Var[81] == 0) {											// if Stamps Taken == No
+[0050] (6F)   if (getState08(activeObject)) {							//  if Package available 
+[0053] (69)     setOwnerOf(132,VAR_EGO);								//   Kid owns Stamps
 [0056] (18)   } else {													// -
-[0059] (90)     pickupObject(132);											// Pickup Package
+[0059] (90)     pickupObject(132);										// Pickup Package
 [005B] (**)   }
 [005B] (75)   printEgo("Some uncanceled stamps came off!");	
-[0079] (1A)   Var[81] = 1;													// Stamps Taken = Yes
+[0079] (1A)   Var[81] = 1;												// Stamps Taken = Yes
 [007C] (18) } else {													// -
 [007F] (75)   printEgo("That would be illegal.");
 [0094] (**) }
@@ -245,7 +245,7 @@ END
 roomobj-1-240.dmp
 Events:
    D - 0012
-[0012] (E5) loadRoomWithEgo(241,44);										// Enter room 'Welcome to Mansion'
+[0012] (E5) loadRoomWithEgo(241,44);									// Enter room 'Welcome to Mansion'
 [0015] (00) stopObjectCode();											// --
 END
 
@@ -255,15 +255,15 @@ roomobj-1-25.dmp
 Events:
    C - 001C
    E - 005D
-[001C] (48) if (Var[85] == 0) {							// Envelope: Addressed == No
+[001C] (48) if (Var[85] == 0) {											// Envelope: Addressed == No
 [0021] (75)   printEgo("It's a blank envelope.");
 [0036] (18) } else {													// -
 [0039] (75)   printEgo("It's addressed to: 222 Skyscraper Way.");
 [005C] (**) }
 [005C] (00) stopObjectCode();											// --
-[005D] (8F) setState02(25);								// Hide Envelope
-[005F] (17) clearState08(25);							// Hide Envelope
-[0061] (69) setOwnerOf(201,VAR_EGO);					// Sealed Envelope owned by kid
+[005D] (8F) setState02(25);												// Hide Envelope
+[005F] (17) clearState08(25);											// Hide Envelope
+[0061] (69) setOwnerOf(201,VAR_EGO);									// Sealed Envelope owned by kid
 [0064] (00) stopObjectCode();											// --
 END
 
@@ -396,16 +396,16 @@ Events:
    B - 001E
    C - 0040
 [001E] (1C) startSound(39);
-[0020] (48) if (Var[73] == 0) {										// Door Bell Triggers Ed == Yes
-[0025] (68)   VAR_RESULT = isScriptRunning(82);						// is Weird Ed: Leave Room running
+[0020] (48) if (Var[73] == 0) {											// Door Bell Triggers Ed == Yes
+[0025] (68)   VAR_RESULT = isScriptRunning(82);							// is Weird Ed: Leave Room running
 [0028] (48)   if (VAR_RESULT == 0) {
 [002D] (07)     VAR_RESULT = getActorRoom("Weird Ed");
 [0030] (48)     if (VAR_RESULT == 26) {
-[0035] (1A)       Var[127] = 1;										// Weird Ed Trigger = DoorBell
-[0038] (42)       startScript(82);									// start Weird Ed: Leave Room running
+[0035] (1A)       Var[127] = 1;											// Weird Ed Trigger = DoorBell
+[0038] (42)       startScript(82);										// start Weird Ed: Leave Room running
 [003A] (**)     }
 [003A] (18)   } else {													// -
-[003D] (42)     startScript(92);									// start Weird Ed: Respond to Door Bell
+[003D] (42)     startScript(92);										// start Weird Ed: Respond to Door Bell
 [003F] (**)   }
 [003F] (**) }
 [003F] (00) stopObjectCode();											// --
