@@ -3,6 +3,27 @@
  *
  */
 
+ /** Events
+  *
+  * 00 = None
+  *	01 = Open
+  *	02 = Close
+  *	03 = Give
+  *	04 = Turn On
+  *	05 = Turn Off
+  *	06 = Fix
+  *	07 = New Kid
+  *	08 = Unlock
+  *	09 = Push
+  *	0A = Pull
+  *	0B = Use
+  *	0C = Read
+  *	0D = Walk To
+  *	0E = Pick Up
+  *	0F = What Is
+  * 10 = Lock
+  *
+  **/
  
 /**
  * Room 1: Front of Mansion
@@ -17,18 +38,18 @@ Events:
    E - 001C
 [001C] (90) pickupObject(0);											// Pick object
 [001E] (75) printEgo("Hmm, they're uncanceled.");
-[0036] (1A) Var[81] = 1;
+[0036] (1A) Var[81] = 1;												// Stamps Taken = Taken
 [0039] (00) stopObjectCode();											// --
 [003A] (64) if (activeObject2 == 234) {									// Use with Sealed Envelope (room7)
 [003E] (18) } else {													// -
 [0041] (64)   unless (activeObject2 == 201) goto 0067;					// Use with Sealed Envelope (room9)
 [0045] (**) }
 [0045] (48) if (Var[62] == 1) {											// if Stamp Stickyness == Sticky
-[004A] (1A)   Var[64] = 1;												// Envelop Stamped = Yes
+[004A] (1A)   Var[64] = 1;												//  Envelop Stamped = Yes
 [004D] (75)   printEgo("They stick!");
-[0059] (42)   startScript(79);											// start Envelope: Name
-[005B] (29)   setOwnerOf(0,0);											// Remove Stamps
-[005E] (18) } else {													// Use with other objects
+[0059] (42)   startScript(79);											//  start Envelope: Name
+[005B] (29)   setOwnerOf(0,0);											//  Remove Stamps
+[005E] (18) } else {													//  Use with other objects
 [0067] (75)   printEgo("They won't stick.");				
 [0078] (**) }
 [0078] (00) stopObjectCode();											// --
@@ -45,7 +66,7 @@ Events:
 [001E] (00) stopObjectCode();											// --
 [001F] (57) clearState08();												// Close mailbox
 [0020] (00) stopObjectCode();											// --
-[0021] (43) doSentence(11,255,7);										// Use _cmdObject2 with Object 7
+[0021] (43) doSentence(11,255,263);										// Use _cmdObject2 with Mailbox
 [0025] (00) stopObjectCode();											// --
 END
 
@@ -66,10 +87,10 @@ Events:
 [0029] (00) stopObjectCode();											// --
 [002A] (57) clearState08();												// Lower Flag
 [002B] (00) stopObjectCode();											// --
-[002C] (6F) if (getState08(activeObject)) {								// Use Flag with 
-[002F] (57)   clearState08();
+[002C] (6F) if (getState08(activeObject)) {								// If Flag Up
+[002F] (57)   clearState08();											//  Lower Flag
 [0030] (18) } else {													// -
-[0033] (D7)   setState08();
+[0033] (D7)   setState08();												//  Raise Flag
 [0034] (**) }
 [0034] (00) stopObjectCode();											// --
 END
