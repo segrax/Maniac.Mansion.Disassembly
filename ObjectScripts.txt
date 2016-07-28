@@ -23,7 +23,7 @@ Events:
 [003E] (18) } else {													// -
 [0041] (64)   unless (activeObject2 == 201) goto 0067;					// Use with Sealed Envelope (room9)
 [0045] (**) }
-[0045] (48) if (Var[62] == 1) {
+[0045] (48) if (Var[62] == 1) {											// if Stamp Stickyness == Sticky
 [004A] (1A)   Var[64] = 1;												// Envelop Stamped = Yes
 [004D] (75)   printEgo("They stick!");
 [0059] (42)   startScript(79);											// start Envelope: Name
@@ -115,9 +115,9 @@ Events:
 [0069] (17) clearState08(213);											// Grate is closed
 [006B] (00) stopObjectCode();											// --
 [006C] (EF) if (!getState08(activeObject)) {							// Push
-[006F] (03)   doSentence(1,20,0);
+[006F] (03)   doSentence(1,20,0);										//  Open Grating
 [0073] (18) } else {													// -
-[0076] (03)   doSentence(2,20,0);
+[0076] (03)   doSentence(2,20,0);										//  Close Grating
 [007A] (**) }
 [007A] (00) stopObjectCode();											// --
 [007B] (64) if (activeObject2 == 119) {									// Use Tools with Grate
@@ -141,7 +141,7 @@ Events:
 [001E] (6F) if (getState08(activeObject)) {								// Pull/Pickup
 [0021] (75)   printEgo("I'll leave it here.");
 [0033] (18) } else {													// -
-[0036] (D7)   setState08();												// Move Doormat
+[0036] (D7)   setState08();												//  Move Doormat
 [0037] (**) }
 [0037] (00) stopObjectCode();											// --
 [0038] (57) clearState08();												// Move doormat back
