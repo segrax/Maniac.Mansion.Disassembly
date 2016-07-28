@@ -44,7 +44,7 @@ script-1.dmp
 [00B5] (42)   startScript(115);										//  Cutscene: Intro: Comet / Mansion
 [00B7] (10)   breakHere();
 [00B8] (68)   VAR_RESULT = isScriptRunning(115);
-[00BB] (48)   unless (VAR_RESULT == 0) goto 00B7;					// Sleep until Intro Cutscene finishes
+[00BB] (48)   unless (VAR_RESULT == 0) goto 00B7;					//  Sleep until Intro Cutscene finishes
 [00C0] (**) }
 [00C0] (D3) unlockSound(1);
 [00C2] (D3) unlockSound(58);
@@ -58,22 +58,22 @@ script-1.dmp
 [00DC] (01) putActor(12,30,48);
 [00E0] (2D) putActorInRoom(11,26);									// Put Weird Ed in Weird Ed's room
 [00E3] (01) putActor(11,10,52);
-[00E7] (1A) Var[20] = 1;
-[00EA] (1D) setBitVar(44,2,1);
-[00EE] (1D) setBitVar(1,2,1);
-[00F2] (1D) setBitVar(4,2,1);
-[00F6] (1D) setBitVar(6,2,1);
-[00FA] (1D) setBitVar(2,2,1);
-[00FE] (1D) setBitVar(16,2,1);
-[0102] (1D) setBitVar(30,2,1);
-[0106] (1D) setBitVar(31,2,1);
-[010A] (1D) setBitVar(51,2,1);
-[010E] (1D) setBitVar(8,1,1);
-[0112] (1D) setBitVar(5,1,1);
-[0116] (1D) setBitVar(9,1,1);
-[011A] (1D) setBitVar(15,1,1);
-[011E] (1D) setBitVar(22,1,1);
-[0122] (1D) setBitVar(23,1,1);
+[00E7] (1A) Var[20] = 1;											// Telescope: Current Room = 34
+[00EA] (1D) setBitVar(44,2,1);										// Welcome to Mansion: Light Always On
+[00EE] (1D) setBitVar(1,2,1);										// Front of Mansion: Light Always On
+[00F2] (1D) setBitVar(4,2,1);										// Dungeon: Light Always On
+[00F6] (1D) setBitVar(6,2,1);										// Pool Area: Light Always On
+[00FA] (1D) setBitVar(2,2,1);										// Bottom of Pool: Light Always On
+[00FE] (1D) setBitVar(16,2,1);										// Garage: Light Always On
+[0102] (1D) setBitVar(30,2,1);										// Lab: Zom-b-Matic: Light Always On
+[0106] (1D) setBitVar(31,2,1);										// Lab: Entry: Light Always On
+[010A] (1D) setBitVar(51,2,1);										// Lab: Meteor:  Light Always On
+[010E] (1D) setBitVar(8,1,1);										// Basement: Light off
+[0112] (1D) setBitVar(5,1,1);										// Library: Light off
+[0116] (1D) setBitVar(9,1,1);										// Attic (Above Nurse Edna's Room): Light Off
+[011A] (1D) setBitVar(15,1,1);										// Electrical Wiring: Light Off
+[011E] (1D) setBitVar(22,1,1);										// Medical: Light off
+[0122] (1D) setBitVar(23,1,1);										// DarkRoom: Light off
 [0126] (16) Var[92] = getRandomNr(4);								// Randomise Edna's Phone Number
 [0129] (48) if (Var[92] == 0) {
 [012E] (1A)   Var[32] = 5;											//  Phone Number: 5235
@@ -86,28 +86,28 @@ script-1.dmp
 [0142] (1A)   Var[33] = 5;
 [0145] (1A)   Var[34] = 4;
 [0148] (1A)   Var[35] = 7;
-[014B] (97)   setState08(86);
+[014B] (97)   setState08(86);										//  Show Pin on wall behind Ted
 [014D] (**) }
 [014D] (48) if (Var[92] == 2) {
 [0152] (1A)   Var[32] = 2;											//  Phone Number: 2275
 [0155] (1A)   Var[33] = 2;
 [0158] (1A)   Var[34] = 7;
 [015B] (1A)   Var[35] = 5;
-[015E] (97)   setState08(87);
+[015E] (97)   setState08(87);										//  Show Pin on wall behind Ted
 [0160] (**) }
 [0160] (48) if (Var[92] == 3) {
 [0165] (1A)   Var[32] = 3;											//  Phone Number: 3444
 [0168] (1A)   Var[33] = 4;
 [016B] (1A)   Var[34] = 4;
 [016E] (1A)   Var[35] = 4;
-[0171] (97)   setState08(88);
+[0171] (97)   setState08(88);										//  Show Pin on wall behind Ted
 [0173] (**) }
 [0173] (48) if (Var[92] == 4) {
 [0178] (1A)   Var[32] = 7;											//  Phone Number: 7537
 [017B] (1A)   Var[33] = 5;
 [017E] (1A)   Var[34] = 3;
 [0181] (1A)   Var[35] = 7;
-[0184] (97)   setState08(89);
+[0184] (97)   setState08(89);										//  Show Pin on wall behind Ted
 [0186] (**) }
 [0186] (16) Var[92] = getRandomNr(4);								// Randomise Ednas Attic Safe
 [0189] (48) if (Var[92] == 0) {										
@@ -121,28 +121,28 @@ script-1.dmp
 [01A2] (1A)   Var[37] = 1;
 [01A5] (1A)   Var[38] = 2;
 [01A8] (1A)   Var[39] = 0;
-[01AB] (97)   setState08(140);
+[01AB] (97)   setState08(140);										//  Show Pin on safe wall
 [01AD] (**) }
 [01AD] (48) if (Var[92] == 2) {
 [01B2] (1A)   Var[36] = 1;											// Ednas Attic Safe: 1230
 [01B5] (1A)   Var[37] = 2;
 [01B8] (1A)   Var[38] = 3;
 [01BB] (1A)   Var[39] = 0;
-[01BE] (97)   setState08(141);
+[01BE] (97)   setState08(141);										//  Show Pin on safe wall
 [01C0] (**) }
 [01C0] (48) if (Var[92] == 3) {
 [01C5] (1A)   Var[36] = 1;											// Ednas Attic Safe: 1029
 [01C8] (1A)   Var[37] = 0;
 [01CB] (1A)   Var[38] = 2;
 [01CE] (1A)   Var[39] = 9;
-[01D1] (97)   setState08(142);
+[01D1] (97)   setState08(142);										//  Show Pin on safe wall
 [01D3] (**) }
 [01D3] (48) if (Var[92] == 4) {
 [01D8] (1A)   Var[36] = 4;											// Ednas Attic Safe: 4186
 [01DB] (1A)   Var[37] = 1;
 [01DE] (1A)   Var[38] = 8;
 [01E1] (1A)   Var[39] = 6;
-[01E4] (97)   setState08(199);
+[01E4] (97)   setState08(199);										//  Show Pin on safe wall
 [01E6] (**) }
 [01E6] (16) Var[57] = getRandomNr(4);								// Randomise Telephone Number: Meteor Police (Active)
 [01E9] (48) if (Var[57] == 0) {
@@ -175,7 +175,7 @@ script-1.dmp
 [0238] (1A)   Var[60] = 2;
 [023B] (1A)   Var[61] = 5;
 [023E] (**) }
-[023E] (42) startScript(126);										// Intro: Dave Welcome
+[023E] (42) startScript(126);										// start Intro: Dave Welcome
 [0240] (A0) stopObjectCode();
 END
 
@@ -1789,15 +1789,15 @@ script-50.dmp
 [0013] (1A)     Var[92] = 1;										//  Light level
 [0016] (**)   }
 [0016] (**) }
-[0016] (AF) if (!getState08(124)) {									// Circuit Breaker Off?
-[001A] (B1)   VAR_RESULT = getBitVar(VAR_ROOM,1);					// 
-[001E] (48)   if (VAR_RESULT == 0) {	
-[0023] (1A)     Var[92] = 2;										//
+[0016] (AF) if (!getState08(124)) {									// Circuit Breaker On?
+[001A] (B1)   VAR_RESULT = getBitVar(VAR_ROOM,1);					//  
+[001E] (48)   if (VAR_RESULT == 0) {								//  Light On?
+[0023] (1A)     Var[92] = 2;										//   Light On
 [0026] (**)   }
 [0026] (**) }
 [0026] (B1) VAR_RESULT = getBitVar(VAR_ROOM,2);						// 
-[002A] (48) if (VAR_RESULT == 1) {
-[002F] (1A)   Var[92] = 2;
+[002A] (48) if (VAR_RESULT == 1) {									//  Light always on?
+[002F] (1A)   Var[92] = 2;											
 [0032] (18) } else {
 [0035] (F0)   lights(Var[92]);
 [0037] (**) }
