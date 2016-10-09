@@ -4,7 +4,16 @@ Maniac Mansion Disassembly
 About
 =====
 
-Complete disassembly and list of room objects and variables. Put together between 20/07/2016 and 28/07/2016
+Complete commented disassembly and list of room objects and variables. 
+Put together between 20/07/2016 and 28/07/2016
+
+
+Notes
+=====
+
+* This is not meant to be recompilable. At All.
+* Certain object numbers will be incorrect, 
+   This was caused by an ignored opcode flag in descumm (https://github.com/scummvm/scummvm-tools/pull/12)
 
 
 Files
