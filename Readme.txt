@@ -5,7 +5,6 @@ About
 =====
 
 Complete commented disassembly and list of room objects and variables. 
-Put together between 20/07/2016 and 28/07/2016
 
 
 Notes
