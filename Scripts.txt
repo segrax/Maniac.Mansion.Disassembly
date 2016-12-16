@@ -4137,8 +4137,8 @@ END
   * Script 106: Door Bell
   */
 script-106.dmp															
-[0000] (2A) delay(18000);											// Sleep for 5 minutes											// Sleep 5 minutes
-[0004] (2A) delay(300);												// Wait 5 seconds												// Sleep 5 seconds
+[0000] (2A) delay(18000);											// Sleep for 5 minutes
+[0004] (2A) delay(300);												// Sleep for 5 seconds
 [0008] (08) if (VAR_ROOM != 1) {									// Not currently in Front of mansion
 [000D] (08)   if (VAR_ROOM != 26) {									// Not currently in Weird Ed's Room
 [0012] (07)     VAR_RESULT = getActorRoom("Weird Ed");
