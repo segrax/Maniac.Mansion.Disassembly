@@ -5309,13 +5309,13 @@ script-138.dmp
 [0004] (2F) if (getState08(124)) {									// If power on
 [0008] (62)   stopScript(0);
 [000A] (**) }
-[000A] (2F) if (getState08(106)) {
+[000A] (2F) if (getState08(106)) {									// If pool empty
 [000E] (62)   stopScript(0);
 [0010] (**) }
-[0010] (97) setState08(124);
+[0010] (97) setState08(124);										// Power Off
 [0012] (42) startScript(50);										// start Room Lights: Check for flashlight / room light status
 [0014] (2A) delay(18000);											// Sleep for 5 minutes
-[0018] (17) clearState08(124);
+[0018] (17) clearState08(124);										// Power On
 [001A] (42) startScript(50);										// start Room Lights: Check for flashlight / room light status
 [001C] (42) startScript(96);										// Start Dr Fred: Play Meteor Mess
 [001E] (A0) stopObjectCode();
