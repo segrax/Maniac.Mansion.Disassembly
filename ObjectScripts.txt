@@ -6786,7 +6786,7 @@ roomobj-51-252.dmp
 Events:
    B - 004F
    E - 001A
-[001A] (48) if (Var[89] == 2) {
+[001A] (48) if (Var[89] == 2) {											// Meteor Loose?
 [001F] (90)   pickupObject(0);											// Pick object
 [0021] (57)   clearState08();											
 [0022] (CF)   setState02();

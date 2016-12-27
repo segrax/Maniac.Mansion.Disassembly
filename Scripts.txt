@@ -4353,7 +4353,7 @@ script-113.dmp
 [0005] (48) if (Var[82] == 1) {											// if Contract for Meteor
 [000A] (60)   cursorCommand( kModeCutscene )							//  Cutscene Mode
 [000C] (62)   stopScript(121);											//  stop Dr Fred: Machine Turned Off
-[000E] (1A)   Var[89] = 2;
+[000E] (1A)   Var[89] = 2;												//  Meteor Loose
 [0011] (1A)   Var[82] = 4;												//  Contract Given
 [0014] (14)   print(255,"Wow! A lucrative publishing contract!");
 [0038] (11)   animateActor(16,1,255);									//  Meteor
@@ -4721,7 +4721,7 @@ script-121.dmp
 [0004] (1A) Var[89] = 3;
 [0007] (40) cutscene();												// Start Cutscene
 [0008] (25) loadRoom(30);
-[000A] (1A) Var[89] = 2;
+[000A] (1A) Var[89] = 2;											// Meteor Lock Switch On
 [000D] (52) actorFollowCamera(9);									// Follow Dr. Fred
 [000F] (2A) delay(120);
 [0013] (11) animateActor(9,6,1);									// Dr. Fred Face Camera
@@ -4766,7 +4766,7 @@ script-121.dmp
 [01A0] (42)   startScript(58);										// Cutscene: Win Game
 [01A2] (62)   stopScript(0);
 [01A4] (**) }
-[01A4] (1A) Var[89] = 2;
+[01A4] (1A) Var[89] = 2;											// Meteor Loose
 [01A7] (C0) endCutscene();											// End Cutscene
 [01A8] (A0) stopObjectCode();
 END

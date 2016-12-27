@@ -529,17 +529,17 @@ entry-30.dmp
 [0018] (AF) if (!getState08(143)) {						// if Switch on
 [001C] (1C)   startSound(59);
 [001E] (**) }
-[001E] (48) if (Var[89] == 1) {
-[0023] (42)   startScript(122);							// start Dr Fred: Walk back and forth
+[001E] (48) if (Var[89] == 1) {							// Meteor Locked
+[0023] (42)   startScript(122);							//  start Dr Fred: Walk back and forth
 [0025] (**) }
-[0025] (48) if (Var[89] == 2) {
-[002A] (42)   startScript(122);							// start Dr Fred: Walk back and forth
+[0025] (48) if (Var[89] == 2) {							// Meteor Loose
+[002A] (42)   startScript(122);							//  start Dr Fred: Walk back and forth
 [002C] (**) }
 [002C] (68) VAR_RESULT = isScriptRunning(37);
 [002F] (48) if (VAR_RESULT == 0) {						// if not running Cutscene: Meteor Police Arrived in Dungeon
 [0034] (42)   startScript(124);							// start Wait for actor finish walk. Activate sandy
 [0036] (48)   if (Var[89] == 0) {
-[003B] (1A)     Var[89] = 1;
+[003B] (1A)     Var[89] = 1;							// Meteor Locked
 [003E] (4C)     loadScript(118);						// load Nuclear Meltdown Countdown
 [0040] (42)     startScript(120);						// start Dr Fred: Entered Lab
 [0042] (**)   }
