@@ -1227,8 +1227,8 @@ script-37.dmp
 [014A] (1C) startSound(8);
 [014C] (2A) delay(60);
 [0150] (25) loadRoom(0);
-[0152] (30) loadCostume(9);
-[0154] (13) lockCostume(9);
+[0152] (30) loadCostume("DrFred");
+[0154] (13) lockCostume("DrFred")
 [0156] (2D) putActorInRoom(15,30);									// Meteor Police enter Lab: Zom-B-Matic
 [0159] (01) putActor(15,9,60);
 [015D] (25) loadRoom(30);
@@ -1279,7 +1279,7 @@ script-37.dmp
 [0237] (C0) endCutscene();											// End Cutscene
 [0238] (D3) unlockSound(27);
 [023A] (93) unlockCostume(15);
-[023C] (93) unlockCostume(9);
+[023C] (93) unlockCostume("DrFred")
 [023E] (17) clearState08(135);
 [0240] (17) clearState08(136);
 [0242] (17) clearState08(237);
@@ -2055,7 +2055,7 @@ END
 script-57.dmp															
 [0000] (3C) stopSound(32);										
 [0002] (2A) delay(60);											// Sleep 1 second
-[0006] (93) unlockCostume(9);
+[0006] (93) unlockCostume("DrFred")
 [0008] (D3) unlockSound(60);
 [000A] (93) unlockCostume(20);
 [000C] (B3) unlockScript(105);
@@ -5357,11 +5357,11 @@ script-140.dmp
 [0008] (58) beginOverride();
 [000C] (11) animateActor(11,6,1);									// Weird Ed faces Camera
 [0010] (17) clearState08(6);
-[0012] (30) loadCostume(9);
-[0014] (25) loadRoom(26);
+[0012] (30) loadCostume("DrFred");
+[0014] (25) loadRoom(26);											// Load Weird Ed's Room
 [0016] (32) setCameraAt(21);
 [0018] (2A) delay(120);
-[001C] (97) setState08(6);
+[001C] (97) setState08(6);											// Door Opens
 [001E] (1C) startSound(8);											// Door opens
 [0020] (2A) delay(60);
 [0024] (2D) putActorInRoom(9,26);									// Dr. Fred Enters
@@ -5450,24 +5450,24 @@ END
 script-142.dmp															
 [0000] (9A) Var[100] = VAR_EGO;
 [0003] (10) breakHere();
-[0004] (48) if (Var[96] == 1) {
-[0009] (B0)   loadCostume(Var[100]);
-[000B] (48)   if (Var[100] == 4) {									// Michael
+[0004] (48) if (Var[96] == 1) {										// If Dave is Dead
+[0009] (B0)   loadCostume(Var[100]);								
+[000B] (48)   if (Var[100] == 4) {									//  Michael
 [0010] (13)     lockCostume(4);
 [0012] (**)   }
-[0012] (48)   if (Var[100] == 6) {									// Wendy
+[0012] (48)   if (Var[100] == 6) {									//  Wendy
 [0017] (13)     lockCostume(6);
 [0019] (**)   }
-[0019] (48)   if (Var[100] == 1) {									// Syd
+[0019] (48)   if (Var[100] == 1) {									//  Syd
 [001E] (13)     lockCostume(1);
 [0020] (**)   }
-[0020] (48)   if (Var[100] == 2) {									// Razor
+[0020] (48)   if (Var[100] == 2) {									//  Razor
 [0025] (13)     lockCostume(2);
 [0027] (**)   }
-[0027] (48)   if (Var[100] == 7) {									// Jeff
+[0027] (48)   if (Var[100] == 7) {									//  Jeff
 [002C] (13)     lockCostume(7);
 [002E] (**)   }
-[002E] (48)   if (Var[100] == 5) {									// Bernard
+[002E] (48)   if (Var[100] == 5) {									//  Bernard
 [0033] (13)     lockCostume(5);
 [0035] (**)   }
 [0035] (18) } else {
@@ -5475,13 +5475,13 @@ script-142.dmp
 [003A] (13)   lockCostume(3);
 [003C] (**) }
 [003C] (25) loadRoom(0);
-[003E] (17) clearState08(110);
-[0040] (B7) setState04(110);										// 
-[0042] (30) loadCostume(9);
-[0044] (13) lockCostume(9);
-[0046] (73) VAR_RESULT = getObjectOwner(27);
+[003E] (17) clearState08(110);										// Close Gate
+[0040] (B7) setState04(110);										// Lock Gate
+[0042] (30) loadCostume("DrFred");									// Load Dr Fred costume
+[0044] (13) lockCostume("DrFred")
+[0046] (73) VAR_RESULT = getObjectOwner(27);						// Who has contract?
 [0049] (C8) if (VAR_RESULT == VAR_EGO) {							// Does kid have the Contract?
-[004E] (4C)   loadScript(105);
+[004E] (4C)   loadScript(105);										// Load Contract: Given to actor
 [0050] (33)   lockScript(105);										// Lock Contract: Given to actor
 [0052] (**) }
 [0052] (E5) loadRoomWithEgo(136,30);								// Enter Lab: Hunk o Matic
