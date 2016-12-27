@@ -1018,8 +1018,8 @@ END
   * Script 34: Nurse Edna: Return to room (Enter Room)
   */
 script-34.dmp															
-[0000] (1A) Var[109] = 1;
-[0003] (1A) Var[103] = 2;
+[0000] (1A) Var[109] = 1;										// Nurse Edna out of room
+[0003] (1A) Var[103] = 2;										// Nurse Edna: Waiting = Returning to room
 [0006] (42) startScript(30);
 [0008] (10) breakHere();
 [0009] (48) unless (Var[17] == 0) goto 0008;					// If Nurse Edna Disabled, wait
@@ -1050,7 +1050,7 @@ script-34.dmp
 [0054] (48) if (Var[110] == 1) {
 [0059] (42)   startScript(33);
 [005B] (**) }
-[005B] (1A) Var[109] = 0;
+[005B] (1A) Var[109] = 0;										// Nurse Edna in room
 [005E] (62) stopScript(30);
 [0060] (A0) stopObjectCode();
 END
