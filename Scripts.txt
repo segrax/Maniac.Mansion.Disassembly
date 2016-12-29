@@ -16,6 +16,7 @@ script-1.dmp
 [000B] (1A) Var[97] = 3;											// Kid1 is Dave
 [000E] (25) loadRoom(45);
 [0010] (1A) Var[91] = 0;											// Clear 'Start' status
+
 [0013] (2A) delay(60);
 [0017] (14) print(255,"=1987 Lucasfilm Ltd. All rights reserved");	// 29 Year old copyright notice
 [003D] (58) beginOverride();
@@ -33,9 +34,10 @@ script-1.dmp
 [0099] (**) }
 [0099] (10) breakHere();
 [009A] (48) unless (Var[91] == 1) goto 0041;
+
 [009F] (78) if (Var[92] < 3) {										// Number of Selected Kids < 3?
-[00A4] (83)   doSentence(9,139,0);									// Yes 
-[00A8] (18)   goto 0013;											// Back to Start
+[00A4] (83)   doSentence(9,139,0);									//  Yes 
+[00A8] (18)   goto 0013;											//  Back to Start
 [00AB] (**) }
 [00AB] (C0) endCutscene();											// End Cutscene
 [00AC] (25) loadRoom(0);
@@ -74,6 +76,7 @@ script-1.dmp
 [011A] (1D) setBitVar(15,1,1);										// Electrical Wiring: Light Off
 [011E] (1D) setBitVar(22,1,1);										// Medical: Light off
 [0122] (1D) setBitVar(23,1,1);										// DarkRoom: Light off
+
 [0126] (16) Var[92] = getRandomNr(4);								// Randomise Edna's Phone Number
 [0129] (48) if (Var[92] == 0) {
 [012E] (1A)   Var[32] = 5;											//  Phone Number: 5235
@@ -109,6 +112,7 @@ script-1.dmp
 [0181] (1A)   Var[35] = 7;
 [0184] (97)   setState08(89);										//  Show Pin on wall behind Ted
 [0186] (**) }
+
 [0186] (16) Var[92] = getRandomNr(4);								// Randomise Ednas Attic Safe
 [0189] (48) if (Var[92] == 0) {										
 [018E] (1A)   Var[36] = 3;											// Ednas Attic Safe: 3621
@@ -144,6 +148,7 @@ script-1.dmp
 [01E1] (1A)   Var[39] = 6;
 [01E4] (97)   setState08(199);										//  Show Pin on safe wall
 [01E6] (**) }
+
 [01E6] (16) Var[57] = getRandomNr(4);								// Randomise Telephone Number: Meteor Police (Active)
 [01E9] (48) if (Var[57] == 0) {
 [01EE] (1A)   Var[58] = 3;											// Meteor Police: 3412
@@ -719,10 +724,10 @@ script-24.dmp
 [0016] (42) startScript(38);										// start Keypad Input
 [0018] (10) breakHere();
 [0019] (48) unless (Var[50] == 0) goto 0018;						
-[001E] (48) if (Var[48] == 0) {
-[0023] (42)   startScript(29);										// start Cutscene: Edna: Prank Phone Call
+[001E] (48) if (Var[48] == 0) {										// Correct Number?
+[0023] (42)   startScript(29);										//  start Cutscene: Edna: Prank Phone Call
 [0025] (18) } else {
-[0028] (42)   startScript(26);										// start Phone: Busy Signal
+[0028] (42)   startScript(26);										//  start Phone: Busy Signal
 [002A] (**) }
 [002A] (A0) stopObjectCode();
 END
@@ -781,14 +786,14 @@ END
 script-28.dmp															
 [0000] (97) setState08(103);										// Phone On Hook
 [0002] (9A) Var[51] = VAR_EGO;
-[0005] (C7) Var[52] = getActorX(Var[51]);							// Kid X
-[0008] (A7) Var[53] = getActorY(Var[51]);							// Kid Y
+[0005] (C7) Var[52] = getActorX(Var[51]);							// Kid Start X
+[0008] (A7) Var[53] = getActorY(Var[51]);							// Kid Start Y
 [000B] (10) breakHere();
-[000C] (C7) VAR_RESULT = getActorX(Var[51]);
-[000F] (C8) if (VAR_RESULT == Var[52]) {							// 
-[0014] (A7)   VAR_RESULT = getActorY(Var[51]);
+[000C] (C7) VAR_RESULT = getActorX(Var[51]);						// Kid Current X
+[000F] (C8) if (VAR_RESULT == Var[52]) {							
+[0014] (A7)   VAR_RESULT = getActorY(Var[51]);						// Kid Current Y
 [0017] (C8)   if (VAR_RESULT == Var[53]) {							//
-[001C] (18)     goto 000B;											// Loop until Kid moves
+[001C] (18)     goto 000B;											//  Loop if kid hasn't moved
 [001F] (**)   }
 [001F] (**) }
 [001F] (42) startScript(27);										// start Phone: Disconnect
@@ -815,9 +820,9 @@ script-29.dmp
 [0021] (25) loadRoom(19);											// Enter Nurse Ednas Room
 [0023] (32) setCameraAt(20);				
 [0025] (2A) delay(120);
-[0029] (48) if (Var[55] == 0) {
-[002E] (14)   print(10,"Now who could that be?");
-[0043] (2A)   delay(180);											// Sleep 3 seconds
+[0029] (48) if (Var[55] == 0) {										// Nurse Edna called on phone?
+[002E] (14)   print(10,"Now who could that be?");					//  No. Talk
+[0043] (2A)   delay(180);											//  Sleep 3 seconds
 [0047] (**) }
 [0047] (36) walkActorToObject(10,72);								// Walk Edna to Phone
 [004A] (10) breakHere();
@@ -923,7 +928,7 @@ script-31.dmp
 [0017] (C8) if (VAR_RESULT == VAR_ROOM) {						// If edna in current room
 [001C] (14)   print(10,"I got you!");
 [0027] (10)   breakHere();
-[0028] (48)   unless (VAR_HAVE_MSG == 0) goto 0027;				// wait for edna
+[0028] (48)   unless (VAR_HAVE_MSG == 0) goto 0027;				//  wait for edna
 [002D] (2A)   delay(60);
 [0031] (**) }
 [0031] (97) setState08(126);									// Dungeon Door open	
@@ -1068,8 +1073,8 @@ script-35.dmp
 [000E] (10) breakHere();
 [000F] (48) unless (Var[50] == 0) goto 000E;					// Wait
 [0014] (1C) startSound(29);
-[0016] (48) if (Var[48] == 0) {
-[001B] (42)   startScript(36);									// start Cutscene: Meteor Police
+[0016] (48) if (Var[48] == 0) {									// Correct Number?
+[001B] (42)   startScript(36);									//  start Cutscene: Meteor Police
 [001D] (**) }
 [001D] (A0) stopObjectCode();
 END
@@ -1293,7 +1298,7 @@ END
   */
 script-38.dmp															
 [0000] (1A) Var[50] = 1;
-[0003] (1A) Var[48] = 0;
+[0003] (1A) Var[48] = 0;											// Pin Entry is Correct
 [0006] (10) breakHere();
 [0007] (60) cursorCommand( kModeKeypad )							// Keypad Mode
 [0009] (25) loadRoom(43);											// Enter Keypad room
@@ -1338,17 +1343,19 @@ script-39.dmp
 [0006] (9A) Var[46] = Var[38];										// Room9: Wall Safe Pin 3/4
 [0009] (9A) Var[47] = Var[39];										// Room9: Wall Safe Pin 4/4
 [000C] (42) startScript(38);										// start Keypad Input
+
 [000E] (10) breakHere();
-[000F] (48) unless (Var[50] == 0) goto 000E;						// Wait for keypad
-[0014] (48) if (Var[48] == 0) {										// ?? Meteor Police called count??
-[0019] (97)   setState08(198);										// Wall Safe Open
-[001B] (1C)   startSound(8);
-[001D] (48)   if (Var[114] == 0) {
-[0022] (1A)     Var[114] = 1;
-[0025] (42)     startScript(136);									// start Cutscene: Dr. Fred / Nurse Edna Trigger #1
+[000F] (48) unless (Var[50] == 0) goto 000E;						// Wait for keypad complete
+
+[0014] (48) if (Var[48] == 0) {										// Pin Correct?
+[0019] (97)   setState08(198);										//  Wall Safe Open
+[001B] (1C)   startSound(8);										
+[001D] (48)   if (Var[114] == 0) {									// is Dr. Fred / Nurse Edna Trigger Enabled?
+[0022] (1A)     Var[114] = 1;										//  Dr. Fred / Nurse Edna Trigger Enabled = Yes
+[0025] (42)     startScript(136);									//  start Cutscene: Dr. Fred / Nurse Edna Trigger #1
 [0027] (**)   }
 [0027] (18) } else {
-[002A] (2A)   delay(60);
+[002A] (2A)   delay(60);											// Wrong Pin
 [002E] (75)   printEgo("That didn't work.");
 [003F] (**) }
 [003F] (A0) stopObjectCode();
@@ -1651,9 +1658,9 @@ script-45.dmp
 [0028] (11)     animateActor(5,255,1);								//	Stop Bernard Moving
 [002C] (1A)     Var[115] = 1;
 [002F] (75)     printEgo("AAAAAAAAAAAAAAAAAAAEEEEEEEEEEEEEEE!");
-[0054] (03)     doSentence(13,179,0);								//  
-[0058] (10)     breakHere();										// Sleep until Kid leaves
-[0059] (08)     unless (VAR_ROOM != 12) goto 0058;					//  Level 2 Stairs to Level 3
+[0054] (03)     doSentence(13,179,0);								//  Walk to Down Stairs
+[0058] (10)     breakHere();										//  Sleep until Kid leaves
+[0059] (08)     unless (VAR_ROOM != 12) goto 0058;					//   Level 2 Stairs to Level 3
 [005E] (18)     goto 00BE;
 [0061] (**)   }
 [0061] (**) }
@@ -3622,48 +3629,48 @@ END
   */
 script-96.dmp															
 [0000] (2A) delay(10800);												// Sleep 3 minutes
-[0004] (2A) delay(3600);
-[0008] (1A) Var[112] = 1;
-[000B] (1A) Var[111] = 18;
-[000E] (42) startScript(133);
-[0010] (1A) Var[111] = 13;
-[0013] (42) startScript(133);
-[0015] (1A) Var[111] = 19;
-[0018] (42) startScript(133);
-[001A] (1A) Var[111] = 26;
+[0004] (2A) delay(3600);												// Sleep 1 minute
+[0008] (1A) Var[112] = 1;												// Check for kids in Video Games, Level 2 Main Hall, Nurse Ednas, Weird Ed's
+[000B] (1A) Var[111] = 18;												//   Check for Kid in room 18 (Video Games)
+[000E] (42) startScript(133);											//   
+[0010] (1A) Var[111] = 13;												// 	 Check for Kid in room 13 (Level 2 Main Hallway)
+[0013] (42) startScript(133);											//
+[0015] (1A) Var[111] = 19;												//   Check for Kid in room 19 (Nurse Edna's)
+[0018] (42) startScript(133);											//
+[001A] (1A) Var[111] = 26;												//   Check for Kid in room 26 (Weird Ed's)
 [001D] (42) startScript(133);
-[001F] (48) unless (Var[112] == 1) goto 0004;
-[0024] (2F) if (getState08(124)) {
-[0028] (18)   goto 0004;
+[001F] (48) unless (Var[112] == 1) goto 0004;							//  Loop until no kids in rooms
+[0024] (2F) if (getState08(124)) {										//  If Power Off
+[0028] (18)   goto 0004;												//   Loop
 [002B] (**) }
 [002B] (40) cutscene();													// Start Cutscene
-[002C] (2D) putActorInRoom(9,18);
+[002C] (2D) putActorInRoom(9,18);										// Dr. Fred Enters
 [002F] (01) putActor(9,51,56);
-[0033] (25) loadRoom(18);
+[0033] (25) loadRoom(18);												// Load Room 'Video Games'
 [0035] (52) actorFollowCamera(9);
-[0037] (11) animateActor(9,7,1);
-[003B] (AF) if (!getState08(204)) {
+[0037] (11) animateActor(9,7,1);										// Dr. Fred Looks Right
+[003B] (AF) if (!getState08(204)) {										// Wires Not Fixed?
 [003F] (58)   beginOverride();
-[0043] (2A)   delay(180);												// Sleep 3 seconds
-[0047] (36)   walkActorToObject(9,168);
+[0043] (2A)   delay(180);												//  Sleep 3 seconds
+[0047] (36)   walkActorToObject(9,168);									//  Walk Dr. Fred to Door
 [004A] (14)   print(9,"I guess the power's out.");
 [0061] (10)   breakHere();
-[0062] (48)   unless (VAR_HAVE_MSG == 0) goto 0061;
+[0062] (48)   unless (VAR_HAVE_MSG == 0) goto 0061;						// Wait until speaking finished
 [0067] (2A)   delay(120);
 [006B] (18) } else {
 [006E] (58)   beginOverride();
 [0072] (1C)   startSound(35);
-[0074] (97)   setState08(173);
+[0074] (97)   setState08(173);											// Meteor Mess On
 [0076] (2A)   delay(300);												// Wait 5 seconds
 [007A] (48)   if (VAR_OVERRIDE == 1) {
 [007F] (25)     loadRoom(0);
 [0081] (**)   }
-[0081] (42)   startScript(97);
+[0081] (42)   startScript(97);											// start Script 97: The Lab: Set Pin
 [0083] (**) }
-[0083] (17) clearState08(173);
+[0083] (17) clearState08(173);											// Meteor Mess Off
 [0085] (14) print(255," ");
 [0089] (3C) stopSound(35);
-[008B] (2D) putActorInRoom(9,0);
+[008B] (2D) putActorInRoom(9,0);										// Dr. Fred leaves room
 [008E] (01) putActor(9,0,0);
 [0092] (C0) endCutscene();												// End Cutscene
 [0093] (A0) stopObjectCode();
@@ -5084,7 +5091,7 @@ END
   * Script 131: Meteor Police: Timer until arrival
   */
 script-131.dmp															
-[0000] (2A) delay(18000);											// Sleep for 5 minutes												// Sleep for 5 minutes
+[0000] (2A) delay(18000);												// Sleep for 5 minutes
 [0004] (1C) startSound(37);												// Sound Meteor Police
 [0006] (2A) delay(600);													// Sleep for 10 seconds
 [000A] (42) startScript(37);											// start Cutscene: Meteor Police Arrived in Dungeon
