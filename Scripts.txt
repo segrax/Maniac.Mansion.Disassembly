@@ -1875,35 +1875,35 @@ Events:
 [0002] (00) stopObjectCode();
 [0003] (00) stopObjectCode();
 [0004] (64) if (activeObject2 == 1) {							// Is ActiveObject Hamster?
-[0008] (04)   if (VAR_EGO <= 2) {								// Syd or Razor
-[000D] (6F)     if (getState08(activeObject)) {					// Is Microwave door open?
-[0010] (48)       if (Var[66] == 0) {							// Microwave has nothing in it?
-[0015] (29)         setOwnerOf(1,14);							// Set owner of Hamster to Green Tentacle ( yes... why? )
-[0018] (97)         setState08(53);								// Set 08 on Hamster
-[001A] (0F)         clearState02(53);							// Clear 02 on Hamster
-[001C] (1A)         Var[66] = 1;								// Item in Microwave is Hamster
+[0008] (04)   if (VAR_EGO <= 2) {								//  Syd or Razor
+[000D] (6F)     if (getState08(activeObject)) {					//   Is Microwave door open?
+[0010] (48)       if (Var[66] == 0) {							//    Microwave has nothing in it?
+[0015] (29)         setOwnerOf(1,14);							//     Set owner of Hamster to Green Tentacle ( yes... why? )
+[0018] (97)         setState08(53);								//     Set 08 on Hamster
+[001A] (0F)         clearState02(53);							//     Clear 02 on Hamster
+[001C] (1A)         Var[66] = 1;								//     Item in Microwave is Hamster
 [001F] (18)       } else {			
 [0022] (0D)         printEgo_c64("< ");			
 [0025] (**)       }			
 [0025] (18)     } else {			
-[0028] (42)       startScript(63);								// start Print "The door is closed"
+[0028] (42)       startScript(63);								//     start Print "The door is closed"
 [002A] (**)     }			
 [002A] (18)   } else {			
 [002D] (75)     printEgo("How sick!");			
 [0037] (**)   }			
 [0037] (64) } else if (activeObject2 == 201) {					// Is ActiveObject Sealed Envelope
-[003E] (6F)   if (getState08(activeObject)) {					// Is Microwave door open?
-[0041] (08)     if (Var[66] != 1) {								// Item in Microwave is not Hamster
-[0046] (48)       if (Var[62] == 0) {							// Is Stamp not sticky
-[004B] (29)         setOwnerOf(201,14);							// Set owner of <to Green Tentacle ( yes... why? )
-[004E] (97)         setState08(234);			
-[0050] (0F)         clearState02(234);							// clear kObjectStateUntouchable on Sealed Envelope
+[003E] (6F)   if (getState08(activeObject)) {					//  Is Microwave door open?
+[0041] (08)     if (Var[66] != 1) {								//   Item in Microwave is not Hamster
+[0046] (48)       if (Var[62] == 0) {							//    Is Stamp not sticky
+[004B] (29)         setOwnerOf(201,14);							//     Set owner of Sealed Envelope to Green Tentacle ( yes... why? )
+[004E] (97)         setState08(234);							//	   
+[0050] (0F)         clearState02(234);							//     clear kObjectStateUntouchable on Sealed Envelope
 [0052] (5A)         Var[66] += 2;			
 [0055] (**)       }			
-[0055] (48)       if (Var[62] == 2) {							// Stamp Ripped?
+[0055] (48)       if (Var[62] == 2) {							//    Stamp Ripped?
 [005A] (75)         printEgo("It's too late for that!");
 [006F] (**)       }
-[006F] (48)       if (Var[62] == 1) {							// Stamp Sticky
+[006F] (48)       if (Var[62] == 1) {							//    Stamp Sticky
 [0074] (75)         printEgo("Not again!");
 [007F] (**)       }
 [007F] (18)     } else {
@@ -1913,14 +1913,14 @@ Events:
 [0088] (42)     startScript(63);								// start Print "The door is closed"
 [008A] (**)   }			
 [008A] (64) } else if (activeObject2 == 99) {					// Is ActiveObject Glass Jar
-[0091] (6F)   if (getState08(activeObject)) {					// Is Microwave door open?
-[0094] (08)     if (Var[66] != 1) {								// Item in Microwave is not Hamster
-[0099] (48)       if (Var[22] == 0) {							// Is Glass Jar Empty
+[0091] (6F)   if (getState08(activeObject)) {					//  Is Microwave door open?
+[0094] (08)     if (Var[66] != 1) {								//   Item in Microwave is not Hamster
+[0099] (48)       if (Var[22] == 0) {							//    Is Glass Jar Empty
 [009E] (75)         printEgo("I'd better fill it first.");
 [00B5] (18)       } else {	
-[00B8] (29)         setOwnerOf(99,14);							// Set owner of GlassJar to Green Tentacle
-[00BB] (97)         setState08(50);								// Set st
-[00BD] (0F)         clearState02(50);							// Clear kObjectStateUntouchable on jar of water
+[00B8] (29)         setOwnerOf(99,14);							//     Set owner of GlassJar to Green Tentacle
+[00BB] (97)         setState08(50);								//     Set Jar of Water
+[00BD] (0F)         clearState02(50);							//     Clear kObjectStateUntouchable on jar of water
 [00BF] (5A)         Var[66] += 4;			
 [00C2] (**)       }			
 [00C2] (18)     } else {			
@@ -1960,56 +1960,56 @@ script-56.dmp
 [0001] (40) cutscene();											// Start Cutscene
 [0002] (48) if (Var[76] == 1) {									// Death by Radioactive Steam?
 [0007] (75)   printEgo("Oh no! Radioactive steam! Ahheeeeeeee%");
-[002B] (91)   animateActor(VAR_EGO,4,1);						// Face Left
+[002B] (91)   animateActor(VAR_EGO,4,1);						//  Face Left
 [002F] (10)   breakHere();
-[0030] (91)   animateActor(VAR_EGO,6,1);						// Face Camera
+[0030] (91)   animateActor(VAR_EGO,6,1);						//  Face Camera
 [0034] (10)   breakHere();
-[0035] (91)   animateActor(VAR_EGO,5,1);						// Face Right
+[0035] (91)   animateActor(VAR_EGO,5,1);						//  Face Right
 [0039] (10)   breakHere();
-[003A] (91)   animateActor(VAR_EGO,7,1);						// Face Away
+[003A] (91)   animateActor(VAR_EGO,7,1);						//  Face Away
 [003E] (10)   breakHere();
-[003F] (16)   Var[52] = getRandomNr(70);						// Random X
-[0042] (16)   Var[53] = getRandomNr(12);						// Random Y
+[003F] (16)   Var[52] = getRandomNr(70);						//  Random X
+[0042] (16)   Var[53] = getRandomNr(12);						//  Random Y
 [0045] (5A)   Var[53] += 56;
 [0048] (FE)   walkActorTo(VAR_EGO,Var[52],Var[53]);
-[004C] (48)   unless (VAR_HAVE_MSG == 0) goto 002B;				// Repeat until speach finishes
+[004C] (48)   unless (VAR_HAVE_MSG == 0) goto 002B;				//  Repeat until speach finishes
 [0051] (9A)   Var[77] = VAR_EGO;
 [0054] (**) }
-[0054] (48) if (Var[76] == 2) {									// Death by Pool
-[0059] (25)   loadRoom(6);										// Enter Pool Area
-[005B] (32)   setCameraAt(41);									// Look to right of pool
+[0054] (48) if (Var[76] == 2) {									// Death by Pool?
+[0059] (25)   loadRoom(6);										//  Enter Pool Area
+[005B] (32)   setCameraAt(41);									//  Look to right of pool
 [005D] (2A)   delay(120);
 [0061] (14)   print(255,"Glug! Glug! Glug! Glug!");
 [0078] (10)   breakHere();
-[0079] (48)   unless (VAR_HAVE_MSG == 0) goto 0078;				// wait for text
-[007E] (2A)   delay(180);										// Sleep 3 seconds
+[0079] (48)   unless (VAR_HAVE_MSG == 0) goto 0078;				//  wait for text
+[007E] (2A)   delay(180);										//  Sleep 3 seconds
 [0082] (**) }
-[0082] (48) if (Var[76] == 3) {									// Death by Weird Ed
-[0087] (62)   stopScript(83);									// stop Weird Ed: Check for hostile actors
+[0082] (48) if (Var[76] == 3) {									// Death by Weird Ed?
+[0087] (62)   stopScript(83);									//  stop Weird Ed: Check for hostile actors
 [0089] (10)   breakHere();
-[008A] (48)   unless (VAR_HAVE_MSG == 0) goto 0089;				// Wait for Ed
+[008A] (48)   unless (VAR_HAVE_MSG == 0) goto 0089;				//  Wait for Ed
 [008F] (14)   print(11,"Wait! What IS that?");					
 [00A2] (10)   breakHere();
-[00A3] (48)   unless (VAR_HAVE_MSG == 0) goto 00A2;				// Wait for Ed
+[00A3] (48)   unless (VAR_HAVE_MSG == 0) goto 00A2;				//  Wait for Ed
 [00A8] (14)   print(11,"It has bits of fur like my hamster's!");
 [00C9] (10)   breakHere();
-[00CA] (48)   unless (VAR_HAVE_MSG == 0) goto 00C9;				// Wait for Ed
+[00CA] (48)   unless (VAR_HAVE_MSG == 0) goto 00C9;				//  Wait for Ed
 [00CF] (14)   print(11,"Oh no!!! What did you do!!! Argh!!!");
 [00EF] (10)   breakHere();
-[00F0] (48)   unless (VAR_HAVE_MSG == 0) goto 00EF;				// Wait for Ed
+[00F0] (48)   unless (VAR_HAVE_MSG == 0) goto 00EF;				//  Wait for Ed
 [00F5] (9A)   Var[77] = VAR_EGO;
 [00F8] (**) }
-[00F8] (48) if (Var[76] == 6) {									// Death by Plant
+[00F8] (48) if (Var[76] == 6) {									// Death by Plant?
 [00FD] (9A)   Var[77] = VAR_EGO;
-[0100] (25)   loadRoom(27);										// Enter Plant Room
-[0102] (32)   setCameraAt(28);									// Camera to right of room
-[0104] (2A)   delay(120);										// Sleep 2 seconds
+[0100] (25)   loadRoom(27);										//  Enter Plant Room
+[0102] (32)   setCameraAt(28);									//  Camera to right of room
+[0104] (2A)   delay(120);										//  Sleep 2 seconds
 [0108] (14)   print(255,"YUM!!");								
-[0110] (2A)   delay(180);										// Sleep 3 seconds
+[0110] (2A)   delay(180);										//  Sleep 3 seconds
 [0114] (**) }
-[0114] (48) if (Var[76] == 4) {									// Death by Tentacle
+[0114] (48) if (Var[76] == 4) {									// Death by Tentacle?
 [0119] (10)   breakHere();	
-[011A] (48)   unless (VAR_HAVE_MSG == 0) goto 0119;				// Sleep until talking finishes
+[011A] (48)   unless (VAR_HAVE_MSG == 0) goto 0119;				//  Sleep until talking finishes
 [011F] (9A)   Var[77] = VAR_EGO;
 [0122] (**) }
 [0122] (8B) setActorBitVar(Var[77],128,1);						// kActorMiscFlagHide: Kid is invisible (dead or in radiation suit)
@@ -2049,7 +2049,7 @@ script-56.dmp
 [0181] (2A) delay(360);
 [0185] (C0) endCutscene();										// End Cutscene
 [0186] (48) if (Var[78] == 3) {									// Kid Death Count == All Died
-[018B] (42)   startScript(57);									// start Cutscene: Game Over
+[018B] (42)   startScript(57);									//  start Cutscene: Game Over
 [018D] (**) }
 [018D] (60) cursorCommand( kModeNormal )						// Cutscene Mode Normal
 [018F] (A0) stopObjectCode();
@@ -2073,17 +2073,17 @@ script-57.dmp
 [0015] (32) setCameraAt(20);									// Move camera
 [0017] (58) beginOverride();
 [001B] (08) if (Var[78] != 3) {									// All kids not dead?
-[0020] (2A)   delay(240);										// Wait 3 seconds
+[0020] (2A)   delay(240);										//  Wait 3 seconds
 [0024] (1C)   startSound(69);									
-[0026] (97)   setState08(13);									// Exploded 1
+[0026] (97)   setState08(13);									//  Exploded 1
 [0028] (10)   breakHere();
-[0029] (97)   setState08(14);									// Exploded 2
+[0029] (97)   setState08(14);									//  Exploded 2
 [002B] (10)   breakHere();
-[002C] (97)   setState08(15);									// Exploded 3
+[002C] (97)   setState08(15);									//  Exploded 3
 [002E] (10)   breakHere();
 [002F] (17)   clearState08(15);
 [0031] (17)   clearState08(14);
-[0033] (97)   setState08(16);									// Exploded 4
+[0033] (97)   setState08(16);									//  Exploded 4
 [0035] (2A)   delay(240);
 [0039] (**) }
 [0039] (02) startMusic(55);										// Start Theme music
@@ -2137,7 +2137,7 @@ script-58.dmp
 [0022] (1A) Var[90] = 8;											// All kids are leaving the room
 [0025] (AD) putActorInRoom(Var[90],0);								//  Kid leaves room
 [0028] (81) putActor(Var[90],0,0);
-[002C] (3A) Var[90] -= 1;											// next kid
+[002C] (3A) Var[90] -= 1;											//  next kid
 [002F] (48) unless (Var[90] == 0) goto 0025;						// Loop all kids
 [0034] (1A) Var[91] = 253;
 [0037] (F3) VAR_RESULT = getObjectOwner(Var[91]);					//  Get Owner of Object
