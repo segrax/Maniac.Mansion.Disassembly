@@ -3521,7 +3521,7 @@ END
   * Script 94: Weird Ed: Storm Dr. Freds Lab
   */
 script-94.dmp															
-[0000] (62) stopScript(36);
+[0000] (62) stopScript(36);												// Stop Cutscene: Meteor Police
 [0002] (1A) Var[104] = 1;
 [0005] (40) cutscene();													// Start Cutscene
 [0006] (97) setState08(130);											// Open Inner Door
@@ -5500,7 +5500,7 @@ END
   * Script 143: Cutscene: Dr. Fred / Sandy #1
   */
 script-143.dmp															
-[0000] (2A) delay(3600);
+[0000] (2A) delay(3600);											// Sleep 1 minute
 [0004] (40) cutscene();												// Start Cutscene
 [0005] (58) beginOverride();
 [0009] (97) setState08(135);										// Open Door
