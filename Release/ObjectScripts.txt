@@ -1121,14 +1121,14 @@ Events:
    4 - 0018
    5 - 0024
 [0018] (1C) startSound(12);												// sound Light Switch
-[001A] (9D) setBitVar(4,VAR_RESULT,0);                                  // Room has light
+[001A] (9D) setBitVar(VAR_ROOM,1,0);                           			// Room has light
 [001E] (42) startScript(50);											// start Room Lights: Check for flashlight / room light status
 [0020] (1A) Var[117] = 1;                                               // Room light on
 [0023] (00) stopObjectCode();                                           // --
 [0024] (1C) startSound(12);                                             // sound Light Switch
 [0026] (1A) Var[117] = 0;                                               // Room light off
 [0029] (48) if (Var[118] == 0) {                                        
-[002E] (9D)   setBitVar(4,VAR_RESULT,1);                                // Room loses light
+[002E] (9D)   setBitVar(VAR_ROOM,1,1);                         			// Room loses light
 [0032] (42)   startScript(50);											//  start Room Lights: Check for flashlight / room light status
 [0034] (**) }
 [0034] (00) stopObjectCode();											// --
@@ -1141,14 +1141,14 @@ Events:
    4 - 0018
    5 - 0024
 [0018] (1C) startSound(12);												// sound Light Switch
-[001A] (9D) setBitVar(4,VAR_RESULT,0);									// Room has light
+[001A] (9D) setBitVar(VAR_ROOM,1,0);											// Room has light
 [001E] (42) startScript(50);											// start Room Lights: Check for flashlight / room light status
 [0020] (1A) Var[118] = 1;												// Room light on
 [0023] (00) stopObjectCode();											// --
 [0024] (1C) startSound(12);												// sound Light Switch
 [0026] (1A) Var[118] = 0;												// Room light off
 [0029] (48) if (Var[117] == 0) {
-[002E] (9D)   setBitVar(4,VAR_RESULT,1);								// Room loses light
+[002E] (9D)   setBitVar(4,1,1);											// Room loses light
 [0032] (42)   startScript(50);											//  start Room Lights: Check for flashlight / room light status
 [0034] (**) }
 [0034] (00) stopObjectCode();											// --
@@ -1838,11 +1838,11 @@ Events:
    4 - 0020
    5 - 0029
 [0020] (1C) startSound(12);												// sound Light Switch
-[0022] (9D) setBitVar(4,VAR_RESULT,0);									// Light On
+[0022] (9D) setBitVar(VAR_ROOM,1,0);									// Light On
 [0026] (42) startScript(50);											// start Room Lights: Check for flashlight / room light status
 [0028] (00) stopObjectCode();											// --
 [0029] (1C) startSound(12);												// sound Light Switch
-[002B] (9D) setBitVar(4,VAR_RESULT,1);									// Light Off
+[002B] (9D) setBitVar(VAR_ROOM,1,1);									// Light Off
 [002F] (42) startScript(50);											// start Room Lights: Check for flashlight / room light status
 [0031] (00) stopObjectCode();											// --
 END
@@ -1997,11 +1997,11 @@ Events:
    5 - 0024
    A - 002D
 [001B] (1C) startSound(12);												// sound Light Switch
-[001D] (9D) setBitVar(4,VAR_RESULT,0);									// 
+[001D] (9D) setBitVar(VAR_ROOM,1,0);									// 
 [0021] (42) startScript(50);											// start Room Lights: Check for flashlight / room light status
 [0023] (00) stopObjectCode();											// --
 [0024] (1C) startSound(12);												// sound Light Switch
-[0026] (9D) setBitVar(4,VAR_RESULT,1);									// Light Off
+[0026] (9D) setBitVar(VAR_ROOM,1,1);									// Light Off
 [002A] (42) startScript(50);											// start Room Lights: Check for flashlight / room light status
 [002C] (00) stopObjectCode();											// --
 [002D] (B1) VAR_RESULT = getBitVar(VAR_ROOM,1);
@@ -2265,14 +2265,14 @@ Events:
    4 - 001D
    5 - 0029
 [001D] (1C) startSound(12);												// sound Light Switch
-[001F] (9D) setBitVar(4,VAR_RESULT,0);									// Light On
+[001F] (9D) setBitVar(VAR_ROOM,1,0);											// Light On
 [0023] (42) startScript(50);											// start Room Lights: Check for flashlight / room light status
 [0025] (1A) Var[120] = 0;												// Wall Lamp 354 On
 [0028] (00) stopObjectCode();											// --
 [0029] (1C) startSound(12);												// sound Light Switch
 [002B] (1A) Var[120] = 1;												// Wall Lamp 354 off
 [002E] (48) if (Var[119] == 1) {										// If Wall Lamp 355 Off
-[0033] (9D)   setBitVar(4,VAR_RESULT,1);								//  Light Off
+[0033] (9D)   setBitVar(4,1,1);											//  Light Off
 [0037] (42)   startScript(50);											//  start Room Lights: Check for flashlight / room light status
 [0039] (**) }
 [0039] (00) stopObjectCode();											// --
@@ -2285,14 +2285,14 @@ Events:
    4 - 001D
    5 - 0029
 [001D] (1C) startSound(12);												// sound Light Switch
-[001F] (9D) setBitVar(4,VAR_RESULT,0);									// Light On
+[001F] (9D) setBitVar(VAR_ROOM,1,0);									// Light On
 [0023] (42) startScript(50);											// start Room Lights: Check for flashlight / room light status
 [0025] (1A) Var[119] = 0;												// Wall Lamp 355 On
 [0028] (00) stopObjectCode();											// --
 [0029] (1C) startSound(12);												// sound Light Switch
 [002B] (1A) Var[119] = 1;												// Wall Lamp 355 Off
 [002E] (48) if (Var[120] == 1) {										// If Wall Lamp 354 Off
-[0033] (9D)   setBitVar(4,VAR_RESULT,1);								//  Light Off
+[0033] (9D)   setBitVar(VAR_ROOM,1,1);									//  Light Off
 [0037] (42)   startScript(50);											//  start Room Lights: Check for flashlight / room light status
 [0039] (**) }
 [0039] (00) stopObjectCode();											// --
@@ -2671,11 +2671,11 @@ Events:
    4 - 0019
    5 - 0022
 [0019] (1C) startSound(12);												// sound Light Switch
-[001B] (9D) setBitVar(4,VAR_RESULT,0);									// Light On
+[001B] (9D) setBitVar(VAR_ROOM,1,0);									// Light On
 [001F] (42) startScript(50);											// start Room Lights: Check for flashlight / room light status
 [0021] (00) stopObjectCode();											// --
 [0022] (1C) startSound(12);												// sound Light Switch
-[0024] (9D) setBitVar(4,VAR_RESULT,1);									// Light Off
+[0024] (9D) setBitVar(VAR_ROOM,1,1);									// Light Off
 [0028] (42) startScript(50);											// start Room Lights: Check for flashlight / room light status
 [002A] (00) stopObjectCode();											// --
 END
@@ -3893,11 +3893,11 @@ Events:
    4 - 0019
    5 - 0022
 [0019] (1C) startSound(12);												// sound Light Switch
-[001B] (9D) setBitVar(4,VAR_RESULT,0);									// Light On
+[001B] (9D) setBitVar(VAR_ROOM,1,0);									// Light On
 [001F] (42) startScript(50);											// start Room Lights: Check for flashlight / room light status
 [0021] (00) stopObjectCode();											// --
 [0022] (1C) startSound(12);												// sound Light Switch
-[0024] (9D) setBitVar(4,VAR_RESULT,1);									// Light Off
+[0024] (9D) setBitVar(VAR_ROOM,1,1);									// Light Off
 [0028] (42) startScript(50);											// start Room Lights: Check for flashlight / room light status
 [002A] (00) stopObjectCode();											// --
 END
@@ -4411,11 +4411,11 @@ Events:
    4 - 001D
    5 - 0026
 [001D] (1C) startSound(12);												// sound Light Switch
-[001F] (9D) setBitVar(4,VAR_RESULT,0);									// Light On
+[001F] (9D) setBitVar(VAR_ROOM,1,0);									// Light On
 [0023] (42) startScript(50);											// start Room Lights: Check for flashlight / room light status
 [0025] (00) stopObjectCode();											// --
 [0026] (1C) startSound(12);												// sound Light Switch
-[0028] (9D) setBitVar(4,VAR_RESULT,1);									// Light Off
+[0028] (9D) setBitVar(VAR_ROOM,1,1);									// Light Off
 [002C] (42) startScript(50);											// start Room Lights: Check for flashlight / room light status
 [002E] (00) stopObjectCode();											// --
 END
@@ -4585,11 +4585,11 @@ Events:
    4 - 001D
    5 - 0026
 [001D] (1C) startSound(12);												// sound Light Switch
-[001F] (9D) setBitVar(4,VAR_RESULT,0);									// Light On
+[001F] (9D) setBitVar(VAR_ROOM,1,0);									// Light On
 [0023] (42) startScript(50);											// start Room Lights: Check for flashlight / room light status
 [0025] (00) stopObjectCode();											// --
 [0026] (1C) startSound(12);												// sound Light Switch
-[0028] (9D) setBitVar(4,VAR_RESULT,1);									// Light Off
+[0028] (9D) setBitVar(VAR_ROOM,1,1);									// Light Off
 [002C] (42) startScript(50);											// start Room Lights: Check for flashlight / room light status
 [002E] (00) stopObjectCode();											// --
 END

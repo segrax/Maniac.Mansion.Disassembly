@@ -84,6 +84,7 @@ entry-3.dmp
 [001E] (**) }
 [001E] (00) stopObjectCode();
 END
+
 exit-3.dmp
 [0000] (3C) stopSound(25);
 [0002] (3C) stopSound(20);								//  sound Radio Static
@@ -331,7 +332,7 @@ END
 entry-19.dmp
 [0000] (07) VAR_RESULT = getActorRoom(10);
 [0003] (48) if (VAR_RESULT == 19) {						// if nurse edna in her room
-[0008] (9D)   setBitVar(4,VAR_RESULT,0);				//  
+[0008] (9D)   setBitVar(4,1,0);							//  
 [000C] (**) }
 [000C] (42) startScript(50);							// start Room Lights: Check for flashlight / room light status
 [000E] (68) VAR_RESULT = isScriptRunning(25);

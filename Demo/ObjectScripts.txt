@@ -636,14 +636,15 @@ Events:
    4 - 0018
    5 - 0024
 [0018] (1C) startSound(11);                                            // sound Light Switch
-[001A] (9D) setBitVar(4,VAR_RESULT,0);                                 // Room has light
+[001A] (9D) setBitVar(VAR_ROOM,1,0);                          		   // VAR_ROOM has light
 [001E] (42) startScript(19);                                           // start Room Lights: Check for flashlight / room light status
 [0020] (1A) Var[117] = 1;                                              // Room light on
 [0023] (00) stopObjectCode();                                          // --
+
 [0024] (1C) startSound(11);                                            // sound Light Switch
 [0026] (1A) Var[117] = 0;                                              // Room light off
-[0029] (48) if (Var[118] == 0) {                                       
-[002E] (9D)   setBitVar(4,VAR_RESULT,1);                               // Room loses light
+[0029] (48) if (Var[118] == 0) {                                       // Both Room Lights Off?
+[002E] (9D)   setBitVar(VAR_ROOM,1,1);                        		   //  VAR_ROOM loses light
 [0032] (42)   startScript(19);                                         //  start Room Lights: Check for flashlight / room light status
 [0034] (**) }                                                          
 [0034] (00) stopObjectCode();                                          // --
@@ -656,14 +657,14 @@ Events:
    4 - 0018
    5 - 0024
 [0018] (1C) startSound(11);                                             // sound Light Switch
-[001A] (9D) setBitVar(4,VAR_RESULT,0);                                  // Room has light
+[001A] (9D) setBitVar(VAR_ROOM,1,0);                           			// VAR_ROOM has light
 [001E] (42) startScript(19);                                            // start Room Lights: Check for flashlight / room light status
 [0020] (1A) Var[118] = 1;                                               // Room light on
 [0023] (00) stopObjectCode();                                           // --
 [0024] (1C) startSound(11);                                             // sound Light Switch
-[0026] (1A) Var[118] = 0;                                               // Room light off
-[0029] (48) if (Var[117] == 0) {                                        
-[002E] (9D)   setBitVar(4,VAR_RESULT,1);                                // Room loses light
+[0026] (1A) Var[118] = 0;                                               // Library light off
+[0029] (48) if (Var[117] == 0) {                                        // Both Room Lights Off?
+[002E] (9D)   setBitVar(VAR_ROOM,1,1);                         			//  VAR_ROOM loses light
 [0032] (42)   startScript(19);                                          //  start Room Lights: Check for flashlight / room light status
 [0034] (**) }                                                           
 [0034] (00) stopObjectCode();                                           // --
@@ -1241,17 +1242,17 @@ Events:
    4 - 0020
    5 - 0029
 [0020] (1C) startSound(11);                                             // sound Light Switch
-[0022] (9D) setBitVar(4,VAR_RESULT,0);                                  // Light On
+[0022] (9D) setBitVar(VAR_ROOM,1,0);                         		    // VAR_ROOM Light On
 [0026] (42) startScript(19);                                            // start Room Lights: Check for flashlight / room light status
 [0028] (00) stopObjectCode();                                           // --
 [0029] (1C) startSound(11);                                             // sound Light Switch
-[002B] (9D) setBitVar(4,VAR_RESULT,1);                                  // Light Off
+[002B] (9D) setBitVar(VAR_ROOM,1,1);                       			    // VAR_ROOM Light Off
 [002F] (42) startScript(19);                                            // start Room Lights: Check for flashlight / room light status
 [0031] (00) stopObjectCode();                                           // --
 END
 
 
-/** Radioactive**/
+/** Radioactive **/
 roomobj-8-337.dmp                                                                                                                                                                                                                                             
 Events:
    F - 0023
@@ -1901,7 +1902,6 @@ END
 /** 
  * Room 45: Mode Selection
  */
- 
  
 /** Hands on Demo **/
 roomobj-45-243.dmp                                                                                                                                                                                                                                            

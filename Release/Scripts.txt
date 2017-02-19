@@ -1502,14 +1502,14 @@ script-42.dmp
 [0020] (56)   VAR_RESULT = getActorMoving(13);			
 [0023] (48)   unless (VAR_RESULT == 2) goto 001F;					// Wait for Purple
 [0028] (1C)   startSound(12);										// Sound Light Switch 
-[002A] (9D)   setBitVar(4,VAR_RESULT,0);							// Turn light on
+[002A] (9D)   setBitVar(VAR_ROOM,1,0);								// Turn light on
 [002E] (42)   startScript(50);										// start Room Lights: Check for flashlight / room light status
 [0030] (2A)   delay(120);
 [0034] (14)   print(13,"Hmm. There's no one here!");
 [004C] (10)   breakHere();
 [004D] (48)   unless (VAR_HAVE_MSG == 0) goto 004C;					// Wait for purple
 [0052] (1C)   startSound(12);										// Sound Light Switch 
-[0054] (9D)   setBitVar(4,VAR_RESULT,1);							// Turn light off
+[0054] (9D)   setBitVar(VAR_ROOM,1,1);								// Turn light off
 [0058] (42)   startScript(50);										// start Room Lights: Check for flashlight / room light status
 [005A] (2A)   delay(60);
 [005E] (1E)   walkActorTo(13,72,12);								// Walk up stairs

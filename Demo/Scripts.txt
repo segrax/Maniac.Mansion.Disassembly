@@ -24,18 +24,18 @@
 [0021] (2A) delay(60);
 [0025] (48) if (VAR_IS_SOUND_RUNNING == 0) {
 [002A] (02)   startMusic(30);
-[002C] (1A)   Var[92] = 1;
+[002C] (1A)   Var[92] = 1;											// 
 [002F] (**) }
 [002F] (10) breakHere();
 [0030] (48) unless (VAR_IS_SOUND_RUNNING == 0) goto 002F;
 [0035] (48) if (Var[92] == 1) {
-[003A] (1A)   Var[92] = 0;
+[003A] (1A)   Var[92] = 0;											// Don’t Start = 
 [003D] (02)   startMusic(30);
 [003F] (18)   goto 002F;
 [0042] (**) }
-[0042] (08) if (Var[91] != 0) {
+[0042] (08) if (Var[91] != 0) {										// Start not pushed
 [0047] (2A)   delay(2);
-[004B] (1C)   startSound(29);
+[004B] (1C)   startSound(29);										// Play sound
 [004D] (2A)   delay(60);
 [0051] (**) }
 [0051] (C0) endcutscene();											// Start Cutscene
@@ -56,12 +56,12 @@
 [0073] (CD) unlockRoom(49);
 [0075] (93) unlockCostume(22);
 [0077] (B3) unlockScript(45);
-[0079] (1D) setBitVar(44,2,1);
-[007D] (1D) setBitVar(1,2,1);
-[0081] (1D) setBitVar(6,2,1);
-[0085] (1D) setBitVar(31,2,1);
-[0089] (1D) setBitVar(8,1,1);
-[008D] (1D) setBitVar(5,1,1);
+[0079] (1D) setBitVar(44,2,1);										// Room ?? Light Always On
+[007D] (1D) setBitVar(1,2,1);										// Room Front of Mansion Light Always On
+[0081] (1D) setBitVar(6,2,1);										// Room Pool Area Light Always On
+[0085] (1D) setBitVar(31,2,1);										// Room Lab: Entry Light Always On
+[0089] (1D) setBitVar(8,1,1);										// Room Basement Light Off
+[008D] (1D) setBitVar(5,1,1);										// Room Library Light Off
 [0091] (48) if (Var[91] == 2) {
 [0096] (42)   startScript(6);
 [0098] (62)   stopScript(0);
@@ -72,9 +72,9 @@
 [00A4] (81) putActor(Var[98],29,57);
 [00A8] (AD) putActorInRoom(Var[99],1);								// Put Kid 3 outside Mansion
 [00AB] (81) putActor(Var[99],34,61);
-[00AF] (91) animateActor(Var[97],6,1);									// Face camera
-[00B3] (91) animateActor(Var[98],6,1);									// Face camera
-[00B7] (91) animateActor(Var[99],6,1);									// Face camera
+[00AF] (91) animateActor(Var[97],6,1);								// Dave Face camera
+[00B3] (91) animateActor(Var[98],6,1);								// Kid 2 Face camera
+[00B7] (91) animateActor(Var[99],6,1);								// Kid 3 Face camera
 [00BB] (25) loadRoom(1);
 [00BD] (52) actorFollowCamera(3);
 [00BF] (60) cursorCommand(3);
@@ -338,7 +338,7 @@ script-6.dmp
 [0523] (25) loadRoom(3);											//
 [0525] (02) startMusic(27);											// Play Sandys music
 [0527] (52) actorFollowCamera(3);
-[0529] (97) setState08(207);										// Close Door
+[0529] (97) setState08(207);										// Turn on Stereo
 [052B] (17) clearState08(47);										// 
 [052D] (2A) delay(180);
 [0531] (14) print(3,"Hi Sandy, could you turn the music down?");
@@ -363,13 +363,13 @@ script-6.dmp
 [05C0] (48) unless (VAR_RESULT == 2) goto 05BC;						// Wait for Sandy
 [05C5] (11) animateActor(24,7,1);									// Sandy
 [05C9] (2A) delay(15);
-[05CD] (97) setState08(44);											// Turn off Stereo
+[05CD] (97) setState08(44);											// Open Stereo Cupboard
 [05CF] (2A) delay(60);
-[05D3] (17) clearState08(207);										//
+[05D3] (17) clearState08(207);										// Turn off Stereo
 [05D5] (10) breakHere();
 [05D6] (20) stopMusic();
 [05D7] (2A) delay(30);
-[05DB] (17) clearState08(44);										//
+[05DB] (17) clearState08(44);										// Close Stereo Cupboard
 [05DD] (10) breakHere();
 [05DE] (1C) startSound(8);
 [05E0] (2A) delay(30);
@@ -442,7 +442,7 @@ script-6.dmp
 [0780] (14) print(3,"This is the library.");
 [0794] (10) breakHere();
 [0795] (48) unless (VAR_HAVE_MSG == 0) goto 0794;					// Let Dave talk
-[079A] (9D) setBitVar(4,VAR_RESULT,0);								// Turn Light On
+[079A] (9D) setBitVar(VAR_ROOM,1,0);								// Library Turn Light On
 [079E] (42) startScript(19);										// start Room Lights: Check for flashlight / room light status
 [07A0] (10) breakHere();
 [07A1] (1C) startSound(11);
@@ -863,7 +863,7 @@ END
 [0016] (**)   }                                                       
 [0016] (**) }                                                         
 [0016] (AF) if (!getState08(124)) {                                   // Circuit Breaker On?
-[001A] (B1)   VAR_RESULT = getBitVar(VAR_ROOM,1);                     //  
+[001A] (B1)   VAR_RESULT = getBitVar(VAR_ROOM,1);                     //  Current Room Light On?
 [001E] (48)   if (VAR_RESULT == 0) {                                  //  Light On?
 [0023] (1A)     Var[92] = 2;                                          //   Light On
 [0026] (**)   }                                                       
