@@ -659,7 +659,7 @@ Events:
 [0018] (1C) startSound(11);                                             // sound Light Switch
 [001A] (9D) setBitVar(VAR_ROOM,1,0);                           			// VAR_ROOM has light
 [001E] (42) startScript(19);                                            // start Room Lights: Check for flashlight / room light status
-[0020] (1A) Var[118] = 1;                                               // Room light on
+[0020] (1A) Var[118] = 1;                                               // Library light on
 [0023] (00) stopObjectCode();                                           // --
 [0024] (1C) startSound(11);                                             // sound Light Switch
 [0026] (1A) Var[118] = 0;                                               // Library light off
