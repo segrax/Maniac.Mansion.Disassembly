@@ -1,0 +1,53 @@
+/** * Room Entry/Exit Scripts * */   /** * Room 1: Front of Mansion */ entry-1.dmp                                                                                                                                                                                                                                                   
+[0000] (70) lights(2);
+[0002] (42) startScript(20);
+[0004] (00) stopObjectCode();
+END
+
+exit-1.dmp                                                                                                                                                                                                                                                    [0000] (62) stopScript(20);[0002] (3C) stopSound(25);[0004] (00) stopObjectCode();END
+/** * Room 3: Downstairs Lounge Room */ 
+entry-3.dmp                                                                                                                                                                                                                                                   
+[0000] (42) startScript(19);
+[0002] (2F) if (getState08(207)) {
+[0006] (42)   startScript(48);
+[0008] (**) }
+[0008] (48) if (Var[29] == 1) {
+[000D] (1C)   startSound(16);
+[000F] (**) }
+[000F] (00) stopObjectCode();
+END
+
+exit-3.dmp                                                                                                                                                                                                                                                    [0000] (3C) stopSound(16);[0002] (3C) stopSound(23);[0004] (62) stopScript(48);[0006] (00) stopObjectCode();END
+/** * Room 5: Library */entry-5.dmp                                                                                                                                                                                                                                                   
+[0000] (42) startScript(19);
+[0002] (48) if (Var[136] == 1) {
+[0007] (42)   startScript(48);
+[0009] (**) }
+[0009] (00) stopObjectCode();
+END
+
+exit-5.dmp                                                                                                                                                                                                                                                    [0000] (3C) stopSound(17);[0002] (62) stopScript(48);[0004] (00) stopObjectCode();END/** * Room 6: Pool Area */entry-6.dmp                                                                                                                                                                                                                                                   
+[0000] (70) lights(2);
+[0002] (00) stopObjectCode();
+END
+
+/** * Room 7: Kitchen */entry-7.dmp                                                                                                                                                                                                                                                   
+[0000] (42) startScript(19);
+[0002] (AF) if (!getState08(55)) {
+[0006] (1C)   startSound(14);
+[0008] (**) }
+[0008] (42) startScript(39);
+[000A] (00) stopObjectCode();
+END
+
+exit-7.dmp                                                                                                                                                                                                                                                    [0000] (3C) stopSound(14);[0002] (00) stopObjectCode();END/** * Room 8: Basement */entry-8.dmp                                                                                                                                                                                                                                                   
+[0000] (42) startScript(19);
+[0002] (00) stopObjectCode();
+END
+/** * Room 10: Main Entry */entry-10.dmp                                                                                                                                                                                                                                                  [0000] (42) startScript(19);[0002] (42) startScript(11);[0004] (0C) loadSound(22);[0006] (00) stopObjectCode();END
+exit-10.dmp                                                                                                                                                                                                                                                   
+[0000] (62) stopScript(11);
+[0002] (00) stopObjectCode();
+END
+
+/** * Room 31: Lab: Entry */ entry-31.dmp                                                                                                                                                                                                                                                  [0000] (70) lights(2);[0002] (00) stopObjectCode();ENDexit-31.dmp                                                                                                                                                                                                                                                   [0000] (D3) unlockSound(34);[0002] (00) stopObjectCode();END/** * Room 33: Mansion At Distance (Lights Off) */entry-33.dmp                                                                                                                                                                                                                                                  [0000] (70) lights(2);[0002] (00) stopObjectCode();ENDexit-33.dmp                                                                                                                                                                                                                                                   [0000] (3C) stopSound(31);[0002] (3C) stopSound(32);[0004] (00) stopObjectCode();END/** * Room 36: Storage / Leading out to pool */entry-36.dmp                                                                                                                                                                                                                                                  [0000] (42) startScript(19);[0002] (0C) loadSound(9);[0004] (00) stopObjectCode();END/** * Room 37: Dining */entry-37.dmp                                                                                                                                                                                                                                                  [0000] (42) startScript(19);[0002] (00) stopObjectCode();END/** * Room 43: Keypad */entry-43.dmp                                                                                                                                                                                                                                                  [0000] (70) lights(2);[0002] (0C) loadSound(15);[0004] (00) stopObjectCode();END/** * Room 45: Kid Selection  */entry-45.dmp                                                                                                                                                                                                                                                  [0000] (70) lights(2);[0002] (0C) loadSound(29);[0004] (00) stopObjectCode();END/** * Room 49: "MANIAC MANSION" Scrolling */entry-49.dmp                                                                                                                                                                                                                                                  [0000] (70) lights(2);[0002] (00) stopObjectCode();END
