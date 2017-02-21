@@ -33,7 +33,7 @@
 [003D] (02)   startMusic(30);
 [003F] (18)   goto 002F;
 [0042] (**) }
-[0042] (08) if (Var[91] != 0) {                                     // Start not pushed
+[0042] (08) if (Var[91] != 0) {                                     // Start?
 [0047] (2A)   delay(2);
 [004B] (1C)   startSound(29);                                       // Play sound
 [004D] (2A)   delay(60);
@@ -43,7 +43,7 @@
 [0053] (1A) Var[11] = 0;
 [0056] (60) cursorCommand(0);
 [0058] (25) loadRoom(0);
-[005A] (48) if (Var[91] == 0) {                                     // Start Pushed?
+[005A] (48) if (Var[91] == 0) {                                     // Start Intro?
 [005F] (42)   startScript(44);                                      //  Cutscene: Intro: Comet / Mansion
 [0061] (10)   breakHere();
 [0062] (68)   VAR_RESULT = isScriptRunning(44);
@@ -62,8 +62,8 @@
 [0085] (1D) setBitVar(31,2,1);                                      // Room Lab: Entry Light Always On
 [0089] (1D) setBitVar(8,1,1);                                       // Room Basement Light Off
 [008D] (1D) setBitVar(5,1,1);                                       // Room Library Light Off
-[0091] (48) if (Var[91] == 2) {
-[0096] (42)   startScript(6);
+[0091] (48) if (Var[91] == 2) {										// is Hands-Off Mode?
+[0096] (42)   startScript(6);										//  start Demo: Hands-Off
 [0098] (62)   stopScript(0);
 [009A] (**) }
 [009A] (AD) putActorInRoom(Var[97],1);                              // Put Dave outside Mansion

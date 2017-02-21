@@ -410,11 +410,11 @@ Events:
 [0062] (**) }                                                                           
 [0062] (00) stopObjectCode();                                                           // --
 [0063] (57) clearState08();                                                             // Close Radio
-[0064] (AF) if (!getState08(40)) {                                                      // Radio Tube 
-[0068] (AF)   if (!getState08(124)) {                                                   // Power is on?
-[006C] (48)     if (Var[29] == 0) {                                                     
-[0071] (1A)       Var[29] = 1;                                                          // Radio On
-[0074] (1C)       startSound(16);                                                       
+[0064] (AF) if (!getState08(40)) {                                                      //  Radio Tube not taken?
+[0068] (AF)   if (!getState08(124)) {                                                   //   Power is on?
+[006C] (48)     if (Var[29] == 0) {                                                     //    Radio Not on?
+[0071] (1A)       Var[29] = 1;                                                          //     Radio On
+[0074] (1C)       startSound(16);                                                       //	   Play Music
 [0076] (**)     }                                                                       
 [0076] (**)   }                                                                         
 [0076] (18) } else {                                                                    // -

@@ -4,7 +4,7 @@ Maniac Mansion v0 Demo / Retail Disassembly
 About
 =====
 
-Complete disassembly and list of room objects and variables for both the demo and the retail release.
+Complete disassembly of scripts, with list of room objects and variables for both the demo and the retail release.
 
 
 Notes

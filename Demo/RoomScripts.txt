@@ -57,7 +57,7 @@ entry-5.dmp
 END
 
 exit-5.dmp                                                                                                                                                                                                                                                    
-[0000] (3C) stopSound(17);
+[0000] (3C) stopSound(17);								// stop sound Library Phone Ring
 [0002] (62) stopScript(48);                             // stop Tape Player: Play Tape
 [0004] (00) stopObjectCode();
 END

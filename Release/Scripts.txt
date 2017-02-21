@@ -888,7 +888,7 @@ script-30.dmp
 [0026] (07)     VAR_RESULT = getActorRoom(10);                  // Edna in current room?
 [0029] (88)     if (VAR_RESULT != VAR_ROOM) {   
 [002E] (18)     } else {
-[0031] (48)       if (Var[103] == 1) {                          // Edna in a room
+[0031] (48)       if (Var[103] == 1) {                          // Edna in her room
 [0036] (14)         print(10,"Oh! An unwelcome visitor!");
 [004F] (**)       }
 [004F] (48)       if (Var[103] == 2) {                          // Edna returning to room
