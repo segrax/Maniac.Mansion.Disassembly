@@ -610,22 +610,23 @@ Events:
 END
 
 
+/** Loose Panel **/
 roomobj-5-236.dmp                                                                                                                                                                                                                                             
 Events:
    1 - 0023
    2 - 0025
    9 - 0027
    A - 0027
-[0023] (D7) setState08();
-[0024] (00) stopObjectCode();
-[0025] (57) clearState08();
-[0026] (00) stopObjectCode();
-[0027] (6F) if (getState08(activeObject)) {
-[002A] (57)   clearState08();
-[002B] (18) } else {
-[002E] (D7)   setState08();
-[002F] (**) }
-[002F] (00) stopObjectCode();
+[0023] (D7) setState08();                                               // Open Panel
+[0024] (00) stopObjectCode();                                           // --
+[0025] (57) clearState08();                                             // Close Panel
+[0026] (00) stopObjectCode();                                           // --
+[0027] (6F) if (getState08(activeObject)) {                             // Is Panel Open
+[002A] (57)   clearState08();                                           //  Close Panel
+[002B] (18) } else {                                                    // -
+[002E] (D7)   setState08();                                             //  Open Panel
+[002F] (**) }                                                           
+[002F] (00) stopObjectCode();                                           // --
 END
 
 
