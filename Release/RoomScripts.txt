@@ -548,6 +548,7 @@ entry-30.dmp
 [0042] (0C) loadSound(54);
 [0044] (00) stopObjectCode();
 END
+
 exit-30.dmp
 [0000] (62) stopScript(122);                            // stop Dr Fred: Entered Lab
 [0002] (62) stopScript(124);                            // Wait for actor finish walk. Activate sandy
@@ -564,6 +565,7 @@ entry-31.dmp
 [0000] (70) lights(2);                                  // Normal Lights
 [0002] (00) stopObjectCode();
 END
+
 exit-31.dmp
 [0000] (B3) unlockScript(43);
 [0002] (D3) unlockSound(63);
@@ -592,6 +594,7 @@ entry-33.dmp
 [0000] (70) lights(2);                                  // Normal Lights
 [0002] (00) stopObjectCode();
 END
+
 exit-33.dmp
 [0000] (3C) stopSound(56);                              // stop sound Intro Comet
 [0002] (3C) stopSound(57);
@@ -831,6 +834,7 @@ entry-52.dmp
 [0002] (3C) stopSound(32);                              // stop sound Alarm 1
 [0004] (00) stopObjectCode();
 END
+
 exit-52.dmp
 [0000] (68) VAR_RESULT = isScriptRunning(6);            // Game: Meltdown Timer running
 [0003] (48) if (VAR_RESULT == 1) {

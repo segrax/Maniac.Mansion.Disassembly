@@ -1005,8 +1005,8 @@ END
 [00B1] (B2) setCameraAt(Var[90]);                                       // Set camera to kid x
 [00B3] (2A) delay(360);
 [00B7] (C0) endcutscene();                                              // end Cutscene
-[00B8] (48) if (Var[78] == 3) {
-[00BD] (42)   startScript(25);                                          // start Cutscene: Game Over
+[00B8] (48) if (Var[78] == 3) {											// If three kids are dead
+[00BD] (42)   startScript(25);                                          //  start Cutscene: Game Over
 [00BF] (**) }
 [00BF] (60) cursorCommand(3);
 [00C1] (A0) stopObjectCode();
@@ -1094,12 +1094,12 @@ END
 /**
  * Script 38: Glass Jar: Name
  */script-38.dmp                                                                                                                                                                                                                                                 
-[0000] (48) if (Var[22] == 0) {
+[0000] (48) if (Var[22] == 0) {								// if Glass Jar Contents == Empty
 [0005] (54)   setObjectName(355,"glass jar");
 [0011] (**) }
-[0011] (48) if (Var[22] == 2) {
+[0011] (48) if (Var[22] == 2) {								// // Glass Jar Contents == Developer
 [0016] (18) } else {
-[0019] (48)   unless (Var[22] == 1) goto 002D;
+[0019] (48)   unless (Var[22] == 1) goto 002D;				// if Glass Jar Contents == water
 [001E] (**) }
 [001E] (54) setObjectName(355,"jar of water");
 [002D] (A0) stopObjectCode();
@@ -1111,7 +1111,7 @@ END
   */script-39.dmp                                                                                                                                                                                                                                                 
 [0000] (48) if (Var[22] == 2) {
 [0005] (18) } else {
-[0008] (48)   unless (Var[22] == 1) goto 001C;
+[0008] (48)   unless (Var[22] == 1) goto 001C;				
 [000D] (**) }
 [000D] (54) setObjectName(306,"jar of water");
 [001C] (A0) stopObjectCode();
