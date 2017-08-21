@@ -726,8 +726,8 @@ END
 [0025] (42)   startScript(13);                              // start Phone: Ringing
 [0027] (2A)   delay(360);                                   
 [002B] (62)   stopScript(13);                               // 
-[002D] (42)   startScript(48);                              // start Phone LucasFilm
-[002F] (1A)   Var[136] = 1;
+[002D] (42)   startScript(48);                              // start Demo: Advertisement Recording
+[002F] (1A)   Var[136] = 1;									// On Phone = true
 [0032] (18) } else {
 [0035] (42)   startScript(14);                              //  start Phone: Busy Signal
 [0037] (**) }
@@ -1355,7 +1355,7 @@ END
 
 
 /**
- * Script 48: Tape Player: Play Tape
+ * Script 48: Demo: Advertisement Recording
  */
 script-48.dmp
 [0000] (2A) delay(120);

@@ -29,7 +29,7 @@ END
 entry-3.dmp                                                                                                                                                                                                                                                   
 [0000] (42) startScript(19);                            // start Room Lights: Check for flashlight / room light status
 [0002] (2F) if (getState08(207)) {                      // is Cassette Player is playing
-[0006] (42)   startScript(48);                          //  start Tape Player: Play Tape
+[0006] (42)   startScript(48);                          //  start Demo: Advertisement Recording
 [0008] (**) }
 [0008] (48) if (Var[29] == 1) {                         // if Radio On
 [000D] (1C)   startSound(16);
@@ -51,7 +51,7 @@ END
 entry-5.dmp                                                                                                                                                                                                                                                   
 [0000] (42) startScript(19);                            // start Room Lights: Check for flashlight / room light status
 [0002] (48) if (Var[136] == 1) {                        // if On Phone
-[0007] (42)   startScript(48);                          // start Tape Player: Play Tape
+[0007] (42)   startScript(48);                          // start Demo: Advertisement Recording
 [0009] (**) }
 [0009] (00) stopObjectCode();
 END
