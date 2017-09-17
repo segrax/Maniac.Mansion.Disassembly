@@ -2064,10 +2064,12 @@ TurnOn {
 	[0028] VAR_RESULT = isScriptRunning(138);                          
 	[002B] if (VAR_RESULT == 1) {                                      // if Cutscene: Dr. Fred Play Meteor Mess Trigger running
 	[0030]   startSound(12);                                           //  Sound Light Switch
+	
 	[0032] } else if (getState08(activeObject)) {                      // - If Power Off
 	[0038]   clearState08();                                           //  Power On
 	[0039]   startSound(12);                                           //  sound Light Switch
 	[003B]   startScript(50);                                          //  start Room Lights: Check for flashlight / room light status
+	
 	[003D]   if (!getState08(106)) {                                   //  if Swimming Pool is full
 	[0041]     startScript(7);                                         //   Game: Meltdown Stop
 	[0043]   }
@@ -2103,6 +2105,7 @@ Close {
 	[006D] clearState08(123);                                          // Close Fuse Box
 	[006F] stopObjectCode();                                           // --
 }
+
 Read {
 	[0070] printEgo("MAIN POWER");                                     // Read
 	[007B] stopObjectCode();                                           // --

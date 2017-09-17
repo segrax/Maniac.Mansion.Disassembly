@@ -1154,7 +1154,7 @@ Events:
 [006B] (00) stopObjectCode();                                               
 END      
 
-                                                                   
+
 /** Chainsaw **/
 roomobj-7-61.dmp                                                                                                                                                                                                                                              
 Events:
