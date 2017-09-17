@@ -5,1389 +5,1464 @@
 
  /**
   * Script 1: Demo Mode Selection
-  */script-1.dmp                                                                                                                                                                                                                                                  
-[0000] (40) cutscene();                                             // Start Cutscene
-[0001] (6E) screenPrepare();
-[0002] (0C) loadSound(1);
-[0004] (53) lockSound(1);
-[0006] (0C) loadSound(33);
-[0008] (53) lockSound(33);
-[000A] (0C) loadSound(30);
-[000C] (53) lockSound(30);
-[000E] (1A) Var[97] = 3;                                            // Kid1 is Dave
-[0011] (1A) Var[98] = 5;                                            // Kid2 is Bernard
-[0014] (1A) Var[99] = 2;                                            // Kid3 is Razor
-[0017] (25) loadRoom(45);
-[0019] (1A) Var[11] = 1;
-[001C] (60) cursorCommand(1);                                       // Keypad Mode
-[001E] (1A) Var[91] = 0;                                            // Clear 'Start' status
-[0021] (2A) delay(60);
-[0025] (48) if (VAR_IS_SOUND_RUNNING == 0) {
-[002A] (02)   startMusic(30);
-[002C] (1A)   Var[92] = 1;                                          // 
-[002F] (**) }
-[002F] (10) breakHere();
-[0030] (48) unless (VAR_IS_SOUND_RUNNING == 0) goto 002F;
-[0035] (48) if (Var[92] == 1) {
-[003A] (1A)   Var[92] = 0;                                          // Don’t Start = 
-[003D] (02)   startMusic(30);
-[003F] (18)   goto 002F;
-[0042] (**) }
-[0042] (08) if (Var[91] != 0) {                                     // Start?
-[0047] (2A)   delay(2);
-[004B] (1C)   startSound(29);                                       // Play sound
-[004D] (2A)   delay(60);
-[0051] (**) }
-[0051] (C0) endcutscene();                                          // Start Cutscene
-[0052] (20) stopMusic();
-[0053] (1A) Var[11] = 0;
-[0056] (60) cursorCommand(0);
-[0058] (25) loadRoom(0);
-[005A] (48) if (Var[91] == 0) {                                     // Start Intro?
-[005F] (42)   startScript(44);                                      //  Cutscene: Intro: Comet / Mansion
-[0061] (10)   breakHere();
-[0062] (68)   VAR_RESULT = isScriptRunning(44);
-[0065] (48)   unless (VAR_RESULT == 0) goto 0061;                   //  Sleep until Intro Cutscene finishes
-[006A] (18)   goto 0017;                                            
-[006D] (**) }
-[006D] (D3) unlockSound(1);
-[006F] (D3) unlockSound(33);
-[0071] (D3) unlockSound(30);
-[0073] (CD) unlockRoom(49);
-[0075] (93) unlockCostume(22);
-[0077] (B3) unlockScript(45);
-[0079] (1D) setBitVar(44,2,1);                                      // Room ?? Light Always On
-[007D] (1D) setBitVar(1,2,1);                                       // Room Front of Mansion Light Always On
-[0081] (1D) setBitVar(6,2,1);                                       // Room Pool Area Light Always On
-[0085] (1D) setBitVar(31,2,1);                                      // Room Lab: Entry Light Always On
-[0089] (1D) setBitVar(8,1,1);                                       // Room Basement Light Off
-[008D] (1D) setBitVar(5,1,1);                                       // Room Library Light Off
-[0091] (48) if (Var[91] == 2) {										// is Hands-Off Mode?
-[0096] (42)   startScript(6);										//  start Demo: Hands-Off
-[0098] (62)   stopScript(0);
-[009A] (**) }
-[009A] (AD) putActorInRoom(Var[97],1);                              // Put Dave outside Mansion
-[009D] (81) putActor(Var[97],24,59);
-[00A1] (AD) putActorInRoom(Var[98],1);                              // Put Kid 2 outside Mansion
-[00A4] (81) putActor(Var[98],29,57);
-[00A8] (AD) putActorInRoom(Var[99],1);                              // Put Kid 3 outside Mansion
-[00AB] (81) putActor(Var[99],34,61);
-[00AF] (91) animateActor(Var[97],6,1);                              // Dave Face camera
-[00B3] (91) animateActor(Var[98],6,1);                              // Kid 2 Face camera
-[00B7] (91) animateActor(Var[99],6,1);                              // Kid 3 Face camera
-[00BB] (25) loadRoom(1);
-[00BD] (52) actorFollowCamera(3);
-[00BF] (60) cursorCommand(3);
-[00C1] (A0) stopObjectCode();
-END
-
+  */Script-1 {                                                                                                                                                                                                                                                  
+	[0000] (40) cutscene();                                             // Start Cutscene
+	[0001] (6E) screenPrepare();
+	[0002] (0C) loadSound(1);
+	[0004] (53) lockSound(1);
+	[0006] (0C) loadSound(33);
+	[0008] (53) lockSound(33);
+	[000A] (0C) loadSound(30);
+	[000C] (53) lockSound(30);
+	[000E] (1A) Var[97] = 3;                                            // Kid1 is Dave
+	[0011] (1A) Var[98] = 5;                                            // Kid2 is Bernard
+	[0014] (1A) Var[99] = 2;                                            // Kid3 is Razor
+	[0017] (25) loadRoom(45);
+	[0019] (1A) Var[11] = 1;
+	[001C] (60) cursorCommand(1);                                       // Keypad Mode
+	[001E] (1A) Var[91] = 0;                                            // Clear 'Start' status
+	[0021] (2A) delay(60);
+	[0025] (48) if (VAR_IS_SOUND_RUNNING == 0) {
+	[002A] (02)   startMusic(30);
+	[002C] (1A)   Var[92] = 1;                                          // 
+	[002F] (**) }
+	
+	[002F] (10) breakHere();
+	[0030] (48) unless (VAR_IS_SOUND_RUNNING == 0) goto 002F;
+	
+	[0035] (48) if (Var[92] == 1) {
+	[003A] (1A)   Var[92] = 0;                                          // Don’t Start = 
+	[003D] (02)   startMusic(30);
+	[003F] (18)   goto 002F;
+	[0042] (**) }
+	
+	[0042] (08) if (Var[91] != 0) {                                     // Start?
+	[0047] (2A)   delay(2);
+	[004B] (1C)   startSound(29);                                       // Play sound
+	[004D] (2A)   delay(60);
+	[0051] (**) }
+	
+	[0051] (C0) endcutscene();                                          // Start Cutscene
+	[0052] (20) stopMusic();
+	
+	[0053] (1A) Var[11] = 0;
+	[0056] (60) cursorCommand(0);
+	[0058] (25) loadRoom(0);
+	[005A] (48) if (Var[91] == 0) {                                     // Start Intro?
+	[005F] (42)   startScript(44);                                      //  Cutscene: Intro: Comet / Mansion
+	[0061] (10)   breakHere();
+	[0062] (68)   VAR_RESULT = isScriptRunning(44);
+	[0065] (48)   unless (VAR_RESULT == 0) goto 0061;                   //  Sleep until Intro Cutscene finishes
+	[006A] (18)   goto 0017;                                            
+	[006D] (**) }
+	
+	[006D] (D3) unlockSound(1);
+	[006F] (D3) unlockSound(33);
+	[0071] (D3) unlockSound(30);
+	[0073] (CD) unlockRoom(49);
+	[0075] (93) unlockCostume(22);
+	[0077] (B3) unlockScript(45);
+	
+	[0079] (1D) setBitVar(44,2,1);                                      // Room ?? Light Always On
+	[007D] (1D) setBitVar(1,2,1);                                       // Room Front of Mansion Light Always On
+	[0081] (1D) setBitVar(6,2,1);                                       // Room Pool Area Light Always On
+	[0085] (1D) setBitVar(31,2,1);                                      // Room Lab: Entry Light Always On
+	[0089] (1D) setBitVar(8,1,1);                                       // Room Basement Light Off
+	[008D] (1D) setBitVar(5,1,1);                                       // Room Library Light Off
+	
+	[0091] (48) if (Var[91] == 2) {										// is Hands-Off Mode?
+	[0096] (42)   startScript(6);										//  start Demo: Hands-Off
+	[0098] (62)   stopScript(0);
+	[009A] (**) }
+	
+	[009A] (AD) putActorInRoom(Var[97],1);                              // Put Dave outside Mansion
+	[009D] (81) putActor(Var[97],24,59);
+	[00A1] (AD) putActorInRoom(Var[98],1);                              // Put Kid 2 outside Mansion
+	[00A4] (81) putActor(Var[98],29,57);
+	[00A8] (AD) putActorInRoom(Var[99],1);                              // Put Kid 3 outside Mansion
+	[00AB] (81) putActor(Var[99],34,61);
+	[00AF] (91) animateActor(Var[97],6,1);                              // Dave Face camera
+	[00B3] (91) animateActor(Var[98],6,1);                              // Kid 2 Face camera
+	[00B7] (91) animateActor(Var[99],6,1);                              // Kid 3 Face camera
+	[00BB] (25) loadRoom(1);
+	[00BD] (52) actorFollowCamera(3);
+	[00BF] (60) cursorCommand(3);
+	[00C1] (A0) stopObjectCode();
+}
 
  /**
   * Script 3: Verb: Defaults
   */
-script-3.dmp                                                                                                                                                                                                                                                  
-[0000] (48) if (VAR_ACTIVE_VERB == 1) {                             // If Open Pressed
-[0005] (75)   printEgo("It doesn't seem to open.");                 
-[001B] (48) } else if (VAR_ACTIVE_VERB == 9) {                      // If Push
-[0023] (18)   goto 002E;                                            
-[0026] (48) } else if (VAR_ACTIVE_VERB == 10) {                     // If Pull
-[002E] (75)   printEgo("I can't move it.");                         
-[003D] (48) } else if (VAR_ACTIVE_VERB == 12) {                     // If Read
-[0045] (42)   startScript(19);                                      
-[0047] (48)   if (Var[92] == 0) {                                   // 
-[004C] (75)     printEgo("It's too dark to read.");                 
-[0060] (18)   } else {                                              
-[0063] (75)     printEgo("There's nothing to read on it.");         
-[007E] (**)   }                                                     
-[007E] (48) } else if (VAR_ACTIVE_VERB == 14) {                     // If Pickup
-[0086] (75)   printEgo("I can't pick that up.");
-[0099] (18) } else {
-[009C] (75)   printEgo("That doesn't seem to work.");
-[00B4] (**) }
-[00B4] (A0) stopObjectCode();
-END
-
+Script-3 {                                                                                                                                                                                                                                                  
+	[0000] (48) if (VAR_ACTIVE_VERB == 1) {                             // If Open Pressed
+	[0005] (75)   printEgo("It doesn't seem to open.");                 
+	
+	[001B] (48) } else if (VAR_ACTIVE_VERB == 9) {                      // If Push
+	[0023] (18)   goto 002E;                                            
+	[0026] (48) } else if (VAR_ACTIVE_VERB == 10) {                     // If Pull
+	[002E] (75)   printEgo("I can't move it.");                         
+	
+	[003D] (48) } else if (VAR_ACTIVE_VERB == 12) {                     // If Read
+	[0045] (42)   startScript(19);          
+	
+	[0047] (48)   if (Var[92] == 0) {                                   // 
+	[004C] (75)     printEgo("It's too dark to read.");                 
+	[0060] (18)   } else {                                              
+	[0063] (75)     printEgo("There's nothing to read on it.");         
+	[007E] (**)   }         
+	
+	[007E] (48) } else if (VAR_ACTIVE_VERB == 14) {                     // If Pickup
+	[0086] (75)   printEgo("I can't pick that up.");
+	[0099] (18) } else {
+	[009C] (75)   printEgo("That doesn't seem to work.");
+	[00B4] (**) }
+	[00B4] (A0) stopObjectCode();
+}
 
  /**
   * Script 4: Door: Open
   */
-script-4.dmp                                                                                                                                                                                                                                                  
-[0000] (EF) if (!getState08(activeObject)) {                       // if door closed
-[0003] (D7)   setState08();                                        // open door
-[0004] (1C)   startSound(7);                                       // door open sound
-[0006] (**) }
-[0006] (A0) stopObjectCode();
-END
-
+Script-4 {                                                                                                                                                                                                                                                  
+	[0000] (EF) if (!getState08(activeObject)) {                       // if door closed
+	[0003] (D7)   setState08();                                        // open door
+	[0004] (1C)   startSound(7);                                       // door open sound
+	[0006] (**) }
+	[0006] (A0) stopObjectCode();
+}
 
  /**
   * Script 5: Door: Close
   */
-script-5.dmp                                                                                                                                                                                                                                                  
-[0000] (6F) if (getState08(activeObject)) {                        // If door is open
-[0003] (57)   clearState08();                                      // close door
-[0004] (1C)   startSound(8);                                       // Sound Door Closing
-[0006] (**) }
-[0006] (A0) stopObjectCode();
-END
-
+Script-5 {                                                                                                                                                                                                                                                  
+	[0000] (6F) if (getState08(activeObject)) {                        // If door is open
+	[0003] (57)   clearState08();                                      // close door
+	[0004] (1C)   startSound(8);                                       // Sound Door Closing
+	[0006] (**) }
+	[0006] (A0) stopObjectCode();
+}
 
  /**
   * Script 6: Hands-Off Demo
   */
-script-6.dmp                                                                                                                                                                                                                                                  
-[0000] (40) cutscene();                                             
-[0001] (0C) loadSound(7);
-[0003] (53) lockSound(7);
-[0005] (0C) loadSound(8);
-[0007] (53) lockSound(8);
-[0009] (4C) loadScript(4);
-[000B] (33) lockScript(4);
-[000D] (4C) loadScript(5);
-[000F] (33) lockScript(5);
-[0011] (2D) putActorInRoom(3,1);                                    // Dave Enters Outside Mansion
-[0014] (01) putActor(3,18,58);
-[0018] (25) loadRoom(1);
-[001A] (52) actorFollowCamera(3);                                   // Camera Follow Dave
-[001C] (11) animateActor(3,6,1);                                    // Dave face camera
-[0020] (1A) Var[11] = 1;
-[0023] (60) cursorCommand(0);
-[0025] (2A) delay(120);
-[0029] (1E) walkActorTo(3,18,70);                                   // Dave walk toward camera
-[002D] (10) breakHere();
-[002E] (56) VAR_RESULT = getActorMoving(3);
-[0031] (48) unless (VAR_RESULT == 2) goto 002D;                     // Wait for Dave
-[0036] (14) print(3,"Hello, and welcome to Maniac Mansion,/a new type of story game from Lucasfilm./I'm Dave Miller, your personal guide/and one of the stars of the adventure.");
-[00BB] (10) breakHere();
-[00BC] (48) unless (VAR_HAVE_MSG == 0) goto 00BB;                   // Let Dave Talk
-[00C1] (1E) walkActorTo(3,59,58);
-[00C5] (14) print(3,"Here's where Sandy was held captive,/and where we rescued her from Dr. Fred.");
-[0108] (10) breakHere();
-[0109] (56) VAR_RESULT = getActorMoving(3);
-[010C] (48) unless (VAR_RESULT == 2) goto 0108;                     // Wait for Dave
-[0111] (11) animateActor(3,5,1);                                    // Dave face Right
-[0115] (10) breakHere();
-[0116] (11) animateActor(3,6,1);                                    // Dave face Camera
-[011A] (10) breakHere();
-[011B] (48) unless (VAR_HAVE_MSG == 0) goto 011A;                   // Let Dave Talk
-[0120] (14) print(3,"Let's go inside.");
-[0131] (10) breakHere();
-[0132] (48) unless (VAR_HAVE_MSG == 0) goto 0131;                   // Let Dave Talk
-[0137] (36) walkActorToObject(3,28);                                // Walk Dave to Front Door
-[013A] (10) breakHere();
-[013B] (56) VAR_RESULT = getActorMoving(3); 
-[013E] (48) unless (VAR_RESULT == 2) goto 013A;                     // Wait for Dave
-[0143] (37) clearState04(28);                                       // Unlock Front Door
-[0145] (03) doSentence(1,28,0);                                     // Open Front Door
-[0149] (2A) delay(90);
-[014D] (B2) setCameraAt(VAR_CAMERA_POS_X);                          // Set Camera at Camera Pos?
-[014F] (2D) putActorInRoom(3,10);                                   // Dave enters Mansion Entry
-[0152] (01) putActor(3,6,60);
-[0156] (11) animateActor(3,5,1);                                    // Dave Face Right
-[015A] (2A) delay(60);
-[015E] (25) loadRoom(10);                                           //
-[0160] (52) actorFollowCamera(3);                                   // Camera Follow Dave
-[0162] (2A) delay(60);
-[0166] (11) animateActor(3,6,1);                                    // Dave Face Camera
-[016A] (2A) delay(15);
-[016E] (14) print(3,"I've arranged for the occupants to be/gone during our `tour.`/We shouldn't have any problems.");
-[01C1] (10) breakHere();
-[01C2] (48) unless (VAR_HAVE_MSG == 0) goto 01C1;                   // Let Dave Talk
-[01C7] (11) animateActor(3,4,1);                                    // Dave Face Away
-[01CB] (2A) delay(20);
-[01CF] (03) doSentence(2,34,0);                                     // Close Front Door
-[01D3] (2A) delay(60);
-[01D7] (11) animateActor(3,6,1);                                    // Dave face camera
-[01DB] (2A) delay(60);
-[01DF] (1A) Var[11] = 0;        
-[01E2] (60) cursorCommand(0);                                       //
-[01E4] (25) loadRoom(0);                                            // Black screen
-[01E6] (EE) dummyEE();
-[01E7] (14) print(255,"Meanwhile, in a tiny room downstairs...");
-[020C] (10) breakHere();
-[020D] (48) unless (VAR_HAVE_MSG == 0) goto 020C;                   // Wait for messabe
-[0212] (6E) screenPrepare();    
-[0213] (42) startScript(7);                                         // start Edison Family Cutscene
-[0215] (10) breakHere();
-[0216] (68) VAR_RESULT = isScriptRunning(7);
-[0219] (48) unless (VAR_RESULT == 0) goto 0215;                     // Wait for Edison Family Cutscene to finish
-[021E] (0C) loadSound(27);
-[0220] (53) lockSound(27);
-[0222] (0C) loadSound(1);
-[0224] (53) lockSound(1);
-[0226] (0C) loadSound(32);
-[0228] (53) lockSound(32);
-[022A] (0C) loadSound(24);
-[022C] (53) lockSound(24);
-[022E] (25) loadRoom(10);
-[0230] (1A) Var[11] = 1;
-[0233] (60) cursorCommand(0);
-[0235] (52) actorFollowCamera(3);                                   // Camera Follow Dave
-[0237] (2A) delay(90);
-[023B] (14) print(3,"Oh. That was a `cut-scene.` They happen/from time to time to let you know what's/happening elsewhere in the mansion.");
-[02A0] (10) breakHere();
-[02A1] (48) unless (VAR_HAVE_MSG == 0) goto 02A0;                   // Let Dave Talk
-[02A6] (2A) delay(60);
-[02AA] (14) print(3,"All these tours make me hungry.");
-[02C7] (10) breakHere();
-[02C8] (48) unless (VAR_HAVE_MSG == 0) goto 02C7;                   // Let Dave Talk
-[02CD] (14) print(3,"Here's the kitchen.");
-[02E1] (36) walkActorToObject(3,35);
-[02E4] (10) breakHere();
-[02E5] (56) VAR_RESULT = getActorMoving(3);
-[02E8] (48) unless (VAR_RESULT == 2) goto 02E4;                     // Let Dave Talk
-[02ED] (03) doSentence(1,35,0);
-[02F1] (2A) delay(180);
-[02F5] (11) animateActor(3,5,1);                                    // Face Right
-[02F9] (10) breakHere();
-[02FA] (11) animateActor(3,6,1);                                    // Dave face camera
-[02FE] (14) print(3,"I see they haven't cleaned up the, er,/uh, um... the mess yet.");
-[0334] (10) breakHere();
-[0335] (48) unless (VAR_HAVE_MSG == 0) goto 0334;                   // Let Dave Talk
-[033A] (11) animateActor(3,4,1);                                    // Face Left
-[033E] (10) breakHere();
-[033F] (11) animateActor(3,7,1);                                    // Face Away
-[0343] (2A) delay(180);
-[0347] (14) print(3,"I think I just lost my appetite.");
-[0364] (03) doSentence(2,35,0);
-[0368] (2A) delay(20);
-[036C] (11) animateActor(3,4,1);                                    // Face Left
-[0370] (10) breakHere();
-[0371] (11) animateActor(3,6,1);                                    // Dave face camera
-[0375] (10) breakHere();
-[0376] (48) unless (VAR_HAVE_MSG == 0) goto 0375;                   // Let Dave Talk
-[037B] (2A) delay(120);
-[037F] (14) print(3,"I know, let's go to my favorite room,/the basement.");
-[03AD] (2A) delay(60);
-[03B1] (1E) walkActorTo(3,56,58);
-[03B5] (10) breakHere();
-[03B6] (56) VAR_RESULT = getActorMoving(3);
-[03B9] (48) unless (VAR_RESULT == 2) goto 03B5;                     // Wait for Dave
-[03BE] (10) breakHere();
-[03BF] (48) unless (VAR_HAVE_MSG == 0) goto 03BE;                   // Let Dave Talk
-[03C4] (11) animateActor(3,7,1);                                    // Face Away
-[03C8] (10) breakHere();
-[03C9] (14) print(3,"Oh yes, no handle.");
-[03DB] (10) breakHere();
-[03DC] (48) unless (VAR_HAVE_MSG == 0) goto 03DB;                   // Let Dave Talk
-[03E1] (11) animateActor(3,5,1);                                    // Face Right
-[03E5] (10) breakHere();
-[03E6] (11) animateActor(3,6,1);                                    // Face camera
-[03EA] (10) breakHere();
-[03EB] (14) print(3,"Now how did I open this door last time?/Push it?");
-[0415] (10) breakHere();
-[0416] (48) unless (VAR_HAVE_MSG == 0) goto 0415;                   // Let Dave Talk
-[041B] (1E) walkActorTo(3,56,40);
-[041F] (10) breakHere();
-[0420] (56) VAR_RESULT = getActorMoving(3);
-[0423] (48) unless (VAR_RESULT == 2) goto 041F;                     // Wait for Dave
-[0428] (2A) delay(120);
-[042C] (14) print(3,"Nope. Maybe I need a running start.");
-[044C] (1E) walkActorTo(3,56,70);
-[0450] (10) breakHere();
-[0451] (56) VAR_RESULT = getActorMoving(3);
-[0454] (48) unless (VAR_RESULT == 2) goto 0450;                     // Wait for Dave
-[0459] (10) breakHere();
-[045A] (48) unless (VAR_HAVE_MSG == 0) goto 0459;                   // Let Dave Talk
-[045F] (1E) walkActorTo(3,56,40);
-[0463] (10) breakHere();
-[0464] (56) VAR_RESULT = getActorMoving(3);
-[0467] (48) unless (VAR_RESULT == 2) goto 0463;                     // Wait for Dave
-[046C] (1C) startSound(32);
-[046E] (11) animateActor(3,254,1);                                  // 
-[0472] (14) print(255,"Owwwwwwwwwwwwwwwwwww!   ");
-[048B] (11) animateActor(3,4,1);                                    //  a
-[048F] (10) breakHere();
-[0490] (11) animateActor(3,6,1);                                    // Dave face camera
-[0494] (10) breakHere();
-[0495] (11) animateActor(3,5,1);                                    // Face Right
-[0499] (10) breakHere();
-[049A] (11) animateActor(3,7,1);                                    // Face Away
-[049E] (10) breakHere();
-[049F] (16) Var[52] = getRandomNr(112);
-[04A2] (16) Var[53] = getRandomNr(12);
-[04A5] (5A) Var[53] += 52;
-[04A8] (7E) walkActorTo(3,Var[52],Var[53]);
-[04AC] (48) unless (VAR_HAVE_MSG == 0) goto 048B;                   //  Spin Dave until he finishes talking
-[04B1] (10) breakHere();
-[04B2] (11) animateActor(3,255,1);                                  // Stop Moving
-[04B6] (2A) delay(60);
-[04BA] (11) animateActor(3,253,1);
-[04BE] (10) breakHere();
-[04BF] (11) animateActor(3,6,1);                                    // Dave face right
-[04C3] (2A) delay(120);
-[04C7] (14) print(3,"Oh well, I'll let you figure it out.");
-[04E7] (2A) delay(120);
-[04EB] (36) walkActorToObject(3,37);                                // Walk dave to lounge entry door
-[04EE] (10) breakHere();
-[04EF] (56) VAR_RESULT = getActorMoving(3);
-[04F2] (48) unless (VAR_RESULT == 2) goto 04EE;                     // Wait for Dave
-[04F7] (03) doSentence(1,37,0);                                     // Open lounge entry door
-[04FB] (D3) unlockSound(32);
-[04FD] (2A) delay(60);
-[0501] (10) breakHere();
-[0502] (48) unless (VAR_HAVE_MSG == 0) goto 0501;                   // Wait for Dave to talk
-[0507] (B2) setCameraAt(VAR_CAMERA_POS_X);
-[0509] (2D) putActorInRoom(3,3);                                    // Dave enters Lounge Entry
-[050C] (01) putActor(3,7,60);
-[0510] (2A) delay(60);
-[0514] (2D) putActorInRoom(24,3);                                   // Sandy enterse Lounge Entry
-[0517] (01) putActor(24,24,56);
-[051B] (11) animateActor(24,7,1);                                   // Face Away
-[051F] (11) animateActor(3,5,1);                                    // Face Right
-[0523] (25) loadRoom(3);                                            //
-[0525] (02) startMusic(27);                                         // Play Sandys music
-[0527] (52) actorFollowCamera(3);
-[0529] (97) setState08(207);                                        // Turn on Stereo
-[052B] (17) clearState08(47);                                       // 
-[052D] (2A) delay(180);
-[0531] (14) print(3,"Hi Sandy, could you turn the music down?");
-[0555] (10) breakHere();
-[0556] (48) unless (VAR_HAVE_MSG == 0) goto 0555;                   // Let Dave Talk
-[055B] (2A) delay(180);
-[055F] (14) print(3,"Sandy, the music's too loud!");
-[057A] (10) breakHere();
-[057B] (48) unless (VAR_HAVE_MSG == 0) goto 057A;                   // Let Dave Talk
-[0580] (2A) delay(120);
-[0584] (1E) walkActorTo(3,9,60);
-[0588] (14) print(3,"SANDY, TURN OFF THE MUSIC!");
-[05A1] (10) breakHere();
-[05A2] (48) unless (VAR_HAVE_MSG == 0) goto 05A1;                   // Let Dave Talk
-[05A7] (11) animateActor(24,4,1);                                   // Sandy Face Left
-[05AB] (2A) delay(60);
-[05AF] (14) print(24,"Oh!");
-[05B5] (2A) delay(120);
-[05B9] (36) walkActorToObject(24,44);                               // Walk Sandy to Stereo
-[05BC] (10) breakHere();
-[05BD] (56) VAR_RESULT = getActorMoving(24);
-[05C0] (48) unless (VAR_RESULT == 2) goto 05BC;                     // Wait for Sandy
-[05C5] (11) animateActor(24,7,1);                                   // Sandy
-[05C9] (2A) delay(15);
-[05CD] (97) setState08(44);                                         // Open Stereo Cupboard
-[05CF] (2A) delay(60);
-[05D3] (17) clearState08(207);                                      // Turn off Stereo
-[05D5] (10) breakHere();
-[05D6] (20) stopMusic();
-[05D7] (2A) delay(30);
-[05DB] (17) clearState08(44);                                       // Close Stereo Cupboard
-[05DD] (10) breakHere();
-[05DE] (1C) startSound(8);
-[05E0] (2A) delay(30);
-[05E4] (D3) unlockSound(27);
-[05E6] (15) walkActorToActor(24,3,4);                               // 
-[05EA] (11) animateActor(24,4,1);                                   //
-[05EE] (14) print(24,"I'm sorry Dave, I couldn't hear you,/the music was too loud.");
-[0623] (10) breakHere();
-[0624] (48) unless (VAR_HAVE_MSG == 0) goto 0623;                   // Let Sandy Talk
-[0629] (11) animateActor(3,254,1);                                  // 'Speaking' enabled, but not switching
-[062D] (2A) delay(120);
-[0631] (11) animateActor(3,6,1);                                    // Dave face camera
-[0635] (2A) delay(120);
-[0639] (11) animateActor(3,253,1);
-[063D] (10) breakHere();
-[063E] (11) animateActor(3,5,1);                                    // Face Right
-[0642] (2A) delay(120);
-[0646] (14) print(3,"I was just giving a tour to all these/future game players. Want to come?");
-[0684] (10) breakHere();
-[0685] (48) unless (VAR_HAVE_MSG == 0) goto 0684;                   // Let Dave Talk
-[068A] (14) print(24,"Sure Dave, I'll go anywhere with you!");
-[06AC] (10) breakHere();
-[06AD] (48) unless (VAR_HAVE_MSG == 0) goto 06AC;                   // Let Sandy Talk
-[06B2] (36) walkActorToObject(3,93);                                // Walk Dave to Library Door
-[06B5] (2A) delay(30);
-[06B9] (36) walkActorToObject(24,93);                               // Walk Sandy to Library Door
-[06BC] (14) print(3,"Oh yes, in Maniac Mansion,/you not only direct my actions,/but the actions of two of my friends.");
-[070F] (10) breakHere();
-[0710] (56) VAR_RESULT = getActorMoving(3);
-[0713] (48) unless (VAR_RESULT == 2) goto 070F;                     // Wait for Dave
-[0718] (11) animateActor(24,255,1);                                 // Stop Moving
-[071C] (10) breakHere();
-[071D] (48) unless (VAR_HAVE_MSG == 0) goto 071C;                   // Let Dave Talk
-[0722] (03) doSentence(1,93,0);                                     // Open Library Door
-[0726] (B2) setCameraAt(VAR_CAMERA_POS_X);
-[0728] (2A) delay(60);
-[072C] (2D) putActorInRoom(3,5);                                    // Dave enters Library
-[072F] (01) putActor(3,13,56);                  
-[0733] (1E) walkActorTo(24,73,60);                                  // Sandy walk to door
-[0737] (10) breakHere();
-[0738] (10) breakHere();
-[0739] (56) VAR_RESULT = getActorMoving(24);
-[073C] (48) unless (VAR_RESULT == 2) goto 0738;                     // Wait for Sandy
-[0741] (10) breakHere();
-[0742] (2D) putActorInRoom(24,5);                                   // Sandy enters library
-[0745] (01) putActor(24,9,56);
-[0749] (2A) delay(60);
-[074D] (1A) Var[11] = 0;
-[0750] (60) cursorCommand(0);
-[0752] (25) loadRoom(0);
-[0754] (0C) loadSound(34);
-[0756] (53) lockSound(34);
-[0758] (0C) loadSound(11);
-[075A] (53) lockSound(11);
-[075C] (4C) loadScript(10);
-[075E] (33) lockScript(10);
-[0760] (4C) loadScript(9);
-[0762] (33) lockScript(9);
-[0764] (33) lockScript(19);
-[0766] (30) loadCostume(13);
-[0768] (13) lockCostume(13);
-[076A] (25) loadRoom(5);
-[076C] (52) actorFollowCamera(3);                                   // Camera follows Dave
-[076E] (1A) Var[11] = 1;
-[0771] (60) cursorCommand(0);
-[0773] (1E) walkActorTo(24,12,52);                                  // Walk Sandy to bookshelf
-[0777] (10) breakHere();
-[0778] (56) VAR_RESULT = getActorMoving(24);
-[077B] (48) unless (VAR_RESULT == 2) goto 0777;                     // Wait for Sandy
-[0780] (14) print(3,"This is the library.");
-[0794] (10) breakHere();
-[0795] (48) unless (VAR_HAVE_MSG == 0) goto 0794;                   // Let Dave talk
-[079A] (9D) setBitVar(VAR_ROOM,1,0);                                // Library Turn Light On
-[079E] (42) startScript(19);                                        // start Room Lights: Check for flashlight / room light status
-[07A0] (10) breakHere();
-[07A1] (1C) startSound(11);
-[07A3] (2A) delay(30);
-[07A7] (42) startScript(9);
-[07A9] (14) print(3,"It's one of the many rooms in the game.");
-[07CB] (1E) walkActorTo(3,38,66);
-[07CF] (10) breakHere();
-[07D0] (56) VAR_RESULT = getActorMoving(3);
-[07D3] (48) unless (VAR_RESULT == 2) goto 07CF;                     // Wait for Dave
-[07D8] (11) animateActor(3,6,1);                                    // Dave face right
-[07DC] (10) breakHere();
-[07DD] (48) unless (VAR_HAVE_MSG == 0) goto 07DC;                   // Let Dave talk
-[07E2] (42) startScript(13);
-[07E4] (14) print(3,"And there are more than 450 objects...");
-[0807] (10) breakHere();
-[0808] (48) unless (VAR_HAVE_MSG == 0) goto 0807;                   // Let Dave talk
-[080D] (11) animateActor(3,5,1);                                    // Face Right
-[0811] (12) panCameraTo(50);
-[0813] (2A) delay(120);
-[0817] (11) animateActor(3,6,1);                                    // Dave face right
-[081B] (10) breakHere();
-[081C] (14) print(3,"...that you can use to solve over...");
-[083D] (10) breakHere();
-[083E] (48) unless (VAR_HAVE_MSG == 0) goto 083D;                   // Let Dave talk
-[0843] (11) animateActor(3,5,1);                                    // Face Right
-[0847] (2A) delay(120);
-[084B] (11) animateActor(3,6,1);                                    // Dave face right
-[084F] (10) breakHere();
-[0850] (14) print(3,"Just a second.");
-[085F] (10) breakHere();
-[0860] (48) unless (VAR_HAVE_MSG == 0) goto 085F;                   // Let Dave talk
-[0865] (1E) walkActorTo(3,50,64);
-[0869] (10) breakHere();
-[086A] (47) VAR_RESULT = getActorX(3);
-[086D] (44) unless (VAR_RESULT > 48) goto 0869;                     // Walk for Dave to be > 48
-[0872] (1E) walkActorTo(3,65,64);
-[0876] (10) breakHere();
-[0877] (56) VAR_RESULT = getActorMoving(3);
-[087A] (48) unless (VAR_RESULT == 2) goto 0876;                     // Wait for Dave
-[087F] (11) animateActor(3,7,1);                                    // Face Away
-[0883] (10) breakHere();
-[0884] (97) setState08(103);                                        // Phone off hook
-[0886] (62) stopScript(13);
-[0888] (3C) stopSound(19);
-[088A] (2A) delay(30);
-[088E] (14) print(3,"Hello?");
-[0897] (2A) delay(180);
-[089B] (11) animateActor(3,5,1);                                    // Dave face right
-[089F] (14) print(3,"Hello, who's there?");
-[08B3] (2D) putActorInRoom(13,5);                                   // Purple Tentacle enters
-[08B6] (01) putActor(13,10,60);
-[08BA] (42) startScript(10);                                        // start Purple Tentacle walk to Sandy
-[08BC] (2A) delay(120);
-[08C0] (11) animateActor(24,4,1);                                   // Sandy turn left
-[08C4] (10) breakHere();
-[08C5] (11) animateActor(24,254,1);                                 // Sandy mouth open
-[08C9] (10) breakHere();
-[08CA] (10) breakHere();
-[08CB] (1E) walkActorTo(24,10,50);                                  // Sandy Walk to bottom left (around stairs)
-[08CF] (2A) delay(180);
-[08D3] (14) print(3,"Is this a prank phone call?");
-[08EC] (10) breakHere();
-[08ED] (47) VAR_RESULT = getActorX(13);
-[08F0] (04) unless (VAR_RESULT <= 28) goto 08EC;                    // Wait for Purple to be <= 28
-[08F5] (62) stopScript(10);                                         // stop Purple Tentacle walk to Sandy
-[08F7] (1C) startSound(24);
-[08F9] (2A) delay(30);
-[08FD] (11) animateActor(3,7,1);                                    // Dave face away
-[0901] (10) breakHere();
-[0902] (17) clearState08(103);                                      // Phone on hook
-[0904] (10) breakHere();
-[0905] (1C) startSound(8);
-[0907] (2A) delay(30);
-[090B] (11) animateActor(3,4,1);                                    // Dave face left
-[090F] (10) breakHere();    
-[0910] (14) print(3,"Sandy?");
-[0919] (2A) delay(180);                                             // Wait 3 seconds
-[091D] (14) print(3,"SANDY!");
-[0926] (2A) delay(180);                                             // Wait 3 seconds
-[092A] (52) actorFollowCamera(3);
-[092C] (11) animateActor(3,6,1);                                    // Dave face camera
-[0930] (10) breakHere();
-[0931] (14) print(3,"Oh great! Not again!!/Time to round up the Gang.");
-[095C] (10) breakHere();
-[095D] (48) unless (VAR_HAVE_MSG == 0) goto 095C;                   // Let Dave Talk
-[0962] (2A) delay(180);
-[0966] (1A) Var[11] = 0;
-[0969] (60) cursorCommand(0);
-[096B] (C0) endcutscene();                                          // End Cutscene
-[096C] (98) restart();                                              // Restart
-[096D] (A0) stopObjectCode();
-END
-
+Script-6 {                                                                                                                                                                                                                                                  
+	[0000] (40) cutscene();                                             
+	[0001] (0C) loadSound(7);
+	[0003] (53) lockSound(7);
+	[0005] (0C) loadSound(8);
+	[0007] (53) lockSound(8);
+	[0009] (4C) loadScript(4);
+	[000B] (33) lockScript(4);
+	[000D] (4C) loadScript(5);
+	[000F] (33) lockScript(5);
+	
+	[0011] (2D) putActorInRoom(3,1);                                    // Dave Enters Outside Mansion
+	[0014] (01) putActor(3,18,58);
+	[0018] (25) loadRoom(1);
+	[001A] (52) actorFollowCamera(3);                                   // Camera Follow Dave
+	[001C] (11) animateActor(3,6,1);                                    // Dave face camera
+	[0020] (1A) Var[11] = 1;
+	[0023] (60) cursorCommand(0);
+	[0025] (2A) delay(120);
+	[0029] (1E) walkActorTo(3,18,70);                                   // Dave walk toward camera
+	[002D] (10) breakHere();
+	[002E] (56) VAR_RESULT = getActorMoving(3);
+	[0031] (48) unless (VAR_RESULT == 2) goto 002D;                     // Wait for Dave
+	
+	[0036] (14) print(3,"Hello, and welcome to Maniac Mansion,/a new type of story game from Lucasfilm./I'm Dave Miller, your personal guide/and one of the stars of the adventure.");
+	[00BB] (10) breakHere();
+	[00BC] (48) unless (VAR_HAVE_MSG == 0) goto 00BB;                   // Let Dave Talk
+	
+	[00C1] (1E) walkActorTo(3,59,58);
+	[00C5] (14) print(3,"Here's where Sandy was held captive,/and where we rescued her from Dr. Fred.");
+	[0108] (10) breakHere();
+	[0109] (56) VAR_RESULT = getActorMoving(3);
+	[010C] (48) unless (VAR_RESULT == 2) goto 0108;                     // Wait for Dave
+	
+	[0111] (11) animateActor(3,5,1);                                    // Dave face Right
+	[0115] (10) breakHere();
+	[0116] (11) animateActor(3,6,1);                                    // Dave face Camera
+	[011A] (10) breakHere();
+	[011B] (48) unless (VAR_HAVE_MSG == 0) goto 011A;                   // Let Dave Talk
+	
+	[0120] (14) print(3,"Let's go inside.");
+	[0131] (10) breakHere();
+	[0132] (48) unless (VAR_HAVE_MSG == 0) goto 0131;                   // Let Dave Talk
+	
+	[0137] (36) walkActorToObject(3,28);                                // Walk Dave to Front Door
+	[013A] (10) breakHere();
+	[013B] (56) VAR_RESULT = getActorMoving(3); 
+	[013E] (48) unless (VAR_RESULT == 2) goto 013A;                     // Wait for Dave
+	
+	[0143] (37) clearState04(28);                                       // Unlock Front Door
+	[0145] (03) doSentence(1,28,0);                                     // Open Front Door
+	[0149] (2A) delay(90);
+	[014D] (B2) setCameraAt(VAR_CAMERA_POS_X);                          // Set Camera at Camera Pos?
+	[014F] (2D) putActorInRoom(3,10);                                   // Dave enters Mansion Entry
+	[0152] (01) putActor(3,6,60);
+	[0156] (11) animateActor(3,5,1);                                    // Dave Face Right
+	[015A] (2A) delay(60);
+	[015E] (25) loadRoom(10);                                           //
+	[0160] (52) actorFollowCamera(3);                                   // Camera Follow Dave
+	[0162] (2A) delay(60);
+	[0166] (11) animateActor(3,6,1);                                    // Dave Face Camera
+	[016A] (2A) delay(15);
+	[016E] (14) print(3,"I've arranged for the occupants to be/gone during our `tour.`/We shouldn't have any problems.");
+	[01C1] (10) breakHere();
+	[01C2] (48) unless (VAR_HAVE_MSG == 0) goto 01C1;                   // Let Dave Talk
+	
+	[01C7] (11) animateActor(3,4,1);                                    // Dave Face Away
+	[01CB] (2A) delay(20);
+	[01CF] (03) doSentence(2,34,0);                                     // Close Front Door
+	[01D3] (2A) delay(60);
+	[01D7] (11) animateActor(3,6,1);                                    // Dave face camera
+	[01DB] (2A) delay(60);
+	[01DF] (1A) Var[11] = 0;        
+	[01E2] (60) cursorCommand(0);                                       //
+	[01E4] (25) loadRoom(0);                                            // Black screen
+	[01E6] (EE) dummyEE();
+	[01E7] (14) print(255,"Meanwhile, in a tiny room downstairs...");
+	[020C] (10) breakHere();
+	[020D] (48) unless (VAR_HAVE_MSG == 0) goto 020C;                   // Wait for messabe
+	
+	[0212] (6E) screenPrepare();    
+	[0213] (42) startScript(7);                                         // start Edison Family Cutscene
+	[0215] (10) breakHere();
+	[0216] (68) VAR_RESULT = isScriptRunning(7);
+	[0219] (48) unless (VAR_RESULT == 0) goto 0215;                     // Wait for Edison Family Cutscene to finish
+	
+	[021E] (0C) loadSound(27);
+	[0220] (53) lockSound(27);
+	[0222] (0C) loadSound(1);
+	[0224] (53) lockSound(1);
+	[0226] (0C) loadSound(32);
+	[0228] (53) lockSound(32);
+	[022A] (0C) loadSound(24);
+	[022C] (53) lockSound(24);
+	[022E] (25) loadRoom(10);
+	[0230] (1A) Var[11] = 1;
+	[0233] (60) cursorCommand(0);
+	[0235] (52) actorFollowCamera(3);                                   // Camera Follow Dave
+	[0237] (2A) delay(90);
+	[023B] (14) print(3,"Oh. That was a `cut-scene.` They happen/from time to time to let you know what's/happening elsewhere in the mansion.");
+	[02A0] (10) breakHere();
+	[02A1] (48) unless (VAR_HAVE_MSG == 0) goto 02A0;                   // Let Dave Talk
+	
+	[02A6] (2A) delay(60);
+	[02AA] (14) print(3,"All these tours make me hungry.");
+	[02C7] (10) breakHere();
+	[02C8] (48) unless (VAR_HAVE_MSG == 0) goto 02C7;                   // Let Dave Talk
+	
+	[02CD] (14) print(3,"Here's the kitchen.");
+	[02E1] (36) walkActorToObject(3,35);
+	[02E4] (10) breakHere();
+	[02E5] (56) VAR_RESULT = getActorMoving(3);
+	[02E8] (48) unless (VAR_RESULT == 2) goto 02E4;                     // Let Dave Talk
+	
+	[02ED] (03) doSentence(1,35,0);
+	[02F1] (2A) delay(180);
+	[02F5] (11) animateActor(3,5,1);                                    // Face Right
+	[02F9] (10) breakHere();
+	[02FA] (11) animateActor(3,6,1);                                    // Dave face camera
+	[02FE] (14) print(3,"I see they haven't cleaned up the, er,/uh, um... the mess yet.");
+	[0334] (10) breakHere();
+	[0335] (48) unless (VAR_HAVE_MSG == 0) goto 0334;                   // Let Dave Talk
+	
+	[033A] (11) animateActor(3,4,1);                                    // Face Left
+	[033E] (10) breakHere();
+	[033F] (11) animateActor(3,7,1);                                    // Face Away
+	[0343] (2A) delay(180);
+	[0347] (14) print(3,"I think I just lost my appetite.");
+	[0364] (03) doSentence(2,35,0);
+	[0368] (2A) delay(20);
+	[036C] (11) animateActor(3,4,1);                                    // Face Left
+	[0370] (10) breakHere();
+	[0371] (11) animateActor(3,6,1);                                    // Dave face camera
+	[0375] (10) breakHere();
+	[0376] (48) unless (VAR_HAVE_MSG == 0) goto 0375;                   // Let Dave Talk
+	
+	[037B] (2A) delay(120);
+	[037F] (14) print(3,"I know, let's go to my favorite room,/the basement.");
+	[03AD] (2A) delay(60);
+	[03B1] (1E) walkActorTo(3,56,58);
+	[03B5] (10) breakHere();
+	[03B6] (56) VAR_RESULT = getActorMoving(3);
+	[03B9] (48) unless (VAR_RESULT == 2) goto 03B5;                     // Wait for Dave
+	
+	[03BE] (10) breakHere();
+	[03BF] (48) unless (VAR_HAVE_MSG == 0) goto 03BE;                   // Let Dave Talk
+	
+	[03C4] (11) animateActor(3,7,1);                                    // Face Away
+	[03C8] (10) breakHere();
+	[03C9] (14) print(3,"Oh yes, no handle.");
+	[03DB] (10) breakHere();
+	[03DC] (48) unless (VAR_HAVE_MSG == 0) goto 03DB;                   // Let Dave Talk
+	
+	[03E1] (11) animateActor(3,5,1);                                    // Face Right
+	[03E5] (10) breakHere();
+	[03E6] (11) animateActor(3,6,1);                                    // Face camera
+	[03EA] (10) breakHere();
+	[03EB] (14) print(3,"Now how did I open this door last time?/Push it?");
+	[0415] (10) breakHere();
+	[0416] (48) unless (VAR_HAVE_MSG == 0) goto 0415;                   // Let Dave Talk
+	
+	[041B] (1E) walkActorTo(3,56,40);
+	[041F] (10) breakHere();
+	[0420] (56) VAR_RESULT = getActorMoving(3);
+	[0423] (48) unless (VAR_RESULT == 2) goto 041F;                     // Wait for Dave
+	
+	[0428] (2A) delay(120);
+	[042C] (14) print(3,"Nope. Maybe I need a running start.");
+	[044C] (1E) walkActorTo(3,56,70);
+	[0450] (10) breakHere();
+	[0451] (56) VAR_RESULT = getActorMoving(3);
+	[0454] (48) unless (VAR_RESULT == 2) goto 0450;                     // Wait for Dave
+	
+	[0459] (10) breakHere();
+	[045A] (48) unless (VAR_HAVE_MSG == 0) goto 0459;                   // Let Dave Talk
+	
+	[045F] (1E) walkActorTo(3,56,40);
+	[0463] (10) breakHere();
+	[0464] (56) VAR_RESULT = getActorMoving(3);
+	[0467] (48) unless (VAR_RESULT == 2) goto 0463;                     // Wait for Dave
+	
+	[046C] (1C) startSound(32);
+	[046E] (11) animateActor(3,254,1);                                  // 
+	[0472] (14) print(255,"Owwwwwwwwwwwwwwwwwww!   ");
+	[048B] (11) animateActor(3,4,1);                                    //  a
+	[048F] (10) breakHere();
+	[0490] (11) animateActor(3,6,1);                                    // Dave face camera
+	[0494] (10) breakHere();
+	[0495] (11) animateActor(3,5,1);                                    // Face Right
+	[0499] (10) breakHere();
+	[049A] (11) animateActor(3,7,1);                                    // Face Away
+	[049E] (10) breakHere();
+	[049F] (16) Var[52] = getRandomNr(112);
+	[04A2] (16) Var[53] = getRandomNr(12);
+	[04A5] (5A) Var[53] += 52;
+	[04A8] (7E) walkActorTo(3,Var[52],Var[53]);
+	[04AC] (48) unless (VAR_HAVE_MSG == 0) goto 048B;                   //  Spin Dave until he finishes talking
+	
+	[04B1] (10) breakHere();
+	[04B2] (11) animateActor(3,255,1);                                  // Stop Moving
+	[04B6] (2A) delay(60);
+	[04BA] (11) animateActor(3,253,1);
+	[04BE] (10) breakHere();
+	[04BF] (11) animateActor(3,6,1);                                    // Dave face right
+	[04C3] (2A) delay(120);
+	[04C7] (14) print(3,"Oh well, I'll let you figure it out.");
+	[04E7] (2A) delay(120);
+	[04EB] (36) walkActorToObject(3,37);                                // Walk dave to lounge entry door
+	[04EE] (10) breakHere();
+	[04EF] (56) VAR_RESULT = getActorMoving(3);
+	[04F2] (48) unless (VAR_RESULT == 2) goto 04EE;                     // Wait for Dave
+	
+	[04F7] (03) doSentence(1,37,0);                                     // Open lounge entry door
+	[04FB] (D3) unlockSound(32);
+	[04FD] (2A) delay(60);
+	[0501] (10) breakHere();
+	[0502] (48) unless (VAR_HAVE_MSG == 0) goto 0501;                   // Wait for Dave to talk
+	
+	[0507] (B2) setCameraAt(VAR_CAMERA_POS_X);
+	[0509] (2D) putActorInRoom(3,3);                                    // Dave enters Lounge Entry
+	[050C] (01) putActor(3,7,60);
+	[0510] (2A) delay(60);
+	[0514] (2D) putActorInRoom(24,3);                                   // Sandy enterse Lounge Entry
+	[0517] (01) putActor(24,24,56);
+	[051B] (11) animateActor(24,7,1);                                   // Face Away
+	[051F] (11) animateActor(3,5,1);                                    // Face Right
+	[0523] (25) loadRoom(3);                                            //
+	[0525] (02) startMusic(27);                                         // Play Sandys music
+	[0527] (52) actorFollowCamera(3);
+	[0529] (97) setState08(207);                                        // Turn on Stereo
+	[052B] (17) clearState08(47);                                       // 
+	[052D] (2A) delay(180);
+	[0531] (14) print(3,"Hi Sandy, could you turn the music down?");
+	[0555] (10) breakHere();
+	[0556] (48) unless (VAR_HAVE_MSG == 0) goto 0555;                   // Let Dave Talk
+	
+	[055B] (2A) delay(180);
+	[055F] (14) print(3,"Sandy, the music's too loud!");
+	[057A] (10) breakHere();
+	[057B] (48) unless (VAR_HAVE_MSG == 0) goto 057A;                   // Let Dave Talk
+	
+	[0580] (2A) delay(120);
+	[0584] (1E) walkActorTo(3,9,60);
+	[0588] (14) print(3,"SANDY, TURN OFF THE MUSIC!");
+	[05A1] (10) breakHere();
+	[05A2] (48) unless (VAR_HAVE_MSG == 0) goto 05A1;                   // Let Dave Talk
+	
+	[05A7] (11) animateActor(24,4,1);                                   // Sandy Face Left
+	[05AB] (2A) delay(60);
+	[05AF] (14) print(24,"Oh!");
+	[05B5] (2A) delay(120);
+	[05B9] (36) walkActorToObject(24,44);                               // Walk Sandy to Stereo
+	[05BC] (10) breakHere();
+	[05BD] (56) VAR_RESULT = getActorMoving(24);
+	[05C0] (48) unless (VAR_RESULT == 2) goto 05BC;                     // Wait for Sandy
+	
+	[05C5] (11) animateActor(24,7,1);                                   // Sandy
+	[05C9] (2A) delay(15);
+	[05CD] (97) setState08(44);                                         // Open Stereo Cupboard
+	[05CF] (2A) delay(60);
+	[05D3] (17) clearState08(207);                                      // Turn off Stereo
+	[05D5] (10) breakHere();
+	[05D6] (20) stopMusic();
+	[05D7] (2A) delay(30);
+	[05DB] (17) clearState08(44);                                       // Close Stereo Cupboard
+	[05DD] (10) breakHere();
+	[05DE] (1C) startSound(8);
+	[05E0] (2A) delay(30);
+	[05E4] (D3) unlockSound(27);
+	[05E6] (15) walkActorToActor(24,3,4);                               // 
+	[05EA] (11) animateActor(24,4,1);                                   //
+	[05EE] (14) print(24,"I'm sorry Dave, I couldn't hear you,/the music was too loud.");
+	[0623] (10) breakHere();
+	[0624] (48) unless (VAR_HAVE_MSG == 0) goto 0623;                   // Let Sandy Talk
+	
+	[0629] (11) animateActor(3,254,1);                                  // 'Speaking' enabled, but not switching
+	[062D] (2A) delay(120);
+	[0631] (11) animateActor(3,6,1);                                    // Dave face camera
+	[0635] (2A) delay(120);
+	[0639] (11) animateActor(3,253,1);
+	[063D] (10) breakHere();
+	[063E] (11) animateActor(3,5,1);                                    // Face Right
+	[0642] (2A) delay(120);
+	[0646] (14) print(3,"I was just giving a tour to all these/future game players. Want to come?");
+	[0684] (10) breakHere();
+	[0685] (48) unless (VAR_HAVE_MSG == 0) goto 0684;                   // Let Dave Talk
+	
+	[068A] (14) print(24,"Sure Dave, I'll go anywhere with you!");
+	[06AC] (10) breakHere();
+	[06AD] (48) unless (VAR_HAVE_MSG == 0) goto 06AC;                   // Let Sandy Talk
+	
+	[06B2] (36) walkActorToObject(3,93);                                // Walk Dave to Library Door
+	[06B5] (2A) delay(30);
+	[06B9] (36) walkActorToObject(24,93);                               // Walk Sandy to Library Door
+	[06BC] (14) print(3,"Oh yes, in Maniac Mansion,/you not only direct my actions,/but the actions of two of my friends.");
+	[070F] (10) breakHere();
+	[0710] (56) VAR_RESULT = getActorMoving(3);
+	[0713] (48) unless (VAR_RESULT == 2) goto 070F;                     // Wait for Dave
+	
+	[0718] (11) animateActor(24,255,1);                                 // Stop Moving
+	[071C] (10) breakHere();
+	[071D] (48) unless (VAR_HAVE_MSG == 0) goto 071C;                   // Let Dave Talk
+	
+	[0722] (03) doSentence(1,93,0);                                     // Open Library Door
+	[0726] (B2) setCameraAt(VAR_CAMERA_POS_X);
+	[0728] (2A) delay(60);
+	[072C] (2D) putActorInRoom(3,5);                                    // Dave enters Library
+	[072F] (01) putActor(3,13,56);                  
+	[0733] (1E) walkActorTo(24,73,60);                                  // Sandy walk to door
+	[0737] (10) breakHere();
+	[0738] (10) breakHere();
+	[0739] (56) VAR_RESULT = getActorMoving(24);
+	[073C] (48) unless (VAR_RESULT == 2) goto 0738;                     // Wait for Sandy
+	
+	[0741] (10) breakHere();
+	[0742] (2D) putActorInRoom(24,5);                                   // Sandy enters library
+	[0745] (01) putActor(24,9,56);
+	[0749] (2A) delay(60);
+	[074D] (1A) Var[11] = 0;
+	[0750] (60) cursorCommand(0);
+	[0752] (25) loadRoom(0);
+	[0754] (0C) loadSound(34);
+	[0756] (53) lockSound(34);
+	[0758] (0C) loadSound(11);
+	[075A] (53) lockSound(11);
+	[075C] (4C) loadScript(10);
+	[075E] (33) lockScript(10);
+	[0760] (4C) loadScript(9);
+	[0762] (33) lockScript(9);
+	[0764] (33) lockScript(19);
+	[0766] (30) loadCostume(13);
+	[0768] (13) lockCostume(13);
+	[076A] (25) loadRoom(5);
+	[076C] (52) actorFollowCamera(3);                                   // Camera follows Dave
+	[076E] (1A) Var[11] = 1;
+	[0771] (60) cursorCommand(0);
+	[0773] (1E) walkActorTo(24,12,52);                                  // Walk Sandy to bookshelf
+	[0777] (10) breakHere();
+	[0778] (56) VAR_RESULT = getActorMoving(24);
+	[077B] (48) unless (VAR_RESULT == 2) goto 0777;                     // Wait for Sandy
+	
+	[0780] (14) print(3,"This is the library.");
+	[0794] (10) breakHere();
+	[0795] (48) unless (VAR_HAVE_MSG == 0) goto 0794;                   // Let Dave talk
+	
+	[079A] (9D) setBitVar(VAR_ROOM,1,0);                                // Library Turn Light On
+	[079E] (42) startScript(19);                                        // start Room Lights: Check for flashlight / room light status
+	[07A0] (10) breakHere();
+	[07A1] (1C) startSound(11);
+	[07A3] (2A) delay(30);
+	[07A7] (42) startScript(9);
+	[07A9] (14) print(3,"It's one of the many rooms in the game.");
+	[07CB] (1E) walkActorTo(3,38,66);
+	[07CF] (10) breakHere();
+	[07D0] (56) VAR_RESULT = getActorMoving(3);
+	[07D3] (48) unless (VAR_RESULT == 2) goto 07CF;                     // Wait for Dave
+	
+	[07D8] (11) animateActor(3,6,1);                                    // Dave face right
+	[07DC] (10) breakHere();
+	[07DD] (48) unless (VAR_HAVE_MSG == 0) goto 07DC;                   // Let Dave talk
+	
+	[07E2] (42) startScript(13);
+	[07E4] (14) print(3,"And there are more than 450 objects...");
+	[0807] (10) breakHere();
+	[0808] (48) unless (VAR_HAVE_MSG == 0) goto 0807;                   // Let Dave talk
+	
+	[080D] (11) animateActor(3,5,1);                                    // Face Right
+	[0811] (12) panCameraTo(50);
+	[0813] (2A) delay(120);
+	[0817] (11) animateActor(3,6,1);                                    // Dave face right
+	[081B] (10) breakHere();
+	[081C] (14) print(3,"...that you can use to solve over...");
+	[083D] (10) breakHere();
+	[083E] (48) unless (VAR_HAVE_MSG == 0) goto 083D;                   // Let Dave talk
+	
+	[0843] (11) animateActor(3,5,1);                                    // Face Right
+	[0847] (2A) delay(120);
+	[084B] (11) animateActor(3,6,1);                                    // Dave face right
+	[084F] (10) breakHere();
+	[0850] (14) print(3,"Just a second.");
+	[085F] (10) breakHere();
+	[0860] (48) unless (VAR_HAVE_MSG == 0) goto 085F;                   // Let Dave talk
+	
+	[0865] (1E) walkActorTo(3,50,64);
+	[0869] (10) breakHere();
+	[086A] (47) VAR_RESULT = getActorX(3);
+	[086D] (44) unless (VAR_RESULT > 48) goto 0869;                     // Walk for Dave to be > 48
+	
+	[0872] (1E) walkActorTo(3,65,64);
+	[0876] (10) breakHere();
+	[0877] (56) VAR_RESULT = getActorMoving(3);
+	[087A] (48) unless (VAR_RESULT == 2) goto 0876;                     // Wait for Dave
+	
+	[087F] (11) animateActor(3,7,1);                                    // Face Away
+	[0883] (10) breakHere();
+	[0884] (97) setState08(103);                                        // Phone off hook
+	[0886] (62) stopScript(13);
+	[0888] (3C) stopSound(19);
+	[088A] (2A) delay(30);
+	[088E] (14) print(3,"Hello?");
+	[0897] (2A) delay(180);
+	[089B] (11) animateActor(3,5,1);                                    // Dave face right
+	[089F] (14) print(3,"Hello, who's there?");
+	[08B3] (2D) putActorInRoom(13,5);                                   // Purple Tentacle enters
+	[08B6] (01) putActor(13,10,60);
+	[08BA] (42) startScript(10);                                        // start Purple Tentacle walk to Sandy
+	[08BC] (2A) delay(120);
+	[08C0] (11) animateActor(24,4,1);                                   // Sandy turn left
+	[08C4] (10) breakHere();
+	[08C5] (11) animateActor(24,254,1);                                 // Sandy mouth open
+	[08C9] (10) breakHere();
+	[08CA] (10) breakHere();
+	[08CB] (1E) walkActorTo(24,10,50);                                  // Sandy Walk to bottom left (around stairs)
+	[08CF] (2A) delay(180);
+	[08D3] (14) print(3,"Is this a prank phone call?");
+	[08EC] (10) breakHere();
+	[08ED] (47) VAR_RESULT = getActorX(13);
+	[08F0] (04) unless (VAR_RESULT <= 28) goto 08EC;                    // Wait for Purple to be <= 28
+	
+	[08F5] (62) stopScript(10);                                         // stop Purple Tentacle walk to Sandy
+	[08F7] (1C) startSound(24);
+	[08F9] (2A) delay(30);
+	[08FD] (11) animateActor(3,7,1);                                    // Dave face away
+	[0901] (10) breakHere();
+	[0902] (17) clearState08(103);                                      // Phone on hook
+	[0904] (10) breakHere();
+	[0905] (1C) startSound(8);
+	[0907] (2A) delay(30);
+	[090B] (11) animateActor(3,4,1);                                    // Dave face left
+	[090F] (10) breakHere();    
+	[0910] (14) print(3,"Sandy?");
+	[0919] (2A) delay(180);                                             // Wait 3 seconds
+	[091D] (14) print(3,"SANDY!");
+	[0926] (2A) delay(180);                                             // Wait 3 seconds
+	[092A] (52) actorFollowCamera(3);
+	[092C] (11) animateActor(3,6,1);                                    // Dave face camera
+	[0930] (10) breakHere();
+	[0931] (14) print(3,"Oh great! Not again!!/Time to round up the Gang.");
+	[095C] (10) breakHere();
+	[095D] (48) unless (VAR_HAVE_MSG == 0) goto 095C;                   // Let Dave Talk
+	
+	[0962] (2A) delay(180);
+	[0966] (1A) Var[11] = 0;
+	[0969] (60) cursorCommand(0);
+	[096B] (C0) endcutscene();                                          // End Cutscene
+	[096C] (98) restart();                                              // Restart
+	[096D] (A0) stopObjectCode();
+}
 
 /**
  * Script 7: Edison Family Cutscene
  **/
-script-7.dmp                                                                                                                                                                                                                                                  
-[0000] (0C) loadSound(34);
-[0002] (53) lockSound(34);
-[0004] (4C) loadScript(8);
-[0006] (2D) putActorInRoom(9,31);                                   // Dr. Fred Enters
-[0009] (01) putActor(9,20,63);
-[000D] (2D) putActorInRoom(10,31);                                  // Nurse Edna enters
-[0010] (01) putActor(10,4,68);
-[0014] (2D) putActorInRoom(11,31);                                  // Weird Ed enters
-[0017] (01) putActor(11,34,50);
-[001B] (2D) putActorInRoom(13,31);                                  // Purple Tentacle enters
-[001E] (01) putActor(13,45,63);
-[0022] (13) lockCostume(13);
-[0024] (11) animateActor(10,5,1);                                   // Nurse Edna face right
-[0028] (11) animateActor(11,7,1);                                   // Weird Ed face away
-[002C] (25) loadRoom(31);
-[002E] (1A) Var[11] = 1;
-[0031] (60) cursorCommand(0);
-[0033] (32) setCameraAt(20);                        
-[0035] (42) startScript(8);                                         // start Dr Fred: Walk back and forth (Lab Entry)
-[0037] (2A) delay(300);
-[003B] (14) print(10,"How long do we have to stay down here?");
-[005C] (10) breakHere();
-[005D] (48) unless (VAR_HAVE_MSG == 0) goto 005C;                   // Let Nurse Edna talk
-[0062] (2A) delay(60);
-[0066] (62) stopScript(8);                                          // stop Dr Fred: Walk back and forth (Lab Entry)
-[0068] (1E) walkActorTo(9,15,63);                                   
-[006C] (10) breakHere();
-[006D] (56) VAR_RESULT = getActorMoving(9);
-[0070] (48) unless (VAR_RESULT == 2) goto 006C;                     // Wait for Dr. Fred
-[0075] (10) breakHere();
-[0076] (11) animateActor(9,6,1);                                    // Dr. Fred Face camera
-[007A] (2A) delay(120);
-[007E] (11) animateActor(9,4,1);                                    // Dr. Fred Face Left
-[0082] (14) print(9,"Shh... I think I hear something!");
-[00A0] (10) breakHere();
-[00A1] (48) unless (VAR_HAVE_MSG == 0) goto 00A0;                   // Let Dr. Fred talk
-[00A6] (11) animateActor(11,4,1);                                   // Weird Ed Face Left
-[00AA] (14) print(11,"I miss my hamster.");
-[00BC] (10) breakHere();
-[00BD] (48) unless (VAR_HAVE_MSG == 0) goto 00BC;
-[00C2] (15) walkActorToActor(9,11,5);                               // Walk Dr. Fred to Weird Ed
-[00C6] (10) breakHere();
-[00C7] (10) breakHere();
-[00C8] (11) animateActor(9,255,1);                                  // Stop Moving
-[00CC] (10) breakHere();
-[00CD] (11) animateActor(9,5,1);                                    // Dr. Fred Face Right
-[00D1] (14) print(9,"Quiet! I think I hear someone upstairs!");
-[00F5] (10) breakHere();
-[00F6] (48) unless (VAR_HAVE_MSG == 0) goto 00F5;                   // Wait for Dr. Fred
-[00FB] (15) walkActorToActor(10,11,4);                              // Walk Nurse Edna
-[00FF] (14) print(10,"Oh great! Who forgot to lock the door?");
-[0121] (10) breakHere();
-[0122] (48) unless (VAR_HAVE_MSG == 0) goto 0121;
-[0127] (11) animateActor(11,7,1);                                   // Weird Ed Face Away
-[012B] (2A) delay(60);
-[012F] (15) walkActorToActor(9,13,5);                               // Dr. Fred Walk to Purple Tentacle
-[0133] (14) print(9,"PURPLE TENTACLE!");
-[0145] (10) breakHere();
-[0146] (10) breakHere();
-[0147] (11) animateActor(9,255,1);                                  // Stop Moving
-[014B] (10) breakHere();
-[014C] (48) unless (VAR_HAVE_MSG == 0) goto 014B;                   // Let Dr. Fred Talk
-[0151] (15) walkActorToActor(13,9,4);                               // Walk Purple to Dr. Fred
-[0155] (10) breakHere();
-[0156] (56) VAR_RESULT = getActorMoving(13);
-[0159] (48) unless (VAR_RESULT == 2) goto 0155;                     // Wait for Purple Tentacle
-[015E] (14) print(13,"Yes sir, Dr. Fred SIR!");
-[0173] (10) breakHere();
-[0174] (48) unless (VAR_HAVE_MSG == 0) goto 0173;                   // Let Purple Tentacle Talk
-[0179] (14) print(9,"Go upstairs and check it out!");
-[0194] (10) breakHere();
-[0195] (48) unless (VAR_HAVE_MSG == 0) goto 0194;                   // Let Purple Tentacle Talk
-[019A] (14) print(13,"Yes sir!");
-[01A4] (42) startScript(8);                                         // start Dr Fred: Walk back and forth (Lab Entry)
-[01A6] (36) walkActorToObject(13,133);                              // Walk Purple to Lab Door
-[01A9] (10) breakHere();
-[01AA] (56) VAR_RESULT = getActorMoving(13);
-[01AD] (48) unless (VAR_RESULT == 2) goto 01A9;                     // Wait for Purple Tentacle
-[01B2] (97) setState08(133);                                        // Open Lab Door
-[01B4] (1C) startSound(4);
-[01B6] (2A) delay(60);
-[01BA] (2D) putActorInRoom(13,0);                                   // Purple Tentacle leaves room
-[01BD] (01) putActor(13,0,0);
-[01C1] (17) clearState08(133);                                      // Close Lab Door
-[01C3] (1C) startSound(8);
-[01C5] (1E) walkActorTo(11,34,70);                                  // Walk Weird Ed to Camera
-[01C9] (52) actorFollowCamera(11);                                  // Camera Follow Weird Ed
-[01CB] (2A) delay(60);
-[01CF] (11) animateActor(10,6,1);                                   // Nurse Edna Face camera
-[01D3] (10) breakHere();
-[01D4] (56) VAR_RESULT = getActorMoving(11);
-[01D7] (48) unless (VAR_RESULT == 2) goto 01D3;                     // Wait for Weird Ed
-[01DC] (14) print(11,"I really DO miss my hamster!");
-[01F6] (10) breakHere();
-[01F7] (48) unless (VAR_HAVE_MSG == 0) goto 01F6;                   // Let Weird Ed Talk
-[01FC] (2A) delay(60);
-[0200] (1A) Var[11] = 0;
-[0203] (60) cursorCommand(0);
-[0205] (25) loadRoom(0);
-[0207] (62) stopScript(8);                                          // stop Dr Fred: Walk back and forth (Lab Entry)
-[0209] (A0) stopObjectCode();
-END
-
+Script-7 {                                                                                                                                                                                                                                                  
+	[0000] (0C) loadSound(34);
+	[0002] (53) lockSound(34);
+	[0004] (4C) loadScript(8);
+	[0006] (2D) putActorInRoom(9,31);                                   // Dr. Fred Enters
+	[0009] (01) putActor(9,20,63);
+	[000D] (2D) putActorInRoom(10,31);                                  // Nurse Edna enters
+	[0010] (01) putActor(10,4,68);
+	[0014] (2D) putActorInRoom(11,31);                                  // Weird Ed enters
+	[0017] (01) putActor(11,34,50);
+	[001B] (2D) putActorInRoom(13,31);                                  // Purple Tentacle enters
+	[001E] (01) putActor(13,45,63);
+	[0022] (13) lockCostume(13);
+	[0024] (11) animateActor(10,5,1);                                   // Nurse Edna face right
+	[0028] (11) animateActor(11,7,1);                                   // Weird Ed face away
+	[002C] (25) loadRoom(31);
+	[002E] (1A) Var[11] = 1;
+	[0031] (60) cursorCommand(0);
+	[0033] (32) setCameraAt(20);                        
+	[0035] (42) startScript(8);                                         // start Dr Fred: Walk back and forth (Lab Entry)
+	[0037] (2A) delay(300);
+	[003B] (14) print(10,"How long do we have to stay down here?");
+	[005C] (10) breakHere();
+	[005D] (48) unless (VAR_HAVE_MSG == 0) goto 005C;                   // Let Nurse Edna talk
+	
+	[0062] (2A) delay(60);
+	[0066] (62) stopScript(8);                                          // stop Dr Fred: Walk back and forth (Lab Entry)
+	[0068] (1E) walkActorTo(9,15,63);                                   
+	[006C] (10) breakHere();
+	[006D] (56) VAR_RESULT = getActorMoving(9);
+	[0070] (48) unless (VAR_RESULT == 2) goto 006C;                     // Wait for Dr. Fred
+	
+	[0075] (10) breakHere();
+	[0076] (11) animateActor(9,6,1);                                    // Dr. Fred Face camera
+	[007A] (2A) delay(120);
+	[007E] (11) animateActor(9,4,1);                                    // Dr. Fred Face Left
+	[0082] (14) print(9,"Shh... I think I hear something!");
+	[00A0] (10) breakHere();
+	[00A1] (48) unless (VAR_HAVE_MSG == 0) goto 00A0;                   // Let Dr. Fred talk
+	
+	[00A6] (11) animateActor(11,4,1);                                   // Weird Ed Face Left
+	[00AA] (14) print(11,"I miss my hamster.");
+	[00BC] (10) breakHere();
+	[00BD] (48) unless (VAR_HAVE_MSG == 0) goto 00BC;
+	
+	[00C2] (15) walkActorToActor(9,11,5);                               // Walk Dr. Fred to Weird Ed
+	[00C6] (10) breakHere();
+	[00C7] (10) breakHere();
+	[00C8] (11) animateActor(9,255,1);                                  // Stop Moving
+	[00CC] (10) breakHere();
+	[00CD] (11) animateActor(9,5,1);                                    // Dr. Fred Face Right
+	[00D1] (14) print(9,"Quiet! I think I hear someone upstairs!");
+	[00F5] (10) breakHere();
+	[00F6] (48) unless (VAR_HAVE_MSG == 0) goto 00F5;                   // Wait for Dr. Fred
+	
+	[00FB] (15) walkActorToActor(10,11,4);                              // Walk Nurse Edna
+	[00FF] (14) print(10,"Oh great! Who forgot to lock the door?");
+	[0121] (10) breakHere();
+	[0122] (48) unless (VAR_HAVE_MSG == 0) goto 0121;
+	
+	[0127] (11) animateActor(11,7,1);                                   // Weird Ed Face Away
+	[012B] (2A) delay(60);
+	[012F] (15) walkActorToActor(9,13,5);                               // Dr. Fred Walk to Purple Tentacle
+	[0133] (14) print(9,"PURPLE TENTACLE!");
+	[0145] (10) breakHere();
+	[0146] (10) breakHere();
+	[0147] (11) animateActor(9,255,1);                                  // Stop Moving
+	[014B] (10) breakHere();
+	[014C] (48) unless (VAR_HAVE_MSG == 0) goto 014B;                   // Let Dr. Fred Talk
+	
+	[0151] (15) walkActorToActor(13,9,4);                               // Walk Purple to Dr. Fred
+	[0155] (10) breakHere();
+	[0156] (56) VAR_RESULT = getActorMoving(13);
+	[0159] (48) unless (VAR_RESULT == 2) goto 0155;                     // Wait for Purple Tentacle
+	
+	[015E] (14) print(13,"Yes sir, Dr. Fred SIR!");
+	[0173] (10) breakHere();
+	[0174] (48) unless (VAR_HAVE_MSG == 0) goto 0173;                   // Let Purple Tentacle Talk
+	
+	[0179] (14) print(9,"Go upstairs and check it out!");
+	[0194] (10) breakHere();
+	[0195] (48) unless (VAR_HAVE_MSG == 0) goto 0194;                   // Let Purple Tentacle Talk
+	
+	[019A] (14) print(13,"Yes sir!");
+	[01A4] (42) startScript(8);                                         // start Dr Fred: Walk back and forth (Lab Entry)
+	[01A6] (36) walkActorToObject(13,133);                              // Walk Purple to Lab Door
+	[01A9] (10) breakHere();
+	[01AA] (56) VAR_RESULT = getActorMoving(13);
+	[01AD] (48) unless (VAR_RESULT == 2) goto 01A9;                     // Wait for Purple Tentacle
+	
+	[01B2] (97) setState08(133);                                        // Open Lab Door
+	[01B4] (1C) startSound(4);
+	[01B6] (2A) delay(60);
+	[01BA] (2D) putActorInRoom(13,0);                                   // Purple Tentacle leaves room
+	[01BD] (01) putActor(13,0,0);
+	[01C1] (17) clearState08(133);                                      // Close Lab Door
+	[01C3] (1C) startSound(8);
+	[01C5] (1E) walkActorTo(11,34,70);                                  // Walk Weird Ed to Camera
+	[01C9] (52) actorFollowCamera(11);                                  // Camera Follow Weird Ed
+	[01CB] (2A) delay(60);
+	[01CF] (11) animateActor(10,6,1);                                   // Nurse Edna Face camera
+	[01D3] (10) breakHere();
+	[01D4] (56) VAR_RESULT = getActorMoving(11);
+	[01D7] (48) unless (VAR_RESULT == 2) goto 01D3;                     // Wait for Weird Ed
+	
+	[01DC] (14) print(11,"I really DO miss my hamster!");
+	[01F6] (10) breakHere();
+	[01F7] (48) unless (VAR_HAVE_MSG == 0) goto 01F6;                   // Let Weird Ed Talk
+	
+	[01FC] (2A) delay(60);
+	[0200] (1A) Var[11] = 0;
+	[0203] (60) cursorCommand(0);
+	[0205] (25) loadRoom(0);
+	[0207] (62) stopScript(8);                                          // stop Dr Fred: Walk back and forth (Lab Entry)
+	[0209] (A0) stopObjectCode();
+}
 
 /**
  * Script 8: Dr Fred: Walk back and forth (Lab Entry)
  */
-script-8.dmp                                                                                                                                                                                                                                                  
-[0000] (1E) walkActorTo(9,30,63);                                   // Walk Dr. Fred to Right
-[0004] (10) breakHere();
-[0005] (10) breakHere();
-[0006] (56) VAR_RESULT = getActorMoving(9);
-[0009] (48) unless (VAR_RESULT == 2) goto 0005;                     // Wait for Dr. Fred
-[000E] (11) animateActor(9,6,1);                                    // Dr. Fred Face camera
-[0012] (10) breakHere();
-[0013] (1E) walkActorTo(9,10,63);                                   // Walk Dr. Fred to Left
-[0017] (10) breakHere();
-[0018] (10) breakHere();
-[0019] (56) VAR_RESULT = getActorMoving(9);
-[001C] (48) unless (VAR_RESULT == 2) goto 0018;                     // Wait for Dr. Fred
-[0021] (11) animateActor(9,7,1);                                    // Dr. Fred Face Away
-[0025] (10) breakHere();
-[0026] (18) goto 0000;
-[0029] (A0) stopObjectCode();
-END
-
+Script-8 {                                                                                                                                                                                                                                                  
+	[0000] (1E) walkActorTo(9,30,63);                                   // Walk Dr. Fred to Right
+	[0004] (10) breakHere();
+	[0005] (10) breakHere();
+	[0006] (56) VAR_RESULT = getActorMoving(9);
+	[0009] (48) unless (VAR_RESULT == 2) goto 0005;                     // Wait for Dr. Fred
+	
+	[000E] (11) animateActor(9,6,1);                                    // Dr. Fred Face camera
+	[0012] (10) breakHere();
+	[0013] (1E) walkActorTo(9,10,63);                                   // Walk Dr. Fred to Left
+	[0017] (10) breakHere();
+	[0018] (10) breakHere();
+	[0019] (56) VAR_RESULT = getActorMoving(9);
+	[001C] (48) unless (VAR_RESULT == 2) goto 0018;                     // Wait for Dr. Fred
+	
+	[0021] (11) animateActor(9,7,1);                                    // Dr. Fred Face Away
+	[0025] (10) breakHere();
+	[0026] (18) goto 0000;
+	[0029] (A0) stopObjectCode();
+}
 
 /**
  * Script 9: Sandy walks to lamp
  **/
-script-9.dmp                                                                                                                                                                                                                                                  
-[0000] (1A) Var[92] = 4;
-[0003] (1A) Var[52] = 17;
-[0006] (5E) walkActorTo(24,Var[52],50);                             // Walk Sandy to lamp
-[000A] (10) breakHere();
-[000B] (56) VAR_RESULT = getActorMoving(24);
-[000E] (48) unless (VAR_RESULT == 2) goto 000A;                     // Wait for Sandy
-[0013] (11) animateActor(24,7,1);                                   // Sandy Face Away
-[0017] (5A) Var[52] += 5;
-[001A] (3A) Var[92] -= 1;
-[001D] (2A) delay(240);
-[0021] (48) unless (Var[92] == 0) goto 0006;                        // Loop
-[0026] (A0) stopObjectCode();
-END
-
+Script-9 {                                                                                                                                                                                                                                                  
+	[0000] (1A) Var[92] = 4;
+	[0003] (1A) Var[52] = 17;
+	[0006] (5E) walkActorTo(24,Var[52],50);                             // Walk Sandy to lamp
+	[000A] (10) breakHere();
+	[000B] (56) VAR_RESULT = getActorMoving(24);
+	[000E] (48) unless (VAR_RESULT == 2) goto 000A;                     // Wait for Sandy
+	
+	[0013] (11) animateActor(24,7,1);                                   // Sandy Face Away
+	[0017] (5A) Var[52] += 5;
+	[001A] (3A) Var[92] -= 1;
+	[001D] (2A) delay(240);
+	[0021] (48) unless (Var[92] == 0) goto 0006;                        // Loop
+	
+	[0026] (A0) stopObjectCode();
+}
 /**
  * Script 10: Purple Tentacle walk to Sandy
- */script-10.dmp                                                                                                                                                                                                                                                 
-[0000] (10) breakHere();
-[0001] (15) walkActorToActor(13,24,2);                              // Walk Purple Tentacle to Sandy
-[0005] (18) goto 0000;
-[0008] (A0) stopObjectCode();
-END
-
+ */Script-10 {                                                                                                                                                                                                                                                 
+	[0000] (10) breakHere();
+	[0001] (15) walkActorToActor(13,24,2);                              // Walk Purple Tentacle to Sandy
+	[0005] (18) goto 0000;
+	[0008] (A0) stopObjectCode();
+}
 /**
  * Script 11: Clock: Repeating Tick Sound
- */script-11.dmp                                                                                                                                                                                                                                                 
-[0000] (2A) delay(120);
-[0004] (1C) startSound(22);
-[0006] (2A) delay(90);
-[000A] (18) goto 0004;
-[000D] (A0) stopObjectCode();
-END
-
+ */Script-11 {                                                                                                                                                                                                                                                 
+	[0000] (2A) delay(120);
+	[0004] (1C) startSound(22);
+	[0006] (2A) delay(90);
+	[000A] (18) goto 0004;
+	[000D] (A0) stopObjectCode();
+}
 
 /**
  * Script 12: Pin: Entry - Phone LucasFilm
- */script-12.dmp                                                                                                                                                                                                                                                 
-[0000] (42) startScript(16);                                // Phone: Disconnect if Kid walks too far away
-[0002] (1C) startSound(17);
-[0004] (2A) delay(120);
-[0008] (3C) stopSound(17);
-[000A] (1A) Var[44] = 1;                                    // Pin1 = Telephone Number: Edna 1/4
-[000D] (1A) Var[45] = 1;                                    // Pin2 = Telephone Number: Edna 2/4
-[0010] (1A) Var[46] = 3;                                    // Pin3 = Telephone Number: Edna 3/4
-[0013] (1A) Var[47] = 8;                                    // Pin4 = Telephone Number: Edna 4/4
-[0016] (42) startScript(18);                                // start Keypad Input
-[0018] (10) breakHere();
-[0019] (48) unless (Var[50] == 0) goto 0018;    
-[001E] (48) if (Var[48] == 0) {                             // Correct Number?
-[0023] (4C)   loadScript(48);                               // load Phone LucasFilm
-[0025] (42)   startScript(13);                              // start Phone: Ringing
-[0027] (2A)   delay(360);                                   
-[002B] (62)   stopScript(13);                               // 
-[002D] (42)   startScript(48);                              // start Demo: Advertisement Recording
-[002F] (1A)   Var[136] = 1;									// On Phone = true
-[0032] (18) } else {
-[0035] (42)   startScript(14);                              //  start Phone: Busy Signal
-[0037] (**) }
-[0037] (A0) stopObjectCode();
-END
-
+ */Script-12 {                                                                                                                                                                                                                                                 
+	[0000] (42) startScript(16);                                // Phone: Disconnect if Kid walks too far away
+	[0002] (1C) startSound(17);
+	[0004] (2A) delay(120);
+	[0008] (3C) stopSound(17);
+	[000A] (1A) Var[44] = 1;                                    // Pin1 = Telephone Number: Edna 1/4
+	[000D] (1A) Var[45] = 1;                                    // Pin2 = Telephone Number: Edna 2/4
+	[0010] (1A) Var[46] = 3;                                    // Pin3 = Telephone Number: Edna 3/4
+	[0013] (1A) Var[47] = 8;                                    // Pin4 = Telephone Number: Edna 4/4
+	[0016] (42) startScript(18);                                // start Keypad Input
+	[0018] (10) breakHere();
+	[0019] (48) unless (Var[50] == 0) goto 0018;    
+	
+	[001E] (48) if (Var[48] == 0) {                             // Correct Number?
+	[0023] (4C)   loadScript(48);                               // load Phone LucasFilm
+	[0025] (42)   startScript(13);                              // start Phone: Ringing
+	[0027] (2A)   delay(360);                                   
+	[002B] (62)   stopScript(13);                               // 
+	[002D] (42)   startScript(48);                              // start Demo: Advertisement Recording
+	[002F] (1A)   Var[136] = 1;									// On Phone = true
+	[0032] (18) } else {
+	[0035] (42)   startScript(14);                              //  start Phone: Busy Signal
+	[0037] (**) }
+	[0037] (A0) stopObjectCode();
+}
 
  /**
   * Script 13: Phone: Ringing
-  */script-13.dmp                                                                                                                                                                                                                                                 
-[0000] (48) if (VAR_ROOM == 5) {
-[0005] (1C)   startSound(19);
-[0007] (**) }
-[0007] (2A) delay(240);
-[000B] (18) goto 0000;
-[000E] (A0) stopObjectCode();
-END
-
+  */Script-13 {                                                                                                                                                                                                                                                 
+	[0000] (48) if (VAR_ROOM == 5) {
+	[0005] (1C)   startSound(19);
+	[0007] (**) }
+	[0007] (2A) delay(240);
+	[000B] (18) goto 0000;
+	[000E] (A0) stopObjectCode();
+}
 
  /**
   * Script 14: Phone: Busy Signal
-  */script-14.dmp                                                                                                                                                                                                                                                 
-[0000] (48) if (VAR_ROOM == 5) {
-[0005] (1C)   startSound(18);
-[0007] (**) }
-[0007] (2A) delay(30);
-[000B] (18) goto 0000;
-[000E] (A0) stopObjectCode();
-END
-
+  */Script-14 {                                                                                                                                                                                                                                                 
+	[0000] (48) if (VAR_ROOM == 5) {
+	[0005] (1C)   startSound(18);
+	[0007] (**) }
+	[0007] (2A) delay(30);
+	[000B] (18) goto 0000;
+	[000E] (A0) stopObjectCode();
+}
 
  /**
   * Script 15: Phone: Disconnect
-  */script-15.dmp                                                                                                                                                                                                                                                 
-[0000] (17) clearState08(103);                                     // Phone
-[0002] (1A) Var[17] = 0;                                           //
-[0005] (62) stopScript(12);                                        //  stop Pin: Entry - Phone LucasFilm
-[0007] (48) if (Var[136] == 1) {                                   // on Phone?
-[000C] (62)   stopScript(48);                                      // stop Phone LucasFilm
-[000E] (1A)   Var[136] = 0;                                        // On Phone = no
-[0011] (14)   print(255," ");                                      // 
-[0015] (**) }                                                      // 
-[0015] (3C) stopSound(17);                                         // 
-[0017] (62) stopScript(14);                                        // 
-[0019] (3C) stopSound(18);
-[001B] (62) stopScript(13);
-[001D] (62) stopScript(17);
-[001F] (A0) stopObjectCode();
-END
-
+  */Script-15 {                                                                                                                                                                                                                                                 
+	[0000] (17) clearState08(103);                                     // Phone
+	[0002] (1A) Var[17] = 0;                                           //
+	[0005] (62) stopScript(12);                                        //  stop Pin: Entry - Phone LucasFilm
+	[0007] (48) if (Var[136] == 1) {                                   // on Phone?
+	[000C] (62)   stopScript(48);                                      // stop Phone LucasFilm
+	[000E] (1A)   Var[136] = 0;                                        // On Phone = no
+	[0011] (14)   print(255," ");                                      // 
+	[0015] (**) }                                                      // 
+	[0015] (3C) stopSound(17);                                         // 
+	[0017] (62) stopScript(14);                                        // 
+	[0019] (3C) stopSound(18);
+	[001B] (62) stopScript(13);
+	[001D] (62) stopScript(17);
+	[001F] (A0) stopObjectCode();
+}
 
  /**
   * Script 16: Phone: Disconnect if Kid walks too far away
-  */script-16.dmp                                                                                                                                                                                                                                                 
-[0000] (97) setState08(103);
-[0002] (9A) Var[51] = VAR_EGO;
-[0005] (C7) Var[52] = getActorX(Var[51]);
-[0008] (A7) Var[53] = getActorY(Var[51]);
-[000B] (10) breakHere();
-[000C] (C7) VAR_RESULT = getActorX(Var[51]);
-[000F] (C8) if (VAR_RESULT == Var[52]) {
-[0014] (A7)   VAR_RESULT = getActorY(Var[51]);
-[0017] (C8)   if (VAR_RESULT == Var[53]) {
-[001C] (18)     goto 000B;
-[001F] (**)   }
-[001F] (**) }
-[001F] (42) startScript(15);
-[0021] (A0) stopObjectCode();
-END
-
+  */Script-16 {                                                                                                                                                                                                                                                 
+	[0000] (97) setState08(103);
+	[0002] (9A) Var[51] = VAR_EGO;
+	[0005] (C7) Var[52] = getActorX(Var[51]);
+	[0008] (A7) Var[53] = getActorY(Var[51]);
+	[000B] (10) breakHere();
+	[000C] (C7) VAR_RESULT = getActorX(Var[51]);
+	[000F] (C8) if (VAR_RESULT == Var[52]) {
+	[0014] (A7)   VAR_RESULT = getActorY(Var[51]);
+	[0017] (C8)   if (VAR_RESULT == Var[53]) {
+	[001C] (18)     goto 000B;
+	[001F] (**)   }
+	[001F] (**) }
+	[001F] (42) startScript(15);
+	[0021] (A0) stopObjectCode();
+}
 
 /**
  * Script 17: Phone: Ringing
- */script-17.dmp                                                                                                                                                                                                                                                 
-[0000] (48) if (VAR_ROOM == 5) {
-[0005] (1C)   startSound(20);
-[0007] (**) }
-[0007] (2A) delay(240);
-[000B] (18) goto 0000;
-[000E] (A0) stopObjectCode();
-END
-
+ */Script-17 {                                                                                                                                                                                                                                                 
+	[0000] (48) if (VAR_ROOM == 5) {
+	[0005] (1C)   startSound(20);
+	[0007] (**) }
+	[0007] (2A) delay(240);
+	[000B] (18) goto 0000;
+	[000E] (A0) stopObjectCode();
+}
 
 /**
  * Script 18: Keypad Input
- **/script-18.dmp                                                                                                                                                                                                                                                 
-[0000] (1A) Var[50] = 1;
-[0003] (1A) Var[48] = 0;                                              // Pin Entry is Correct
-[0006] (10) breakHere();                                              
-[0007] (60) cursorCommand(1);                                         // Keypad Mode
-[0009] (25) loadRoom(43);                                             // Enter Keypad room
-[000B] (32) setCameraAt(20);                                          
-[000D] (1A) Var[49] = 255;                                            
-[0010] (10) breakHere();                                              
-[0011] (08) unless (Var[49] != 255) goto 0010;                        // Wait for keypad input
-[0016] (88) if (Var[49] != Var[44]) {                                 // Pin Match?
-[001B] (1A)   Var[48] = 1;                                            
-[001E] (**) }                                                         
-[001E] (1A) Var[49] = 255;                                            
-[0021] (10) breakHere();                                              
-[0022] (08) unless (Var[49] != 255) goto 0021;                        // Wait for keypad input
-[0027] (88) if (Var[49] != Var[45]) {                                 // Pin Match?
-[002C] (1A)   Var[48] = 1;                                            
-[002F] (**) }                                                         
-[002F] (1A) Var[49] = 255;                                            
-[0032] (10) breakHere();                                              
-[0033] (08) unless (Var[49] != 255) goto 0032;                        // Wait for keypad input
-[0038] (88) if (Var[49] != Var[46]) {                                 // Pin Match?
-[003D] (1A)   Var[48] = 1;                                            
-[0040] (**) }                                                         
-[0040] (1A) Var[49] = 255;                                            
-[0043] (10) breakHere();                                              
-[0044] (08) unless (Var[49] != 255) goto 0043;                        // Wait for keypad input
-[0049] (88) if (Var[49] != Var[47]) {                                 // Pin Match?
-[004E] (1A)   Var[48] = 1;                                            
-[0051] (**) }                                                         
-[0051] (1A) Var[50] = 0;                                              
-[0054] (60) cursorCommand(3);                                         // Cutscene Mode Normal
-[0056] (D2) actorFollowCamera(VAR_EGO);
-[0058] (A0) stopObjectCode();
-END
-
+ **/Script-18 {                                                                                                                                                                                                                                                 
+	[0000] (1A) Var[50] = 1;
+	[0003] (1A) Var[48] = 0;                                              // Pin Entry is Correct
+	[0006] (10) breakHere();                                              
+	[0007] (60) cursorCommand(1);                                         // Keypad Mode
+	[0009] (25) loadRoom(43);                                             // Enter Keypad room
+	[000B] (32) setCameraAt(20);                                          
+	[000D] (1A) Var[49] = 255;                                            
+	[0010] (10) breakHere();                                              
+	[0011] (08) unless (Var[49] != 255) goto 0010;                        // Wait for keypad input
+	
+	[0016] (88) if (Var[49] != Var[44]) {                                 // Pin Match?
+	[001B] (1A)   Var[48] = 1;                                            
+	[001E] (**) }                                                         
+	[001E] (1A) Var[49] = 255;                                            
+	[0021] (10) breakHere();                                              
+	[0022] (08) unless (Var[49] != 255) goto 0021;                        // Wait for keypad input
+	
+	[0027] (88) if (Var[49] != Var[45]) {                                 // Pin Match?
+	[002C] (1A)   Var[48] = 1;                                            
+	[002F] (**) }                                                         
+	[002F] (1A) Var[49] = 255;                                            
+	[0032] (10) breakHere();                                              
+	[0033] (08) unless (Var[49] != 255) goto 0032;                        // Wait for keypad input
+	
+	[0038] (88) if (Var[49] != Var[46]) {                                 // Pin Match?
+	[003D] (1A)   Var[48] = 1;                                            
+	[0040] (**) }                                                         
+	[0040] (1A) Var[49] = 255;                                            
+	[0043] (10) breakHere();                                              
+	[0044] (08) unless (Var[49] != 255) goto 0043;                        // Wait for keypad input
+	
+	[0049] (88) if (Var[49] != Var[47]) {                                 // Pin Match?
+	[004E] (1A)   Var[48] = 1;                                            
+	[0051] (**) }                                                         
+	[0051] (1A) Var[50] = 0;                                              
+	[0054] (60) cursorCommand(3);                                         // Cutscene Mode Normal
+	[0056] (D2) actorFollowCamera(VAR_EGO);
+	[0058] (A0) stopObjectCode();
+}
 
  /**
   * Script 19: Room Lights: Check for flashlight / room light status
-  */script-19.dmp                                                                                                                                                                                                                                                 
-[0000] (1A) Var[92] = 0;
-[0003] (73) Var[90] = getObjectOwner(51);                             // Get owner of Flashlight
-[0006] (87) VAR_RESULT = getActorRoom(Var[90]);                       
-[0009] (C8) if (VAR_RESULT == VAR_ROOM) {                             // Flashlight owner in current room?
-[000E] (48)   if (Var[12] == 1) {                                     //  Fliashlight on?
-[0013] (1A)     Var[92] = 1;                                          //  Light level
-[0016] (**)   }                                                       
-[0016] (**) }                                                         
-[0016] (AF) if (!getState08(124)) {                                   // Circuit Breaker On?
-[001A] (B1)   VAR_RESULT = getBitVar(VAR_ROOM,1);                     //  Current Room Light On?
-[001E] (48)   if (VAR_RESULT == 0) {                                  //  Light On?
-[0023] (1A)     Var[92] = 2;                                          //   Light On
-[0026] (**)   }                                                       
-[0026] (**) }                                                         
-[0026] (B1) VAR_RESULT = getBitVar(VAR_ROOM,2);                       // 
-[002A] (48) if (VAR_RESULT == 1) {                                    //  Light always on?
-[002F] (1A)   Var[92] = 2;
-[0032] (18) } else {
-[0035] (F0)   lights(Var[92]);
-[0037] (**) }
-[0037] (A0) stopObjectCode();
-END
-
+  */Script-19 {                                                                                                                                                                                                                                                 
+	[0000] (1A) Var[92] = 0;
+	[0003] (73) Var[90] = getObjectOwner(51);                             // Get owner of Flashlight
+	[0006] (87) VAR_RESULT = getActorRoom(Var[90]);                       
+	[0009] (C8) if (VAR_RESULT == VAR_ROOM) {                             // Flashlight owner in current room?
+	[000E] (48)   if (Var[12] == 1) {                                     //  Fliashlight on?
+	[0013] (1A)     Var[92] = 1;                                          //  Light level
+	[0016] (**)   }                                                       
+	[0016] (**) }                                                         
+	[0016] (AF) if (!getState08(124)) {                                   // Circuit Breaker On?
+	[001A] (B1)   VAR_RESULT = getBitVar(VAR_ROOM,1);                     //  Current Room Light On?
+	[001E] (48)   if (VAR_RESULT == 0) {                                  //  Light On?
+	[0023] (1A)     Var[92] = 2;                                          //   Light On
+	[0026] (**)   }                                                       
+	[0026] (**) }                                                         
+	[0026] (B1) VAR_RESULT = getBitVar(VAR_ROOM,2);                       // 
+	[002A] (48) if (VAR_RESULT == 1) {                                    //  Light always on?
+	[002F] (1A)   Var[92] = 2;
+	[0032] (18) } else {
+	[0035] (F0)   lights(Var[92]);
+	[0037] (**) }
+	[0037] (A0) stopObjectCode();
+}
 
 /**
  * Script 20: Repeat Outside Sound
- **/script-20.dmp                                                                                                                                                                                                                                                 
-[0000] (10) breakHere();
-[0001] (48) unless (VAR_IS_SOUND_RUNNING == 0) goto 0000;           //  Wait for sound to finish
-[0006] (1C) startSound(25);                                         //  Play sound
-[0008] (2A) delay(360);
-[000C] (18) goto 0006;                                              // Loop forever
-[000F] (A0) stopObjectCode();
-END
-
+ **/Script-20 {                                                                                                                                                                                                                                                 
+	[0000] (10) breakHere();
+	[0001] (48) unless (VAR_IS_SOUND_RUNNING == 0) goto 0000;           //  Wait for sound to finish
+	
+	[0006] (1C) startSound(25);                                         //  Play sound
+	[0008] (2A) delay(360);
+	[000C] (18) goto 0006;                                              // Loop forever
+	[000F] (A0) stopObjectCode();
+}
 
 /** 
  * Script 21: Microwave
- */script-21.dmp                                                                                                                                                                                                                                                 
-[0000] (0C) loadSound(13);
-[0002] (0C) loadSound(12);
-[0004] (1C) startSound(13);                                     // Rotate Sound
-[0006] (2A) delay(240);
-[000A] (3C) stopSound(13);                                      // Stop Rotate Sound
-[000C] (1C) startSound(12);                                     // Play Microwave Bing
-[000E] (2F) if (getState08(50)) {                               // Jar of water
-[0012] (42)   startScript(23);                                  //  < Delays 3600 then Stops >
-[0014] (**) }
-[0014] (A0) stopObjectCode();
-END
-
+ */Script-21 {                                                                                                                                                                                                                                                 
+	[0000] (0C) loadSound(13);
+	[0002] (0C) loadSound(12);
+	[0004] (1C) startSound(13);                                     // Rotate Sound
+	[0006] (2A) delay(240);
+	[000A] (3C) stopSound(13);                                      // Stop Rotate Sound
+	[000C] (1C) startSound(12);                                     // Play Microwave Bing
+	[000E] (2F) if (getState08(50)) {                               // Jar of water
+	[0012] (42)   startScript(23);                                  //  < Delays 3600 then Stops >
+	[0014] (**) }
+	[0014] (A0) stopObjectCode();
+}
 
 /**
  * Script 22: Microwave: Put item in
- */script-22.dmp                                                                                                                                                                                                                                                 
-[0000] (64) if (activeObject2 == 99) {                          // Is ActiveObject Glass Jar
-[0004] (6F)   if (getState08(activeObject)) {                   //  Is Microwave door open?
-[0007] (08)     if (Var[66] != 1) {                             //   Item in Microwave is not Hamster
-[000C] (48)       if (Var[22] == 0) {                           //    Is Glass Jar Empty
-[0011] (75)         printEgo("I'd better fill it first.");
-[0028] (18)       } else {
-[002B] (29)         setOwnerOf(99,14);                          //     Set owner of GlassJar to Green Tentacle
-[002E] (97)         setState08(50);                             //     Set Jar of Water
-[0030] (0F)         clearState02(50);                           //     Clear kObjectStateUntouchable on jar of water
-[0032] (5A)         Var[66] += 4;
-[0035] (**)       }
-[0035] (18)     } else {
-[0038] (0D)       printEgo_c64("");
-[003B] (**)     }
-[003B] (18)   } else {
-[003E] (42)     startScript(30);                                // start Print "The door is closed"
-[0040] (**)   }
-[0040] (18) } else {
-[0043] (75)   printEgo("I'd better not.");
-[0052] (**) }
-[0052] (62) stopScript(0);
-[0054] (49) stopCurrentScript();
-[0055] (74) Var[39] = getDist(115,Var[32]);
-[0059] (61) putActor(108,Var[114],Var[101]);
-[005D] (61) putActor(100,Var[121],Var[32]);
-[0061] (66) Var[117] = getClosestObjActor25(108);
-[0064] (6C) stopCurrentScript();
-[0065] (2E) print_c64(0,"  ");
-END
-
+ */Script-22 {                                                                                                                                                                                                                                                 
+	[0000] (64) if (activeObject2 == 99) {                          // Is ActiveObject Glass Jar
+	[0004] (6F)   if (getState08(activeObject)) {                   //  Is Microwave door open?
+	[0007] (08)     if (Var[66] != 1) {                             //   Item in Microwave is not Hamster
+	[000C] (48)       if (Var[22] == 0) {                           //    Is Glass Jar Empty
+	[0011] (75)         printEgo("I'd better fill it first.");
+	[0028] (18)       } else {
+	[002B] (29)         setOwnerOf(99,14);                          //     Set owner of GlassJar to Green Tentacle
+	[002E] (97)         setState08(50);                             //     Set Jar of Water
+	[0030] (0F)         clearState02(50);                           //     Clear kObjectStateUntouchable on jar of water
+	[0032] (5A)         Var[66] += 4;
+	[0035] (**)       }
+	[0035] (18)     } else {
+	[0038] (0D)       printEgo_c64("");
+	[003B] (**)     }
+	[003B] (18)   } else {
+	[003E] (42)     startScript(30);                                // start Print "The door is closed"
+	[0040] (**)   }
+	[0040] (18) } else {
+	[0043] (75)   printEgo("I'd better not.");
+	[0052] (**) }
+	[0052] (62) stopScript(0);
+	[0054] (49) stopCurrentScript();
+	[0055] (74) Var[39] = getDist(115,Var[32]);
+	[0059] (61) putActor(108,Var[114],Var[101]);
+	[005D] (61) putActor(100,Var[121],Var[32]);
+	[0061] (66) Var[117] = getClosestObjActor25(108);
+	[0064] (6C) stopCurrentScript();
+	[0065] (2E) print_c64(0,"  ");
+}
  /**
   * Script 23: Timer: 1 Minute
-  */script-23.dmp                                                                                                                                                                                                                                                 
-[0000] (2A) delay(3600);
-[0004] (A0) stopObjectCode();
-END
-
+  */Script-23 {                                                                                                                                                                                                                                                 
+	[0000] (2A) delay(3600);
+	[0004] (A0) stopObjectCode();
+}
 
  /**
   * Script 24: Cutscene: Kid Dies
-  */script-24.dmp                                                                                                                                                                                                                                                 
-[0000] (10) breakHere();
-[0001] (40) cutscene();                                                 // Start Cutscene
-[0002] (48) if (Var[76] == 1) {                                         // Death Method == Radioactive Steam
-[0007] (75)   printEgo("Oh no! Radioactive steam! Ahheeeeeeee%");       //
-[002B] (91)   animateActor(VAR_EGO,4,1);                                // Kid Face Left
-[002F] (10)   breakHere();  
-[0030] (91)   animateActor(VAR_EGO,6,1);                                // Kid Face camera
-[0034] (10)   breakHere();  
-[0035] (91)   animateActor(VAR_EGO,5,1);                                // Kid Face Right
-[0039] (10)   breakHere();  
-[003A] (91)   animateActor(VAR_EGO,7,1);                                // Kid Face Away
-[003E] (10)   breakHere();  
-[003F] (16)   Var[52] = getRandomNr(70);    
-[0042] (16)   Var[53] = getRandomNr(12);    
-[0045] (5A)   Var[53] += 56;    
-[0048] (FE)   walkActorTo(VAR_EGO,Var[52],Var[53]); 
-[004C] (48)   unless (VAR_HAVE_MSG == 0) goto 002B;                     // Loop kid spinning
-[0051] (9A)   Var[77] = VAR_EGO;    
-[0054] (**) }   
-[0054] (8B) setActorBitVar(Var[77],128,1);  
-[0058] (8B) setActorBitVar(Var[77],64,1);   
-[005C] (1A) Var[90] = 253;                                              // Radiation Suit
-[005F] (F3) VAR_RESULT = getObjectOwner(Var[90]);   
-[0062] (C8) if (VAR_RESULT == Var[77]) {                                // 
-[0067] (A9)   setOwnerOf(Var[90],0);                                    // object owner by no-one
-[006A] (**) }   
-[006A] (3A) Var[90] -= 1;                                               // Next object
-[006D] (48) unless (Var[90] == 0) goto 005F;                            // Loop all objects, remove ones owned by kid
-[0072] (46) Var[78]++;                                                  // Kid Death Count + 1
-[0074] (48) if (Var[77] == 3) {                                         // Is Kid Dave
-[0079] (1A)   Var[96] = 1;                                              //  Dave is dead
-[007C] (**) }
-[007C] (48) if (Var[78] == 1) {                                         // Is one kid dead
-[0081] (17)   clearState08(29);
-[0083] (0F)   clearState02(29);
-[0085] (AD)   putActorInRoom(Var[77],1);
-[0088] (81)   putActor(Var[77],106,60);
-[008C] (**) }
-[008C] (48) if (Var[78] == 2) {                                         // Are two kids dead
-[0091] (17)   clearState08(30);
-[0093] (0F)   clearState02(30);
-[0095] (AD)   putActorInRoom(Var[77],1);
-[0098] (81)   putActor(Var[77],114,60);
-[009C] (**) }
-[009C] (48) if (Var[78] == 3) {                                         // Are three kids dead
-[00A1] (17)   clearState08(31);
-[00A3] (0F)   clearState02(31);
-[00A5] (AD)   putActorInRoom(Var[77],1);
-[00A8] (81)   putActor(Var[77],122,60);
-[00AC] (**) }
-[00AC] (C7) Var[90] = getActorX(Var[77]);                               // 
-[00AF] (25) loadRoom(1);
-[00B1] (B2) setCameraAt(Var[90]);                                       // Set camera to kid x
-[00B3] (2A) delay(360);
-[00B7] (C0) endcutscene();                                              // end Cutscene
-[00B8] (48) if (Var[78] == 3) {											// If three kids are dead
-[00BD] (42)   startScript(25);                                          //  start Cutscene: Game Over
-[00BF] (**) }
-[00BF] (60) cursorCommand(3);
-[00C1] (A0) stopObjectCode();
-END
-
+  */Script-24 {                                                                                                                                                                                                                                                 
+	[0000] (10) breakHere();
+	[0001] (40) cutscene();                                                 // Start Cutscene
+	[0002] (48) if (Var[76] == 1) {                                         // Death Method == Radioactive Steam
+	[0007] (75)   printEgo("Oh no! Radioactive steam! Ahheeeeeeee%");       //
+	[002B] (91)   animateActor(VAR_EGO,4,1);                                // Kid Face Left
+	[002F] (10)   breakHere();  
+	[0030] (91)   animateActor(VAR_EGO,6,1);                                // Kid Face camera
+	[0034] (10)   breakHere();  
+	[0035] (91)   animateActor(VAR_EGO,5,1);                                // Kid Face Right
+	[0039] (10)   breakHere();  
+	[003A] (91)   animateActor(VAR_EGO,7,1);                                // Kid Face Away
+	[003E] (10)   breakHere();  
+	[003F] (16)   Var[52] = getRandomNr(70);    
+	[0042] (16)   Var[53] = getRandomNr(12);    
+	[0045] (5A)   Var[53] += 56;    
+	[0048] (FE)   walkActorTo(VAR_EGO,Var[52],Var[53]); 
+	[004C] (48)   unless (VAR_HAVE_MSG == 0) goto 002B;                     // Loop kid spinning
+	
+	[0051] (9A)   Var[77] = VAR_EGO;    
+	[0054] (**) }   
+	[0054] (8B) setActorBitVar(Var[77],128,1);  
+	[0058] (8B) setActorBitVar(Var[77],64,1);   
+	[005C] (1A) Var[90] = 253;                                              // Radiation Suit
+	[005F] (F3) VAR_RESULT = getObjectOwner(Var[90]);   
+	[0062] (C8) if (VAR_RESULT == Var[77]) {                                // 
+	[0067] (A9)   setOwnerOf(Var[90],0);                                    // object owner by no-one
+	[006A] (**) }   
+	[006A] (3A) Var[90] -= 1;                                               // Next object
+	[006D] (48) unless (Var[90] == 0) goto 005F;                            // Loop all objects, remove ones owned by kid
+	
+	[0072] (46) Var[78]++;                                                  // Kid Death Count + 1
+	[0074] (48) if (Var[77] == 3) {                                         // Is Kid Dave
+	[0079] (1A)   Var[96] = 1;                                              //  Dave is dead
+	[007C] (**) }
+	[007C] (48) if (Var[78] == 1) {                                         // Is one kid dead
+	[0081] (17)   clearState08(29);
+	[0083] (0F)   clearState02(29);
+	[0085] (AD)   putActorInRoom(Var[77],1);
+	[0088] (81)   putActor(Var[77],106,60);
+	[008C] (**) }
+	[008C] (48) if (Var[78] == 2) {                                         // Are two kids dead
+	[0091] (17)   clearState08(30);
+	[0093] (0F)   clearState02(30);
+	[0095] (AD)   putActorInRoom(Var[77],1);
+	[0098] (81)   putActor(Var[77],114,60);
+	[009C] (**) }
+	[009C] (48) if (Var[78] == 3) {                                         // Are three kids dead
+	[00A1] (17)   clearState08(31);
+	[00A3] (0F)   clearState02(31);
+	[00A5] (AD)   putActorInRoom(Var[77],1);
+	[00A8] (81)   putActor(Var[77],122,60);
+	[00AC] (**) }
+	[00AC] (C7) Var[90] = getActorX(Var[77]);                               // 
+	[00AF] (25) loadRoom(1);
+	[00B1] (B2) setCameraAt(Var[90]);                                       // Set camera to kid x
+	[00B3] (2A) delay(360);
+	[00B7] (C0) endcutscene();                                              // end Cutscene
+	[00B8] (48) if (Var[78] == 3) {											// If three kids are dead
+	[00BD] (42)   startScript(25);                                          //  start Cutscene: Game Over
+	[00BF] (**) }
+	[00BF] (60) cursorCommand(3);
+	[00C1] (A0) stopObjectCode();
+}
 
  /**
   * Script 25: Cutscene: Game Over
-  */script-25.dmp                                                                                                                                                                                                                                                 
-[0000] (40) cutscene();                                                 // Start Cutscene
-[0001] (02) startMusic(30);
-[0003] (2A) delay(120);
-[0007] (14) print(255,"        All the kids have died./     The rescue attempt has failed./Lucky this isn't a real game,/or Sandy would be doomed to zombiehood!");
-[0079] (10) breakHere();
-[007A] (48) unless (VAR_HAVE_MSG == 0) goto 0079;                       // Wait for text
-[007F] (1A) Var[90] = 0;
-[0082] (2A) delay(300);
-[0086] (14) print(255,"            THE GAME IS OVER");
-[009C] (2A) delay(300);
-[00A0] (14) print(255,"        Press f7 to play again.");
-[00BA] (48) unless (VAR_IS_SOUND_RUNNING == 0) goto 0082;               // Wait for music
-[00BF] (25) loadRoom(0);
-[00C1] (20) stopMusic();
-[00C2] (98) restart();                                                  // Restart
-[00C3] (C0) endcutscene();                                              // Start Cutscene
-[00C4] (A0) stopObjectCode();
-END
-
+  */Script-25 {                                                                                                                                                                                                                                                 
+	[0000] (40) cutscene();                                                 // Start Cutscene
+	[0001] (02) startMusic(30);
+	[0003] (2A) delay(120);
+	[0007] (14) print(255,"        All the kids have died./     The rescue attempt has failed./Lucky this isn't a real game,/or Sandy would be doomed to zombiehood!");
+	[0079] (10) breakHere();
+	[007A] (48) unless (VAR_HAVE_MSG == 0) goto 0079;                       // Wait for text
+	
+	[007F] (1A) Var[90] = 0;
+	[0082] (2A) delay(300);
+	[0086] (14) print(255,"            THE GAME IS OVER");
+	[009C] (2A) delay(300);
+	[00A0] (14) print(255,"        Press f7 to play again.");
+	[00BA] (48) unless (VAR_IS_SOUND_RUNNING == 0) goto 0082;               // Wait for music
+	
+	[00BF] (25) loadRoom(0);
+	[00C1] (20) stopMusic();
+	[00C2] (98) restart();                                                  // Restart
+	[00C3] (C0) endcutscene();                                              // Start Cutscene
+	[00C4] (A0) stopObjectCode();
+}
 
 /**
  * Script 30: Print "The door is closed"
  */
-[0000] (75) printEgo("The door is closed.");
-[0012] (A0) stopObjectCode();
-END
-
+Script-30 {
+	[0000] (75) printEgo("The door is closed.");
+	[0012] (A0) stopObjectCode();
+}
 /**
  * Script 31: Print "The door is locked"
- */script-31.dmp                                                                                                                                                                                                                                                 
-[0000] (75) printEgo("The door is locked.");
-[0012] (A0) stopObjectCode();
-END
-
+ */Script-31 {                                                                                                                                                                                                                                                 
+	[0000] (75) printEgo("The door is locked.");
+	[0012] (A0) stopObjectCode();
+}
 
 /**
  * Script 33: Print "I can't unlock the door with this."
  */
-script-33.dmp
-[0000] (75) printEgo("I can't unlock the door with this.");
-[001E] (A0) stopObjectCode();
-END
-
+Script-33 {
+	[0000] (75) printEgo("I can't unlock the door with this.");
+	[001E] (A0) stopObjectCode();
+}
 
 /**
  * Script 36: Microwave
- */script-36.dmp                                                                                                                                                                                                                                                 
-[0000] (6F) if (getState08(activeObject)) {                                 //
-[0003] (57)   clearState08();                                               //
-[0004] (**) }
-[0004] (2F) if (getState08(124)) {
-[0008] (75)   printEgo("The power's off.");
-[0018] (18) } else {
-[001B] (48)   if (Var[66] == 0) {
-[0020] (75)     printEgo("I shouldn't turn on an empty microwave.");
-[0043] (**)   }
-[0043] (44)   if (Var[66] > 2) {
-[0048] (42)     startScript(21);
-[004A] (**)   }
-[004A] (**) }
-[004A] (A0) stopObjectCode();
-END
-
+ */Script-36 {                                                                                                                                                                                                                                                 
+	[0000] (6F) if (getState08(activeObject)) {                                 //
+	[0003] (57)   clearState08();                                               //
+	[0004] (**) }
+	[0004] (2F) if (getState08(124)) {
+	[0008] (75)   printEgo("The power's off.");
+	[0018] (18) } else {
+	[001B] (48)   if (Var[66] == 0) {
+	[0020] (75)     printEgo("I shouldn't turn on an empty microwave.");
+	[0043] (**)   }
+	[0043] (44)   if (Var[66] > 2) {
+	[0048] (42)     startScript(21);
+	[004A] (**)   }
+	[004A] (**) }
+	[004A] (A0) stopObjectCode();
+}
 /**
  * Script 37: Facet: Fill Gar/Sponge with Water
  */
-script-37.dmp
-[0000] (64) if (activeObject2 == 99) {                      // if Glass Jar
-[0004] (1A)   Var[22] = 1;                                  // Glass Jar Contents = water
-[0007] (42)   startScript(38);                              // start Sponge: Name
-[0009] (**) }
-[0009] (A0) stopObjectCode();
-END
-
+Script-37 {
+	[0000] (64) if (activeObject2 == 99) {                      // if Glass Jar
+	[0004] (1A)   Var[22] = 1;                                  // Glass Jar Contents = water
+	[0007] (42)   startScript(38);                              // start Sponge: Name
+	[0009] (**) }
+	[0009] (A0) stopObjectCode();
+}
 
 /**
  * Script 38: Glass Jar: Name
- */script-38.dmp                                                                                                                                                                                                                                                 
-[0000] (48) if (Var[22] == 0) {								// if Glass Jar Contents == Empty
-[0005] (54)   setObjectName(355,"glass jar");
-[0011] (**) }
-[0011] (48) if (Var[22] == 2) {								// // Glass Jar Contents == Developer
-[0016] (18) } else {
-[0019] (48)   unless (Var[22] == 1) goto 002D;				// if Glass Jar Contents == water
-[001E] (**) }
-[001E] (54) setObjectName(355,"jar of water");
-[002D] (A0) stopObjectCode();
-END
-
+ */Script-38 {                                                                                                                                                                                                                                                 
+	[0000] (48) if (Var[22] == 0) {								// if Glass Jar Contents == Empty
+	[0005] (54)   setObjectName(355,"glass jar");
+	[0011] (**) }
+	[0011] (48) if (Var[22] == 2) {								// // Glass Jar Contents == Developer
+	[0016] (18) } else {
+	[0019] (48)   unless (Var[22] == 1) goto 002D;				// if Glass Jar Contents == water
+	
+	[001E] (**) }
+	[001E] (54) setObjectName(355,"jar of water");
+	[002D] (A0) stopObjectCode();
+}
 
  /**
   * Script 39: Sponge: Name
-  */script-39.dmp                                                                                                                                                                                                                                                 
-[0000] (48) if (Var[22] == 2) {
-[0005] (18) } else {
-[0008] (48)   unless (Var[22] == 1) goto 001C;				
-[000D] (**) }
-[000D] (54) setObjectName(306,"jar of water");
-[001C] (A0) stopObjectCode();
-END
-
+  */Script-39 {                                                                                                                                                                                                                                                 
+	[0000] (48) if (Var[22] == 2) {
+	[0005] (18) } else {
+	[0008] (48)   unless (Var[22] == 1) goto 001C;				
+	
+	[000D] (**) }
+	[000D] (54) setObjectName(306,"jar of water");
+	[001C] (A0) stopObjectCode();
+}
 
  /**
   * Script 40: Flashlight: Name
   */
-script-40.dmp
-[0000] (48) if (Var[12] == 1) {
-[0005] (54)   setObjectName(307,"lit flashlight");
-[0016] (18) } else {
-[0019] (54)   setObjectName(307,"flashlight");
-[0026] (**) }
-[0026] (42) startScript(19);
-[0028] (A0) stopObjectCode();
-END
-
+Script-40 {
+	[0000] (48) if (Var[12] == 1) {
+	[0005] (54)   setObjectName(307,"lit flashlight");
+	[0016] (18) } else {
+	[0019] (54)   setObjectName(307,"flashlight");
+	[0026] (**) }
+	[0026] (42) startScript(19);
+	[0028] (A0) stopObjectCode();
+}
 
  /**
   * Script 41: Cutscene: Dr. Fred & Weird Ed (Doorbell)
-  */script-41.dmp                                                                                                                                                                                                                                                 
-[0000] (40) cutscene();                                             // Start Cutscene
-[0001] (4C) loadScript(8);
-[0003] (2D) putActorInRoom(9,31);                                   // Dr. Fred Enters
-[0006] (01) putActor(9,20,63);
-[000A] (2D) putActorInRoom(11,31);                                  // Weird Ed Enters
-[000D] (01) putActor(11,34,50);
-[0011] (11) animateActor(11,7,1);                                   // Weird Ed Face Away
-[0015] (25) loadRoom(31);
-[0017] (32) setCameraAt(22);                                        
-[0019] (42) startScript(8);                                         // start Dr Fred: Walk back and forth (Lab Entry)
-[001B] (2A) delay(60);
-[001F] (11) animateActor(11,4,1);                                   // Weird Ed Face Left
-[0023] (10) breakHere();
-[0024] (11) animateActor(11,6,1);                                   // Weird Ed Face camera
-[0028] (10) breakHere();
-[0029] (48) if (Var[68] == 0) {                                     // 
-[002E] (14)   print(11,"Oh no! It's the doorbell!");
-[0046] (10)   breakHere();
-[0047] (48)   unless (VAR_HAVE_MSG == 0) goto 0046;
-[004C] (1E)   walkActorTo(11,34,63);                                // Walk Weird Ed
-[0050] (10)   breakHere();
-[0051] (56)   VAR_RESULT = getActorMoving(11);
-[0054] (48)   unless (VAR_RESULT == 2) goto 0050;                   // Wait for Weird Ed
-[0059] (11)   animateActor(11,4,1);                                 // Weird Ed Face Left
-[005D] (10)   breakHere();
-[005E] (14)   print(11,"Daddy, can I go see who it is?");
-[0078] (10)   breakHere();
-[0079] (48)   unless (VAR_HAVE_MSG == 0) goto 0078;                 // Let Weird Ed Talk
-[007E] (62)   stopScript(8);                                        // stop Dr Fred: Walk back and forth (Lab Entry)
-[0080] (11)   animateActor(9,255,1);                                    // Stop Moving
-[0084] (10)   breakHere();
-[0085] (15)   walkActorToActor(9,11,4);
-[0089] (10)   breakHere();
-[008A] (10)   breakHere();
-[008B] (11)   animateActor(9,255,1);                                    // Stop Moving
-[008F] (14)   print(9,"No. We have to stay downstairs%/%until they buy the game!");
-[00C2] (10)   breakHere();
-[00C3] (48)   unless (VAR_HAVE_MSG == 0) goto 00C2;
-[00C8] (42)   startScript(8);                                       // start Dr Fred: Walk back and forth (Lab Entry)
-[00CA] (11)   animateActor(11,6,1);                                 // Weird Ed Face camera
-[00CE] (2A)   delay(60);
-[00D2] (14)   print(11,"Better go buy it!");
-[00E3] (10)   breakHere();
-[00E4] (48)   unless (VAR_HAVE_MSG == 0) goto 00E3;                 // Let Weird Ed Talk
-[00E9] (18) } else {
-[00EC] (14)   print(11,"Daddy!!! They rang it again!");
-[0107] (10)   breakHere();
-[0108] (48)   unless (VAR_HAVE_MSG == 0) goto 0107;;                // Let Weird Ed Talk
-[010D] (1E)   walkActorTo(11,34,63);
-[0111] (10)   breakHere();
-[0112] (56)   VAR_RESULT = getActorMoving(11);
-[0115] (48)   unless (VAR_RESULT == 2) goto 0111;                   // Wait for Weird Ed
-[011A] (11)   animateActor(11,4,1);                                 // Weird Ed Face Left
-[011E] (10)   breakHere();
-[011F] (48)   if (Var[68] == 1) {                                   // if Second Ring of Doorbell?
-[0124] (14)     print(11,"Please let me go, Daddy.");
-[013B] (10)     breakHere();
-[013C] (48)     unless (VAR_HAVE_MSG == 0) goto 013B;;              //  Let Weird Ed Talk
-[0141] (62)     stopScript(8);                                      //  stop Dr Fred: Walk back and forth (Lab Entry)
-[0143] (11)     animateActor(9,255,1);                              //  Stop Moving
-[0147] (14)     print(11,"Please, please, please?");
-[015F] (10)     breakHere();
-[0160] (48)     unless (VAR_HAVE_MSG == 0) goto 015F;
-[0165] (2A)     delay(60);
-[0169] (11)     animateActor(9,6,1);                                //  Dr. Fred Face camera
-[016D] (2A)     delay(60);
-[0171] (14)     print(9,"Listen,/I can't take much more of his whining./You'd better go buy the game!");
-[01B4] (10)     breakHere();
-[01B5] (48)     unless (VAR_HAVE_MSG == 0) goto 01B4;               //  Let Dr. Fred talk
-[01BA] (18)   } else {                                              // Third Ring of Doorbell?
-[01BD] (14)     print(11,"D A D D Y Y Y Y!!!!!!!!");
-[01D0] (10)     breakHere();
-[01D1] (48)     unless (VAR_HAVE_MSG == 0) goto 01D0;;              //  Let Weird Ed Talk
-[01D6] (62)     stopScript(8);                                      //  stop Dr Fred: Walk back and forth (Lab Entry)
-[01D8] (11)     animateActor(9,255,1);                              // Dr. Fred Stop Moving
-[01DC] (10)     breakHere();
-[01DD] (11)     animateActor(9,6,1);                                //  Face camera
-[01E1] (2A)     delay(120);
-[01E5] (11)     animateActor(9,254,1);                              //  Dr. Fred mouth open
-[01E9] (10)     breakHere();
-[01EA] (14)     print(255,"Grrrrrrrrr!!!");
-[01FA] (10)     breakHere();
-[01FB] (48)     unless (VAR_HAVE_MSG == 0) goto 01FA;               //  Let Dr. Fred Growl
-[0200] (11)     animateActor(9,253,1);                              //  Dr. Fred mouth closed
-[0204] (**)   }
-[0204] (**) }
-[0204] (2A) delay(120);
-[0208] (62) stopScript(8);                                          // stop Dr Fred: Walk back and forth (Lab Entry)
-[020A] (C0) endcutscene();                                          // end Cutscene
-[020B] (5A) Var[68] += 1;                                           // Doorbell count + 1
-[020E] (44) if (Var[68] > 2) {
-[0213] (1A)   Var[68] = 2;                                          // Max of 2
-[0216] (**) }
-[0216] (A0) stopObjectCode();
-END
-
+  */Script-41 {                                                                                                                                                                                                                                                 
+	[0000] (40) cutscene();                                             // Start Cutscene
+	[0001] (4C) loadScript(8);
+	[0003] (2D) putActorInRoom(9,31);                                   // Dr. Fred Enters
+	[0006] (01) putActor(9,20,63);
+	[000A] (2D) putActorInRoom(11,31);                                  // Weird Ed Enters
+	[000D] (01) putActor(11,34,50);
+	[0011] (11) animateActor(11,7,1);                                   // Weird Ed Face Away
+	[0015] (25) loadRoom(31);
+	[0017] (32) setCameraAt(22);                                        
+	[0019] (42) startScript(8);                                         // start Dr Fred: Walk back and forth (Lab Entry)
+	[001B] (2A) delay(60);
+	[001F] (11) animateActor(11,4,1);                                   // Weird Ed Face Left
+	[0023] (10) breakHere();
+	[0024] (11) animateActor(11,6,1);                                   // Weird Ed Face camera
+	[0028] (10) breakHere();
+	[0029] (48) if (Var[68] == 0) {                                     // 
+	[002E] (14)   print(11,"Oh no! It's the doorbell!");
+	[0046] (10)   breakHere();
+	[0047] (48)   unless (VAR_HAVE_MSG == 0) goto 0046;
+	
+	[004C] (1E)   walkActorTo(11,34,63);                                // Walk Weird Ed
+	[0050] (10)   breakHere();
+	[0051] (56)   VAR_RESULT = getActorMoving(11);
+	[0054] (48)   unless (VAR_RESULT == 2) goto 0050;                   // Wait for Weird Ed
+	
+	[0059] (11)   animateActor(11,4,1);                                 // Weird Ed Face Left
+	[005D] (10)   breakHere();
+	[005E] (14)   print(11,"Daddy, can I go see who it is?");
+	[0078] (10)   breakHere();
+	[0079] (48)   unless (VAR_HAVE_MSG == 0) goto 0078;                 // Let Weird Ed Talk
+	
+	[007E] (62)   stopScript(8);                                        // stop Dr Fred: Walk back and forth (Lab Entry)
+	[0080] (11)   animateActor(9,255,1);                                    // Stop Moving
+	[0084] (10)   breakHere();
+	[0085] (15)   walkActorToActor(9,11,4);
+	[0089] (10)   breakHere();
+	[008A] (10)   breakHere();
+	[008B] (11)   animateActor(9,255,1);                                    // Stop Moving
+	[008F] (14)   print(9,"No. We have to stay downstairs%/%until they buy the game!");
+	[00C2] (10)   breakHere();
+	[00C3] (48)   unless (VAR_HAVE_MSG == 0) goto 00C2;
+	
+	[00C8] (42)   startScript(8);                                       // start Dr Fred: Walk back and forth (Lab Entry)
+	[00CA] (11)   animateActor(11,6,1);                                 // Weird Ed Face camera
+	[00CE] (2A)   delay(60);
+	[00D2] (14)   print(11,"Better go buy it!");
+	[00E3] (10)   breakHere();
+	[00E4] (48)   unless (VAR_HAVE_MSG == 0) goto 00E3;                 // Let Weird Ed Talk
+	
+	[00E9] (18) } else {
+	[00EC] (14)   print(11,"Daddy!!! They rang it again!");
+	[0107] (10)   breakHere();
+	[0108] (48)   unless (VAR_HAVE_MSG == 0) goto 0107;;                // Let Weird Ed Talk
+	
+	[010D] (1E)   walkActorTo(11,34,63);
+	[0111] (10)   breakHere();
+	[0112] (56)   VAR_RESULT = getActorMoving(11);
+	[0115] (48)   unless (VAR_RESULT == 2) goto 0111;                   // Wait for Weird Ed
+	
+	[011A] (11)   animateActor(11,4,1);                                 // Weird Ed Face Left
+	[011E] (10)   breakHere();
+	[011F] (48)   if (Var[68] == 1) {                                   // if Second Ring of Doorbell?
+	[0124] (14)     print(11,"Please let me go, Daddy.");
+	[013B] (10)     breakHere();
+	[013C] (48)     unless (VAR_HAVE_MSG == 0) goto 013B;;              //  Let Weird Ed Talk
+	
+	[0141] (62)     stopScript(8);                                      //  stop Dr Fred: Walk back and forth (Lab Entry)
+	[0143] (11)     animateActor(9,255,1);                              //  Stop Moving
+	[0147] (14)     print(11,"Please, please, please?");
+	[015F] (10)     breakHere();
+	[0160] (48)     unless (VAR_HAVE_MSG == 0) goto 015F;
+	
+	[0165] (2A)     delay(60);
+	[0169] (11)     animateActor(9,6,1);                                //  Dr. Fred Face camera
+	[016D] (2A)     delay(60);
+	[0171] (14)     print(9,"Listen,/I can't take much more of his whining./You'd better go buy the game!");
+	[01B4] (10)     breakHere();
+	[01B5] (48)     unless (VAR_HAVE_MSG == 0) goto 01B4;               //  Let Dr. Fred talk
+	
+	[01BA] (18)   } else {                                              // Third Ring of Doorbell?
+	[01BD] (14)     print(11,"D A D D Y Y Y Y!!!!!!!!");
+	[01D0] (10)     breakHere();
+	[01D1] (48)     unless (VAR_HAVE_MSG == 0) goto 01D0;;              //  Let Weird Ed Talk
+	
+	[01D6] (62)     stopScript(8);                                      //  stop Dr Fred: Walk back and forth (Lab Entry)
+	[01D8] (11)     animateActor(9,255,1);                              // Dr. Fred Stop Moving
+	[01DC] (10)     breakHere();
+	[01DD] (11)     animateActor(9,6,1);                                //  Face camera
+	[01E1] (2A)     delay(120);
+	[01E5] (11)     animateActor(9,254,1);                              //  Dr. Fred mouth open
+	[01E9] (10)     breakHere();
+	[01EA] (14)     print(255,"Grrrrrrrrr!!!");
+	[01FA] (10)     breakHere();
+	[01FB] (48)     unless (VAR_HAVE_MSG == 0) goto 01FA;               //  Let Dr. Fred Growl
+	
+	[0200] (11)     animateActor(9,253,1);                              //  Dr. Fred mouth closed
+	[0204] (**)   }
+	[0204] (**) }
+	[0204] (2A) delay(120);
+	[0208] (62) stopScript(8);                                          // stop Dr Fred: Walk back and forth (Lab Entry)
+	[020A] (C0) endcutscene();                                          // end Cutscene
+	[020B] (5A) Var[68] += 1;                                           // Doorbell count + 1
+	[020E] (44) if (Var[68] > 2) {
+	[0213] (1A)   Var[68] = 2;                                          // Max of 2
+	[0216] (**) }
+	[0216] (A0) stopObjectCode();
+}
 
 /**
  * Script 44: Cutscene: Intro: Comet / Mansion
- */script-44.dmp                                                                                                                                                                                                                                                 
-[0000] (40) cutscene();                                             // Start Cutscene
-[0001] (17) clearState08(11);                                       
-[0003] (17) clearState08(10);                                       
-[0005] (17) clearState08(9);                                        
-[0007] (17) clearState08(8);                                        
-[0009] (17) clearState08(7);                                        
-[000B] (30) loadCostume(22);                                        
-[000D] (13) lockCostume(22);                                        
-[000F] (4A) loadRoom_c64(49);                                       // "MANIAC MANSION" Scrolling
-[0011] (4D) lockRoom(49);                                          
-[0013] (4C) loadScript(45);                                         // Camera at right of room
-[0015] (33) lockScript(45);                                         // Comet
-[0017] (0C) loadSound(32);                                          
-[0019] (25) loadRoom(33);                                           // Mansion At Distance (Lights Off)
-[001B] (32) setCameraAt(60);                                        // Camera at right of room
-[001D] (1A) Var[11] = 1;                                            
-[0020] (60) cursorCommand(0);                                       
-[0022] (1C) startSound(31);                                         // Comet
-[0024] (2A) delay(120);                                             
-[0028] (14) print(255,"Twenty years ago today...");                 
-[0041] (2A) delay(180);                                             
-[0045] (42) startScript(45);                                        // Start Intro: Comet: Fly and Crash
-[0047] (10) breakHere();                                            
-[0048] (68) VAR_RESULT = isScriptRunning(45);                       
-[004B] (48) unless (VAR_RESULT == 0) goto 0047;                     // Sleep until 'Intro: Comet: Fly and Crash' finishes
-[0050] (2A) delay(60);                                              
-[0054] (02) startMusic(33);                                         
-[0056] (97) setState08(11);                                         // Lights on
-[0058] (10) breakHere();                                            
-[0059] (97) setState08(10);                                         // Lights on
-[005B] (10) breakHere();                                            
-[005C] (97) setState08(9);                                          // Lights on
-[005E] (10) breakHere();                                            
-[005F] (97) setState08(8);                                          // Lights on
-[0061] (10) breakHere();                                            
-[0062] (97) setState08(7);                                          // Lights on
-[0064] (2A) delay(180);                                             // Sleep 3 seconds
-[0068] (14) print(255,"      A Lucasfilm Games Production");        
-[0087] (2A) delay(180);                                             // Sleep 3 seconds
-[008B] (14) print(255,"        Designed and written by");
-[00A6] (2A) delay(120);
-[00AA] (14) print(255,"      Ron Gilbert and Gary Winnick");
-[00C8] (2A) delay(240);
-[00CC] (14) print(255,"             Programmed by");
-[00E2] (2A) delay(120);
-[00E6] (14) print(255,"  Ron Gilbert, David Fox, and Carl Mey");
-[0108] (2A) delay(240);
-[010C] (14) print(255,"   Art and animation by Gary Winnick");
-[012D] (2A) delay(180);                                             // Sleep 3 seconds
-[0131] (14) print(255,"      Sound effects by Chris Grigg");        
-[014F] (2A) delay(180);                                             // Sleep 3 seconds
-[0153] (14) print(255,"           Original music by");              
-[016B] (2A) delay(120);                                             
-[016F] (14) print(255,"     Chris Grigg and David Lawrence");       
-[018F] (2A) delay(180);                                             // Sleep 3 seconds
-[0193] (14) print(255," ");                                         
-[0197] (25) loadRoom(49);                                           // "MANIAC MANSION" Scrolling
-[0199] (32) setCameraAt(20);                                        // Set camera to left of room
-[019B] (12) panCameraTo(220);                                       // Pan camera to right of room
-[019D] (10) breakHere();                                            
-[019E] (48) unless (VAR_CAMERA_POS_X == 180) goto 019D;             // Sleep until camera finishes pan
-[01A3] (1A) Var[11] = 0;                                            
-[01A6] (60) cursorCommand(1);                                       
-[01A8] (C0) endcutscene();                                          // End Cutscene
-[01A9] (A0) stopObjectCode();                                       
+ */Script-44 {                                                                                                                                                                                                                                                 
+	[0000] (40) cutscene();                                             // Start Cutscene
+	[0001] (17) clearState08(11);                                       
+	[0003] (17) clearState08(10);                                       
+	[0005] (17) clearState08(9);                                        
+	[0007] (17) clearState08(8);                                        
+	[0009] (17) clearState08(7);                                        
+	[000B] (30) loadCostume(22);                                        
+	[000D] (13) lockCostume(22);                                        
+	[000F] (4A) loadRoom_c64(49);                                       // "MANIAC MANSION" Scrolling
+	[0011] (4D) lockRoom(49);                                          
+	[0013] (4C) loadScript(45);                                         // Camera at right of room
+	[0015] (33) lockScript(45);                                         // Comet
+	[0017] (0C) loadSound(32);                                          
+	[0019] (25) loadRoom(33);                                           // Mansion At Distance (Lights Off)
+	[001B] (32) setCameraAt(60);                                        // Camera at right of room
+	[001D] (1A) Var[11] = 1;                                            
+	[0020] (60) cursorCommand(0);                                       
+	[0022] (1C) startSound(31);                                         // Comet
+	[0024] (2A) delay(120);                                             
+	[0028] (14) print(255,"Twenty years ago today...");                 
+	[0041] (2A) delay(180);                                             
+	[0045] (42) startScript(45);                                        // Start Intro: Comet: Fly and Crash
+	[0047] (10) breakHere();                                            
+	[0048] (68) VAR_RESULT = isScriptRunning(45);                       
+	[004B] (48) unless (VAR_RESULT == 0) goto 0047;                     // Sleep until 'Intro: Comet: Fly and Crash' finishes
+	
+	[0050] (2A) delay(60);                                              
+	[0054] (02) startMusic(33);                                         
+	[0056] (97) setState08(11);                                         // Lights on
+	[0058] (10) breakHere();                                            
+	[0059] (97) setState08(10);                                         // Lights on
+	[005B] (10) breakHere();                                            
+	[005C] (97) setState08(9);                                          // Lights on
+	[005E] (10) breakHere();                                            
+	[005F] (97) setState08(8);                                          // Lights on
+	[0061] (10) breakHere();                                            
+	[0062] (97) setState08(7);                                          // Lights on
+	[0064] (2A) delay(180);                                             // Sleep 3 seconds
+	[0068] (14) print(255,"      A Lucasfilm Games Production");        
+	[0087] (2A) delay(180);                                             // Sleep 3 seconds
+	[008B] (14) print(255,"        Designed and written by");
+	[00A6] (2A) delay(120);
+	[00AA] (14) print(255,"      Ron Gilbert and Gary Winnick");
+	[00C8] (2A) delay(240);
+	[00CC] (14) print(255,"             Programmed by");
+	[00E2] (2A) delay(120);
+	[00E6] (14) print(255,"  Ron Gilbert, David Fox, and Carl Mey");
+	[0108] (2A) delay(240);
+	[010C] (14) print(255,"   Art and animation by Gary Winnick");
+	[012D] (2A) delay(180);                                             // Sleep 3 seconds
+	[0131] (14) print(255,"      Sound effects by Chris Grigg");        
+	[014F] (2A) delay(180);                                             // Sleep 3 seconds
+	[0153] (14) print(255,"           Original music by");              
+	[016B] (2A) delay(120);                                             
+	[016F] (14) print(255,"     Chris Grigg and David Lawrence");       
+	[018F] (2A) delay(180);                                             // Sleep 3 seconds
+	[0193] (14) print(255," ");                                         
+	[0197] (25) loadRoom(49);                                           // "MANIAC MANSION" Scrolling
+	[0199] (32) setCameraAt(20);                                        // Set camera to left of room
+	[019B] (12) panCameraTo(220);                                       // Pan camera to right of room
+	[019D] (10) breakHere();                                            
+	[019E] (48) unless (VAR_CAMERA_POS_X == 180) goto 019D;             // Sleep until camera finishes pan
+	
+	[01A3] (1A) Var[11] = 0;                                            
+	[01A6] (60) cursorCommand(1);                                       
+	[01A8] (C0) endcutscene();                                          // End Cutscene
+	[01A9] (A0) stopObjectCode();                                       
 END                                                                 
 
 
 /**
  * Script 45: Intro: Comet: Fly and Crash
- */script-45.dmp                                                                                                                                                                                                                                                 
-[0000] (2D) putActorInRoom(22,33);                                 // Meteor enters
-[0003] (01) putActor(22,80,5);                                     
-[0007] (52) actorFollowCamera(22);                                 // Camera follows Meteor
-[0009] (1E) walkActorTo(22,29,52);                                 // Meteor 'walks' to the hill
-[000D] (10) breakHere();                                           
-[000E] (10) breakHere();                                           
-[000F] (56) VAR_RESULT = getActorMoving(22);                       
-[0012] (48) unless (VAR_RESULT == 2) goto 000E;                    // Wait for Meteor to arrive
-[0017] (12) panCameraTo(20);                                       // Pan camera to mansion
-[0019] (01) putActor(22,80,0);                                     // Meteor goes off screen
-[001D] (3C) stopSound(31);                                         
-[001F] (1C) startSound(32);                                        // Explosion
-[0021] (10) breakHere();                                           
-[0022] (01) putActor(22,29,52);                                    // Meteor returns to hill
-[0026] (1A) Var[90] = 10;                                          
-[0029] (10) breakHere();                                           
-[002A] (3A) Var[90] -= 1;                                          
-[002D] (48) unless (Var[90] == 0) goto 0029;                       // 10 sleeps...
-[0032] (2D) putActorInRoom(22,0);                                  // Meteor leaves room
-[0035] (01) putActor(22,0,0);
-[0039] (A0) stopObjectCode();
-END
-
+ */Script-45 {                                                                                                                                                                                                                                                 
+	[0000] (2D) putActorInRoom(22,33);                                 // Meteor enters
+	[0003] (01) putActor(22,80,5);                                     
+	[0007] (52) actorFollowCamera(22);                                 // Camera follows Meteor
+	[0009] (1E) walkActorTo(22,29,52);                                 // Meteor 'walks' to the hill
+	[000D] (10) breakHere();                                           
+	[000E] (10) breakHere();                                           
+	[000F] (56) VAR_RESULT = getActorMoving(22);                       
+	[0012] (48) unless (VAR_RESULT == 2) goto 000E;                    // Wait for Meteor to arrive
+	
+	[0017] (12) panCameraTo(20);                                       // Pan camera to mansion
+	[0019] (01) putActor(22,80,0);                                     // Meteor goes off screen
+	[001D] (3C) stopSound(31);                                         
+	[001F] (1C) startSound(32);                                        // Explosion
+	[0021] (10) breakHere();                                           
+	[0022] (01) putActor(22,29,52);                                    // Meteor returns to hill
+	[0026] (1A) Var[90] = 10;                                          
+	[0029] (10) breakHere();                                           
+	[002A] (3A) Var[90] -= 1;                                          
+	[002D] (48) unless (Var[90] == 0) goto 0029;                       // 10 sleeps...
+	
+	[0032] (2D) putActorInRoom(22,0);                                  // Meteor leaves room
+	[0035] (01) putActor(22,0,0);
+	[0039] (A0) stopObjectCode();
+}
 
 /**
  * Script 46: Gargoyle: Open Basement Door
- */script-46.dmp                                                                                                                                                                                                                                                 
-[0000] (AF) if (!getState08(36)) {                                 // Get state of basement door
-[0004] (97)   setState08(36);                                      // Open basement door
-[0006] (1C)   startSound(7);                                       
-[0008] (**) }                                                      
-[0008] (9A) Var[123] = VAR_EGO;                                    // Current Actor
-[000B] (C7) Var[124] = getActorX(Var[123]);                        // Store Current Actor X
-[000E] (A7) Var[125] = getActorY(Var[123]);                        // Store Current Actor Y
-[0011] (10) breakHere();                                           
-[0012] (C7) VAR_RESULT = getActorX(Var[123]);                      
-[0015] (C8) if (VAR_RESULT == Var[124]) {                          // X Match?
-[001A] (A7)   VAR_RESULT = getActorY(Var[123]);                    
-[001D] (C8)   if (VAR_RESULT == Var[125]) {                        // Y Match?
-[0022] (18)     goto 0011;                                         // Wait for Actor to move
-[0025] (**)   }                                                    
-[0025] (**) }                                                      
-[0025] (1C) startSound(8);                                         // Actor has moved
-[0027] (17) clearState08(36);                                      // Close basement door
-[0029] (A0) stopObjectCode();
-END
-
+ */Script-46 {                                                                                                                                                                                                                                                 
+	[0000] (AF) if (!getState08(36)) {                                 // Get state of basement door
+	[0004] (97)   setState08(36);                                      // Open basement door
+	[0006] (1C)   startSound(7);                                       
+	[0008] (**) }                                                      
+	[0008] (9A) Var[123] = VAR_EGO;                                    // Current Actor
+	[000B] (C7) Var[124] = getActorX(Var[123]);                        // Store Current Actor X
+	[000E] (A7) Var[125] = getActorY(Var[123]);                        // Store Current Actor Y
+	[0011] (10) breakHere();                                           
+	[0012] (C7) VAR_RESULT = getActorX(Var[123]);                      
+	[0015] (C8) if (VAR_RESULT == Var[124]) {                          // X Match?
+	[001A] (A7)   VAR_RESULT = getActorY(Var[123]);                    
+	[001D] (C8)   if (VAR_RESULT == Var[125]) {                        // Y Match?
+	[0022] (18)     goto 0011;                                         // Wait for Actor to move
+	[0025] (**)   }                                                    
+	[0025] (**) }                                                      
+	[0025] (1C) startSound(8);                                         // Actor has moved
+	[0027] (17) clearState08(36);                                      // Close basement door
+	[0029] (A0) stopObjectCode();
+}
 
 /**
  * Script 48: Demo: Advertisement Recording
  */
-script-48.dmp
-[0000] (2A) delay(120);
-[0004] (14) print(255,"This is a recording...");
-[001A] (10) breakHere();
-[001B] (48) unless (VAR_HAVE_MSG == 0) goto 001A;                   // Wait for text
-[0020] (2A) delay(60);
-[0024] (14) print(255,"Lucasfilm Games presents Maniac Mansion,/a new type of story game./A sweet young cheerleader named Sandy/is being held captive by weird Dr. Fred,/and your goal is to rescue her.");
-[00BD] (10) breakHere();
-[00BE] (48) unless (VAR_HAVE_MSG == 0) goto 00BD;                   // Wait for text
-[00C3] (14) print(255,"As you direct a trio of teenagers in/exploration of this unusual mansion,/deeper and stranger plots are uncovered./Play again and again with/different twists and laughs every time.");
-[0161] (10) breakHere();
-[0162] (48) unless (VAR_HAVE_MSG == 0) goto 0161;                   // Wait for text
-[0167] (2A) delay(30);
-[016B] (14) print(255,"If you can't find Maniac Mansion at your/local retailer, call 1-800-227-6900/to order by mail. That's 1-800-227-6900.");
-[01D4] (10) breakHere();
-[01D5] (48) unless (VAR_HAVE_MSG == 0) goto 01D4;                   // Wait for text
-[01DA] (2A) delay(60);
-[01DE] (14) print(255,"This recorded message will repeat...");
-[0201] (10) breakHere();
-[0202] (48) unless (VAR_HAVE_MSG == 0) goto 0201;                   // Wait for text
-[0207] (18) goto 0000;
-[020A] (A0) stopObjectCode();
-END
-
+Script-48 {
+	[0000] (2A) delay(120);
+	[0004] (14) print(255,"This is a recording...");
+	[001A] (10) breakHere();
+	[001B] (48) unless (VAR_HAVE_MSG == 0) goto 001A;                   // Wait for text
+	
+	[0020] (2A) delay(60);
+	[0024] (14) print(255,"Lucasfilm Games presents Maniac Mansion,/a new type of story game./A sweet young cheerleader named Sandy/is being held captive by weird Dr. Fred,/and your goal is to rescue her.");
+	[00BD] (10) breakHere();
+	[00BE] (48) unless (VAR_HAVE_MSG == 0) goto 00BD;                   // Wait for text
+	
+	[00C3] (14) print(255,"As you direct a trio of teenagers in/exploration of this unusual mansion,/deeper and stranger plots are uncovered./Play again and again with/different twists and laughs every time.");
+	[0161] (10) breakHere();
+	[0162] (48) unless (VAR_HAVE_MSG == 0) goto 0161;                   // Wait for text
+	
+	[0167] (2A) delay(30);
+	[016B] (14) print(255,"If you can't find Maniac Mansion at your/local retailer, call 1-800-227-6900/to order by mail. That's 1-800-227-6900.");
+	[01D4] (10) breakHere();
+	[01D5] (48) unless (VAR_HAVE_MSG == 0) goto 01D4;                   // Wait for text
+	
+	[01DA] (2A) delay(60);
+	[01DE] (14) print(255,"This recorded message will repeat...");
+	[0201] (10) breakHere();
+	[0202] (48) unless (VAR_HAVE_MSG == 0) goto 0201;                   // Wait for text
+	
+	[0207] (18) goto 0000;
+	[020A] (A0) stopObjectCode();
+}
 
 /**
  * Script 49: Handle Doorbell 
- */script-49.dmp                                                                                                                                                                                                                                                 
-[0000] (1C) startSound(26);                                         // sound doorbell
-[0002] (2A) delay(180);
-[0006] (25) loadRoom(0);
-[0008] (42) startScript(41);                                        // Start Cutscene: Dr. Fred & Weird Ed (Doorbell)
-[000A] (A0) stopObjectCode();
-END
+ */Script-49 {                                                                                                                                                                                                                                                 
+	[0000] (1C) startSound(26);                                         // sound doorbell
+	[0002] (2A) delay(180);
+	[0006] (25) loadRoom(0);
+	[0008] (42) startScript(41);                                        // Start Cutscene: Dr. Fred & Weird Ed (Doorbell)
+	[000A] (A0) stopObjectCode();
+}

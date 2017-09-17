@@ -8,17 +8,17 @@
  * Room 1: Front of Mansion
  */
  
-entry-1.dmp                                                                                                                                                                                                                                                   
-[0000] (70) lights(2);                                  // Normal Lights
-[0002] (42) startScript(20);                            // start Repeat Outside Sound
-[0004] (00) stopObjectCode();
-END
+Entry-1 {                                                                                                                                                                                                                                                 
+	[0000] (70) lights(2);                                  // Normal Lights
+	[0002] (42) startScript(20);                            // start Repeat Outside Sound
+	[0004] (00) stopObjectCode();
+}
 
-exit-1.dmp                                                                                                                                                                                                                                                    
-[0000] (62) stopScript(20);                             // stop Repeat Outside Sound
-[0002] (3C) stopSound(25);                              // stop sound
-[0004] (00) stopObjectCode();
-END
+Exit-1 {                                                                                                                                                                                                                                                  
+	[0000] (62) stopScript(20);                             // stop Repeat Outside Sound
+	[0002] (3C) stopSound(25);                              // stop sound
+	[0004] (00) stopObjectCode();
+}
 
 
 /**
@@ -26,162 +26,162 @@ END
  */
  
 
-entry-3.dmp                                                                                                                                                                                                                                                   
-[0000] (42) startScript(19);                            // start Room Lights: Check for flashlight / room light status
-[0002] (2F) if (getState08(207)) {                      // is Cassette Player is playing
-[0006] (42)   startScript(48);                          //  start Demo: Advertisement Recording
-[0008] (**) }
-[0008] (48) if (Var[29] == 1) {                         // if Radio On
-[000D] (1C)   startSound(16);
-[000F] (**) }
-[000F] (00) stopObjectCode();
-END
+Entry-3 {                                                                                                                                                                                                                                                 
+	[0000] (42) startScript(19);                            // start Room Lights: Check for flashlight / room light status
+	[0002] (2F) if (getState08(207)) {                      // is Cassette Player is playing
+	[0006] (42)   startScript(48);                          //  start Demo: Advertisement Recording
+	[0008] (**) }
+	[0008] (48) if (Var[29] == 1) {                         // if Radio On
+	[000D] (1C)   startSound(16);
+	[000F] (**) }
+	[000F] (00) stopObjectCode();
+}
 
-exit-3.dmp                                                                                                                                                                                                                                                    
-[0000] (3C) stopSound(16);
-[0002] (3C) stopSound(23);
-[0004] (62) stopScript(48);
-[0006] (00) stopObjectCode();
-END
+Exit-3 {                                                                                                                                                                                                                                                  
+	[0000] (3C) stopSound(16);
+	[0002] (3C) stopSound(23);
+	[0004] (62) stopScript(48);
+	[0006] (00) stopObjectCode();
+}
 
 
 /**
  * Room 5: Library
  */
-entry-5.dmp                                                                                                                                                                                                                                                   
-[0000] (42) startScript(19);                            // start Room Lights: Check for flashlight / room light status
-[0002] (48) if (Var[136] == 1) {                        // if On Phone
-[0007] (42)   startScript(48);                          // start Demo: Advertisement Recording
-[0009] (**) }
-[0009] (00) stopObjectCode();
-END
+Entry-5 {                                                                                                                                                                                                                                                 
+	[0000] (42) startScript(19);                            // start Room Lights: Check for flashlight / room light status
+	[0002] (48) if (Var[136] == 1) {                        // if On Phone
+	[0007] (42)   startScript(48);                          // start Demo: Advertisement Recording
+	[0009] (**) }
+	[0009] (00) stopObjectCode();
+}
 
-exit-5.dmp                                                                                                                                                                                                                                                    
-[0000] (3C) stopSound(17);								// stop sound Library Phone Ring
-[0002] (62) stopScript(48);                             // stop Tape Player: Play Tape
-[0004] (00) stopObjectCode();
-END
+Exit-5 {                                                                                                                                                                                                                                                  
+	[0000] (3C) stopSound(17);								// stop sound Library Phone Ring
+	[0002] (62) stopScript(48);                             // stop Tape Player: Play Tape
+	[0004] (00) stopObjectCode();
+}
 
 
 /**
  * Room 6: Pool Area
  */
-entry-6.dmp                                                                                                                                                                                                                                                   
-[0000] (70) lights(2);                                  // Normal Lights
-[0002] (00) stopObjectCode();
-END
+Entry-6 {                                                                                                                                                                                                                                                 
+	[0000] (70) lights(2);                                  // Normal Lights
+	[0002] (00) stopObjectCode();
+}
 
 
 /**
  * Room 7: Kitchen
  */
-entry-7.dmp                                                                                                                                                                                                                                                   
-[0000] (42) startScript(19);                            // Room Lights: Check for flashlight / room light status
-[0002] (AF) if (!getState08(55)) {                      // if Faucet On
-[0006] (1C)   startSound(14);                           //  sound Sink On
-[0008] (**) }
-[0008] (42) startScript(39);                            // start Sponge: Name
-[000A] (00) stopObjectCode();
-END
+Entry-7 {                                                                                                                                                                                                                                                 
+	[0000] (42) startScript(19);                            // Room Lights: Check for flashlight / room light status
+	[0002] (AF) if (!getState08(55)) {                      // if Faucet On
+	[0006] (1C)   startSound(14);                           //  sound Sink On
+	[0008] (**) }
+	[0008] (42) startScript(39);                            // start Sponge: Name
+	[000A] (00) stopObjectCode();
+}
 
-exit-7.dmp                                                                                                                                                                                                                                                    
-[0000] (3C) stopSound(14);                              // sound Sink off
-[0002] (00) stopObjectCode();
-END
+Exit-7 {                                                                                                                                                                                                                                                  
+	[0000] (3C) stopSound(14);                              // sound Sink off
+	[0002] (00) stopObjectCode();
+}
 
 
 /**
  * Room 8: Basement
  */
-entry-8.dmp                                                                                                                                                                                                                                                   
-[0000] (42) startScript(19);                            // Room Lights: Check for flashlight / room light status
-[0002] (00) stopObjectCode();
-END
+Entry-8 {                                                                                                                                                                                                                                                 
+	[0000] (42) startScript(19);                            // Room Lights: Check for flashlight / room light status
+	[0002] (00) stopObjectCode();
+}
 
 
 /**
  * Room 10: Main Entry
  */
-entry-10.dmp                                                                                                                                                                                                                                                  
-[0000] (42) startScript(19);                            // start Room Lights: Check for flashlight / room light status
-[0002] (42) startScript(11);                            // start Clock: Repeating Tick Sound
-[0004] (0C) loadSound(22);
-[0006] (00) stopObjectCode();
-END
+Entry-10 {                                                                                                                                                                                                                                                
+	[0000] (42) startScript(19);                            // start Room Lights: Check for flashlight / room light status
+	[0002] (42) startScript(11);                            // start Clock: Repeating Tick Sound
+	[0004] (0C) loadSound(22);
+	[0006] (00) stopObjectCode();
+}
 
-exit-10.dmp                                                                                                                                                                                                                                                   
-[0000] (62) stopScript(11);                             // stop Clock: Repeating Tick Sound
-[0002] (00) stopObjectCode();
-END
+Exit-10 {                                                                                                                                                                                                                                                 
+	[0000] (62) stopScript(11);                             // stop Clock: Repeating Tick Sound
+	[0002] (00) stopObjectCode();
+}
 
 /**
  * Room 31: Lab: Entry
  */
  
-entry-31.dmp                                                                                                                                                                                                                                                  
-[0000] (70) lights(2);                                  // Normal Lights
-[0002] (00) stopObjectCode();
-END
+Entry-31 {                                                                                                                                                                                                                                                
+	[0000] (70) lights(2);                                  // Normal Lights
+	[0002] (00) stopObjectCode();
+}
 
-exit-31.dmp                                                                                                                                                                                                                                                   
-[0000] (D3) unlockSound(34);
-[0002] (00) stopObjectCode();
-END
+Exit-31 {                                                                                                                                                                                                                                                 
+	[0000] (D3) unlockSound(34);
+	[0002] (00) stopObjectCode();
+}
 
 
 /**
  * Room 33: Mansion At Distance (Lights Off)
  */
-entry-33.dmp                                                                                                                                                                                                                                                  
-[0000] (70) lights(2);                                  // Normal Lights
-[0002] (00) stopObjectCode();
-END
+Entry-33 {                                                                                                                                                                                                                                                
+	[0000] (70) lights(2);                                  // Normal Lights
+	[0002] (00) stopObjectCode();
+}
 
-exit-33.dmp                                                                                                                                                                                                                                                   
-[0000] (3C) stopSound(31);
-[0002] (3C) stopSound(32);
-[0004] (00) stopObjectCode();
-END
+Exit-33 {                                                                                                                                                                                                                                                 
+	[0000] (3C) stopSound(31);
+	[0002] (3C) stopSound(32);
+	[0004] (00) stopObjectCode();
+}
 
 /**
  * Room 36: Storage / Leading out to pool
  */
-entry-36.dmp                                                                                                                                                                                                                                                  
-[0000] (42) startScript(19);                            // start Room Lights: Check for flashlight / room light status
-[0002] (0C) loadSound(9);
-[0004] (00) stopObjectCode();
-END
+Entry-36 {                                                                                                                                                                                                                                                
+	[0000] (42) startScript(19);                            // start Room Lights: Check for flashlight / room light status
+	[0002] (0C) loadSound(9);
+	[0004] (00) stopObjectCode();
+}
 
 /**
  * Room 37: Dining
  */
-entry-37.dmp                                                                                                                                                                                                                                                  
-[0000] (42) startScript(19);                            // start Room Lights: Check for flashlight / room light status
-[0002] (00) stopObjectCode();
-END
+Entry-37 {                                                                                                                                                                                                                                                
+	[0000] (42) startScript(19);                            // start Room Lights: Check for flashlight / room light status
+	[0002] (00) stopObjectCode();
+}
 
 /**
  * Room 43: Keypad
  */
-entry-43.dmp                                                                                                                                                                                                                                                  
-[0000] (70) lights(2);                                  // Normal Lights
-[0002] (0C) loadSound(15);
-[0004] (00) stopObjectCode();
-END
+Entry-43 {                                                                                                                                                                                                                                                
+	[0000] (70) lights(2);                                  // Normal Lights
+	[0002] (0C) loadSound(15);
+	[0004] (00) stopObjectCode();
+}
 
 /**
  * Room 45: Kid Selection 
  */
-entry-45.dmp                                                                                                                                                                                                                                                  
-[0000] (70) lights(2);                                  // Normal Lights
-[0002] (0C) loadSound(29);
-[0004] (00) stopObjectCode();
-END
+Entry-45 {                                                                                                                                                                                                                                                
+	[0000] (70) lights(2);                                  // Normal Lights
+	[0002] (0C) loadSound(29);
+	[0004] (00) stopObjectCode();
+}
 
 /**
  * Room 49: "MANIAC MANSION" Scrolling
  */
-entry-49.dmp                                                                                                                                                                                                                                                  
-[0000] (70) lights(2);                                  // Normal Lights
-[0002] (00) stopObjectCode();
-END
+Entry-49 {                                                                                                                                                                                                                                                
+	[0000] (70) lights(2);                                  // Normal Lights
+	[0002] (00) stopObjectCode();
+}

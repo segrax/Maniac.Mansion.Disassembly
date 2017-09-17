@@ -2077,9 +2077,12 @@ Events:
     [0001] stopObjectCode();
     [0002] stopObjectCode();
     [0003] stopObjectCode();
+	
     [0004] if (activeObject2 == 1) {                           // Is ActiveObject Hamster?
+	
     [0008]   if (VAR_EGO <= 2) {                               //  Syd or Razor
     [000D]     if (getState08(activeObject)) {                 //   Is Microwave door open?
+	
     [0010]       if (Var[66] == 0) {                           //    Microwave has nothing in it?
     [0015]         setOwnerOf(1,14);                           //     Set owner of Hamster to Green Tentacle ( yes... why? )
     [0018]         setState08(53);                             //     Set 08 on Hamster
@@ -2094,7 +2097,9 @@ Events:
     [002A]   } else {          
     [002D]     printEgo("How sick!");          
     [0037]   }         
+	
     [0037] } else if (activeObject2 == 201) {                  // Is ActiveObject Sealed Envelope
+	
     [003E]   if (getState08(activeObject)) {                   //  Is Microwave door open?
     [0041]     if (Var[66] != 1) {                             //   Item in Microwave is not Hamster
     [0046]       if (Var[62] == 0) {                           //    Is Stamp not sticky
@@ -2115,6 +2120,7 @@ Events:
     [0085]   } else {
     [0088]     startScript(63);                                // start Print "The door is closed"
     [008A]   }         
+	
     [008A] } else if (activeObject2 == 99) {                   // Is ActiveObject Glass Jar
     [0091]   if (getState08(activeObject)) {                   //  Is Microwave door open?
     [0094]     if (Var[66] != 1) {                             //   Item in Microwave is not Hamster
@@ -5168,12 +5174,13 @@ Script-120 {
     [0004] clearState08(136);                                           // Close Door
     [0006] startSound(9);                                               // Sound Door
     [0008] delay(60);  
+	
     [000C] walkActorTo(9,32,66);                                        // Walk Dr. Fred
     [0010] print(9,"Purple Tentacle! Invaders!!");
     [002C] breakHere();
     [002D] unless (VAR_HAVE_MSG == 0) goto 002C;                        // Wait For Text To Finish
-    
     [0032] delay(120);
+	
     [0036] walkActorTo(9,26,66);                                        // Walk Dr. Fred
     [003A] print(9,"PURPLE TENTACLE!!");
     [004D] delay(360);                                                  // Sleep 5 seconds
@@ -5333,8 +5340,8 @@ Script-123 {
     [0035] startSound(62);                                          // Start sound
     [0037] breakHere();
     [0038] if (getState08(253)) {                                   // Radiation Suit in use?
-    [003C]   goto 0004;
-    [003F] }                                                        // No
+    [003C]   goto 0004;												//  Yes
+    [003F] }                                                        
     [003F] cursorCommand( kModeCutscene )                           // Cutscene Mode
     [0041] printEgo("YOWL!");                      
     [0048] animateActor(VAR_EGO,255,1);                             // Freeze Kid
