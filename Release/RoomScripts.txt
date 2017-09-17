@@ -1,14 +1,13 @@
 /**
- * Room Entry/Exit Scripts
+ * Maniac Mansion: Retail
  *
+ * Room Entry/Exit Scripts
  */
- 
- 
  
 /**
  * Room 1: Front of Mansion
  */
- 
+
 Entry {
     [0000] lights(2);                                  // Normal Lights
     [0002] stopSound(32);                              // Alarm 1

@@ -1,6 +1,7 @@
 /**
- * Room Entry/Exit Scripts
+ * Maniac Mansion: Demo
  *
+ * Room Entry/Exit Scripts
  */
  
 
@@ -57,7 +58,7 @@ Entry-5 {
 }
 
 Exit-5 {                                                                                                                                                                                                                                                  
-	[0000] stopSound(17);								// stop sound Library Phone Ring
+	[0000] stopSound(17);							   // stop sound Library Phone Ring
 	[0002] stopScript(48);                             // stop Tape Player: Play Tape
 	[0004] stopObjectCode();
 }

@@ -1,6 +1,7 @@
 /**
- * Object Scripts
- *
+ * Maniac Mansion: Retail
+ * 
+ * Room Object Scripts
  */
 
  /** Events
@@ -31,7 +32,7 @@
  
 
 /** Stamps **/
- roomobj-1-132.dmp
+roomobj-1-132.dmp
 
 Pull.Pickup {
 	[001C] pickupObject(0);                                            // Pick object

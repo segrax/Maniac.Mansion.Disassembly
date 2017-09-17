@@ -1,6 +1,7 @@
 /**
+ * Maniac Mansion: Demo
+ * 
  * Object Scripts
- *
  */
 
  /** Events
@@ -57,8 +58,6 @@ Use {
 	[0025] stopObjectCode();                                           // --
 }
 
-}
-
 
 /** Mailbox Flag **/
 roomobj-1-18.dmp
@@ -102,16 +101,14 @@ Open.Pull.PickUp {
 	[001D] stopObjectCode();                                           // --
 }
 
-}
-
 
 /** Grating **/
 roomobj-1-20.dmp
 
 Open {
 	[0027] if (getState04(activeObject)) {                                     // Has grate been fixed?
-	[002A]   VAR_RESULT = getActorBitVar(VAR_EGO,1);                           //  No. Check Kid
-	[002E]   if (VAR_RESULT == 1) {                                            //  Kid has kActorMiscFlagStrong?
+	[002A]   VAR_RESULT = getActorBitVar(VAR_EGO,kActorMiscFlagStrong);        //  No. Check if kid is strong
+	[002E]   if (VAR_RESULT == 1) {                                            //  Strong?
 	[0033]     printEgo("Easy!");                                              //   Yes
 	[003A]     goto 0062;                                                      
 	[003D]   } else {                                                          // -
@@ -147,6 +144,7 @@ Fix.Unlock.Use {
 	[0084] }                                                                   
 	[0084] stopObjectCode();                                                   // --
 }
+
 WalkTo {
 	[0085] if (getState08(activeObject)) {                                     // Walk To
 	[0088]   loadRoomWithEgo(213,29);                                          // Enter room Underhouse
@@ -208,7 +206,7 @@ PickUp {
 	[002D] stopObjectCode();                                                    // --
 }
  
- Give {
+Give {
 	[002E] if (VAR_ACTIVE_ACTOR < 8) {                                          // Give
 	[0033]   setOwnerOf(0,VAR_ACTIVE_ACTOR);                                    //  To Kid
 	[0036] }                                                                    
@@ -225,7 +223,7 @@ Open.Pull {
 	[0049]   if (getState08(activeObject)) {                                    //  if Package available 
 	[004C]     setOwnerOf(132,VAR_EGO);                                         //   Kid owns Stamps
 	[004F]   } else {                                                           // -
-	[0052]     pickupObject(132);                                               // Pickup Package
+	[0052]     pickupObject(132);                                               // Pickup Stamps
 	[0054]   }                                                                  
 	[0054]   printEgo("Some uncanceled stamps came off!");                      
 	[0072]   Var[81] = 1;                                                       // Stamps Taken = Yes
@@ -260,9 +258,6 @@ Read {
 	[0023] printEgo("Solicitors will be eaten.");
 	[003B] stopObjectCode();
 }
-
-}
-
 
 /** Bushes **/
 roomobj-1-264.dmp
@@ -304,7 +299,7 @@ Lock {
 	[0047] setState04();
 	[0048] doSentence(2,28,0);                                                        //  Close Front Door
 	[004C] stopObjectCode();                                                          // --
-	}
+}
 
 WalkTo {
 	[004D] if (getState08(activeObject)) {
@@ -313,16 +308,12 @@ WalkTo {
 	[0053] stopObjectCode();
 }
 
-}
-
-
 /** Tombstone **/
 roomobj-1-29.dmp
 
 Read {
 	[001B] printEgo("And good riddance!");
 	[002D] stopObjectCode();
-}
 }
 
 
@@ -423,7 +414,7 @@ roomobj-3-39.dmp
 
 Open {
 	[002D] setState08();                                                               // Open Radio
-	[002E] Var[29] = 0;                                                                
+	[002E] Var[29] = 0;                                                                // Radio Off
 	[0031] stopSound(16);                                                              
 	[0033] stopSound(23);                                                              
 	[0035] stopObjectCode();                                                           // --
@@ -459,6 +450,7 @@ TurnOn {
 	[008D] }                                                                           
 	[008D] stopObjectCode();                                                           // --
 }
+
 TurnOff {
 	[008E] clearState08();                                                             
 	[008F] if (Var[29] == 0) {                                                         // Radio == Off?
@@ -481,28 +473,26 @@ Use {
 	[00C9] stopObjectCode();                                                           // --
 }
 
-}
-
-
 /** Radio Tube **/
 roomobj-3-40.dmp
-Events:
-   B - 0047
-   E - 001E
-[001E] if (VAR_EGO == 5) {                                                         // If kid == Bernard
-[0023]   pickupObject(0);                                                          //  Pickup
-[0025] } else {                                                                    // -
-[0028]   printEgo("I don't know how this stuff works!");                           
-[0046] }                                                                           
-[0046] stopObjectCode();                                                           // --
-[0047] doSentence(6,255,254);                                                      // Fix _cmdObject with _cmdObject2
-[004B] stopObjectCode();                                                           // --
+
+PickUp {
+	[001E] if (VAR_EGO == 5) {                                                         // If kid == Bernard
+	[0023]   pickupObject(0);                                                          //  Pickup
+	[0025] } else {                                                                    // -
+	[0028]   printEgo("I don't know how this stuff works!");                           
+	[0046] }                                                                           
+	[0046] stopObjectCode();                                                           // --
+}
+
+Use {
+	[0047] doSentence(6,255,254);                                                      // Fix _cmdObject with _cmdObject2
+	[004B] stopObjectCode();                                                           // --
 }
 
 
 /** Glass Chandelier **/
 roomobj-3-41.dmp
-
 
 
 /** Broken Chandelier **/
@@ -520,7 +510,7 @@ PickUp {
 Use {
 	[0024] doSentence(11,255,254);                                                      // Use _cmdObject2 with _cmdObject
 	[0028] stopObjectCode();                                                            // --
-	}
+}
 
 /** Cabinet Door **/
 roomobj-3-44.dmp
@@ -656,9 +646,6 @@ Use {
 	[0028] stopObjectCode();
 }
 
-}
-
-
 /** Loose Panel **/
 roomobj-5-236.dmp
 
@@ -763,8 +750,6 @@ Fix {
 	[0049]   printEgo("That won't work.");                            
 	[0059] }                                                          
 	[0059] stopObjectCode();                                          // --
-}
-
 }
 
 

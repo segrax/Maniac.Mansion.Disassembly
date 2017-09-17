@@ -1,11 +1,12 @@
 /**
+ * Maniac Mansion: Demo
+ * 
  * Scripts
- *
  */
 
- /**
-  * Script 1: Demo Mode Selection
-  */Script-1 {                                                                                                                                                                                                                                                  
+/**
+ * Script 1: Demo Mode Selection
+ */Script-1 {                                                                                                                                                                                                                                                  
     [0000] cutscene();                                             // Start Cutscene
     [0001] screenPrepare();
     [0002] loadSound(1);
@@ -1369,15 +1370,20 @@ Script-40 {
     [004B] unless (VAR_RESULT == 0) goto 0047;                     // Sleep until 'Intro: Comet: Fly and Crash' finishes
     
     [0050] delay(60);                                              
-    [0054] startMusic(33);                                         
+    [0054] startMusic(33);  
+	
     [0056] setState08(11);                                         // Lights on
     [0058] breakHere();                                            
+	
     [0059] setState08(10);                                         // Lights on
     [005B] breakHere();                                            
+	
     [005C] setState08(9);                                          // Lights on
     [005E] breakHere();                                            
+	
     [005F] setState08(8);                                          // Lights on
     [0061] breakHere();                                            
+	
     [0062] setState08(7);                                          // Lights on
     [0064] delay(180);                                             // Sleep 3 seconds
     [0068] print(255,"      A Lucasfilm Games Production");        
@@ -1401,6 +1407,7 @@ Script-40 {
     [0193] print(255," ");                                         
     [0197] loadRoom(49);                                           // "MANIAC MANSION" Scrolling
     [0199] setCameraAt(20);                                        // Set camera to left of room
+	
     [019B] panCameraTo(220);                                       // Pan camera to right of room
     [019D] breakHere();                                            
     [019E] unless (VAR_CAMERA_POS_X == 180) goto 019D;             // Sleep until camera finishes pan
@@ -1418,6 +1425,7 @@ END
     [0000] putActorInRoom(22,33);                                 // Meteor enters
     [0003] putActor(22,80,5);                                     
     [0007] actorFollowCamera(22);                                 // Camera follows Meteor
+	
     [0009] walkActorTo(22,29,52);                                 // Meteor 'walks' to the hill
     [000D] breakHere();                                           
     [000E] breakHere();                                           
@@ -1429,6 +1437,7 @@ END
     [001D] stopSound(31);                                         
     [001F] startSound(32);                                        // Explosion
     [0021] breakHere();                                           
+	
     [0022] putActor(22,29,52);                                    // Meteor returns to hill
     [0026] Var[90] = 10;                                          
     [0029] breakHere();                                           
@@ -1451,6 +1460,7 @@ END
     [000B] Var[124] = getActorX(Var[123]);                        // Store Current Actor X
     [000E] Var[125] = getActorY(Var[123]);                        // Store Current Actor Y
     [0011] breakHere();                                           
+	
     [0012] VAR_RESULT = getActorX(Var[123]);                      
     [0015] if (VAR_RESULT == Var[124]) {                          // X Match?
     [001A]   VAR_RESULT = getActorY(Var[123]);                    

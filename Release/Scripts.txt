@@ -1,11 +1,12 @@
 /**
- * Scripts
+ * Maniac Mansion: Retail
  *
+ * Scripts
  */
 
- /**
-  * Script 1: Intro: Kid Selection
-  */
+/**
+ * Script 1: Intro: Kid Selection
+ */
 Script-1 {
     [0000] cutscene();                                             // Start Cutscene
     [0001] cursorCommand( kModeKeypad )                            // Keypad Mode
@@ -6161,7 +6162,8 @@ Script-143 {
         [001D] animateActor(24,4,1);                                   // Sandy Faces Left
         [0021] loadRoom(31);                                           // Lab: Entry
         [0023] setCameraAt(20);
-        [0025] delay(60);                                                   // Sleep 1 second
+        [0025] delay(60);                                              // Sleep 1 second
+		
         [0029] print(9,"Well, my dear. Hope you're having fun!/Within minutes it'll all be over./You'll be hooked up to my machine%/%getting your pretty brains sucked out.");
         [00A9] walkActorToActor(9,24,5);                               // Dr. Fred walks toward Sandy
         [00AD] breakHere();
@@ -6233,14 +6235,12 @@ Script-144 {
     [0008] Var[123] = VAR_EGO;                         // Current Actor
     [000B] Var[124] = getActorX(Var[123]);             // Store Current Actor X
     [000E] Var[125] = getActorY(Var[123]);             // Store Current Actor Y
+	
     [0011] breakHere();
-    
     [0012] VAR_RESULT = getActorX(Var[123]);           
-    [0015] if (VAR_RESULT == Var[124]) {               // X Match?
-    
+    [0015] if (VAR_RESULT == Var[124]) {               // X Not Changed?
     [001A]   VAR_RESULT = getActorY(Var[123]);         
-    [001D]   if (VAR_RESULT == Var[125]) {             // Y Match?
-    
+    [001D]   if (VAR_RESULT == Var[125]) {             // Y Not Changed?
     [0022]     goto 0011;                              // Wait for Actor to move
     [0025]   }
     [0025] }
@@ -6497,6 +6497,7 @@ Script-150 {
   */
 Script-151 {                                                          
     [0000] delay(162000);                                          // Sleep 45 minutes
+	
     [0004] startScript(150);                                       // Start Cutscene: Purple Tentacle chases Sandy
     [0006] stopObjectCode();
 }
@@ -6511,6 +6512,7 @@ Script-154 {
     [0003] stopScript(112);                                        // stop Purple Tentacle: Check Actor X > 20; print "What are you doing here?"
     [0005] stopScript(43);                                         // stop Purple Tentacle: Check for close actors
     [0007] stopScript(36);                                         // stop Cutscene: Meteor Police
+	
     [0009] beginOverride();
 	{
 		[000D] print(13,"You're with the Meteor Police!!/Dr. Fred made me do it%/%he forced me to go along with his plan!");
