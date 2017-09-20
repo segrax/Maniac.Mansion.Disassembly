@@ -59,8 +59,6 @@ Use {
 }
 
 
-
-
 /** Mailbox **/
 roomobj-1-17.dmp
 
@@ -4491,7 +4489,7 @@ Use {
 	[0030]     clearState02(225);                                      //   Quater Gone
 	[0032]     clearState08(225);                                      //    Quater Gone
 	[0034]     setOwnerOf(200,14);                                     //    start Video Game: Die Enemy Die
-	[0037]     startSound(11);                                         // -
+	[0037]     startSound(11); 											// Sound CoinSlot                                         // -
 	[0039]     startScript(21);                                        //  Print "It seems to be turned off"
 	[003B]   } else {                                                  
 	[003E]     startScript(59);                                        
@@ -5044,12 +5042,12 @@ TurnOn {
 }
 
 TurnOff {
-	[0090] if (Var[28] == 0) {                                         // Radio (Room 21) == off
+	[0090] if (Var[28] == 0) {                                         // if Radio (Room 21) == off
 	[0095]   printEgo("It wasn't on.");                                //  
 	[00A2] } else {                                                    // -
-	[00A5]   Var[28] = 0;                                              // Radio = Off
-	[00A8]   stopSound(20);                                            // stop sound radio static
-	[00AA]   stopSound(29);                                            // stop sound
+	[00A5]   Var[28] = 0;                                              //  Radio = Off
+	[00A8]   stopSound(20);                                            //  stop sound radio static
+	[00AA]   stopSound(29);                                            //  stop sound
 	[00AC] }
 	[00AC] stopObjectCode();                                           // --
 }
@@ -5604,7 +5602,7 @@ roomobj-24-85.dmp
 
 Open.TurnOn {
 	[0028] if (!getState08(activeObject)) {                            // If Faucet Has Handle
-	[002B]   startSound(18);                                           // 
+	[002B]   startSound(18);                                           // Sound Shower
 	[002D]   setState08(212);                                          // Water Faucet Off
 	[002F]   clearState02(212);                                        // Lock Water Faucet
 	[0031]   clearState08(239);                                        // Hide <no name> (Running Water)
@@ -5621,7 +5619,7 @@ Open.TurnOn {
 
 Close.TurnOff {
 	[005A] if (!getState08(activeObject)) {
-	[005D]   stopSound(18);
+	[005D]   stopSound(18);												// stop Sound Shower
 	[005F]   clearState08(212);                                        // Water Faucet On
 	[0061]   setState02(212);                                          // UnLock Water Faucet
 	[0063] }
@@ -6294,7 +6292,7 @@ Push {
 	[0047]   }
 	[0047] } else {                                                    // -
 	[004A]   printEgo("It's not rotating.");
-	[005C]   startSound(11);
+	[005C]   startSound(11); 										   // Sound CoinSlot
 	[005E] }
 	[005E] stopObjectCode();                                           // --
   }
@@ -6320,7 +6318,7 @@ Push {
 	[0048]   }
 	[0048] } else {                                                    // -
 	[004B]   printEgo("It's not rotating.");
-	[005D]   startSound(11);
+	[005D]   startSound(11); 										   // Sound CoinSlot
 	[005F] }
 	[005F] stopObjectCode();                                           // --
 }
@@ -6358,7 +6356,7 @@ Use {
 	[005C] } else if (activeObject2 == 190) {                          // if Dime
 	[0063]   setOwnerOf(190,0);                                        //  Remove Dime
 	[0066]   Var[26]++;                                                // ++Telescope: Dimes Available
-	[0068]   startSound(11);
+	[0068]   startSound(11); 											// Sound CoinSlot
 	[006A] } else {                                                    // -
 	[006D]   printEgo("It doesn't fit.");
 	[007C] }

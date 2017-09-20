@@ -71,11 +71,11 @@ Entry {
     [0000] startScript(50);                            // start Room Lights: Check for flashlight / room light status
     [0002] VAR_RESULT = isScriptRunning(15);
     [0005] if (VAR_RESULT == 1) {                      // if Cassette: Play, Break Windows/Free Key running
-    [000A]   startSound(25);
+    [000A]   startSound(25);							//  Play Tentacle Mating Call
     [000C] }
     [000C] if (getState08(207)) {                      // Cassette Player is playing
     [0010]   if (Var[13] == 44) {                      //  if Tape Contents == Melody Stinks
-    [0015]     startSound(44);                         //   
+    [0015]     startSound(44);                         //   Play Bad Melody
     [0017]   }
     [0017] }
     [0017] if (Var[29] == 1) {                         // if Radio On
