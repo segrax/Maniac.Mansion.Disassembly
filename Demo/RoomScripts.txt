@@ -32,7 +32,7 @@ Entry-3 {
     [0006]   startScript(48);                                                   //  start Demo: Advertisement Recording
     [0008] }
     [0008] if (Var[29] == 1) {                                                  // if Radio On
-    [000D]   startSound(16);                                                    //
+    [000D]   startSound(16);                                                    //  Play Music
     [000F] }
     [000F] stopObjectCode();
 }

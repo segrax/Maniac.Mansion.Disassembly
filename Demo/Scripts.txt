@@ -20,23 +20,23 @@
     [0011] Var[98] = 5;                                                         // Kid2 is Bernard
     [0014] Var[99] = 2;                                                         // Kid3 is Razor
     
-    [0017] loadRoom(45);
-    [0019] Var[11] = 1;
+    [0017] loadRoom(45);                                                        // Load Demo Mode Selection
+    [0019] Var[11] = 1;                                                         //
     [001C] cursorCommand(1);                                                    // Keypad Mode
     [001E] Var[91] = 0;                                                         // Clear 'Start' status
     [0021] delay(60);
-    [0025] if (VAR_IS_SOUND_RUNNING == 0) {
-    [002A]   startMusic(30);													// sound MM Theme
-    [002C]   Var[92] = 1;                                                       // 
+    [0025] if (VAR_IS_SOUND_RUNNING == 0) {                                     // If no music playing
+    [002A]   startMusic(30);                                                    //  sound MM Theme
+    [002C]   Var[92] = 1;                                                       //  Play Music Count = Once More
     [002F] }
     
     [002F] breakHere();
     [0030] unless (VAR_IS_SOUND_RUNNING == 0) goto 002F;                        // Loop until music finishes
     
-    [0035] if (Var[92] == 1) {
-    [003A]   Var[92] = 0;                                                       // Don’t Start = 
-    [003D]   startMusic(30);
-    [003F]   goto 002F;
+    [0035] if (Var[92] == 1) {                                                  // if Play Music Count == Once More
+    [003A]   Var[92] = 0;                                                       //  Play Music Count = Start Intro
+    [003D]   startMusic(30);                                                    //  sound MM Theme
+    [003F]   goto 002F;                                                         //  Loop until music finishes
     [0042] }
     
     [0042] if (Var[91] != 0) {                                                  // Start?
@@ -1249,7 +1249,7 @@ Script-40 {
     [0029] if (Var[68] == 0) {                                                  // if DoorBell Count == 0
     [002E]   print(11,"Oh no! It's the doorbell!");
     [0046]   breakHere();
-    [0047]   unless (VAR_HAVE_MSG == 0) goto 0046;								//  Wait for Ed
+    [0047]   unless (VAR_HAVE_MSG == 0) goto 0046;                              //  Wait for Ed
     
     [004C]   walkActorTo(11,34,63);                                             //  Walk Weird Ed
     [0050]   breakHere();
@@ -1265,7 +1265,7 @@ Script-40 {
     [007E]   stopScript(8);                                                     //  stop Dr Fred: Walk back and forth (Lab Entry)
     [0080]   animateActor(9,255,1);                                             //  Stop Moving
     [0084]   breakHere();
-    [0085]   walkActorToActor(9,11,4);											//  Dr. Fred walk
+    [0085]   walkActorToActor(9,11,4);                                          //  Dr. Fred walk
     [0089]   breakHere();
     [008A]   breakHere();
     
