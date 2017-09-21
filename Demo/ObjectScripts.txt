@@ -4,28 +4,6 @@
  * Object Scripts
  */
 
- /** Events
-  *
-  * 00 = None
-  * 01 = Open
-  * 02 = Close
-  * 03 = Give
-  * 04 = Turn On
-  * 05 = Turn Off
-  * 06 = Fix
-  * 07 = New Kid
-  * 08 = Unlock
-  * 09 = Push
-  * 0A = Pull
-  * 0B = Use
-  * 0C = Read
-  * 0D = Walk To
-  * 0E = Pick Up
-  * 0F = What Is
-  * 10 = Lock
-  *
-  **/
-
 /**
  * Room 1: Front of Mansion
  */
@@ -1631,7 +1609,7 @@ Unlock.Use {
     [0037]   clearState04(104);                                                 //  Unlock Door (Pool Area)
     [0039]   doSentence(1,92,0);                                                //  Open Door
     [003D] } else {                                                             // -
-    [0040]   startScript(33);                                                   // start Print "I can't unlock the door with this."
+    [0040]   startScript(33);                                                   //  start Print "I can't unlock the door with this."
     [0042] }
     [0042] stopObjectCode();                                                    // --
 }
@@ -1693,8 +1671,8 @@ Pickup {
 }
 
 Give {
-    [0023] startScript(43);
-    [0025] stopObjectCode();
+    [0023] startScript(43);                                                     // SCRIPT 43 is missing
+    [0025] stopObjectCode();                                                    // this script will crash the interpreter
 }
 
 
@@ -1725,7 +1703,7 @@ Use {
 }
 
 Give {
-    [002E] if (VAR_ACTIVE_ACTOR < 8) {                                          // -
+    [002E] if (VAR_ACTIVE_ACTOR < 8) {                                          // if actor is player kid
     [0033]   setOwnerOf(0,VAR_ACTIVE_ACTOR);                                    //  Give to kid
     [0036] } else if (Var[22] > 0) {                                            // Glass Jar Contents != Empty
     [003E]   Var[134] = 1;                                                      //  Glass Jar has content = 1
@@ -1760,7 +1738,7 @@ Pickup {
 roomobj-37-284.dmp
 
 Pickup {
-    [0018] startScript(32);
+    [0018] startScript(32);                                                     // start Print "Its too Heavy"
     [001A] stopObjectCode();
 }
 
@@ -1770,7 +1748,7 @@ Pickup {
 roomobj-37-285.dmp
 
 Pickup {
-    [0018] startScript(32);
+    [0018] startScript(32);                                                     // start Print "Its too Heavy"
     [001A] stopObjectCode();
 }
 
