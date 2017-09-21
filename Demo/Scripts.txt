@@ -26,7 +26,7 @@
     [001E] Var[91] = 0;                                                         // Clear 'Start' status
     [0021] delay(60);
     [0025] if (VAR_IS_SOUND_RUNNING == 0) {
-    [002A]   startMusic(30);
+    [002A]   startMusic(30);													// sound MM Theme
     [002C]   Var[92] = 1;                                                       // 
     [002F] }
     
@@ -354,8 +354,8 @@ Script-6 {
     [0499] breakHere();
     [049A] animateActor(3,7,1);                                                 // Face Away
     [049E] breakHere();
-    [049F] Var[52] = getRandomNr(112);
-    [04A2] Var[53] = getRandomNr(12);
+    [049F] Var[52] = getRandomNr(112);                                          // Random X
+    [04A2] Var[53] = getRandomNr(12);                                           // Random Y
     [04A5] Var[53] += 52;
     [04A8] walkActorTo(3,Var[52],Var[53]);
     [04AC] unless (VAR_HAVE_MSG == 0) goto 048B;                                // Spin Dave until he finishes talking
@@ -1081,25 +1081,25 @@ Script-9 {
     [0079]   Var[96] = 1;                                                       //  Dave is dead
     [007C] }
     [007C] if (Var[78] == 1) {                                                  // Is one kid dead
-    [0081]   clearState08(29);
-    [0083]   clearState02(29);
+    [0081]   clearState08(29);                                                  //  Show Tombstone 1
+    [0083]   clearState02(29);                                                  //  Show Tombstone 1
     [0085]   putActorInRoom(Var[77],1);
     [0088]   putActor(Var[77],106,60);
     [008C] }
     [008C] if (Var[78] == 2) {                                                  // Are two kids dead
-    [0091]   clearState08(30);
-    [0093]   clearState02(30);
+    [0091]   clearState08(30);                                                  //  Show Tombstone 2
+    [0093]   clearState02(30);                                                  //  Show Tombstone 2
     [0095]   putActorInRoom(Var[77],1);
     [0098]   putActor(Var[77],114,60);
     [009C] }
     [009C] if (Var[78] == 3) {                                                  // Are three kids dead
-    [00A1]   clearState08(31);
-    [00A3]   clearState02(31);
+    [00A1]   clearState08(31);                                                  //  Show Tombstone 3
+    [00A3]   clearState02(31);                                                  //  Show Tombstone 3
     [00A5]   putActorInRoom(Var[77],1);
     [00A8]   putActor(Var[77],122,60);
     [00AC] }
     [00AC] Var[90] = getActorX(Var[77]);                                        // 
-    [00AF] loadRoom(1);
+    [00AF] loadRoom(1);                                                         // Load Front of Mansion
     [00B1] setCameraAt(Var[90]);                                                // Set camera to kid x
     [00B3] delay(360);
     [00B7] endcutscene();                                                       // end Cutscene
@@ -1162,13 +1162,13 @@ Script-33 {
     [0000] if (getState08(activeObject)) {                                      //
     [0003]   clearState08();                                                    //
     [0004] }
-    [0004] if (getState08(124)) {
+    [0004] if (getState08(124)) {                                               // If Circuit breaker off
     [0008]   printEgo("The power's off.");
     [0018] } else {
-    [001B]   if (Var[66] == 0) {
+    [001B]   if (Var[66] == 0) {                                                //  If Microwave contents = Empty
     [0020]     printEgo("I shouldn't turn on an empty microwave.");
     [0043]   }
-    [0043]   if (Var[66] > 2) {
+    [0043]   if (Var[66] > 2) {                                                 //  if contents >= Liquid 
     [0048]     startScript(21);
     [004A]   }
     [004A] }
@@ -1191,7 +1191,7 @@ Script-37 {
     [0000] if (Var[22] == 0) {                                                  // if Glass Jar Contents == Empty
     [0005]   setObjectName(355,"glass jar");
     [0011] }
-    [0011] if (Var[22] == 2) {                                                  // // Glass Jar Contents == Developer
+    [0011] if (Var[22] == 2) {                                                  // if Glass Jar Contents == Developer
     [0016] } else {
     [0019]   unless (Var[22] == 1) goto 002D;                                   // if Glass Jar Contents == water
     
@@ -1203,9 +1203,9 @@ Script-37 {
  /**
   * Script 39: Sponge: Name
   */Script-39 {                                                                                                                                                                                                                                                 
-    [0000] if (Var[22] == 2) {
+    [0000] if (Var[22] == 2) {                                                  // if Glass Jar Contents == Developer
     [0005] } else {
-    [0008]   unless (Var[22] == 1) goto 001C;               
+    [0008]   unless (Var[22] == 1) goto 001C;                                   // if Glass Jar Contents == water
     
     [000D] }
     [000D] setObjectName(306,"jar of water");
@@ -1216,12 +1216,12 @@ Script-37 {
   * Script 40: Flashlight: Name
   */
 Script-40 {
-    [0000] if (Var[12] == 1) {
+    [0000] if (Var[12] == 1) {                                                  // if Flashlight on
     [0005]   setObjectName(307,"lit flashlight");
     [0016] } else {
     [0019]   setObjectName(307,"flashlight");
     [0026] }
-    [0026] startScript(19);
+    [0026] startScript(19);                                                     // start Room Lights: Check for flashlight / room light status
     [0028] stopObjectCode();
 }
 
@@ -1246,88 +1246,88 @@ Script-40 {
     [0023] breakHere();
     [0024] animateActor(11,6,1);                                                // Weird Ed Face camera
     [0028] breakHere();
-    [0029] if (Var[68] == 0) {                                                  // 
+    [0029] if (Var[68] == 0) {                                                  // if DoorBell Count == 0
     [002E]   print(11,"Oh no! It's the doorbell!");
     [0046]   breakHere();
-    [0047]   unless (VAR_HAVE_MSG == 0) goto 0046;
+    [0047]   unless (VAR_HAVE_MSG == 0) goto 0046;								//  Wait for Ed
     
-    [004C]   walkActorTo(11,34,63);                                             // Walk Weird Ed
+    [004C]   walkActorTo(11,34,63);                                             //  Walk Weird Ed
     [0050]   breakHere();
     [0051]   VAR_RESULT = getActorMoving(11);
-    [0054]   unless (VAR_RESULT == 2) goto 0050;                                // Wait for Weird Ed
+    [0054]   unless (VAR_RESULT == 2) goto 0050;                                //  Wait for Weird Ed
     
-    [0059]   animateActor(11,4,1);                                              // Weird Ed Face Left
+    [0059]   animateActor(11,4,1);                                              //  Weird Ed Face Left
     [005D]   breakHere();
     [005E]   print(11,"Daddy, can I go see who it is?");
     [0078]   breakHere();
-    [0079]   unless (VAR_HAVE_MSG == 0) goto 0078;                              // Let Weird Ed Talk
+    [0079]   unless (VAR_HAVE_MSG == 0) goto 0078;                              //  Let Weird Ed Talk
     
-    [007E]   stopScript(8);                                                     // stop Dr Fred: Walk back and forth (Lab Entry)
-    [0080]   animateActor(9,255,1);                                             // Stop Moving
+    [007E]   stopScript(8);                                                     //  stop Dr Fred: Walk back and forth (Lab Entry)
+    [0080]   animateActor(9,255,1);                                             //  Stop Moving
     [0084]   breakHere();
-    [0085]   walkActorToActor(9,11,4);
+    [0085]   walkActorToActor(9,11,4);											//  Dr. Fred walk
     [0089]   breakHere();
     [008A]   breakHere();
     
-    [008B]   animateActor(9,255,1);                                             // Stop Moving
+    [008B]   animateActor(9,255,1);                                             //  Dr. Fred Stop Moving
     [008F]   print(9,"No. We have to stay downstairs%/%until they buy the game!");
     [00C2]   breakHere();
     [00C3]   unless (VAR_HAVE_MSG == 0) goto 00C2;
     
-    [00C8]   startScript(8);                                                    // start Dr Fred: Walk back and forth (Lab Entry)
-    [00CA]   animateActor(11,6,1);                                              // Weird Ed Face camera
+    [00C8]   startScript(8);                                                    //  start Dr Fred: Walk back and forth (Lab Entry)
+    [00CA]   animateActor(11,6,1);                                              //  Weird Ed Face camera
     [00CE]   delay(60);
     [00D2]   print(11,"Better go buy it!");
     [00E3]   breakHere();
-    [00E4]   unless (VAR_HAVE_MSG == 0) goto 00E3;                              // Let Weird Ed Talk
+    [00E4]   unless (VAR_HAVE_MSG == 0) goto 00E3;                              //  Let Weird Ed Talk
     
     [00E9] } else {
     [00EC]   print(11,"Daddy!!! They rang it again!");
     [0107]   breakHere();
-    [0108]   unless (VAR_HAVE_MSG == 0) goto 0107;;                             // Let Weird Ed Talk
+    [0108]   unless (VAR_HAVE_MSG == 0) goto 0107;;                             //  Let Weird Ed Talk
     
     [010D]   walkActorTo(11,34,63);
     [0111]   breakHere();
     [0112]   VAR_RESULT = getActorMoving(11);
-    [0115]   unless (VAR_RESULT == 2) goto 0111;                                // Wait for Weird Ed
+    [0115]   unless (VAR_RESULT == 2) goto 0111;                                //  Wait for Weird Ed
     
-    [011A]   animateActor(11,4,1);                                              // Weird Ed Face Left
+    [011A]   animateActor(11,4,1);                                              //  Weird Ed Face Left
     [011E]   breakHere();
-    [011F]   if (Var[68] == 1) {                                                // if Second Ring of Doorbell?
+    [011F]   if (Var[68] == 1) {                                                //  if Second Ring of Doorbell?
     [0124]     print(11,"Please let me go, Daddy.");
     [013B]     breakHere();
-    [013C]     unless (VAR_HAVE_MSG == 0) goto 013B;;                           //  Let Weird Ed Talk
+    [013C]     unless (VAR_HAVE_MSG == 0) goto 013B;;                           //   Let Weird Ed Talk
     
-    [0141]     stopScript(8);                                                   //  stop Dr Fred: Walk back and forth (Lab Entry)
-    [0143]     animateActor(9,255,1);                                           //  Stop Moving
+    [0141]     stopScript(8);                                                   //   stop Dr Fred: Walk back and forth (Lab Entry)
+    [0143]     animateActor(9,255,1);                                           //   Stop Moving
     [0147]     print(11,"Please, please, please?");
     [015F]     breakHere();
     [0160]     unless (VAR_HAVE_MSG == 0) goto 015F;
     
     [0165]     delay(60);
-    [0169]     animateActor(9,6,1);                                             //  Dr. Fred Face camera
+    [0169]     animateActor(9,6,1);                                             //   Dr. Fred Face camera
     [016D]     delay(60);
     [0171]     print(9,"Listen,/I can't take much more of his whining./You'd better go buy the game!");
     [01B4]     breakHere();
-    [01B5]     unless (VAR_HAVE_MSG == 0) goto 01B4;                            //  Let Dr. Fred talk
+    [01B5]     unless (VAR_HAVE_MSG == 0) goto 01B4;                            //   Let Dr. Fred talk
     
-    [01BA]   } else {                                                           // Third Ring of Doorbell?
+    [01BA]   } else {                                                           //  Third Ring of Doorbell?
     [01BD]     print(11,"D A D D Y Y Y Y!!!!!!!!");
     [01D0]     breakHere();
-    [01D1]     unless (VAR_HAVE_MSG == 0) goto 01D0;;                           //  Let Weird Ed Talk
+    [01D1]     unless (VAR_HAVE_MSG == 0) goto 01D0;;                           //   Let Weird Ed Talk
     
-    [01D6]     stopScript(8);                                                   //  stop Dr Fred: Walk back and forth (Lab Entry)
-    [01D8]     animateActor(9,255,1);                                           // Dr. Fred Stop Moving
+    [01D6]     stopScript(8);                                                   //   stop Dr Fred: Walk back and forth (Lab Entry)
+    [01D8]     animateActor(9,255,1);                                           //   Dr. Fred Stop Moving
     [01DC]     breakHere();
-    [01DD]     animateActor(9,6,1);                                             //  Face camera
+    [01DD]     animateActor(9,6,1);                                             //   Face camera
     [01E1]     delay(120);
-    [01E5]     animateActor(9,254,1);                                           //  Dr. Fred mouth open
+    [01E5]     animateActor(9,254,1);                                           //   Dr. Fred mouth open
     [01E9]     breakHere();
     [01EA]     print(255,"Grrrrrrrrr!!!");
     [01FA]     breakHere();
-    [01FB]     unless (VAR_HAVE_MSG == 0) goto 01FA;                            //  Let Dr. Fred Growl
+    [01FB]     unless (VAR_HAVE_MSG == 0) goto 01FA;                            //   Let Dr. Fred Growl
     
-    [0200]     animateActor(9,253,1);                                           //  Dr. Fred mouth closed
+    [0200]     animateActor(9,253,1);                                           //   Dr. Fred mouth closed
     [0204]   }
     [0204] }
     [0204] delay(120);
