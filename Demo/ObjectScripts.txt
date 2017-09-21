@@ -268,7 +268,7 @@ Unlock.Use {
     [003C]   clearState04();                                                    //  Unlock Front door
     [003D]   doSentence(1,28,0);                                                //  Open Front Door
     [0041] } else {                                                             // -
-    [0044]   startScript(33);                                                   // start Print "I can't unlock the door with this."
+    [0044]   startScript(33);                                                   //  start Print "I can't unlock the door with this."
     [0046] }
     [0046] stopObjectCode();
 }
@@ -404,7 +404,7 @@ Close {
 }
 
 Fix {
-    [0038] if (activeObject2 == 40) {                                           // Fix Radio with Radio Tube
+    [0038] if (activeObject2 == 40) {                                           // if Fix Radio with Radio Tube
     [003C]   clearState08(40);                                                  //  Show radio tube
     [003E]   clearState02(40);                                                  // Show radio tube
     [0040]   setOwnerOf(40,0);                                                  //  Radio tube has no owner
@@ -416,11 +416,11 @@ Fix {
 
 TurnOn {
     [0063] clearState08();                                                      // Close Radio
-    [0064] if (!getState08(40)) {                                               //  Radio Tube not taken?
-    [0068]   if (!getState08(124)) {                                            //   Power is on?
-    [006C]     if (Var[29] == 0) {                                              //    Radio Not on?
+    [0064] if (!getState08(40)) {                                               //  if Radio Tube not taken
+    [0068]   if (!getState08(124)) {                                            //   if Power is on
+    [006C]     if (Var[29] == 0) {                                              //    if Radio Not on
     [0071]       Var[29] = 1;                                                   //     Radio On
-    [0074]       startSound(16);                                                //      Play Music
+    [0074]       startSound(16);                                                //     Play Music
     [0076]     }
     [0076]   }
     [0076] } else {                                                             // -
@@ -431,10 +431,10 @@ TurnOn {
 
 TurnOff {
     [008E] clearState08();
-    [008F] if (Var[29] == 0) {                                                  // Radio == Off?
+    [008F] if (Var[29] == 0) {                                                  // if Radio == Off?
     [0094]   printEgo("It wasn't on.");
     [00A1] } else {                                                             // -
-    [00A4]   Var[29] = 0;                                                       // Radio = Off
+    [00A4]   Var[29] = 0;                                                       //  Radio = Off
     [00A7]   stopSound(16);
     [00A9]   stopSound(23);
     [00AB] }
@@ -443,10 +443,10 @@ TurnOff {
 
 Use {
     [00AC] clearState08();
-    [00AD] if (Var[29] == 0) {                                                  // Radio == off
+    [00AD] if (Var[29] == 0) {                                                  // if Radio == off
     [00B2]   printEgo("It's not turned on.");
     [00C4] } else {                                                             // -
-    [00C7]   startSound(23);
+    [00C7]   startSound(23);								
     [00C9] }
     [00C9] stopObjectCode();                                                    // --
 }
