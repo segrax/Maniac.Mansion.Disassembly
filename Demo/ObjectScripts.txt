@@ -532,15 +532,15 @@ PickUp {
     [0042] stopObjectCode();
 }
 TurnOn {
-    [0043] if (!getState08(activeObject)) {                                     // Not Locked
-    [0046]   doSentence(4,207,0);                                               // Turn On Cassette Player
+    [0043] if (!getState08(activeObject)) {                                     // If Casette Player Off
+    [0046]   doSentence(4,207,0);                                               //  Turn On Cassette Player
     [004A] }
     [004A] stopObjectCode();
 }
 
 TurnOff {
-    [004B] if (!getState08(activeObject)) {                                     // Not Locked
-    [004E]   doSentence(5,207,0);                                               // Turn Off Cassette Player
+    [004B] if (!getState08(activeObject)) {                                     // If Casette Player On
+    [004E]   doSentence(5,207,0);                                               //  Turn Off Cassette Player
     [0052] }
     [0052] stopObjectCode();                                                    // --
 }

@@ -890,15 +890,15 @@ Pickup {
 }
 
 TurnOn {
-    [0043] if (!getState08(activeObject)) {                                     // Not Locked
-    [0046]   doSentence(4,207,0);                                               // Turn On Cassette Player
+    [0043] if (!getState08(activeObject)) {                                     // If Casette Player Off
+    [0046]   doSentence(4,207,0);                                               //  Turn On Cassette Player
     [004A] }
     [004A] stopObjectCode();
 }
 
 TurnOff {
-    [004B] if (!getState08(activeObject)) {                                     // Not Locked
-    [004E]   doSentence(5,207,0);                                               // Turn Off Cassette Player
+    [004B] if (!getState08(activeObject)) {                                     // If Casette Player Off
+    [004E]   doSentence(5,207,0);                                               //  Turn Off Cassette Player
     [0052] }
     [0052] stopObjectCode();                                                    // --
 }
@@ -1131,7 +1131,7 @@ WalkTo {
 WhatIs {
     [001D] if (Var[101] == 0) {                                                 // What is, already spoke?
     [0022]   printEgo("I wonder if I know him.");
-    [0036]   Var[101] = 1;                                                      // Dungeon Skeleton 'Hovered Over' = Yes
+    [0036]   Var[101] = 1;                                                      //  Dungeon Skeleton 'Hovered Over' = Yes
     [0039] }
     [0039] stopObjectCode();                                                    // --
 }
@@ -1788,10 +1788,12 @@ Use {
     [007F] startScript(54);                                                     // start Microwave: Put item in
     [0081] stopObjectCode();                                                    // --
 }
+
 TurnOn {
     [0082] startScript(69);                                                     // start Microwave:
     [0084] stopObjectCode();                                                    // --
 }
+
 TurnOff {
     [0085] stopScript(11);                                                      // stop Hamster: In Microwave
     [0087] stopScript(53);                                                      // stop Microwave
@@ -1800,7 +1802,6 @@ TurnOff {
     [00A1] }
     [00A1] stopObjectCode();                                                    // --
 }
-
 
 
 
@@ -1816,15 +1817,14 @@ Pickup {
 }
 
 
-
 /** Exploded Hamster **/
 roomobj-7-54.dmp
 
 Pickup {
-    [0024] if (VAR_EGO <= 2) {                                                  // Syd/Razor
+    [0024] if (VAR_EGO <= 2) {                                                  //  Syd/Razor
     [0029]   printEgo("Yum! Should I take white or dark meat?");
     [004A] } else {                                                             // -
-    [004D]   printEgo("How gross!");                                            // Other Kids
+    [004D]   printEgo("How gross!");                                            //  Other Kids
     [0058] }
     [0058] pickupObject(0);                                                     // Pickup
     [005A] clearState08(54);                                                    // Hide Exploded Hamster
