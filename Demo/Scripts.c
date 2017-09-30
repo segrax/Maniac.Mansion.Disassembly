@@ -6,7 +6,8 @@
 
 /**
  * Script 1: Demo Mode Selection
- */Script-1 {                                                                                                                                                                                                                                                  
+ */
+Script-1 {
     [0000] cutscene();                                                          // Start Cutscene
     [0001] screenPrepare();
     [0002] loadSound(1);
@@ -100,7 +101,7 @@
  /**
   * Script 3: Verb: Defaults
   */
-Script-3 {                                                                                                                                                                                                                                                  
+Script-3 {
     [0000] if (VAR_ACTIVE_VERB == 1) {                                          // If Open Pressed
     [0005]   printEgo("It doesn't seem to open.");                 
     
@@ -129,7 +130,7 @@ Script-3 {
  /**
   * Script 4: Door: Open
   */
-Script-4 {                                                                                                                                                                                                                                                  
+Script-4 {
     [0000] if (!getState08(activeObject)) {                                     // if door closed
     [0003]   setState08();                                                      // open door
     [0004]   startSound(7);                                                     // door open sound
@@ -140,7 +141,7 @@ Script-4 {
  /**
   * Script 5: Door: Close
   */
-Script-5 {                                                                                                                                                                                                                                                  
+Script-5 {
     [0000] if (getState08(activeObject)) {                                      // If door is open
     [0003]   clearState08();                                                    // close door
     [0004]   startSound(8);                                                     // Sound Door Closing
@@ -151,7 +152,7 @@ Script-5 {
  /**
   * Script 6: Hands-Off Demo
   */
-Script-6 {                                                                                                                                                                                                                                                  
+Script-6 {
     [0000] cutscene();                                             
     [0001] loadSound(7);
     [0003] lockSound(7);
@@ -622,7 +623,7 @@ Script-6 {
 /**
  * Script 7: Edison Family Cutscene
  **/
-Script-7 {                                                                                                                                                                                                                                                  
+Script-7 {
     [0000] loadSound(34);
     [0002] lockSound(34);
     [0004] loadScript(8);
@@ -750,7 +751,7 @@ Script-7 {
 /**
  * Script 8: Dr Fred: Walk back and forth (Lab Entry)
  */
-Script-8 {                                                                                                                                                                                                                                                  
+Script-8 {
     [0000] walkActorTo(9,30,63);                                                // Walk Dr. Fred to Right
     [0004] breakHere();
     [0005] breakHere();
@@ -774,7 +775,7 @@ Script-8 {
 /**
  * Script 9: Sandy walks to lamp
  **/
-Script-9 {                                                                                                                                                                                                                                                  
+Script-9 {
     [0000] Var[92] = 4;
     [0003] Var[52] = 17;
     [0006] walkActorTo(24,Var[52],50);                                          // Walk Sandy to lamp
@@ -792,7 +793,8 @@ Script-9 {
 }
 /**
  * Script 10: Purple Tentacle walk to Sandy
- */Script-10 {                                                                                                                                                                                                                                                 
+ */
+Script-10 {                                                                                                                                                                                                                                                 
     [0000] breakHere();
     [0001] walkActorToActor(13,24,2);                                           // Walk Purple Tentacle to Sandy
     [0005] goto 0000;
@@ -800,7 +802,8 @@ Script-9 {
 }
 /**
  * Script 11: Clock: Repeating Tick Sound
- */Script-11 {                                                                                                                                                                                                                                                 
+ */
+Script-11 {                                                                                                                                                                                                                                                 
     [0000] delay(120);
     [0004] startSound(22);
     [0006] delay(90);
@@ -810,7 +813,8 @@ Script-9 {
 
 /**
  * Script 12: Pin: Entry - Phone LucasFilm
- */Script-12 {                                                                                                                                                                                                                                                 
+ */
+Script-12 {                                                                                                                                                                                                                                                 
     [0000] startScript(16);                                                     // Phone: Disconnect if Kid walks too far away
     [0002] startSound(17);
     [0004] delay(120);
@@ -838,7 +842,8 @@ Script-9 {
 
  /**
   * Script 13: Phone: Ringing
-  */Script-13 {                                                                                                                                                                                                                                                 
+  */
+Script-13 {                                                                                                                                                                                                                                                 
     [0000] if (VAR_ROOM == 5) {
     [0005]   startSound(19);
     [0007] }
@@ -849,7 +854,8 @@ Script-9 {
 
  /**
   * Script 14: Phone: Busy Signal
-  */Script-14 {                                                                                                                                                                                                                                                 
+  */
+Script-14 {                                                                                                                                                                                                                                                 
     [0000] if (VAR_ROOM == 5) {
     [0005]   startSound(18);
     [0007] }
@@ -860,7 +866,8 @@ Script-9 {
 
  /**
   * Script 15: Phone: Disconnect
-  */Script-15 {                                                                                                                                                                                                                                                 
+  */
+Script-15 {                                                                                                                                                                                                                                                 
     [0000] clearState08(103);                                                   // Phone
     [0002] Var[17] = 0;                                                         //
     [0005] stopScript(12);                                                      //  stop Pin: Entry - Phone LucasFilm
@@ -879,7 +886,8 @@ Script-9 {
 
  /**
   * Script 16: Phone: Disconnect if Kid walks too far away
-  */Script-16 {                                                                                                                                                                                                                                                 
+  */
+Script-16 {                                                                                                                                                                                                                                                 
     [0000] setState08(103);
     [0002] Var[51] = VAR_EGO;
     [0005] Var[52] = getActorX(Var[51]);
@@ -898,7 +906,8 @@ Script-9 {
 
 /**
  * Script 17: Phone: Ringing
- */Script-17 {                                                                                                                                                                                                                                                 
+ */
+Script-17 {                                                                                                                                                                                                                                                 
     [0000] if (VAR_ROOM == 5) {
     [0005]   startSound(20);
     [0007] }
@@ -909,7 +918,8 @@ Script-9 {
 
 /**
  * Script 18: Keypad Input
- **/Script-18 {                                                                                                                                                                                                                                                 
+ **/
+Script-18 {                                                                                                                                                                                                                                                 
     [0000] Var[50] = 1;
     [0003] Var[48] = 0;                                                         // Pin Entry is Correct
     [0006] breakHere();                                              
@@ -952,7 +962,8 @@ Script-9 {
 
  /**
   * Script 19: Room Lights: Check for flashlight / room light status
-  */Script-19 {                                                                                                                                                                                                                                                 
+  */
+Script-19 {                                                                                                                                                                                                                                                 
     [0000] Var[92] = 0;
     [0003] Var[90] = getObjectOwner(51);                                        // Get owner of Flashlight
     [0006] VAR_RESULT = getActorRoom(Var[90]);                       
@@ -978,7 +989,8 @@ Script-9 {
 
 /**
  * Script 20: Repeat Outside Sound
- **/Script-20 {                                                                                                                                                                                                                                                 
+ **/
+Script-20 {                                                                                                                                                                                                                                                 
     [0000] breakHere();
     [0001] unless (VAR_IS_SOUND_RUNNING == 0) goto 0000;                        //  Wait for sound to finish
     
@@ -990,7 +1002,8 @@ Script-9 {
 
 /** 
  * Script 21: Microwave
- */Script-21 {                                                                                                                                                                                                                                                 
+ */
+Script-21 {                                                                                                                                                                                                                                                 
     [0000] loadSound(13);
     [0002] loadSound(12);
     [0004] startSound(13);                                                      // Rotate Sound
@@ -1005,7 +1018,8 @@ Script-9 {
 
 /**
  * Script 22: Microwave: Put item in
- */Script-22 {                                                                                                                                                                                                                                                 
+ */
+Script-22 {                                                                                                                                                                                                                                                 
     [0000] if (activeObject2 == 99) {                                           // Is ActiveObject Glass Jar
     [0004]   if (getState08(activeObject)) {                                    //  Is Microwave door open?
     [0007]     if (Var[66] != 1) {                                              //   Item in Microwave is not Hamster
@@ -1038,14 +1052,16 @@ Script-9 {
 }
  /**
   * Script 23: Timer: 1 Minute
-  */Script-23 {                                                                                                                                                                                                                                                 
+  */
+Script-23 {                                                                                                                                                                                                                                                 
     [0000] delay(3600);
     [0004] stopObjectCode();
 }
 
  /**
   * Script 24: Cutscene: Kid Dies
-  */Script-24 {                                                                                                                                                                                                                                                 
+  */
+Script-24 {                                                                                                                                                                                                                                                 
     [0000] breakHere();
     [0001] cutscene();                                                          // Start Cutscene
     [0002] if (Var[76] == 1) {                                                  // Death Method == Radioactive Steam
@@ -1112,7 +1128,8 @@ Script-9 {
 
  /**
   * Script 25: Cutscene: Game Over
-  */Script-25 {                                                                                                                                                                                                                                                 
+  */
+Script-25 {                                                                                                                                                                                                                                                 
     [0000] cutscene();                                                          // Start Cutscene
     [0001] startMusic(30);
     [0003] delay(120);
@@ -1141,9 +1158,11 @@ Script-30 {
     [0000] printEgo("The door is closed.");
     [0012] stopObjectCode();
 }
-/**
+
+/**
  * Script 31: Print "The door is locked"
- */Script-31 {                                                                                                                                                                                                                                                 
+ */
+Script-31 {                                                                                                                                                                                                                                                 
     [0000] printEgo("The door is locked.");
     [0012] stopObjectCode();
 }
@@ -1158,7 +1177,8 @@ Script-33 {
 
 /**
  * Script 36: Microwave
- */Script-36 {                                                                                                                                                                                                                                                 
+ */
+Script-36 {                                                                                                                                                                                                                                                 
     [0000] if (getState08(activeObject)) {                                      //
     [0003]   clearState08();                                                    //
     [0004] }
@@ -1187,7 +1207,8 @@ Script-37 {
 
 /**
  * Script 38: Glass Jar: Name
- */Script-38 {                                                                                                                                                                                                                                                 
+ */
+Script-38 {                                                                                                                                                                                                                                                 
     [0000] if (Var[22] == 0) {                                                  // if Glass Jar Contents == Empty
     [0005]   setObjectName(355,"glass jar");
     [0011] }
@@ -1202,7 +1223,8 @@ Script-37 {
 
  /**
   * Script 39: Sponge: Name
-  */Script-39 {                                                                                                                                                                                                                                                 
+  */
+Script-39 {                                                                                                                                                                                                                                                 
     [0000] if (Var[22] == 2) {                                                  // if Glass Jar Contents == Developer
     [0005] } else {
     [0008]   unless (Var[22] == 1) goto 001C;                                   // if Glass Jar Contents == water
@@ -1227,7 +1249,8 @@ Script-40 {
 
  /**
   * Script 41: Cutscene: Dr. Fred & Weird Ed (Doorbell)
-  */Script-41 {                                                                                                                                                                                                                                                 
+  */
+Script-41 {                                                                                                                                                                                                                                                 
     [0000] cutscene();                                                          // Start Cutscene
     [0001] loadScript(8);
     [0003] putActorInRoom(9,31);                                                // Dr. Fred Enters
@@ -1342,7 +1365,8 @@ Script-40 {
 
 /**
  * Script 44: Cutscene: Intro: Comet / Mansion
- */Script-44 {                                                                                                                                                                                                                                                 
+ */
+Script-44 {                                                                                                                                                                                                                                                 
     [0000] cutscene();                                                          // Start Cutscene
     [0001] clearState08(11);                                       
     [0003] clearState08(10);                                       
@@ -1421,7 +1445,8 @@ END
 
 /**
  * Script 45: Intro: Comet: Fly and Crash
- */Script-45 {                                                                                                                                                                                                                                                 
+ */
+Script-45 {                                                                                                                                                                                                                                                 
     [0000] putActorInRoom(22,33);                                               // Meteor enters
     [0003] putActor(22,80,5);                                     
     [0007] actorFollowCamera(22);                                               // Camera follows Meteor
@@ -1451,7 +1476,8 @@ END
 
 /**
  * Script 46: Gargoyle: Open Basement Door
- */Script-46 {                                                                                                                                                                                                                                                 
+ */
+Script-46 {                                                                                                                                                                                                                                                 
     [0000] if (!getState08(36)) {                                               // Get state of basement door
     [0004]   setState08(36);                                                    // Open basement door
     [0006]   startSound(7);                                       
@@ -1507,7 +1533,8 @@ Script-48 {
 
 /**
  * Script 49: Handle Doorbell 
- */Script-49 {                                                                                                                                                                                                                                                 
+ */
+Script-49 {                                                                                                                                                                                                                                                 
     [0000] startSound(26);                                                      // sound doorbell
     [0002] delay(180);
     [0006] loadRoom(0);
