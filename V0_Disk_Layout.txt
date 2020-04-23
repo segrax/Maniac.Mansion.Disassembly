@@ -1,0 +1,36 @@
+Table Offset:
+
+0x102: Room Disk Number
+0x139: Room Track / Sector (0x6E, 110 bytes)
+
+0x1F2: Script Room Numbers (0x37, 55 bytes)
+0x229: Script Offsets (0x6E, 110 bytes)
+
+Room Format:
+	Length of resource
+	Resource
+
+
+const int C64SectorOffset[36] = {
+	0,
+	0, 21, 42, 63, 84, 105, 126, 147, 168, 189, 210, 231, 252, 273, 294, 315, 336,
+	357, 376, 395, 414, 433, 452, 471,
+	490, 508, 526, 544, 562, 580,
+	598, 615, 632, 649, 666
+};
+
+static const int maniacDemoResourcesPerFile[55] = {
+	 0, 12,  0,  2,  1, 12,  1, 13,  6,  0,
+	 31, 0,  1,  0,  0,  0,  0,  1,  1,  1,
+	 0,  1,  0,  0,  2,  0,  0,  1,  0,  0,
+	 2,  7,  1, 11,  0,  0,  5,  1,  0,  0,
+	 1,  0,  1,  3,  4,  3,  1,  0,  0,  1,
+	 2,  2,  0,  0,  0
+};
+
+
+RoomSectorAlgorithm = (C64SectorOffset[_roomTracks[res]] + _roomSectors[res]) * 256;
+
+Room10:   (0x69 + 0x0D) * 256 = 0x7600
+
+Script-6:  ScriptOffset: 0x0D42 + 0x7600

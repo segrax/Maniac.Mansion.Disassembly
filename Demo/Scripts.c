@@ -111,10 +111,10 @@ Script-3 {
     [002E]   printEgo("I can't move it.");                         
     
     [003D] } else if (VAR_ACTIVE_VERB == 12) {                                  // If Read
-    [0045]   startScript(19);          
+    [0045]   startScript(19);                                                   //  start 'Room Lights: Check for flashlight / room light'
     
-    [0047]   if (Var[92] == 0) {                                                // 
-    [004C]     printEgo("It's too dark to read.");                 
+    [0047]   if (Var[92] == 0) {
+    [004C]     printEgo("It's too dark to read.");                              // Light turned off
     [0060]   } else {                                              
     [0063]     printEgo("There's nothing to read on it.");         
     [007E]   }         
